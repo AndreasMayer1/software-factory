@@ -1,0 +1,302 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Gut übernehmen wir die vier neuen für Jana und machen mit Lena weiter. ",
+        "role": "user",
+        "tokenCount": 16,
+        "createTime": "2026-02-28T13:23:05.290Z"
+      },
+      {
+        "text": "**Initiating Persona Shift**\n\nI've accepted the new Jana scenarios and am fully transitioning focus to Lena, persona PERSONA-015. My primary goal now is to establish Lena's core characteristics and motivations to begin with.\n\n\n**Defining Lena's Context**\n\nI'm now identifying scenarios missing from Lena's lifecycle, focusing on plan creation, capture, management, intervention, modification, and sharing, with an emphasis on depth psychology and narrative. I need to cover her processing prolonged grief, and out-of-the-box thinking. I have updated the details for analysis (preparation and transfer), and distribution scenarios.\n\n\n**Analyzing Lena's Emotional Data**\n\nI'm focusing now on a specific scenario where Lena captures emotional data, specifically at 3 AM. I've pinpointed a key gap: the missing moment of capture itself and how it's handled. The handwriting within the notebook has become emotional metadata, and a motif has been discovered. I am now exploring the implications of the \"dual medium dilemma\".\n\n\n**Exploring Mediums' Influence**\n\nI'm now diving deep into \"The Ephemeral Wake-Up\" scenario, specifically Lena's struggle with capturing a hyper-vivid dream at 3 AM. I'm focusing on the \"Voice vs. Text\" dilemma and how the choice of medium—notebook versus phone—influences the content and emotional tone of her writing. It will be the central pillar of the \"dual medium dilemma\". I need to capture the feeling of needing to write a 1000-word entry on a tiny phone keyboard while crying, as well as the alternative.\n\n\n**Examining Recording Mediums**\n\nI'm now exploring the implications of voice memos versus written entries, specifically within the \"Ephemeral Wake-Up\" scenario and a new scenario involving 'Continuing Bonds'. I'm considering how Lena's choice of medium (audio vs. text) affects her expression of grief and the subsequent emotional impact when reviewing these captured thoughts. Listening to her own recorded voice highlights her vulnerability. The act of transcription alters the raw emotion.\n\n\n**Defining Archival Needs**\n\nI'm now identifying the need for \"Ghost/Phantom Entries,\" entries that serve as secure structures within the system for her to communicate, without being processed as actual data. I am further defining the parameters for dealing with the archive of loss; Lena's last notebook is reaching its end, and how she deals with this physical and emotional object is the focus. How does the digital world compare to this sacred text of grief? This is a strong direction to take.",
+        "role": "model",
+        "tokenCount": 1611,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Initiating Persona Shift**\n\nI've accepted the new Jana scenarios and am fully transitioning focus to Lena, persona PERSONA-015. My primary goal now is to establish Lena's core characteristics and motivations to begin with.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Defining Lena's Context**\n\nI'm now identifying scenarios missing from Lena's lifecycle, focusing on plan creation, capture, management, intervention, modification, and sharing, with an emphasis on depth psychology and narrative. I need to cover her processing prolonged grief, and out-of-the-box thinking. I have updated the details for analysis (preparation and transfer), and distribution scenarios.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Lena's Emotional Data**\n\nI'm focusing now on a specific scenario where Lena captures emotional data, specifically at 3 AM. I've pinpointed a key gap: the missing moment of capture itself and how it's handled. The handwriting within the notebook has become emotional metadata, and a motif has been discovered. I am now exploring the implications of the \"dual medium dilemma\".",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Exploring Mediums' Influence**\n\nI'm now diving deep into \"The Ephemeral Wake-Up\" scenario, specifically Lena's struggle with capturing a hyper-vivid dream at 3 AM. I'm focusing on the \"Voice vs. Text\" dilemma and how the choice of medium—notebook versus phone—influences the content and emotional tone of her writing. It will be the central pillar of the \"dual medium dilemma\". I need to capture the feeling of needing to write a 1000-word entry on a tiny phone keyboard while crying, as well as the alternative.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Examining Recording Mediums**\n\nI'm now exploring the implications of voice memos versus written entries, specifically within the \"Ephemeral Wake-Up\" scenario and a new scenario involving 'Continuing Bonds'. I'm considering how Lena's choice of medium (audio vs. text) affects her expression of grief and the subsequent emotional impact when reviewing these captured thoughts. Listening to her own recorded voice highlights her vulnerability. The act of transcription alters the raw emotion.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Defining Archival Needs**\n\nI'm now identifying the need for \"Ghost/Phantom Entries,\" entries that serve as secure structures within the system for her to communicate, without being processed as actual data. I am further defining the parameters for dealing with the archive of loss; Lena's last notebook is reaching its end, and how she deals with this physical and emotional object is the focus. How does the digital world compare to this sacred text of grief? This is a strong direction to take.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-28T13:23:05.292Z"
+      },
+      {
+        "text": "\n\n\nAusgezeichnet. Jana ist fixiert. Willkommen in der komplett anderen Welt von **Lena (The Depth Seeker / PERSONA-015)**.\n\n**Rolle:** Therapie-Klientin (Tiefenpsychologie / Psychoanalyse). Verarbeitet eine \"Prolonged Grief Disorder\" (Anhaltende Trauerstörung) nach dem Tod ihres Partners Tobias.\n**Archetyp:** \"The Meaning-Maker\". Es geht um Erzählungen, nicht um Zahlen. Sie nutzt freies Assoziieren und Traumtagebücher. Keine Checkboxen, keine Skalen von 1-10.\n**Aktuelle Szenarien (bereits erstellt & approved):**\n*   `distribution` (SCEN-016-01): Der Professor übergibt ihr das handgeschriebene Journal. Die Prompts wirken nicht wie Hausaufgaben, sondern wie \"Transitional Objects\" (ein Stück vom Therapeuten).\n*   `analysis/prepare` (SCEN-016-02): Die Sonntags-Vorbereitung. Selektives Lesen durch Tränen hindurch, Markieren mit Bleistiftpunkten. Trennung in privates vs. therapie-taugliches Material.\n*   `analysis/transfer` (SCEN-016-03 & 04): Einmal die erfolgreiche Session (die eigene 3-Uhr-Sprache bringt den Durchbruch), einmal das Scheitern (Buch liegt zuhause, der nachträgliche Bericht in der Praxis ist \"nur noch Fakten, kein Gefühl\").\n\nIhre Begleitung rund um die Therapeutensitzung ist fantastisch abgedeckt. Die unerschlossenen Schmerzen für Lena (und für den Cluster \"Trauer/Narrative User\" generell) liegen in den **Abgründen der freien Texteingabe** und der **Lebensdauer solcher schweren Daten**.\n\nHier sind die tiefenpsychologischen Out-of-the-Box Szenarien, die Lenas Lücken füllen:\n\n### A. Datenerfassung (Das Limit von Papier und Text)\n\n*   **Szenario 1: The Ephemeral Voice (Vulnerability Hangover vs. Transcription)**\n    *   **Kategorie:** `capture.spontaneous` & `analysis.self_reflect`\n    *   **Worum es geht:** Lena wacht nachts nach einem sehr intensiven Traum von Tobias auf. Schreiben im Bett dauert ihr im Halbschlaf zu lange. Sie öffnet die Handy-Sprachmemos und flüstert 3 Minuten lang, extrem emotional, den Traum ein. Ihre Stimme zittert. Am nächsten Abend will sie das Voice-Memo in ihr Papier-Tagebuch abschreiben, damit es in den Therapieraum \"passt\" (sie scheut davor zurück, das Voice-Memo beim Prof. laut abzuspielen, Medium Hierarchy). \n    *   **Das Status-Quo-Problem:** Als sie ihre eigene flüsternde, trauernde Stimme abhört, erträgt sie sich selbst kaum (Auditory Vulnerability Hangover). Um den Schmerz zu lindern, beginnt sie das Gehörte *umzuformulieren*, glatter und logischer in das Notizbuch zu schreiben. Durch diesen Transkriptionsprozess geht das eigentliche psychoanalytische Gold – das ungefilterte 3-Uhr-Stammeln – durch Selbstzensur komplett verloren.\n    *   **Warum wir es brauchen:** Eröffnet eine massive Tür für das App-Design: **Audio-to-Text Transkription, die on-device abläuft.** Ein Tool, das das Gesagte im selben Moment abtippt, sodass die Userin nicht durch die Qual muss, sich später ihre eigene \"verletzte Stimme\" anzuhören, den originalen Roh-Gedanken aber in Textform trotzdem gerettet hat.\n\n*   **Szenario 2: The \"Continuing Bonds\" Protocol (Briefe ins Nichts)**\n    *   **Kategorie:** `capture.routine` (Spezialfall Trauerarbeit)\n    *   **Worum es geht:** Lena hat an manchen Tagen keine Träume und will nichts analysieren. Sie hat nur den gewaltigen Drang, direkt *mit* Tobias zu sprechen (\"Continuing Bonds\"). Sie sitzt im Café und beginnt im Handy zu tippen: *\"Ich sitze in dem Café am Eck, der Typ sah kurz von hinten aus wie du...\"*. Es ist kein Tracker-Eintrag, sondern ein zutiefst persönlicher Liebes- und Schmerz-Brief an einen Toten.\n    *   **Das Status-Quo-Problem:** In digitalen Notes-Apps mischt sich so etwas zwischen Einkaufslisten (\"Brot, Milch, 'Ich vermisse deine Stimme', Stromablesen\"). Im physischen Tagebuch entsteht das Problem: Was, wenn Prof. Dr. Weber beim gemeinsamen Blättern diese pure, verletzliche Ansprache an Tobias aus Versehen liest? \n    *   **Warum wir es brauchen:** Das manifestiert unsere eiserne UX-Vorgabe für \"Freitext\"-Tools: Ein absoluter **\"Anti-Quantified-Self-Space\"**. Keine Datumsauswahl nötig, keine Kategorie, einfach nur ein sicheres Gefäß für das Zwiegespräch. Eine Software, die am Ende eines solchen Eintrags fragen würde: \"Wie bewertest du das Erlebnis (1-10)?\", würde Lena zu recht auf der Stelle hassen. \n\n### B. Daten Lifecycle (Das Horcrux-Dilemma)\n\n*   **Szenario 3: The Weight of the Archive (Lifecycle of Loss)**\n    *   **Kategorie:** `management.archive_and_retrieve`\n    *   **Worum es geht:** Das Notizbuch (Journal 1) ist nach 6 Monaten Therapie und intensiver Trauerarbeit voll. Lena beginnt Band 2. \n    *   **Das Status-Quo-Problem:** Was macht sie mit Band 1? Es fühlt sich an wie ein Horcrux voller Kummer. Es dauerhaft offen herumliegen zu lassen zieht sie runter. Es in den Keller zur Altpapiersammlung oder auf den Schrank zu stellen, fühlt sich wie Verrat an (als würde sie Tobias wegpacken). \n    *   **Warum wir es brauchen (Algorithmus vs. Gefühl):** Für das Management von analogen Daten ist das ein endloses Transport- und Verlust-Risiko. In der App-Entwicklung offenbart das ein brutales Anti-Pattern: Wie verwalten wir \"Altdaten\"? Apps, die ein ungefragtes \"Dein Year in Review!\" abspielen oder ein Chart generieren *\"Wow, du hattest 180 traurige Tage dieses Jahr!\"* richten verheerenden emotionalen Schaden an. Trauer-Logbücher brauchen Archive, die als verschlossene Schatzkisten agieren – still, verlässlich speichernd, **niemals** automatisch Daten hochspülend (Kein \"On this day 2 years ago\" Feature, das z. B. Apple Fotos ungewollt in Krisen reinfeuert).\n\n---\n\n**Vollständigkeits-Check für Lena:**\n*   [x] Therapeutische Vorgabe (Handover): Sz 1 \n*   [x] Vorbereitung und Lückenbüßer der Träume (Handover Session): Sz 2, 3, 4\n*   [x] Transkriptions-Leiden (Die Qual der eigenen Stimme): Neu -> Sz 1\n*   [x] Spezifische Trauer-Inhalte (Briefe vs. Listen): Neu -> Sz 2\n*   [x] Langzeit-Management eines \"schweren\" Datensatzes: Neu -> Sz 3\n\nFühlst du diese psychoanalytisch / tiefenpsychologischen Abgründe? Im krassen Gegensatz zu Davids \"System muss blicken und leuchten\" (ADHS) geht es bei Lena darum, das Tool radikal passiv, still und beschützend zu bauen. \n\nSind diese 3 Szenarien so abgesegnet? Dann kämen wir zur drittletzten Persona: **Lisa (The Waitlist Bridger) – unser Gesundheitssystem-Bypass.**",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1758,
+        "parts": [
+          {
+            "text": "\n\n\nAusgezeichnet. Jana ist fixiert. Willkommen in der komplett anderen Welt von **Lena (The Depth"
+          },
+          {
+            "text": " Seeker / PERSONA-015)**.\n\n**Rolle:** Therapie-Klientin (Tiefen"
+          },
+          {
+            "text": "psychologie / Psychoanalyse). Verarbeitet eine \"Prolonged Grief Disorder\" (Anhaltende Trauerstörung) nach dem Tod ihres Partners"
+          },
+          {
+            "text": " Tobias.\n**Archetyp:** \"The Meaning-Maker\". Es geht um Erzählungen, nicht um Zahlen. Sie nutzt"
+          },
+          {
+            "text": " freies Assoziieren und Traumtagebücher. Keine Checkboxen, keine Skalen von 1-10.\n**"
+          },
+          {
+            "text": "Aktuelle Szenarien (bereits erstellt & approved):**\n*   `distribution` (SCEN-01"
+          },
+          {
+            "text": "5-01): Der Professor übergibt ihr das handgeschriebene Journal. Die Prompts wirken nicht wie Haus"
+          },
+          {
+            "text": "aufgaben, sondern wie \"Transitional Objects\" (ein Stück vom Therapeuten).\n*   `analysis/"
+          },
+          {
+            "text": "prepare` (SCEN-016-02): Die Sonntags-Vorbereitung. Sele"
+          },
+          {
+            "text": "ktives Lesen durch Tränen hindurch, Markieren mit Bleistiftpunkten. Trennung in privates vs. therap"
+          },
+          {
+            "text": "ie-taugliches Material.\n*   `analysis/transfer` (SCEN-016-03"
+          },
+          {
+            "text": " & 04): Einmal die erfolgreiche Session (die eigene 3-Uhr-Sprache bringt den Durch"
+          },
+          {
+            "text": "bruch), einmal das Scheitern (Buch liegt zuhause, der nachträgliche Bericht in der Praxis ist \""
+          },
+          {
+            "text": "nur noch Fakten, kein Gefühl\").\n\nIhre Begleitung rund um die Therapeutensitzung ist fantastisch abgede"
+          },
+          {
+            "text": "ckt. Die unerschlossenen Schmerzen für Lena (und für den Cluster \"Trauer/Narrative User\""
+          },
+          {
+            "text": " generell) liegen in den **Abgründen der freien Texteingabe** und der **Lebensdauer solcher schweren Daten**.\n\nHier sind die tiefen"
+          },
+          {
+            "text": "psychologischen Out-of-the-Box Szenarien, die Lenas Lücken füllen:\n\n### A. Dat"
+          },
+          {
+            "text": "enerfassung (Das Limit von Papier und Text)\n\n*   **Szenario 1: The Ephemeral Voice (Vulnerability Hangover vs"
+          },
+          {
+            "text": ". Transcription)**\n    *   **Kategorie:** `capture.spontaneous` & `analysis.self_reflect"
+          },
+          {
+            "text": "`\n    *   **Worum es geht:** Lena wacht nachts nach einem sehr intensiven Traum von Tobias auf. Schreiben im"
+          },
+          {
+            "text": " Bett dauert ihr im Halbschlaf zu lange. Sie öffnet die Handy-Sprachmemos und flüstert"
+          },
+          {
+            "text": " 3 Minuten lang, extrem emotional, den Traum ein. Ihre Stimme zittert. Am nächsten Abend will sie das Voice"
+          },
+          {
+            "text": "-Memo in ihr Papier-Tagebuch abschreiben, damit es in den Therapieraum \"passt\" (sie"
+          },
+          {
+            "text": " scheut davor zurück, das Voice-Memo beim Prof. laut abzuspielen, Medium Hierarchy). \n    *   **"
+          },
+          {
+            "text": "Das Status-Quo-Problem:** Als sie ihre eigene flüsternde, trauernde Stimme abhört, ert"
+          },
+          {
+            "text": "rägt sie sich selbst kaum (Auditory Vulnerability Hangover). Um den Schmerz zu lindern, beginnt sie das Ge"
+          },
+          {
+            "text": "hörte *umzuformulieren*, glatter und logischer in das Notizbuch zu schreiben. Durch diesen Transkriptionsprozess geht"
+          },
+          {
+            "text": " das eigentliche psychoanalytische Gold – das ungefilterte 3-Uhr-Stammeln – durch"
+          },
+          {
+            "text": " Selbstzensur komplett verloren.\n    *   **Warum wir es brauchen:** Eröffnet eine massive Tür für das App-Design: **"
+          },
+          {
+            "text": "Audio-to-Text Transkription, die on-device abläuft.** Ein Tool, das das Gesag"
+          },
+          {
+            "text": "te im selben Moment abtippt, sodass die Userin nicht durch die Qual muss, sich später ihre eigene \"verlet"
+          },
+          {
+            "text": "zte Stimme\" anzuhören, den originalen Roh-Gedanken aber in Textform trotzdem gerettet hat.\n\n*"
+          },
+          {
+            "text": "   **Szenario 2: The \"Continuing Bonds\" Protocol (Briefe ins Nichts)**\n    *   **K"
+          },
+          {
+            "text": "ategorie:** `capture.routine` (Spezialfall Trauerarbeit)\n    *   **Worum es geht:** Lena hat an man"
+          },
+          {
+            "text": "chen Tagen keine Träume und will nichts analysieren. Sie hat nur den gewaltigen Drang, direkt *mit* Tobias zu sprechen (\"Continuing"
+          },
+          {
+            "text": " Bonds\"). Sie sitzt im Café und beginnt im Handy zu tippen: *\"Ich sitze in dem Café am Eck, der"
+          },
+          {
+            "text": " Typ sah kurz von hinten aus wie du...\"*. Es ist kein Tracker-Eintrag, sondern ein zutiefst persönlicher Lie"
+          },
+          {
+            "text": "bes- und Schmerz-Brief an einen Toten.\n    *   **Das Status-Quo-Problem:** In digitalen"
+          },
+          {
+            "text": " Notes-Apps mischt sich so etwas zwischen Einkaufslisten (\"Brot, Milch, 'Ich vermisse deine Stimme"
+          },
+          {
+            "text": "', Stromablesen\"). Im physischen Tagebuch entsteht das Problem: Was, wenn Prof. Dr. Weber beim"
+          },
+          {
+            "text": " gemeinsamen Blättern diese pure, verletzliche Ansprache an Tobias aus Versehen liest?"
+          },
+          {
+            "text": " \n    *   **Warum wir es brauchen:** Das manifestiert unsere eiserne UX-Vorgabe für \"Freitext"
+          },
+          {
+            "text": "\"-Tools: Ein absoluter **\"Anti-Quantified-Self-Space\"**. Keine Datumsauswahl nötig, keine Kategorie, einfach nur ein sich"
+          },
+          {
+            "text": "eres Gefäß für das Zwiegespräch. Eine Software, die am Ende eines solchen Eintrags fragen würde: \"Wie bew"
+          },
+          {
+            "text": "ertest du das Erlebnis (1-10)?\", würde Lena zu recht auf der Stelle hassen. \n\n### B. Daten"
+          },
+          {
+            "text": " Lifecycle (Das Horcrux-Dilemma)\n\n*   **Szenario 3: The Weight of the"
+          },
+          {
+            "text": " Archive (Lifecycle of Loss)**\n    *   **Kategorie:** `management.archive_and_retrieve`\n    *   **W"
+          },
+          {
+            "text": "orum es geht:** Das Notizbuch (Journal 1) ist nach 6 Monaten Therapie und intensiver Trauerarbeit voll. Lena"
+          },
+          {
+            "text": " beginnt Band 2. \n    *   **Das Status-Quo-Problem:** Was macht sie mit Band 1? Es fühlt"
+          },
+          {
+            "text": " sich an wie ein Horcrux voller Kummer. Es dauerhaft offen herumliegen zu lassen zieht sie runter. Es"
+          },
+          {
+            "text": " in den Keller zur Altpapiersammlung oder auf den Schrank zu stellen, fühlt sich wie Verrat an"
+          },
+          {
+            "text": " (als würde sie Tobias wegpacken). \n    *   **Warum wir es brauchen (Algorithmus vs. Gefühl):** Für das Management"
+          },
+          {
+            "text": " von analogen Daten ist das ein endloses Transport- und Verlust-Risiko. In der App-Entwicklung offen"
+          },
+          {
+            "text": "bart das ein brutales Anti-Pattern: Wie verwalten wir \"Altdaten\"? Apps, die ein ungefrag"
+          },
+          {
+            "text": "tes \"Dein Year in Review!\" abspielen oder ein Chart generieren *\"Wow, du hattest 180"
+          },
+          {
+            "text": " traurige Tage dieses Jahr!\"* richten verheerenden emotionalen Schaden an. Trauer-Logbücher brauchen Archive, die als verschloss"
+          },
+          {
+            "text": "ene Schatzkisten agieren – still, verlässlich speichernd, **niemals** automatisch Daten hochspülend (Ke"
+          },
+          {
+            "text": "in \"On this day 2 years ago\" Feature, das z. B. Apple Fotos ungewollt in Kris"
+          },
+          {
+            "text": "en reinfeuert).\n\n---\n\n**Vollständigkeits-Check für Lena:**\n*   [x] Therapeut"
+          },
+          {
+            "text": "ische Vorgabe (Handover): Sz 1 \n*   [x] Vorbereitung und Lückenbüßer der Tr"
+          },
+          {
+            "text": "äume (Handover Session): Sz 2, 3, 4\n*   [x] Transkriptions-"
+          },
+          {
+            "text": "Leiden (Die Qual der eigenen Stimme): Neu -> Sz 1\n*   [x] Spezifische Tra"
+          },
+          {
+            "text": "uer-Inhalte (Briefe vs. Listen): Neu -> Sz 2\n*   [x] Langzeit-Management eines"
+          },
+          {
+            "text": " \"schweren\" Datensatzes: Neu -> Sz 3\n\nFühlst du diese psychoanalytisch /"
+          },
+          {
+            "text": " tiefenpsychologischen Abgründe? Im krassen Gegensatz zu Davids \"System muss blicken und leuchten\" (ADHS"
+          },
+          {
+            "text": ") geht es bei Lena darum, das Tool radikal passiv, still und beschützend zu bauen. \n\nSind diese 3 Szenarien"
+          },
+          {
+            "text": " so abgesegnet? Dann kämen wir zur drittletzten Persona: **Lisa (The Waitlist Bridger"
+          },
+          {
+            "text": ") – unser Gesundheitssystem-Bypass.**"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+contract_version: 1
+skill: task-repair-meta
+purpose: >
+  Audit and repair dependency metadata and non-standard frontmatter across all
+  requirements_tasks files. Uses a dependency oracle agent to capture cross-
+  category relationships, then spawns parallel detail agents to apply repairs
+  and reconcile bidirectional edges.
+
+derived_from:
+  required:
+    - path: id-registry
+      source: external
+      reason: Cross-reference index regenerated at Phase 1; used by all agents to resolve REQ-IDs.
+    - path: requirements
+      source: external
+      reason: All requirement and task files audited and repaired.
+
+produces:
+  required:
+    - path: id-registry
+      reason: Auto-generated dependency hints from the oracle agent; never edit manually.
+    - path: id-registry
+      reason: Regenerated at Phase 1 and again at Phase 7 for final state.
+  conditional:
+    - path: requirements
+      condition: written when frontmatter is missing or dependencies need repair.
+      reason: Standard frontmatter added; after/blocks fields corrected.
+    - path: goal
+      condition: written when task frontmatter is missing or awaiting/after fields need repair.
+      reason: Standard frontmatter added; dependency fields corrected.
+
+quality_criteria:
+  - No single detail agent handles more than 12 requirements.md files.
+  - Oracle reads partial content only (frontmatter + 80 lines); detail agents read full content.
+  - dependency_map.md entries are verified against full content before applying.
+  - Cross-category reconciliation ensures bidirectional after/blocks consistency.
+  - Cycles are detected and never introduced.
+
+may_invoke:
+  - claude-commit
+
+side_effects:
+  - target: requirements_tasks/**/{requirements.md,goal.md}
+    action: write
+    note: Frontmatter repaired and dependency fields corrected across all files.
+  - target: requirements_tasks/_meta/id_registry.md
+    action: regenerate
+    note: Regenerated at Phase 1 and Phase 7.
+  - target: requirements_tasks/_meta/dependency_map.md
+    action: write
+    note: Written by the oracle agent as a dependency hint file.
+
+preconditions:
+  - requirements_tasks/ contains at least one requirements.md or goal.md file.
+
+postconditions:
+  - All audited files have standard frontmatter and consistent dependency metadata.
+  - id_registry.md reflects the final state of all requirement and task IDs.

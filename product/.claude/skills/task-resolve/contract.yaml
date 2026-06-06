@@ -1,0 +1,48 @@
+contract_version: 1
+skill: task-resolve
+purpose: >
+  Resolve open-ended impl tasks whose deliverables are non-code artifacts
+  (process docs, skill files, requirements, analysis). The fallback workflow
+  when no specialized skill matches. Supports inline and agent-assisted modes.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Task objective, deliverables, scope, and acceptance criteria.
+
+produces:
+  conditional:
+    - path: protocol
+      condition: one or more non-code artifact(s) as specified in the task goal.
+      reason: The primary task deliverable — path and type determined by goal.md.
+
+quality_criteria:
+  - Approach (inline vs. agent-assisted) is assessed and presented before execution.
+  - User approves the plan before work begins.
+  - Agent-assisted mode is used when source files to read > 4, multiple deliverables, or open-ended reasoning.
+
+user_input_gates:
+  - phase: "Step 2 — Assess & Plan (plan approval)"
+    description: "Developer approves the proposed execution plan (approach, phases, agents, user review points) before execution begins."
+    decision_kind: approval
+    required: always
+
+may_invoke:
+  - claude-log
+  - doc-update-guidelines
+  - task-complete
+
+side_effects:
+  - target: requirements_tasks/<task>/plans_and_protocols/
+    action: append
+    note: Plan notes and protocol entries written before and after execution.
+
+preconditions:
+  - A goal.md exists for the task with clear deliverables and acceptance criteria.
+  - No specialized skill (code-*, requ-*, ux-*, doc-*) matches the task type.
+
+postconditions:
+  - Task deliverables exist and meet the goal.md acceptance criteria.
+  - task-complete has been invoked to close the task.

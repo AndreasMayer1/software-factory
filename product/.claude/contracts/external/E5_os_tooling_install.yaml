@@ -1,0 +1,39 @@
+contract_version: 1
+kind: external-interface
+interface: E5
+title: OS-level tooling install
+direction: factory -> OS -> factory
+purpose: >
+  claude-install-os-tool installs a binary from an external registry. "Installed" is
+  insufficient — REQ-PROC-051 tier-A tracking needs the version pinned.
+
+derived_from:
+  required:
+    - path: "apt|pip|npm|pub:<package-name>"
+      source: external
+      input_modality: invocation_arg
+      schema: null
+      reason: Package coordinate fetched from an external registry.
+
+produces:
+  conditional:
+    - path: "<install-prefix>/bin/<tool>"
+      input_modality: file
+      schema: null                 # binary artifact
+      condition: install command exited 0
+      reason: The installed executable.
+
+quality_criteria:
+  - check: command_exited_zero
+    target_command: [<install-cmd>, install, <package-name>]
+    note: The install action succeeded.
+  - check: package_installed_at_version
+    target: <tool>
+    args: [<expected-version-substring>]
+    note: The installed tool reports the expected version.
+
+preconditions:
+  - REQ-PROC-060 dependency-admission applies for new top-level project deps
+    (distinct from OS tooling; this contract governs OS tools only).
+postconditions:
+  - The tool is on PATH at the expected version and recorded per REQ-PROC-051 tier-A.

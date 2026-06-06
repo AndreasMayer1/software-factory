@@ -1,0 +1,296 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Denke gerne auch außerhalb des lifecycles, vielleicht haben wir dort noch was übersehen.\n\nWarum ist 3. in Kategorie capture? Er will ja die daten prüfen, nicht eingeben.\n\nDu hast jetzt einiges weg gelassen? Ist zb erfolgreiche Data capture schon als geplant in der Index Datei markiert? ",
+        "role": "user",
+        "tokenCount": 69,
+        "createTime": "2026-02-22T07:41:17.330Z"
+      },
+      {
+        "text": "**Expanding the Scope**\n\nI'm now expanding my scope, considering aspects beyond the lifecycle itself. I'm focusing on environmental, social, hardware, and edge computing factors to ensure a complete understanding of the topic. The user's feedback encouraged me to broaden my perspective, and I'm actively exploring these new dimensions.\n\n\n**Refining the Categorization**\n\nI'm now refining the categorization, correcting an initial misplacement of 'data check' under 'capture'. I've shifted that to 'analysis' or 'management.quick_check' based on the user's feedback, which highlighted the difference between entering and verifying data. I also need to make the categorization more exhaustive, including successful outcomes and other possible scenarios to ensure a systematic and complete analysis.\n\n\n**Analyzing David's Needs**\n\nI'm now diving deep into David's persona to understand what happens when he achieves his goals. I'm reviewing his needs comprehensively, ensuring I address all his requirements within the scope of my work. The goal is to fully understand David's experience, successes, and needs.\n\n\n**Identifying Ambient Interactions**\n\nI'm now identifying ambient interactions, focusing on how David interacts outside the core lifecycle. I'm noting the importance of ambient visibility through widget interactions, which isn't just capture or analysis, but *ambient visibility*. I've also recognized that seeking a \"dopamine menu\" fits the `intervention.coping` category, since it provides access to coping resources when David is understimulated.\n\n\n**Mapping David's Needs**\n\nI'm now strictly mapping David's persona against SCENARIO_INDEX categories to map his needs. I've pinpointed his approach to plan creation and distribution, identifying \"Template Hunt\" as plan sharing. I've also noted scenarios for data capture, including \"Fleeting Thought\" and \"3-Day Hyperfocus,\" and the \"Med Check\" for self-reflection. I'm focusing on his interaction patterns, identifying areas for improvement.\n\n\n**Categorizing Scenarios Effectively**\n\nI'm now focusing on categorizing David's scenarios effectively and exhaustively, starting with an alphabetical list. I've included scenarios like \"Native Notes Success\" to capture what already works. I'm refining the \"Fleeting Thought\" scenario to emphasize the 3-second window, and noting that scenarios can include successes as well as failures.\n\n\n",
+        "role": "model",
+        "tokenCount": 1562,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Expanding the Scope**\n\nI'm now expanding my scope, considering aspects beyond the lifecycle itself. I'm focusing on environmental, social, hardware, and edge computing factors to ensure a complete understanding of the topic. The user's feedback encouraged me to broaden my perspective, and I'm actively exploring these new dimensions.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Refining the Categorization**\n\nI'm now refining the categorization, correcting an initial misplacement of 'data check' under 'capture'. I've shifted that to 'analysis' or 'management.quick_check' based on the user's feedback, which highlighted the difference between entering and verifying data. I also need to make the categorization more exhaustive, including successful outcomes and other possible scenarios to ensure a systematic and complete analysis.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Analyzing David's Needs**\n\nI'm now diving deep into David's persona to understand what happens when he achieves his goals. I'm reviewing his needs comprehensively, ensuring I address all his requirements within the scope of my work. The goal is to fully understand David's experience, successes, and needs.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Identifying Ambient Interactions**\n\nI'm now identifying ambient interactions, focusing on how David interacts outside the core lifecycle. I'm noting the importance of ambient visibility through widget interactions, which isn't just capture or analysis, but *ambient visibility*. I've also recognized that seeking a \"dopamine menu\" fits the `intervention.coping` category, since it provides access to coping resources when David is understimulated.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Mapping David's Needs**\n\nI'm now strictly mapping David's persona against SCENARIO_INDEX categories to map his needs. I've pinpointed his approach to plan creation and distribution, identifying \"Template Hunt\" as plan sharing. I've also noted scenarios for data capture, including \"Fleeting Thought\" and \"3-Day Hyperfocus,\" and the \"Med Check\" for self-reflection. I'm focusing on his interaction patterns, identifying areas for improvement.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Categorizing Scenarios Effectively**\n\nI'm now focusing on categorizing David's scenarios effectively and exhaustively, starting with an alphabetical list. I've included scenarios like \"Native Notes Success\" to capture what already works. I'm refining the \"Fleeting Thought\" scenario to emphasize the 3-second window, and noting that scenarios can include successes as well as failures.\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-22T07:41:17.331Z"
+      },
+      {
+        "text": "Du hast vollkommen recht – exzellente Korrektur! \n\nErstens: Wenn David nachschauen will, ob er seine Medikation genommen hat, ist das definitiv **Analyse (`analysis.self_reflect`)** und nicht Datenerfassung. \nZweitens: Ich habe mich vorhin zu sehr auf die \"spektakulären\" Fehler-Szenarien konzentriert und den positiven/alltäglichen Pfad (Erfolg) sowie Dinge außerhalb des klassischen Lifecycles ignoriert. Das war nicht gründlich genug.\n\nUm systematisch und lückenlos zu sein, müssen wir Davids Persona (`PERSONA-008`) Zeile für Zeile gegen den Index mappen und auch seine \"Erfolge\" im aktuellen Status Quo (z.B. native Notizen-App) abbilden.\n\nHier ist die **vollständige, lückenlose Liste für David (ADHS Self-User)**, inklusive Success-Paths und Out-of-the-Box-Denken:\n\n---\n\n### 1. DAVID (The Structure Seeker / PERSONA-008)\n\n#### A. Der \"Out-of-the-Box\" Lifecycle (Umgebung & Intervention)\n*Sachen, die nichts mit Daten-Eingabe zu tun haben, sondern mit der Art, wie sein Gehirn im Alltag funktioniert.*\n\n*   **Szenario 1: The Widget Lifeline (Object Permanence)**\n    *   **Kategorie:** *Neu/Out of the Box* (Am ehesten `analysis.self_reflect` oder eine neue UI/Umgebungs-Kategorie)\n    *   **Worum es geht:** David hat sein Handy entsperrt. Wenn eine App nicht direkt als großes Widget auf dem Homescreen liegt, existiert sie für ihn nicht (ADHS-typische *Object Permanence Failure*). Er nutzt aktuell native Kalender-Widgets, um sich extern steuern zu lassen. Ohne das Widget würde er den ganzen Tag vergessen, dass er überhaupt ein System hat.\n    *   **Warum wir es brauchen:** Setzt die harte UI-Anforderung: Die App muss auf dem Homescreen \"schreien\", ohne zu nerven.\n\n*   **Szenario 2: Consulting the Dopamine Menu (Boredom vs. Doomscrolling)**\n    *   **Kategorie:** `intervention.coping`\n    *   **Worum es geht:** David sitzt abends auf der Couch, ist chronisch unterstimuliert und spürt den Drang zum stundenlangen Doomscrolling (TikTok/Reels). Er trackt in diesem Moment *keine* Daten. Er greift auf eine statische Liste (sein \"Dopamin-Menü\" in Apple Notes) zurück, um eine gesunde Alternative (z.B. laute Musik hören) zu finden.\n    *   **Warum wir es brauchen:** Zeigt, dass Self-User die App auch als reines Nachschlagewerk für Krisen/Coping nutzen, völlig abgekoppelt vom Tracking-Lifecycle.\n\n#### B. Die Suche nach Struktur (Template Sharing)\n*   **Szenario 3: The Endless Template Hunt (Failure)**\n    *   **Kategorie:** `sharing.independent_discovery`\n    *   **Worum es geht:** Da ihm kein Therapeut einen Plan gibt, lädt er drei Tracker-Apps herunter und verbringt zwei Stunden im Hyperfokus damit, das perfekte Setup (15 verschiedene Habits) zu konfigurieren. Er ist erschöpft, bevor er den ersten echten Eintrag macht.\n    *   **Warum wir es brauchen:** Zeigt das Onboarding-Problem für ADHS-Self-User.\n\n#### C. Datenerfassung (Capture)\n*   **Szenario 4: The 3-Second Friction (Spontaneous Capture - Failure)**\n    *   **Kategorie:** `capture.spontaneous`\n    *   **Worum es geht:** David hat einen flüchtigen, extrem wichtigen Gedanken. Er holt das Handy raus. Das Öffnen der App und Navigieren zum Textfeld dauert 5 Sekunden. In Sekunde 3 sieht er eine WhatsApp-Notification, klickt darauf und der ursprüngliche Gedanke ist für immer gelöscht.\n    *   **Warum wir es brauchen:** Definiert das \"Speed-Limit\" für die Architektur.\n\n*   **Szenario 5: The Native Notes Success (Spontaneous Capture - Success)**\n    *   **Kategorie:** `capture.spontaneous`\n    *   **Worum es geht:** Der Status Quo, der *funktioniert*. David nutzt Apples native Notizen-App vom Lockscreen aus. Wisch, Tipp, Diktat. 2 Sekunden. Der Gedanke ist gesichert. Das Problem: Die Daten sind ein unstrukturierter Haufen Müll, aber der *Capture-Prozess* war erfolgreich.\n    *   **Warum wir es brauchen:** Wir müssen genau verstehen, warum sein aktueller (schlechter) Workaround beim reinen Erfassen gewinnt, um das in unserer App nachzubauen.\n\n*   **Szenario 6: The 3-Day Hyperfocus (Routine Capture - Success to Failure)**\n    *   **Kategorie:** `capture.routine`\n    *   **Worum es geht:** David nutzt sein frisch gebautes System drei Tage lang obsessiv und perfekt (Erfolg). Er bekommt Dopamin-Kicks durch das Abhaken. An Tag 4 verblasst die Neuheit, die Routine wird zur lästigen Pflicht, er überspringt den Tag.\n\n#### D. Analyse & Zerstörung (Management & Analysis)\n*   **Szenario 7: \"Did I take my meds?\" (Analysis - Quick Check)**\n    *   **Kategorie:** `analysis.self_reflect`\n    *   **Worum es geht:** *Deine Korrektur!* David steht morgens in der Küche und weiß nicht mehr, ob er die Tablette vor 10 Minuten geschluckt hat (ADHS-Kurzzeitgedächtnis). Er will nichts eingeben, er will nur schnell den Status verifizieren. Er scrollt panisch durch seine Tools.\n    *   **Warum wir es brauchen:** Schneller, passiver Lese-Zugriff auf aktuelle Tagesdaten ist genauso wichtig wie die Eingabe.\n\n*   **Szenario 8: The Toxic Streak & Shame Delete (Destruction)**\n    *   **Kategorie:** `management.destroy_data_intentionally`\n    *   **Worum es geht:** Nach dem Überspringen an Tag 4 öffnet er an Tag 5 die App. Ein rotes X oder \"Streak gebrochen: 0 Tage\" blinkt auf. Die Gamification, die motivieren sollte, löst den \"Wall of Awful\" aus. Er löscht die App komplett, weil er den Beweis seines Versagens nicht mehr sehen will.\n    *   **Warum wir es brauchen:** Setzt die harte Regel gegen Gamification und Bestrafung von Lücken.\n\n---\n\n**Vollständigkeits-Check für David:**\nHaben wir etwas übersehen?\n*   [x] Planerstellung (macht er nicht selbst, er sucht Templates -> abgedeckt durch Sz 3)\n*   [x] Datenerfassung (Routine & Spontan, Erfolg & Misserfolg -> abgedeckt durch Sz 4, 5, 6)\n*   [x] Datenanalyse (Kurz-Check & Muster -> abgedeckt durch Sz 1 & 7)\n*   [x] Coping / Out-of-the-Box (Widget & Dopamin-Menü -> abgedeckt durch Sz 1 & 2)\n*   [x] Management/Zerstörung (Löschen aus Scham -> abgedeckt durch Sz 8)\n\nFehlt aus deiner Sicht für **David** noch ein Aspekt seines Alltags? Wenn wir uns einig sind, dass David damit zu 100% lückenlos definiert ist, würde ich als nächstes die Persona **Dr. med. Turan** (die nächste im Alphabet) genauso systematisch sezieren.",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1744,
+        "parts": [
+          {
+            "text": "Du hast vollkommen recht –"
+          },
+          {
+            "text": " exzellente Korrektur! \n\nErstens: Wenn David nachschauen will, ob er seine Medikation genommen hat, ist das definitiv **"
+          },
+          {
+            "text": "Analyse (`analysis.self_reflect`)** und nicht Datenerfassung. \nZweitens: Ich habe mich vor"
+          },
+          {
+            "text": "hin zu sehr auf die \"spektakulären\" Fehler-Szenarien konzentriert und den positiven/all"
+          },
+          {
+            "text": "täglichen Pfad (Erfolg) sowie Dinge außerhalb des klassischen Lifecycles ignoriert. Das war nicht"
+          },
+          {
+            "text": " gründlich genug.\n\nUm systematisch und lückenlos zu sein, müssen wir Davids Persona (`PERSONA-008`)"
+          },
+          {
+            "text": " Zeile für Zeile gegen den Index mappen und auch seine \"Erfolge\" im aktuellen Status Quo (z"
+          },
+          {
+            "text": ".B. native Notizen-App) abbilden.\n\nHier ist die **vollständige, lückenlose Liste"
+          },
+          {
+            "text": " für David (ADHS Self-User)**, inklusive Success-Paths und Out-of-the-Box-Den"
+          },
+          {
+            "text": "ken:\n\n---\n\n### 1. DAVID (The Structure Seeker / PERSONA-008)\n\n"
+          },
+          {
+            "text": "#### A. Der \"Out-of-the-Box\" Lifecycle (Umgebung & Intervention)\n*Sachen"
+          },
+          {
+            "text": ", die nichts mit Daten-Eingabe zu tun haben, sondern mit der Art, wie sein Gehirn im"
+          },
+          {
+            "text": " Alltag funktioniert.*\n\n*   **Szenario 1: The Widget Lifeline (Object Permanence)**\n    *   **K"
+          },
+          {
+            "text": "ategorie:** *Neu/Out of the Box* (Am ehesten `analysis.self_reflect` oder eine"
+          },
+          {
+            "text": " neue UI/Umgebungs-Kategorie)\n    *   **Worum es geht:** David hat sein Handy ents"
+          },
+          {
+            "text": "perrt. Wenn eine App nicht direkt als großes Widget auf dem Homescreen liegt, existiert sie für ihn nicht (ADHS-typische"
+          },
+          {
+            "text": " *Object Permanence Failure*). Er nutzt aktuell native Kalender-Widgets, um sich extern steuern zu lassen. Ohne das"
+          },
+          {
+            "text": " Widget würde er den ganzen Tag vergessen, dass er überhaupt ein System hat.\n    *   **Warum wir es brauchen:** Set"
+          },
+          {
+            "text": "zt die harte UI-Anforderung: Die App muss auf dem Homescreen \"schreien\", ohne zu nerven.\n\n*   **S"
+          },
+          {
+            "text": "zenario 2: Consulting the Dopamine Menu (Boredom vs. Doomscrolling)**\n    *   **Kategorie:** `intervention."
+          },
+          {
+            "text": "coping`\n    *   **Worum es geht:** David sitzt abends auf der Couch, ist chronisch unterstimuliert und"
+          },
+          {
+            "text": " spürt den Drang zum stundenlangen Doomscrolling (TikTok/Reels). Er trackt in diesem Moment *"
+          },
+          {
+            "text": "keine* Daten. Er greift auf eine statische Liste (sein \"Dopamin-Menü\" in Apple"
+          },
+          {
+            "text": " Notes) zurück, um eine gesunde Alternative (z.B. laute Musik hören) zu finden.\n    *   **Warum wir es brauchen"
+          },
+          {
+            "text": ":** Zeigt, dass Self-User die App auch als reines Nachschlagewerk für Krisen/Coping nutzen,"
+          },
+          {
+            "text": " völlig abgekoppelt vom Tracking-Lifecycle.\n\n#### B. Die Suche nach Struktur (Template Sharing)\n*   **S"
+          },
+          {
+            "text": "zenario 3: The Endless Template Hunt (Failure)**\n    *   **Kategorie:** `sharing.independent"
+          },
+          {
+            "text": "_discovery`\n    *   **Worum es geht:** Da ihm kein Therapeut einen Plan gibt, lädt er drei Tracker"
+          },
+          {
+            "text": "-Apps herunter und verbringt zwei Stunden im Hyperfokus damit, das perfekte Setup (15 verschiedene Habits) zu konfigur"
+          },
+          {
+            "text": "ieren. Er ist erschöpft, bevor er den ersten echten Eintrag macht.\n    *   **Warum wir es brauchen:** Ze"
+          },
+          {
+            "text": "igt das Onboarding-Problem für ADHS-Self-User.\n\n#### C. Datenerfassung (Capture)\n*   **Szenario"
+          },
+          {
+            "text": " 4: The 3-Second Friction (Spontaneous Capture - Failure)**\n    *   **Kategorie:** `capture."
+          },
+          {
+            "text": "spontaneous`\n    *   **Worum es geht:** David hat einen flüchtigen, extrem wichtigen Gedanken. Er hol"
+          },
+          {
+            "text": "t das Handy raus. Das Öffnen der App und Navigieren zum Textfeld dauert 5 Sekunden. In Sek"
+          },
+          {
+            "text": "unde 3 sieht er eine WhatsApp-Notification, klickt darauf und der ursprüngliche Gedanke ist für immer gelöscht.\n    *"
+          },
+          {
+            "text": "   **Warum wir es brauchen:** Definiert das \"Speed-Limit\" für die Architektur.\n\n*   **Szenario"
+          },
+          {
+            "text": " 5: The Native Notes Success (Spontaneous Capture - Success)**\n    *   **Kategorie:** `capture.spontaneous`\n    "
+          },
+          {
+            "text": "*   **Worum es geht:** Der Status Quo, der *funktioniert*. David nutzt Apples native Notizen-App vom"
+          },
+          {
+            "text": " Lockscreen aus. Wisch, Tipp, Diktat. 2 Sekunden. Der Gedanke ist gesichert."
+          },
+          {
+            "text": " Das Problem: Die Daten sind ein unstrukturierter Haufen Müll, aber der *Capture-Prozess* war erfolgreich.\n    *   **"
+          },
+          {
+            "text": "Warum wir es brauchen:** Wir müssen genau verstehen, warum sein aktueller (schlechter) Workaround beim reinen Erfassen gew"
+          },
+          {
+            "text": "innt, um das in unserer App nachzubauen.\n\n*   **Szenario 6: The 3-Day Hyperfocus ("
+          },
+          {
+            "text": "Routine Capture - Success to Failure)**\n    *   **Kategorie:** `capture.routine`\n    *   **Worum es geht"
+          },
+          {
+            "text": ":** David nutzt sein frisch gebautes System drei Tage lang obsessiv und perfekt (Erfolg). Er bekommt Dopamin-K"
+          },
+          {
+            "text": "icks durch das Abhaken. An Tag 4 verblasst die Neuheit, die Routine wird zur lästigen Pflicht, er übers"
+          },
+          {
+            "text": "pringt den Tag.\n\n#### D. Analyse & Zerstörung (Management & Analysis)\n*   **Szenario"
+          },
+          {
+            "text": " 7: \"Did I take my meds?\" (Analysis - Quick Check)**\n    *   **Kategorie:** `analysis.self_reflect"
+          },
+          {
+            "text": "`\n    *   **Worum es geht:** *Deine Korrektur!* David steht morgens in der Küche und"
+          },
+          {
+            "text": " weiß nicht mehr, ob er die Tablette vor 10 Minuten geschluckt hat (ADHS-Kurzzeitgedächtnis)."
+          },
+          {
+            "text": " Er will nichts eingeben, er will nur schnell den Status verifizieren. Er scrollt panisch durch seine Tools."
+          },
+          {
+            "text": "\n    *   **Warum wir es brauchen:** Schneller, passiver Lese-Zugriff auf aktuelle Tagesdaten"
+          },
+          {
+            "text": " ist genauso wichtig wie die Eingabe.\n\n*   **Szenario 8: The Toxic Streak & Shame Delete (Dest"
+          },
+          {
+            "text": "ruction)**\n    *   **Kategorie:** `management.destroy_data_intentionally`\n    *   **Worum es geht:**"
+          },
+          {
+            "text": " Nach dem Überspringen an Tag 4 öffnet er an Tag 5 die App. Ein rotes X oder"
+          },
+          {
+            "text": " \"Streak gebrochen: 0 Tage\" blinkt auf. Die Gamification, die motivieren sollte, lö"
+          },
+          {
+            "text": "st den \"Wall of Awful\" aus. Er löscht die App komplett, weil er den Beweis seines Versagens nicht mehr sehen"
+          },
+          {
+            "text": " will.\n    *   **Warum wir es brauchen:** Setzt die harte Regel gegen Gamification und Bestrafung von Lücken.\n\n---"
+          },
+          {
+            "text": "\n\n**Vollständigkeits-Check für David:**\nHaben wir etwas übersehen?\n*   [x"
+          },
+          {
+            "text": "] Planerstellung (macht er nicht selbst, er sucht Templates -> abgedeckt durch Sz 3)\n*   [x] Datenerfassung"
+          },
+          {
+            "text": " (Routine & Spontan, Erfolg & Misserfolg -> abgedeckt durch Sz 4, 5, 6)\n*"
+          },
+          {
+            "text": "   [x] Datenanalyse (Kurz-Check & Muster -> abgedeckt durch Sz 1 & 7)\n*   ["
+          },
+          {
+            "text": "x] Coping / Out-of-the-Box (Widget & Dopamin-Menü -> abgedeckt durch Sz 1 &"
+          },
+          {
+            "text": " 2)\n*   [x] Management/Zerstörung (Löschen aus Scham -> abgedeckt durch Sz"
+          },
+          {
+            "text": " 8)\n\nFehlt aus deiner Sicht für **David** noch ein Aspekt seines Alltags? Wenn wir uns ein"
+          },
+          {
+            "text": "ig sind, dass David damit zu 100% lückenlos definiert ist, würde ich als nächstes die Persona **Dr. med."
+          },
+          {
+            "text": " Turan** (die nächste im Alphabet) genauso systematisch sezieren."
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

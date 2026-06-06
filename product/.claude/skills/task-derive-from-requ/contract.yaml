@@ -1,0 +1,79 @@
+contract_version: 1
+skill: task-derive-from-requ
+purpose: >
+  Decompose a requirement into a quality-assured set of tasks: every AC covered by ≥ 1 task,
+  a verification task, sound dependencies, and computed sizing. CONSUMER of requirements.md;
+  delegates goal.md creation to task-create / task-create-code.
+
+derived_from:
+  required:
+    - path: requirements
+      source: skill:requ-explore
+      schema: .claude/schemas/requirements_frontmatter.yaml
+      reason: >
+        The requirement to decompose — ACs, sections, after/blocks, Related Requirements.
+        Produced by requ-explore. Mutated when the cross-reference completeness gate adds links.
+  optional:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      condition: existing covering tasks read (frontmatter only) for coverage + covers-repair.
+      reason: Current coverage state and covers-field repair (AC-09).
+
+produces:
+  required:
+    - path: goal
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: >
+        The derived impl + verification task goal.md files (created via task-create/-code),
+        each with covers + after computed from the coverage matrix.
+  conditional:
+    - path: protocol
+      condition: written when the cross-reference completeness gate (AC-17) finds candidates.
+      reason: Candidate cross-references for developer review.
+
+quality_criteria:
+  - Coverage matrix maps every AC to ≥ 1 task; zero-coverage ACs block task creation (AC-01).
+  - A verification task exists for the decomposed requirement.
+  - Tasks are routed to the correct creator (code → task-create-code; non-code/explore → task-create).
+  - Cross-package ACs are grouped; a task covers ACs from a single package (AC-16).
+
+user_input_gates:
+  - phase: "Phase 1 — Covers-field repair (ambiguous inference)"
+    description: "Developer confirms the AI's inference of which ACs an existing task covers, when confidence is below the high threshold."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires in interactive mode when existing tasks have empty covers: fields AND the AI's coverage inference confidence is below high."
+  - phase: "Phase 1.5.2 — Cross-Reference Completeness Gate (classification)"
+    description: "Developer classifies each detected cross-reference candidate as hard (add to after:), semantic (add to Related Requirements), or ignore."
+    decision_kind: selection
+    required: conditional
+    condition: "Only fires in interactive mode when check_cross_refs.py returns a non-empty candidate list."
+  - phase: "Phase 1.5.4 — Resume verify (residual gaps after Apply)"
+    description: "Developer decides whether to re-spawn the cross-reference fix agent or abort the decomposition when residual gaps remain after the apply step."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires in interactive mode when the gate re-run after Apply still returns a non-empty residual set."
+  - phase: "Phase 4 — Review (plan + coverage matrix)"
+    description: "Developer approves, modifies, or rejects the decomposition plan and coverage matrix before any tasks are created."
+    decision_kind: approval
+    required: conditional
+    condition: "Required in interactive mode; in automated mode, auto-accept — coverage matrix is the gate."
+
+may_invoke:
+  - task-create       # non-code / explore / verification tasks
+  - task-create-code  # code tasks (lib/test/integration_test)
+
+side_effects:
+  - target: requirements_tasks/<category>/<req>/requirements.md
+    action: write
+    note: Related Requirements cross-references added by the completeness gate (AC-17).
+  - target: requirements_tasks/<category>/<req>/<feature>/tasks/<task>/goal.md
+    action: write
+    note: "Empty covers: fields on existing tasks repaired with inferred coverage (AC-09)."
+
+preconditions:
+  - A requirements.md exists and conforms to requirements_frontmatter.yaml (entry pre-check).
+
+postconditions:
+  - Every AC is covered by ≥ 1 created task, a verification task exists, and dependencies are sound.

@@ -1,0 +1,8 @@
+All files in this directory and its subdirectories are licensed
+components of the Software Factory, distributed under the Elastic License 2.0.
+See the LICENSE and NOTICE files at the repository root for the full terms and
+the definition of "the software".
+
+These materials -- including prompt templates, agent/skill/orchestration
+definitions, personas, schemas, scripts, and configuration -- are part of the
+licensed software and are NOT mere documentation, regardless of file extension.

@@ -1,0 +1,87 @@
+contract_version: 1
+skill: task-complete
+purpose: >
+  The single canonical way to close a task: verify the goal is met, block on quality gates,
+  flip goal.md to completed, propagate requirement status, regenerate the status overview,
+  rename the task folder, and commit. CONSUMER of goal.md; the terminal step of every workflow.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: >
+        The task being completed — read to verify the goal and to flip status/completed.
+        Produced by task-create / task-create-code / task-derive-from-requ.
+    - path: requirements
+      source: skill:requ-explore
+      schema: .claude/schemas/requirements_frontmatter.yaml
+      reason: >
+        Parent requirement — read to propagate status (in_progress → implemented when all
+        ACs are covered). Mutated in CASE B. Governed by requ-explore.
+  optional:
+    - path: release-backlog
+      source: external
+      reason: Package-description freshness check when the task has a target_package.
+    - path: protocol
+      source: external
+      reason: Most recent protocol — annotated with skills_used on completion. Written by claude-log.
+
+produces:
+  required:
+    - path: goal
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: >
+        The terminal goal.md state (status: completed, completed: date). task-complete is the
+        authority that writes this final transition.
+
+quality_criteria:
+  - In code-change mode, verify-quality must return GREEN before the task is marked completed.
+  - "status: completed and completed: YYYY-MM-DD are written to goal.md frontmatter."
+  - Requirement status is propagated correctly (active stays active; in_progress→implemented only when all ACs covered).
+  - All task-caused changes are committed; the renamed (completed) folder path is staged.
+
+user_input_gates:
+  - phase: "Step 3.2 — Requirement Status (Case B, no acceptance criteria)"
+    description: "Developer manually confirms that all work for the requirement is done, so status can be set to implemented when there are no trackable acceptance criteria."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires when the parent requirement has status in_progress AND has no trackable_items.acceptance_criteria."
+  - phase: "Step 3.2b — Package Description Freshness"
+    description: "Developer confirms whether the release package description is still accurate after this work, or provides corrected text."
+    decision_kind: revision
+    required: conditional
+    condition: "Only fires when goal.md has a target_package and the package has an assigned_release (not null)."
+
+may_invoke:
+  - verify-quality        # blocking per-change gate set (code-change mode)
+  - claude-commit         # stage + commit all changes
+
+side_effects:
+  - target: requirements_tasks/<category>/<req>/requirements.md
+    action: write
+    note: Requirement status flipped to implemented when coverage is complete (CASE B).
+  - target: requirements_tasks/STATUS.md
+    action: regenerate
+    note: Regenerated via generate_status_overview.py --full.
+  - target: requirements_tasks/<category>/<req>/<feature>/tasks/<task>/
+    action: write
+    note: Folder renamed with a "(completed)" suffix by complete_task.py.
+  - target: automation/answered_feedback/<TASK-ID>
+    action: write
+    note: pending_feedback/<TASK-ID> moved here when an autorun feedback folder exists.
+  - target: requirements_tasks/**/plans_and_protocols/*feedback-checkpoint*.md
+    action: write
+    note: >
+      One feedback-checkpoint file per developer-steered interactive decision, written via
+      scripts/tasks/create_feedback_checkpoint.py before the commit (REQ-PROC-044-03; envelope
+      per REQ-PROC-041-04 AC-06 with mode: interactive). Skipped in automated mode and when the
+      developer only approved proposals as-is.
+
+preconditions:
+  - A goal.md exists and conforms to goal_metadata.yaml (entry pre-check).
+  - In code-change mode, the per-change quality gates pass (enforced via verify-quality).
+
+postconditions:
+  - The task is marked completed, requirement status is consistent, STATUS.md is regenerated,
+    and the work is committed.

@@ -1,0 +1,247 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Gute Ergänzung zu Prof. Weber. Welche cluster bildet er noch ab, sollten wir dafür noch Szenarien ergänzen? ",
+        "role": "user",
+        "tokenCount": 28,
+        "createTime": "2026-03-01T09:19:59.973Z"
+      },
+      {
+        "text": "**Accepting the Scenarios**\n\nI've accepted the proposed scenarios: the Obergutachter Report, the 300-Session Archive, and The Intrusive Quantifier for Prof. Dr. Weber (PERSONA-011). I am ready to delve further into each, now that the premise is set.\n\n\n**Identifying Implicit Clusters**\n\nI've reviewed Prof. Dr. Weber's persona and identified implicit clusters. Now, I'm focusing on \"The Tech-Skeptics,\" \"The Narratives,\" \"The Somatics,\" and \"The Data Protectors.\" I'm also considering potential scenarios related to the Somatics cluster, particularly regarding body-oriented therapists and trauma, with the idea of drawing \"body maps\" of sensations.\n\n\n**Mapping Bodily Sensations**\n\nI'm now deep-diving into the \"Somatics\" cluster, focusing on somatic experiencing and the challenges of translating bodily sensations into words. The core problem is the difficulty patients face when articulating visceral experiences. The \"Somatic Translation (The Body Map)\" scenario is unfolding. I'm focusing on how current text-based systems fall short when language hasn't yet formed. I need to consider non-verbal input methods, such as visual representations, to better capture these experiences.\n\n\n**Analyzing Relational Dynamics**\n\nI'm now zeroing in on the \"Narratives / Systemic Therapists\" cluster. My thinking revolves around how systemic therapists meticulously map relationships and dynamics. The challenge is clear: traditional text-based logs often fail to capture the vital relational context, particularly the interactions and different perspectives, inherent in systemic therapy. I'm aiming for a solution that helps the patient re-author their narrative.\n\n\n**Considering the Frame Break**\n\nI'm now zeroing in on a critical \"Media Break\" scenario. Technology disrupts therapy, specifically the difficulty of integrating digital artifacts within an analog setting. The patient struggles to connect with their tech and share a dream sequence - the technical process ruins the therapeutic moment. This underscores the need to minimize tech-induced friction, particularly through design. I'm focusing on \"The Tech-Skeptic's physical limitation\" angle.",
+        "role": "model",
+        "tokenCount": 1291,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Accepting the Scenarios**\n\nI've accepted the proposed scenarios: the Obergutachter Report, the 300-Session Archive, and The Intrusive Quantifier for Prof. Dr. Weber (PERSONA-011). I am ready to delve further into each, now that the premise is set.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Identifying Implicit Clusters**\n\nI've reviewed Prof. Dr. Weber's persona and identified implicit clusters. Now, I'm focusing on \"The Tech-Skeptics,\" \"The Narratives,\" \"The Somatics,\" and \"The Data Protectors.\" I'm also considering potential scenarios related to the Somatics cluster, particularly regarding body-oriented therapists and trauma, with the idea of drawing \"body maps\" of sensations.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Mapping Bodily Sensations**\n\nI'm now deep-diving into the \"Somatics\" cluster, focusing on somatic experiencing and the challenges of translating bodily sensations into words. The core problem is the difficulty patients face when articulating visceral experiences. The \"Somatic Translation (The Body Map)\" scenario is unfolding. I'm focusing on how current text-based systems fall short when language hasn't yet formed. I need to consider non-verbal input methods, such as visual representations, to better capture these experiences.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Relational Dynamics**\n\nI'm now zeroing in on the \"Narratives / Systemic Therapists\" cluster. My thinking revolves around how systemic therapists meticulously map relationships and dynamics. The challenge is clear: traditional text-based logs often fail to capture the vital relational context, particularly the interactions and different perspectives, inherent in systemic therapy. I'm aiming for a solution that helps the patient re-author their narrative.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Considering the Frame Break**\n\nI'm now zeroing in on a critical \"Media Break\" scenario. Technology disrupts therapy, specifically the difficulty of integrating digital artifacts within an analog setting. The patient struggles to connect with their tech and share a dream sequence - the technical process ruins the therapeutic moment. This underscores the need to minimize tech-induced friction, particularly through design. I'm focusing on \"The Tech-Skeptic's physical limitation\" angle.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T09:19:59.977Z"
+      },
+      {
+        "text": "\n\n\nExzellent, Webers bürokratische und philosophische Kämpfe (Szenarien 1 bis 3) sind damit verbucht.\n\nLass uns – genau wie von dir gefordert – in seine Persona (`PERSONA-011`) schauen, welche **Implicit Clusters** er noch abdeckt. Die Liste dort ist extrem aufschlussreich, weil sie Therapiemethoden benennt, die völlig anders arbeiten als die Standard-VT (Verhaltenstherapie):\n\n1.  **Die Somatiker (Körperorientierte Traumatherapie):** Behandler, die primär mit dem Nervensystem arbeiten (Somatic Experiencing, NARM). Hier gibt es keine kognitiven Gedankenketten, sondern den \"Filz\" aus Muskelspannung und Zittern.\n2.  **Die Systemischen / Narrativen:** Therapeuten, die das ganze Familiengeflecht (\"Mobile\") und Geschichten betrachten, nicht nur die Einzel-Emotion.\n3.  **Die absoluten Tech-Skeptiker:** Ärzte und Therapeuten älterer Semester (oder Ausrichtung), die Technik nicht nur ideologisch ablehnen, sondern schlicht *nicht damit umgehen wollen oder können*. \n\nUm auch diese Cluster abzudecken (und unsere UX/UI-Designentscheidungen später vor dummen \"SaaS-Tech-Fehlern\" zu bewahren), schlage ich diese beiden abschließenden \"Out-of-the-Box\"-Szenarien für die Weber-Persona-Gruppe vor:\n\n### D. Out-of-the-Box: Das \"Somatische\" Cluster (Körperarbeit)\n\n*   **Szenario 4: The Wordless Weight (The Body Map Problem)**\n    *   **Kategorie:** `modification.collaborative` & `capture.spontaneous` (Methodik-Grenze)\n    *   **Worum es geht:** Weber behandelt Traumapatienten. Bei komplexen Traumata (wo das Sprachzentrum im Gehirn im Alarmzustand oft blockiert ist), verlangt Weber von seinen Patienten gar keine elaborierten Traumnotizen. Stattdessen gibt er ihnen ein Blatt Papier, auf dem lediglich die **rohe Skizze eines menschlichen Körpers (Body Map)** gedruckt ist. \n    *   **Das Status-Quo-Problem:** Ein Patient kann das beklemmende Gefühl in seiner Brust abends nicht in Worte fassen (\"Wie soll man schreiben, dass sich der Magen umdreht?\"). Also nimmt der Patient Wachsmalstifte oder einen dicken roten Kuli und malt die Brust und den Bauch auf dem Papier gewaltsam aus. Am nächsten Tag in der Stunde sieht Prof. Weber sofort an der Kratzigkeit und Farbe des Gemalten: *Der Schmerz sitzt tief und massiv in der Lunge.* Eine rein textbasierte (Tastatur-)App scheitert hier komplett – sie erzwingt \"Semantik\" (Schreiben/Reden), wo das Gehirn des Patienten gerade gar keinen Zugriff auf Sprache hat.\n    *   **Warum wir es brauchen:** Es setzt eine grandiose Wegmarke für unsere künftige Feature-Entwicklung (V2/V3): **Multimodale Inputs.** Neben Tastatur und Mikrofon brauchen tiefe Therapiemethoden in Zukunft ggf. visuelle/haptische Markierungen (eine simple Körperskizze auf dem Touchscreen einfärben), weil das die letzte Sprache der Patienten in der absoluten Krise ist. \n\n### E. Out-of-the-Box: Das Tech-Skeptiker-Cluster \n\n*   **Szenario 5: The Login Rupture (When Tech destroys the Room)**\n    *   **Kategorie:** `analysis.review_collaboratively` (Umgebung / Setup)\n    *   **Worum es geht:** Ein Patient von Prof. Weber weigert sich aus Convenience-Gründen Papier zu nutzen, er will Weber in der Praxis ein \"Health Log\" oder Dokumente auf dem eigenen Tablet/Laptop der Praxis zeigen.\n    *   **Das Status-Quo-Problem:** Der Professor setzt zögerlich seine Lesebrille auf. Die Bluetooth-Kopplung geht nicht. Der Screen-Lock schlägt zu. Weber wischt aus Versehen zurück in ein Menü, kennt die Navigation nicht (\"Wo war das gerade nochmal?\") und der Patient muss über den Couchtisch hinweg in die Bedienung eingreifen. Die Stille, Konzentration und therapeutische Spannung – das eigentliche Heiligtum seiner Arbeit – platzt durch den Tech-Krampf wie eine Seifenblase. Der Raum verkommt zur \"IT-Support-Hotline\". Prof. Weber verbietet danach entnervt alle digitalen Screens im Raum.\n    *   **Warum wir es brauchen:** Das wichtigste Plädoyer für unsere Transfer-Architektur! Das Austauschen und Betrachten von Daten für den Behandler MUSS komplett berührungsfrei, Zero-Setup, absolut haptisch und narrensicher ablaufen. Der QR-Code-Ansatz unserer Architektur liefert genau das (\"Zeig mir dein Handy\" -> Behandler-iPad hat mit einem Click exakt das saubere Dokument wie ein PDF vorliegen, null Interaktion im Menü nötig). Jedes Dropdown, das den analogen Boomer-Doc zwingt, \"Techie\" zu spielen, sorgt für das Löschen der App aus seiner Praxis.\n\n---\n\n**Fazit zu Prof. Weber:**\nJetzt ist er komplett \"lebensecht\". Die körperorierte Stille (Sz 4) und das allergische Scheitern am digitalen Tool (Sz 5) umrunden seine Methodik und Generationen-Gap präzise.\n\nNehmen wir die Body Map und das Tech-Skeptiker Setup noch auf?\n\nWenn du zustimmst, schließen wir hiermit (endlich!) auch Prof. Dr. Weber und es bleibt der letzte Star in unserem Ensemble: **S für Sophie (PERSONA-010 / Die Struktur-Sucherin)**! Bist du bereit für ADHS in Höchstform?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1297,
+        "parts": [
+          {
+            "text": "\n\n\nExzellent,"
+          },
+          {
+            "text": " Webers bürokratische und philosophische Kämpfe (Szenarien 1 bis 3) sind damit verb"
+          },
+          {
+            "text": "ucht.\n\nLass uns – genau wie von dir gefordert – in seine Persona (`PERSONA-011`)"
+          },
+          {
+            "text": " schauen, welche **Implicit Clusters** er noch abdeckt. Die Liste dort ist extrem aufschlussreich, weil sie Ther"
+          },
+          {
+            "text": "apiemethoden benennt, die völlig anders arbeiten als die Standard-VT (Verhaltenstherapie):\n\n1."
+          },
+          {
+            "text": "  **Die Somatiker (Körperorientierte Traumatherapie):** Behandler, die primär mit dem Nerv"
+          },
+          {
+            "text": "ensystem arbeiten (Somatic Experiencing, NARM). Hier gibt es keine kognitiven Gedankenketten, sondern den"
+          },
+          {
+            "text": " \"Filz\" aus Muskelspannung und Zittern.\n2.  **Die Systemischen / Narrativen:** Therapeuten,"
+          },
+          {
+            "text": " die das ganze Familiengeflecht (\"Mobile\") und Geschichten betrachten, nicht nur die Einzel-Emotion.\n3.  **Die"
+          },
+          {
+            "text": " absoluten Tech-Skeptiker:** Ärzte und Therapeuten älterer Semester (oder Ausrichtung), die Technik nicht"
+          },
+          {
+            "text": " nur ideologisch ablehnen, sondern schlicht *nicht damit umgehen wollen oder können*. \n\nUm auch diese Cluster abzudecken ("
+          },
+          {
+            "text": "und unsere UX/UI-Designentscheidungen später vor dummen \"SaaS-Tech-Fehlern\" zu bew"
+          },
+          {
+            "text": "ahren), schlage ich diese beiden abschließenden \"Out-of-the-Box\"-Szenarien für die"
+          },
+          {
+            "text": " Weber-Persona-Gruppe vor:\n\n### D. Out-of-the-Box: Das \"Somatische\" Cluster (Körperarbeit)"
+          },
+          {
+            "text": "\n\n*   **Szenario 4: The Wordless Weight (The Body Map Problem)**\n    *   **Kategorie"
+          },
+          {
+            "text": ":** `modification.collaborative` & `capture.spontaneous` (Methodik-Grenze)\n    *"
+          },
+          {
+            "text": "   **Worum es geht:** Weber behandelt Traumapatienten. Bei komplexen Traumata (wo das Sprachzentrum im Gehirn im"
+          },
+          {
+            "text": " Alarmzustand oft blockiert ist), verlangt Weber von seinen Patienten gar keine elaborierten Traumnotizen. St"
+          },
+          {
+            "text": "attdessen gibt er ihnen ein Blatt Papier, auf dem lediglich die **rohe Skizze eines menschlichen Körpers (Body"
+          },
+          {
+            "text": " Map)** gedruckt ist. \n    *   **Das Status-Quo-Problem:** Ein Patient kann"
+          },
+          {
+            "text": " das beklemmende Gefühl in seiner Brust abends nicht in Worte fassen (\"Wie soll man schreiben, dass sich"
+          },
+          {
+            "text": " der Magen umdreht?\"). Also nimmt der Patient Wachsmalstifte oder einen dicken roten Kuli und malt die"
+          },
+          {
+            "text": " Brust und den Bauch auf dem Papier gewaltsam aus. Am nächsten Tag in der Stunde sieht Prof. Weber sofort"
+          },
+          {
+            "text": " an der Kratzigkeit und Farbe des Gemalten: *Der Schmerz sitzt tief und massiv in der Lunge.* Eine rein textbasierte ("
+          },
+          {
+            "text": "Tastatur-)App scheitert hier komplett – sie erzwingt \"Semantik\" (Schreiben/Reden), wo das Ge"
+          },
+          {
+            "text": "hirn des Patienten gerade gar keinen Zugriff auf Sprache hat.\n    *   **Warum wir es brauchen:** Es setzt"
+          },
+          {
+            "text": " eine grandiose Wegmarke für unsere künftige Feature-Entwicklung (V2/V3): **Multimodale Inputs.** Neben Tastatur"
+          },
+          {
+            "text": " und Mikrofon brauchen tiefe Therapiemethoden in Zukunft ggf. visuelle/haptische Markierungen (eine simple Körperskiz"
+          },
+          {
+            "text": "ze auf dem Touchscreen einfärben), weil das die letzte Sprache der Patienten in der absoluten Krise ist."
+          },
+          {
+            "text": " \n\n### E. Out-of-the-Box: Das Tech-Skeptiker-Cluster \n\n*   **Szenario"
+          },
+          {
+            "text": " 5: The Login Rupture (When Tech destroys the Room)**\n    *   **Kategorie:** `analysis.review_collaboratively` ("
+          },
+          {
+            "text": "Umgebung / Setup)\n    *   **Worum es geht:** Ein Patient von Prof. Weber weigert sich aus Convenience"
+          },
+          {
+            "text": "-Gründen Papier zu nutzen, er will Weber in der Praxis ein \"Health Log\" oder Dokumente auf dem eigenen"
+          },
+          {
+            "text": " Tablet/Laptop der Praxis zeigen.\n    *   **Das Status-Quo-Problem:** Der Professor setzt z"
+          },
+          {
+            "text": "ögerlich seine Lesebrille auf. Die Bluetooth-Kopplung geht nicht. Der Screen-Lock schlägt"
+          },
+          {
+            "text": " zu. Weber wischt aus Versehen zurück in ein Menü, kennt die Navigation nicht (\"Wo war das gerade nochmal?\") und der"
+          },
+          {
+            "text": " Patient muss über den Couchtisch hinweg in die Bedienung eingreifen. Die Stille, Konzentration und therapeutische Spannung – das eigent"
+          },
+          {
+            "text": "liche Heiligtum seiner Arbeit – platzt durch den Tech-Krampf wie eine Seifenblase. Der"
+          },
+          {
+            "text": " Raum verkommt zur \"IT-Support-Hotline\". Prof. Weber verbietet danach entnervt alle digitalen Screens"
+          },
+          {
+            "text": " im Raum.\n    *   **Warum wir es brauchen:** Das wichtigste Plädoyer für unsere Transfer-Architektur! Das Aust"
+          },
+          {
+            "text": "auschen und Betrachten von Daten für den Behandler MUSS komplett berührungsfrei, Zero-Setup, absolut haptisch und nar"
+          },
+          {
+            "text": "rensicher ablaufen. Der QR-Code-Ansatz unserer Architektur liefert genau das (\"Zeig mir dein Handy\""
+          },
+          {
+            "text": " -> Behandler-iPad hat mit einem Click exakt das saubere Dokument wie ein PDF vorliegen, null Inter"
+          },
+          {
+            "text": "aktion im Menü nötig). Jedes Dropdown, das den analogen Boomer-Doc zwingt, \""
+          },
+          {
+            "text": "Techie\" zu spielen, sorgt für das Löschen der App aus seiner Praxis.\n\n---\n\n**Fazit zu Prof. Weber:**"
+          },
+          {
+            "text": "\nJetzt ist er komplett \"lebensecht\". Die körperorierte Stille (Sz 4) und das allerg"
+          },
+          {
+            "text": "ische Scheitern am digitalen Tool (Sz 5) umrunden seine Methodik und Generationen-Gap präz"
+          },
+          {
+            "text": "ise.\n\nNehmen wir die Body Map und das Tech-Skeptiker Setup noch auf?\n\nWenn du zustimmst,"
+          },
+          {
+            "text": " schließen wir hiermit (endlich!) auch Prof. Dr. Weber und es bleibt der letzte Star in unserem Ensemble: **S"
+          },
+          {
+            "text": " für Sophie (PERSONA-010 / Die Struktur-Sucherin)**! Bist du bereit für ADHS in"
+          },
+          {
+            "text": " Höchstform?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

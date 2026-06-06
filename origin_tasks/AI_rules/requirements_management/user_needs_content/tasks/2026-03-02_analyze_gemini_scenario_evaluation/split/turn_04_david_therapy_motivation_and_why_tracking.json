@@ -1,0 +1,193 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Was passiert, wenn er in Therapie geht? \nBei sz 3 sollte dann enthalten sein was er eigentlich tracken will bzw warum er überhsupt etwas protokolliert. ",
+        "role": "user",
+        "tokenCount": 38,
+        "createTime": "2026-02-22T08:22:41.002Z"
+      },
+      {
+        "text": "**Considering User Feedback**\n\nI'm currently analyzing the user's recent feedback, specifically the German questions. I'm focusing on \"Was passiert, wenn er in Therapie geht?\" to understand the implications of therapy in this context, and then the need for clarity in scenario three regarding the tracking purpose. My goal is to extract the core needs and motivations behind the questions.\n\n\n**Clarifying Data Transfer**\n\nI'm now focusing on how David's data might be transferred if he enters therapy. I see David as a `self_user` transitioning to a `client` persona. The scenario requires a specific bridge - Lisa, the \"Waitlist Bridger\" will be useful to cover the transition between managing data independently to sharing the collected data with a therapist. A potential use case is moving the self-tracked data to a psychiatrist for medication adjustment. I'll focus on how data sharing is handled.\n\n\n**Focusing on David's Needs**\n\nI'm now prioritizing David's needs in the scenarios, especially his transition to treatment. I'm building a use case where David shares his fragmented tracking history with Dr. Turan for medication management. I'm explicitly addressing the \"why\" behind the template hunt in scenario 3: David's chaotic life, missed deadlines, and desire for control. I'm integrating his functional needs, like tracking meds and focus, with his emotional needs, like regaining control.\n\n\n**Defining David's Next Steps**\n\nI'm solidifying the missing transition: David entering a therapist's world. I'm adding \"The First Psychiatric Consult (Data Dump)\" scenario to the \"management.share_externally\" category, which seems to capture the essence of how David shares his existing data. Scenario 3 will now explicitly include his trigger (missed deadline) and his goal (tracking meds/focus). This is clarifying David's situation. I want to be certain this closes the loop on David's perspective, so that Dr. med. Turan can be introduced.\n\n\n**Highlighting Data Fragmentation**\n\nI'm now detailing a scenario where David shows Dr. Turan his disorganized data across apps and notes, highlighting the friction in sharing fragmented self-tracked information. I'm adding a clear trigger for Scenario 3: a missed deadline that makes him feel out of control, motivating him to seek structured tracking for medication, sleep, and focus. This adds clarity and specificity. I'm also reviewing this scenario against existing constraints and potential overlaps.\n\n\n",
+        "role": "model",
+        "tokenCount": 1165,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Considering User Feedback**\n\nI'm currently analyzing the user's recent feedback, specifically the German questions. I'm focusing on \"Was passiert, wenn er in Therapie geht?\" to understand the implications of therapy in this context, and then the need for clarity in scenario three regarding the tracking purpose. My goal is to extract the core needs and motivations behind the questions.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Clarifying Data Transfer**\n\nI'm now focusing on how David's data might be transferred if he enters therapy. I see David as a `self_user` transitioning to a `client` persona. The scenario requires a specific bridge - Lisa, the \"Waitlist Bridger\" will be useful to cover the transition between managing data independently to sharing the collected data with a therapist. A potential use case is moving the self-tracked data to a psychiatrist for medication adjustment. I'll focus on how data sharing is handled.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Focusing on David's Needs**\n\nI'm now prioritizing David's needs in the scenarios, especially his transition to treatment. I'm building a use case where David shares his fragmented tracking history with Dr. Turan for medication management. I'm explicitly addressing the \"why\" behind the template hunt in scenario 3: David's chaotic life, missed deadlines, and desire for control. I'm integrating his functional needs, like tracking meds and focus, with his emotional needs, like regaining control.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Defining David's Next Steps**\n\nI'm solidifying the missing transition: David entering a therapist's world. I'm adding \"The First Psychiatric Consult (Data Dump)\" scenario to the \"management.share_externally\" category, which seems to capture the essence of how David shares his existing data. Scenario 3 will now explicitly include his trigger (missed deadline) and his goal (tracking meds/focus). This is clarifying David's situation. I want to be certain this closes the loop on David's perspective, so that Dr. med. Turan can be introduced.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Highlighting Data Fragmentation**\n\nI'm now detailing a scenario where David shows Dr. Turan his disorganized data across apps and notes, highlighting the friction in sharing fragmented self-tracked information. I'm adding a clear trigger for Scenario 3: a missed deadline that makes him feel out of control, motivating him to seek structured tracking for medication, sleep, and focus. This adds clarity and specificity. I'm also reviewing this scenario against existing constraints and potential overlaps.\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-22T08:22:41.003Z"
+      },
+      {
+        "text": "Das sind zwei exzellente Punkte, die den Kern der Persona berühren! \n\n### Zu deiner 2. Anmerkung: Das \"Warum\" und \"Was\" in Szenario 3\nDu hast völlig recht. Niemand sucht einfach \"zum Spaß\" nach Templates. Es gibt immer einen harten Auslöser im echten Leben. Ich passe das Szenario entsprechend an:\n\n*   **Szenario 3 (Update): The Endless Template Hunt (Failure)**\n    *   **Der Auslöser (Warum):** David hat heute eine wichtige Deadline verpasst *und* vergessen, seine ADHS-Medikamente zu nehmen. Er fühlt sich chaotisch und unfähig. Er sucht nach einer Lösung, die sein Leben \"repariert\" – er braucht ein \"externes Gehirn\", um die Kontrolle zurückzugewinnen.\n    *   **Das Ziel (Was):** Er will konkret tracken: 1. *Medikamenteneinnahme* (Ja/Nein/Wann), 2. *Fokus-Blöcke* (Pomodoro-Tally für die Arbeit) und 3. *Schlaf*. \n    *   **Der Ablauf:** Mit diesem konkreten Ziel geht er in den App-Store. Weil er aber keine Vorlage findet, die *genau* diese drei Dinge simpel kombiniert, lädt er komplexe Tools herunter und verliert sich im Setup, statt sein eigentliches Problem zu lösen.\n\n---\n\n### Zu deiner 1. Frage: Was passiert, wenn David in Therapie geht?\n\nDas ist ein genialer \"Out-of-the-Box\"-Gedanke. Sobald David regelmäßig in Therapie ist und strukturierte Hausaufgaben bekommt, wird er funktional zu **Sophie (PERSONA-010)** – unserer ADHS-Klientin. \n\n**ABER:** Der Übergang dorthin! Der Moment, in dem ein Self-User zum ersten Mal professionelle Hilfe sucht und seine bisherigen (chaotischen) Daten mitbringen will. Das ist eine riesige Lücke im System!\n\nHier ist das Szenario, das diese Lücke schließt:\n\n*   **Szenario 9: The Data Dump at the First Consult**\n    *   **Kategorie:** `management.share_externally` (Daten mit Dritten teilen)\n    *   **Worum es geht:** David hat nach Monaten endlich einen Termin bei einem Psychiater (z.B. Typ Dr. Turan), um seine Medikation einstellen zu lassen. Der Arzt fragt: \"Wie hat das Medikament im letzten Monat gewirkt?\" David will es beweisen. Er holt sein Handy raus und versucht, dem Arzt seine Notizen-App, einen halbausgefüllten Habit-Tracker und seinen Google-Kalender zu zeigen, um das Muster zu erklären. \n    *   **Das Problem:** Der Arzt hat nur 10 Minuten Zeit und kann sich nicht in Davids wildes 3-App-System einarbeiten.\n    *   **Warum wir es brauchen:** Es definiert die absolute Notwendigkeit für einen standardisierten, sauberen **Export (z.B. als PDF)** für Self-User, die ihre Daten in das medizinische System (Ärzte, Therapeuten, Kliniken) überführen müssen. (Dies überschneidet sich stark mit einer Notwendigkeit von Lisa/Warteliste, was gut ist – es bestätigt das Pattern!).\n\n---\n\n**Fazit David:**\nMit dem aktualisierten **Szenario 3** (klarer Trigger & Inhalt) und dem neuen **Szenario 9** (Übergang ins medizinische System) ist Davids Lebensrealität als ADHS-Self-User nun lückenlos abgedeckt. \n\nBist du einverstanden, dass wir David damit abschließen und systematisch zur nächsten Persona im Alphabet weitergehen (**Dr. med. Turan**)?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 834,
+        "parts": [
+          {
+            "text": "Das sind zwei exzellente Punkte, die den Kern der Persona berühren! \n\n### Zu deiner "
+          },
+          {
+            "text": "2. Anmerkung: Das \"Warum\" und \"Was\" in Szenario 3\nDu hast völlig recht. Niem"
+          },
+          {
+            "text": "and sucht einfach \"zum Spaß\" nach Templates. Es gibt immer einen harten Auslöser im echten Leben. Ich passe"
+          },
+          {
+            "text": " das Szenario entsprechend an:\n\n*   **Szenario 3 (Update): The Endless Template Hunt (Failure)**\n    *   **Der"
+          },
+          {
+            "text": " Auslöser (Warum):** David hat heute eine wichtige Deadline verpasst *und* vergessen, seine ADHS-Med"
+          },
+          {
+            "text": "ikamente zu nehmen. Er fühlt sich chaotisch und unfähig. Er sucht nach einer Lösung, die sein Leben \""
+          },
+          {
+            "text": "repariert\" – er braucht ein \"externes Gehirn\", um die Kontrolle zurückzugewinnen.\n    *   "
+          },
+          {
+            "text": "**Das Ziel (Was):** Er will konkret tracken: 1. *Medikamenteneinnahme* (Ja"
+          },
+          {
+            "text": "/Nein/Wann), 2. *Fokus-Blöcke* (Pomodoro-Tally für die"
+          },
+          {
+            "text": " Arbeit) und 3. *Schlaf*. \n    *   **Der Ablauf:** Mit diesem konkreten Ziel geht"
+          },
+          {
+            "text": " er in den App-Store. Weil er aber keine Vorlage findet, die *genau* diese drei Dinge simpel"
+          },
+          {
+            "text": " kombiniert, lädt er komplexe Tools herunter und verliert sich im Setup, statt sein eigentliches Problem zu lösen.\n\n---"
+          },
+          {
+            "text": "\n\n### Zu deiner 1. Frage: Was passiert, wenn David in Therapie geht?\n\nDas ist ein genialer \""
+          },
+          {
+            "text": "Out-of-the-Box\"-Gedanke. Sobald David regelmäßig in Therapie ist und strukturierte Hausaufgaben bekommt, wird er funktional zu"
+          },
+          {
+            "text": " **Sophie (PERSONA-010)** – unserer ADHS-Klientin. \n\n**ABER:** Der Übergang d"
+          },
+          {
+            "text": "orthin! Der Moment, in dem ein Self-User zum ersten Mal professionelle Hilfe sucht und seine bisherigen (cha"
+          },
+          {
+            "text": "otischen) Daten mitbringen will. Das ist eine riesige Lücke im System!\n\nHier ist das Szenario,"
+          },
+          {
+            "text": " das diese Lücke schließt:\n\n*   **Szenario 9: The Data Dump at the First Consult"
+          },
+          {
+            "text": "**\n    *   **Kategorie:** `management.share_externally` (Daten mit Dritten teilen)\n    *   "
+          },
+          {
+            "text": "**Worum es geht:** David hat nach Monaten endlich einen Termin bei einem Psychiater (z.B. Typ"
+          },
+          {
+            "text": " Dr. Turan), um seine Medikation einstellen zu lassen. Der Arzt fragt: \"Wie hat das Medikament im letzten Monat gewirkt"
+          },
+          {
+            "text": "?\" David will es beweisen. Er holt sein Handy raus und versucht, dem Arzt seine Notizen-App,"
+          },
+          {
+            "text": " einen halbausgefüllten Habit-Tracker und seinen Google-Kalender zu zeigen, um das Muster zu erklären"
+          },
+          {
+            "text": ". \n    *   **Das Problem:** Der Arzt hat nur 10 Minuten Zeit und kann sich nicht in"
+          },
+          {
+            "text": " Davids wildes 3-App-System einarbeiten.\n    *   **Warum wir es brauchen:** Es"
+          },
+          {
+            "text": " definiert die absolute Notwendigkeit für einen standardisierten, sauberen **Export (z.B. als PDF)**"
+          },
+          {
+            "text": " für Self-User, die ihre Daten in das medizinische System (Ärzte, Therapeuten, Kliniken) überführen müssen. ("
+          },
+          {
+            "text": "Dies überschneidet sich stark mit einer Notwendigkeit von Lisa/Warteliste, was gut ist – es"
+          },
+          {
+            "text": " bestätigt das Pattern!).\n\n---\n\n**Fazit David:**\nMit dem aktualisierten **Szenario 3**"
+          },
+          {
+            "text": " (klarer Trigger & Inhalt) und dem neuen **Szenario 9** (Übergang ins medizinische System) ist Dav"
+          },
+          {
+            "text": "ids Lebensrealität als ADHS-Self-User nun lückenlos abgedeckt. \n\nBist du ein"
+          },
+          {
+            "text": "verstanden, dass wir David damit abschließen und systematisch zur nächsten Persona im Alphabet weitergehen (**Dr. med. Turan**"
+          },
+          {
+            "text": ")?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

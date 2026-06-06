@@ -1,0 +1,256 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Wird erst nach therapieende in Praxissoftware persistiert? Grundsätzlich: was gibt es in Bezug auf Praxissoftware noch? Und in Bezug auf pias? ",
+        "role": "user",
+        "tokenCount": 36,
+        "createTime": "2026-02-22T08:52:27.681Z"
+      },
+      {
+        "text": "**Considering Initial Data Entry**\n\nI am now focusing on understanding how data entry works within the system. My primary query concerns when data is persisted in the practice software, specifically if it's only after therapy concludes. I am also identifying general foundational aspects concerning practice software.\n\n\n**Expanding Software Understanding**\n\nI'm now delving into the broader landscape of practice software, specifically in the context of the German psychotherapy system. I've learned about the required session documentation (\"Verlaufsdokumentation\") and the pain points regarding transferring paper data to digital format, which must be stored for ten years. I'm also examining the role of therapists in training (PiAs) and their particular documentation needs for supervision purposes.\n\n\n**Analyzing Supervision Processes**\n\nI'm now examining how PiAs (therapists in training) interact with supervision and the limitations of their practice environment. They are dealing with transcribing protocols for case reports, seeking structured formats, and being constrained by shared computer resources and restricted software installations, which poses significant challenges.\n\\n\\n\nI'm now focused on understanding the actual data persistence. I can clarify that the PiAs document after every session, but not necessarily by entering the entire paper protocol into the software. Instead, a brief summary of each session is added to the software, while the detailed paper document goes into the patient's physical file.\n\n\n**Defining Archive Workflow**\n\nI'm now investigating the archiving issue, particularly the process of digitizing and storing paper documents post-therapy or when the physical cabinet is full. This is Scenario 4: Archive. The focus is on the \"Copy-Paste Gap\" for summarizing data from our app into the practice software (PVS) for therapists. A simple text export or \"Copy to clipboard\" function is key. Additionally, generated PDFs must be easily imported as attachments into the clunky PVS systems. High-pressure environments, intense supervision, and examinations are common for psychotherapists in training (PiAs).\n\n\n**Refining Use-Case Scenarios**\n\nI'm now zeroing in on specific scenarios for therapists in training (PiAs). Their pain points are becoming clearer: creating charts from handwritten protocols, generating objective data for exams, and dealing with shared computer access. I'm refining the \"Friday Night Gutachten\" scenario to include the \"Verlaufsdokumentation\" and adding a dedicated PiA scenario to address these particular needs.\n\n\n",
+        "role": "model",
+        "tokenCount": 1203,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Considering Initial Data Entry**\n\nI am now focusing on understanding how data entry works within the system. My primary query concerns when data is persisted in the practice software, specifically if it's only after therapy concludes. I am also identifying general foundational aspects concerning practice software.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Expanding Software Understanding**\n\nI'm now delving into the broader landscape of practice software, specifically in the context of the German psychotherapy system. I've learned about the required session documentation (\"Verlaufsdokumentation\") and the pain points regarding transferring paper data to digital format, which must be stored for ten years. I'm also examining the role of therapists in training (PiAs) and their particular documentation needs for supervision purposes.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Analyzing Supervision Processes**\n\nI'm now examining how PiAs (therapists in training) interact with supervision and the limitations of their practice environment. They are dealing with transcribing protocols for case reports, seeking structured formats, and being constrained by shared computer resources and restricted software installations, which poses significant challenges.\n\\n\\n\nI'm now focused on understanding the actual data persistence. I can clarify that the PiAs document after every session, but not necessarily by entering the entire paper protocol into the software. Instead, a brief summary of each session is added to the software, while the detailed paper document goes into the patient's physical file.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Defining Archive Workflow**\n\nI'm now investigating the archiving issue, particularly the process of digitizing and storing paper documents post-therapy or when the physical cabinet is full. This is Scenario 4: Archive. The focus is on the \"Copy-Paste Gap\" for summarizing data from our app into the practice software (PVS) for therapists. A simple text export or \"Copy to clipboard\" function is key. Additionally, generated PDFs must be easily imported as attachments into the clunky PVS systems. High-pressure environments, intense supervision, and examinations are common for psychotherapists in training (PiAs).\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Refining Use-Case Scenarios**\n\nI'm now zeroing in on specific scenarios for therapists in training (PiAs). Their pain points are becoming clearer: creating charts from handwritten protocols, generating objective data for exams, and dealing with shared computer access. I'm refining the \"Friday Night Gutachten\" scenario to include the \"Verlaufsdokumentation\" and adding a dedicated PiA scenario to address these particular needs.\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-22T08:52:27.683Z"
+      },
+      {
+        "text": "Das sind zwei extrem gute und tiefe Praxisfragen! Du triffst damit genau den Schmerzpunkt der deutschen Versorgungsrealität. \n\nHier sind die exakten Antworten darauf, wie das wirklich abläuft, und welche Szenarien sich daraus zwingend ergeben:\n\n### 1. Wird erst nach Therapieende in Praxissoftware persistiert? (Und PVS generell)\n**Nein, es wird nach *jeder* Sitzung dokumentiert (Verlaufsdokumentation). ABER:**\nTherapeuten tippen nicht die konkreten Daten des Papier-Protokolls (die einzelnen 10 Werte aus der Woche) in die Software ab, weil das zu lange dauert. Sie schreiben in ihre Praxisverwaltungssoftware (PVS wie Elefant, Epikur, PsyPrax) meistens nur einen aggregierten Prosa-Satz: *\"Protokoll besprochen, Angstniveau über die Woche stabil bei Ø 5, Patient testete Expositionsübung.\"*\n\nDas eigentliche, vom Patienten ausgefüllte **physische Blatt Papier** verschwindet dann lochend im **Aktenordner / Hängeregister** (physischer Schrank).\n\nDas Problem beim **Therapieende** ist die Aufbewahrungspflicht. Spätestens dann (oder wenn der Schrank aus allen Nähten platzt) versuchen viele Praxen auf \"papierlos\" umzustellen und müssen diese riesigen Papierberge händisch einscannen, um die Akten in der PVS digital abzulegen.\n\n**Was es in Bezug auf Praxissoftware (PVS) noch gibt:**\nDeutsche PVS-Systeme sind absolute, geschlossene Silos (technisch oft im Jahr 2005 stehen geblieben). Schnittstellen (APIs) von Dritt-Apps dorthin sind fast unmöglich. \n\nDas zwingt uns zu einem extrem wichtigen **Alltags-Szenario** für Dr. Sarah:\n*   **Szenario 5 (PVS): The Copy-Paste Routine (Die Verlaufsdokumentation)**\n    *   **Kategorie:** `management.share_externally` oder neues Tag `workflow.documentation`\n    *   **Worum es geht:** Nach den 50 Minuten Sitzung mit Anna hat Dr. Sarah genau 10 Minuten Zeit für die Doku in ihrer Praxis-Software, bevor der nächste Patient klingelt. Früher starrte sie auf das Papier und überlegte sich einen klugen Satz. Mit unserer App sitzt sie vor ihrem PC (wo unsere App ebenfalls läuft) und **braucht einen simplen 1-Klick \"Text-Export\"** oder eine \"Klinische Zusammenfassung in die Zwischenablage kopieren\"-Funktion. Sie will einen rohen Text (*\"Protokoll: 5 von 7 Tagen erfasst. Angst Ø 6,2. Häufigster Skill: Atmung\"*), den sie mit STRG+V einfach in ihr verstaubtes Epikur-Programm klatschen kann. Das spart ihr jede Stunde 2 Minuten Arbeitszeit = pure Magie.\n\n---\n\n### 2. Was gibt es in Bezug auf PiAs (Psychotherapeuten in Ausbildung)?\nPiAs sind die unsichtbaren Helden (und Opfer) des Systems. Dr. Sarahs Persona deckt dieses \"Implicit Cluster\" mit ab, aber ihre Schmerzen sind viel schärfer.\n\nDie Arbeitsrealität einer PiA an einer Institutsambulanz:\n*   **Dauerdruck Supervision:** Nach jeder vierten Sitzung müssen sie dem Supervisor detailliert Rede und Antwort stehen. \"Was hat der Patient gemacht? Sind die Werte besser?\"\n*   **Der Prüfungsfall:** Um ihre Approbation zu erhalten, müssen sie absurde, 80-seitige Falldokumentationen schreiben. Sie **müssen** objektive Verläufe (\"Baseline zu Therapiebeginn vs. Ende\") mit echten Graphen in ihre Berichte einbauen.\n*   **Fremde Arbeitsplätze:** Sie sitzen oft in Ambulanzen (Shared Desks), an Rechnern, auf denen sie keine Admin-Rechte haben und dürfen oft keine Papiere liegen lassen.\n\nDaraus ergibt sich folgendes absolutes **Pain-Point-Szenario für die Ausbildung**:\n*   **Szenario 6 (PiA): The Excel-Nightmare (Supervision / Prüfungsfall Prep)**\n    *   **Kategorie:** `analysis.therapist_solo` \n    *   **Worum es geht:** Sarah (hier als junge PiA gelesen) hat morgen Supervision oder schreibt an ihrem Fallbericht. Ihr Patient hat in den letzten zwei Monaten zwar 6 Papier-Tagebücher abgegeben, aber auf Papier bringen die für die Uni nichts. Sarah sitzt weinend um 23 Uhr zuhause am Küchentisch und **tippt die handgeschriebenen 1-10 Ratings vom Papier der letzten 8 Wochen händisch ab und baut daraus in Excel Diagramme**, die sie in ihr Word-Dokument für die Prüfer kopieren kann. \n    *   **Warum wir es brauchen:** Für junge Therapeuten in Ausbildung ist ein PDF-Export, der *fertige* kleine Kurvendiagramme für Patienten ausspuckt, kein \"Nice to Have\", sondern das Tool, was sie am ehesten kaufen oder herunterladen würden, weil es sie vor der nächtlichen Excel-Hölle bewahrt.\n\n---\n\n### Anpassung unseres Dr. Sarah Plans\n\nDu hast das Set soeben extrem präzisiert. Wenn wir \"Die Bürokratie\" von Dr. Sarah abdecken wollen, haben wir genau drei bürokratische Stränge (neben ihrer Zeit mit der Klientin):\n\n1. **Freitagabend Gutachten (PTV3 für Krankenkasse):** Blättert durch Papiere, um Begründungen für Verlängerung zu finden.\n2. **Die Verlaufs-Doku nach der Stunde (PVS-Problem):** Das Copy-Paste-Dilemma mit Epikur/Elefant (Das 10-Minuten Fenster). *(Das hier angesprochene Sz 5)*\n3. **Der PiA Prüfungsfall / Supervision:** Braucht visuelle Charts und exakte Historie für den Prüfer / Uni und baut deshalb heimlich Excel-Listen von Papier. *(Das hier angesprochene Sz 6)*\n\nBist du mit der Integration von dem PVS-Copy-Paste und dem PiA-Excel-Albtraum einverstanden? Das macht die Relevanz der App für die therapeutische Behandlerseite unerschütterlich stark.",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1412,
+        "parts": [
+          {
+            "text": "Das sind zwei extrem gute und tiefe Praxisfragen! Du triffst damit genau den Schmerzpunkt der deutschen"
+          },
+          {
+            "text": " Versorgungsrealität. \n\nHier sind die exakten Antworten darauf, wie das wirklich abläuft, und welche"
+          },
+          {
+            "text": " Szenarien sich daraus zwingend ergeben:\n\n### 1. Wird erst nach Therapieende in Praxissoftware persistiert? (Und"
+          },
+          {
+            "text": " PVS generell)\n**Nein, es wird nach *jeder* Sitzung dokumentiert (Verlaufsdokumentation)."
+          },
+          {
+            "text": " ABER:**\nTherapeuten tippen nicht die konkreten Daten des Papier-Protokolls (die einzelnen 10 Werte"
+          },
+          {
+            "text": " aus der Woche) in die Software ab, weil das zu lange dauert. Sie schreiben in ihre Praxisverwaltungssoftware (PVS wie"
+          },
+          {
+            "text": " Elefant, Epikur, PsyPrax) meistens nur einen aggregierten Prosa-Satz: *\"Pro"
+          },
+          {
+            "text": "tokoll besprochen, Angstniveau über die Woche stabil bei Ø 5, Patient testete Expositionsübung.\"*\n\n"
+          },
+          {
+            "text": "Das eigentliche, vom Patienten ausgefüllte **physische Blatt Papier** verschwindet dann lochend im **Ak"
+          },
+          {
+            "text": "tenordner / Hängeregister** (physischer Schrank).\n\nDas Problem beim **Therapieende** ist die Auf"
+          },
+          {
+            "text": "bewahrungspflicht. Spätestens dann (oder wenn der Schrank aus allen Nähten platzt) versuchen viele"
+          },
+          {
+            "text": " Praxen auf \"papierlos\" umzustellen und müssen diese riesigen Papierberge händisch einscannen, um die Ak"
+          },
+          {
+            "text": "ten in der PVS digital abzulegen.\n\n**Was es in Bezug auf Praxissoftware (PVS) noch gibt:**\nDeutsche"
+          },
+          {
+            "text": " PVS-Systeme sind absolute, geschlossene Silos (technisch oft im Jahr 2005 stehen"
+          },
+          {
+            "text": " geblieben). Schnittstellen (APIs) von Dritt-Apps dorthin sind fast unmöglich. \n\nDas z"
+          },
+          {
+            "text": "wingt uns zu einem extrem wichtigen **Alltags-Szenario** für Dr. Sarah:\n*   **Szen"
+          },
+          {
+            "text": "ario 5 (PVS): The Copy-Paste Routine (Die Verlaufsdokumentation)**\n    *   **Kategorie:** `management"
+          },
+          {
+            "text": ".share_externally` oder neues Tag `workflow.documentation`\n    *   **Worum es geht:** Nach den"
+          },
+          {
+            "text": " 50 Minuten Sitzung mit Anna hat Dr. Sarah genau 10 Minuten Zeit für die Doku in ihrer"
+          },
+          {
+            "text": " Praxis-Software, bevor der nächste Patient klingelt. Früher starrte sie auf das Papier und überlegte sich"
+          },
+          {
+            "text": " einen klugen Satz. Mit unserer App sitzt sie vor ihrem PC (wo unsere App ebenfalls läuft) und **braucht einen simpl"
+          },
+          {
+            "text": "en 1-Klick \"Text-Export\"** oder eine \"Klinische Zusammenfassung in die Zwischenablage kop"
+          },
+          {
+            "text": "ieren\"-Funktion. Sie will einen rohen Text (*\"Protokoll: 5 von 7 Tagen er"
+          },
+          {
+            "text": "fasst. Angst Ø 6,2. Häufigster Skill: Atmung\"*), den sie mit STRG+V einfach in ihr ver"
+          },
+          {
+            "text": "staubtes Epikur-Programm klatschen kann. Das spart ihr jede Stunde 2 Minuten Arbeitszeit = pure"
+          },
+          {
+            "text": " Magie.\n\n---\n\n### 2. Was gibt es in Bezug auf PiAs (Psychotherapeuten in Ausbildung)?\nPiAs"
+          },
+          {
+            "text": " sind die unsichtbaren Helden (und Opfer) des Systems. Dr. Sarahs Persona deckt dieses \"Implicit Cluster\" mit ab"
+          },
+          {
+            "text": ", aber ihre Schmerzen sind viel schärfer.\n\nDie Arbeitsrealität einer PiA an einer Institutsambul"
+          },
+          {
+            "text": "anz:\n*   **Dauerdruck Supervision:** Nach jeder vierten Sitzung müssen sie dem Supervisor detailliert Rede und Antwort stehen. \""
+          },
+          {
+            "text": "Was hat der Patient gemacht? Sind die Werte besser?\"\n*   **Der Prüfungsfall:** Um ihre Approbation zu erhalten"
+          },
+          {
+            "text": ", müssen sie absurde, 80-seitige Falldokumentationen schreiben. Sie **müssen** objekt"
+          },
+          {
+            "text": "ive Verläufe (\"Baseline zu Therapiebeginn vs. Ende\") mit echten Graphen in ihre Berichte einbauen.\n*"
+          },
+          {
+            "text": "   **Fremde Arbeitsplätze:** Sie sitzen oft in Ambulanzen (Shared Desks), an Rechnern, auf"
+          },
+          {
+            "text": " denen sie keine Admin-Rechte haben und dürfen oft keine Papiere liegen lassen.\n\nDaraus ergibt sich folgendes absol"
+          },
+          {
+            "text": "utes **Pain-Point-Szenario für die Ausbildung**:\n*   **Szenario 6 (PiA): The Excel"
+          },
+          {
+            "text": "-Nightmare (Supervision / Prüfungsfall Prep)**\n    *   **Kategorie:** `analysis.therapist_"
+          },
+          {
+            "text": "solo` \n    *   **Worum es geht:** Sarah (hier als junge PiA gelesen) hat morgen"
+          },
+          {
+            "text": " Supervision oder schreibt an ihrem Fallbericht. Ihr Patient hat in den letzten zwei Monaten zwar 6 Papier-Tagebücher abgegeben,"
+          },
+          {
+            "text": " aber auf Papier bringen die für die Uni nichts. Sarah sitzt weinend um 23 Uhr zuhause am Kü"
+          },
+          {
+            "text": "chentisch und **tippt die handgeschriebenen 1-10 Ratings vom Papier der letzten 8 Wochen händisch ab"
+          },
+          {
+            "text": " und baut daraus in Excel Diagramme**, die sie in ihr Word-Dokument für die Prüfer kopieren kann. \n    *"
+          },
+          {
+            "text": "   **Warum wir es brauchen:** Für junge Therapeuten in Ausbildung ist ein PDF-Export, der *fert"
+          },
+          {
+            "text": "ige* kleine Kurvendiagramme für Patienten ausspuckt, kein \"Nice to Have\", sondern das Tool"
+          },
+          {
+            "text": ", was sie am ehesten kaufen oder herunterladen würden, weil es sie vor der nächtlichen Excel-H"
+          },
+          {
+            "text": "ölle bewahrt.\n\n---\n\n### Anpassung unseres Dr. Sarah Plans\n\nDu hast das Set soeben extrem prä"
+          },
+          {
+            "text": "zisiert. Wenn wir \"Die Bürokratie\" von Dr. Sarah abdecken wollen, haben wir genau drei bü"
+          },
+          {
+            "text": "rokratische Stränge (neben ihrer Zeit mit der Klientin):\n\n1. **Freitagabend Gutachten (PTV3 für"
+          },
+          {
+            "text": " Krankenkasse):** Blättert durch Papiere, um Begründungen für Verlängerung zu finden.\n2. **Die Verlau"
+          },
+          {
+            "text": "fs-Doku nach der Stunde (PVS-Problem):** Das Copy-Paste-Dilemma mit Ep"
+          },
+          {
+            "text": "ikur/Elefant (Das 10-Minuten Fenster). *(Das hier angesprochene Sz 5)*\n3"
+          },
+          {
+            "text": ". **Der PiA Prüfungsfall / Supervision:** Braucht visuelle Charts und exakte Historie für den"
+          },
+          {
+            "text": " Prüfer / Uni und baut deshalb heimlich Excel-Listen von Papier. *(Das hier angesprochene Sz 6)*\n\nB"
+          },
+          {
+            "text": "ist du mit der Integration von dem PVS-Copy-Paste und dem PiA-Excel-Albtraum einverstanden? Das macht"
+          },
+          {
+            "text": " die Relevanz der App für die therapeutische Behandlerseite unerschütterlich stark."
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

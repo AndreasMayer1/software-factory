@@ -1,0 +1,345 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Alles zu Elias: passt, das nehmen wir so. Kannst du nochmal schauen, ob Elias auch für andere Personengruppen steht die noch nicht gut abgedeckt sind? Falls ja gerne überlegen welche Szenarien noch Sinn machen.\nDa du jetzt schon mit Hanna weiter gemacht hast, direkt auch Feedback dazu:\n1. haben wir nicht schon ein ähnliches Szenario mit der Eingabe nachts? Sorry, ich weiß es gerade nicht. Wenn sich Hannah davon kaum unterscheidet, brauchen wir das Szenario für sie nicht. \n2. kommt mir auch sehr bekommt vor mit dem Review am nächsten morgen. Also gleiches Feedback wie bei Punkt 1.\n\n3. sehr stark kann man auch eine runde Geschichte schreiben mit: erkennen, dass es die Umwelteinflüsse gibt, vielleicht mit woher die das weiß (gut dass alkohol nicht gut ist sollte Allgemeinbildung sein, vielleicht nehmen wir noch ein etwas unbekannteren Umwelteinfluss auf). Dann Anpassung des frageplans, sodass sie diese Informationen auch angeben kann. Unsere app kann später gut unterstützen was Sinn macht zu tracken, vielleicht sogar Literaturempfehlungen (v3 der app). Das Szenario enthält das erkennen der Notwendigkeit, das anpassen des frageplans und die Auswertung mit den neuen daten (evtl führt das dann dazu nochmal den frageplan zu überarbeiten, es ist also ggf iterativ) - das ist jetzt app Jargon, aber geht sicher auch auf Papier oder mit anderen Apps. \n\nWen deckt Hanna noch ab? Was fehlt noch was für sie besonders ist? Hat Schlafmangel einen Einfluss auf den Tagesablauf oder die psychische Verfassung, was dann einen relevanten Einfluss hat und ein Szenario rechtfertigt? ",
+        "role": "user",
+        "tokenCount": 290,
+        "createTime": "2026-02-22T13:02:40.790Z"
+      },
+      {
+        "text": "**Considering User Intent**\n\nI'm currently focused on the user's intent concerning Elias and under-represented groups. I've noted the approval of prior points regarding Elias's situation and am working on formulating responses. The core question is whether Elias represents these other groups adequately and if we should expand scenarios to include more group representation.\n\n\n**Analyzing Hanna's Role**\n\nI'm now zeroing in on Hanna. It seems the user wants her scenarios to stand out, so I'm removing the generic nighttime entry concept, considering the user's helpful suggestions. The environmental correlation is a hit; I'm fleshing this out by mapping a narrative arc around it, and I'll adjust the questionnaire to gather better data. Beyond the narrative, I am focusing on what Hanna represents, and whether sleep deprivation can justify a stronger scenario. I am also currently reviewing Elias' persona.\n\n\n**Expanding Elias's Role**\n\nI'm now diving deeper into Elias's role, specifically concerning privacy-conscious users. I'm considering scenarios for users in controlling relationships or those with career-related stigma. I'm developing the \"Alibi Tracking\" scenario, focusing on discreet app use, and the \"Career Shield\" scenario, for those needing to hide mental health concerns.\n\n\n**Refining Privacy Scenarios**\n\nI'm now integrating new privacy scenarios. I'm focusing on \"Shared Family iPad\" and the \"Hiding in Plain Sight\" concept, linking to \"Data Collision\" and \"Panic Delete.\" I'm determining which approach best fits Elias's role, considering dual tracking or a \"Fake Out / Camouflage Mode\". I'm also ensuring the user gets a clear response on privacy constraints.\n\n\n**Streamlining Hanna's Narrative**\n\nI'm eliminating Hanna's Scene 1 and 2, acknowledging Max and Lena's coverage of nighttime and morning vulnerabilities. This avoids redundancy and streamlines the user experience. I'm focusing on an iterative scenario, where Hanna adjusts tracking based on new variables. I'm currently working on a 'rattling the protocol' narrative, exploring options like late-night screen time, carb-heavy meals, or medications to create variable tracking.\n\n\n**Developing Hanna's Protocol**\n\nI'm now iterating Hanna's protocol. The core is her tracking evening carb intake. She begins with a ratgeber, leading to recognizing how late meals can wake her at 3 AM. After a two-week manual analysis, Hanna now tracks \"evening carb intake\". This modification represents autonomous adaptation and is now the focus. I'm exploring who Hanna represents, implicitly including seniors, menopausal women, and shift workers. I'm noting the impacts of sleep loss - fatigue, lability, poor concentration - for a new scenario, \"The Daytime Domino Effect\".\n\n\n**Developing Hanna's Data**\n\nMy focus is now on the disconnect between Hanna's night and day data, especially considering her mood. I'm exploring a scenario where sleep tracking informs daily routine changes. I'm aiming to showcase how Hanna's sleep data leads her to modify her choices, using manual entry, not data itself. I'm also planning to represent an implicit cluster of similar users.\n\n\n\n",
+        "role": "model",
+        "tokenCount": 1700,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Considering User Intent**\n\nI'm currently focused on the user's intent concerning Elias and under-represented groups. I've noted the approval of prior points regarding Elias's situation and am working on formulating responses. The core question is whether Elias represents these other groups adequately and if we should expand scenarios to include more group representation.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Analyzing Hanna's Role**\n\nI'm now zeroing in on Hanna. It seems the user wants her scenarios to stand out, so I'm removing the generic nighttime entry concept, considering the user's helpful suggestions. The environmental correlation is a hit; I'm fleshing this out by mapping a narrative arc around it, and I'll adjust the questionnaire to gather better data. Beyond the narrative, I am focusing on what Hanna represents, and whether sleep deprivation can justify a stronger scenario. I am also currently reviewing Elias' persona.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Expanding Elias's Role**\n\nI'm now diving deeper into Elias's role, specifically concerning privacy-conscious users. I'm considering scenarios for users in controlling relationships or those with career-related stigma. I'm developing the \"Alibi Tracking\" scenario, focusing on discreet app use, and the \"Career Shield\" scenario, for those needing to hide mental health concerns.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Refining Privacy Scenarios**\n\nI'm now integrating new privacy scenarios. I'm focusing on \"Shared Family iPad\" and the \"Hiding in Plain Sight\" concept, linking to \"Data Collision\" and \"Panic Delete.\" I'm determining which approach best fits Elias's role, considering dual tracking or a \"Fake Out / Camouflage Mode\". I'm also ensuring the user gets a clear response on privacy constraints.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Streamlining Hanna's Narrative**\n\nI'm eliminating Hanna's Scene 1 and 2, acknowledging Max and Lena's coverage of nighttime and morning vulnerabilities. This avoids redundancy and streamlines the user experience. I'm focusing on an iterative scenario, where Hanna adjusts tracking based on new variables. I'm currently working on a 'rattling the protocol' narrative, exploring options like late-night screen time, carb-heavy meals, or medications to create variable tracking.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Developing Hanna's Protocol**\n\nI'm now iterating Hanna's protocol. The core is her tracking evening carb intake. She begins with a ratgeber, leading to recognizing how late meals can wake her at 3 AM. After a two-week manual analysis, Hanna now tracks \"evening carb intake\". This modification represents autonomous adaptation and is now the focus. I'm exploring who Hanna represents, implicitly including seniors, menopausal women, and shift workers. I'm noting the impacts of sleep loss - fatigue, lability, poor concentration - for a new scenario, \"The Daytime Domino Effect\".\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Developing Hanna's Data**\n\nMy focus is now on the disconnect between Hanna's night and day data, especially considering her mood. I'm exploring a scenario where sleep tracking informs daily routine changes. I'm aiming to showcase how Hanna's sleep data leads her to modify her choices, using manual entry, not data itself. I'm also planning to represent an implicit cluster of similar users.\n\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-23T07:39:39.855Z"
+      },
+      {
+        "text": "Das ist extrem aufmerksam von dir! Dein Gedächtnis trügt dich nicht: Du hast absolut recht, **Max (SCEN-002-01)** deckt das nächtliche Schreiben im Dunkeln inklusive Aufwecken der Partnerin und illegiblem Gekritzel bereits komplett als *Gold Standard* für `capture.spontaneous` ab. Und auch Lena und Max decken das unschöne \"Erwachen\" am nächsten Morgen mit den eigenen Einträgen schon gut ab.\n\nWir werfen Sz 1 und Sz 2 von Hanna daher sofort und ohne Reue über Bord. Wir brauchen keine Redundanz, sondern Lückenfüllung!\n\nLass uns deine Punkte systematisch durchgehen.\n\n---\n\n### 1. Elias & andere Personengruppen (Implicit Clusters)\nWen vertritt Elias noch, außer klassischen Sozialphobikern?\nIn seiner Persona-Definition (`PERSONA-009`) steht bei \"Cluster Representation\":\n*   **Menschen mit Angst um berufliche Nachteile (Beamtenanwärter, Lehramtsstudenten, Piloten):** Ein riesiges Problem in Deutschland (Gesundheitsprüfungen für *Verbeamtung* oder *Berufsunfähigkeitsversicherung*). Jegliche mentale Tracking-Spur auf dem Handy kann für sie eine existenzielle Bedrohung darstellen, falls Versicherungen/Gutachter anfordern.\n*   **\"Secret Users\" in kontrollierenden / missbräuchlichen Beziehungen:** User, deren Partner das Handy checken. Hier ist eine Tracking-App eine massive Gefahrenquelle. Das Handy zu entsperren ist eine riskante Aktion.\n\n**Machen wir daraus neue Szenarien?**\nWir müssen kein komplett neues Szenario für diese User schreiben, *weil die bereits für Elias vereinbarten neuen Szenarien genau diese Extrem-Fälle abdecken!* \nDas vorhin diskutierte **Panic Delete-Szenario mit dem \"Therapeuten als rettendes Backup\"** ist genau die Lösung für einen missbrauchten Teenager, dessen Eltern das Handy konfiszieren, oder eine Person in einer toxischen Beziehung. Der radikale, unwiderrufliche *Clean Exit* auf dem Gerät (mit Wiederherstellung in der sicheren Therapeuten-Praxis) bedient exakt diese vulnerablen Gruppen. \n=> **Fazit zu Elias:** Elias ist durch das Panic-Delete und den Tarnkappen/Sichthilfeschutz-Aspekt perfekt als Schutzschild für diese verdeckten Use-Cases kalibriert. Das nehmen wir exakt so für ihn auf.\n\n---\n\n### 2. Hannas Iterative Forschungs-Reise (Feedback 3 super umgesetzt)\n\nDas ist ein gigantisch gutes Status-Quo-Szenario! Es verknüpft Datenerfassung, Mustererkennung und eigenmächtige Anpassung (`modification.autonomous`) bei Self-Usern auf brillante Weise. Wir bauen eine kleine \"Hero's Journey\" für den Daten-Laien, der zum Selbsterkunder wird. Ein exzellenter Blueprint dafür, wie die App den User in V3 methodisch coachen könnte!\n\nHier ist der Wurf für das von dir vorgeschlagene iterativ-detektivische Szenario:\n\n*   **Szenario: The Detective Work (Autonomous Protocol Iteration)**\n    *   **Kategorie:** `modification.autonomous` & `analysis.self_reflect`\n    *   **Worum es geht (Phase 1 - Der Anstoß):** Hanna ist chronisch erschöpft, weil sie oft um 3 Uhr wachliegt (Gedankenkarussell). Sie trackt aktuell in ihrem Kalender nur *Wann bin ich wachgeworden?* und *Dauer*. Dann hört sie in einem Schlafmedizin-Podcast (z.B. von Huberman oder einer Ratgebersendung) von etwas weniger Bekanntem: Nicht nur Kaffee, sondern eine *Insulin-/Blutzuckerspitze vor dem Schlafengehen* (z.B. späte Kohlenhydrate oder abendlicher Zucker) kann dazu führen, dass der Blutzucker nachts extrem abfällt, was einen massiven Cortisol-/Adrenalinausstoß auslöst. Man wacht um 3 Uhr mit Herzrasen hellwach auf. \n    *   **Phase 2 - Anpassung Papier (Das Iterieren):** Hanna hat eine Offenbarung: \"War das der späte Teller Pasta oder die Schokolade gestern?\" Sie zieht am Abend mit dem Lineal eine neue Spalte in ihr Schlaftagebuch. Sie nennt sie: \"Zeit der letzten Mahlzeit & Süßigkeiten Ja/Nein\". \n    *   **Phase 3 - Das frustrierende Auswerten:** Zwei Wochen später sitzt sie am Küchentisch. Sie nutzt zwei Textmarker: Einen roten für Nächte mit 3-Uhr-Erwachen, einen gelben für Tage mit \"späten Mahlzeiten\". Sie kramt die Daten zusammen und scannt hin und her. Sie bemerkt tatsächlich eine starke Korrelation: Die roten und gelben Linien treten fast immer gemeinsam auf!\n    *   **Phase 4 - Feintuning des Plans:** Die simple Frage \"Späte Mahlzeit\" reicht ihr plötzlich nicht mehr. Sie streicht die alte Spalte wieder durch und zeichnet ein neues Layout. Diesmal erfasst sie detaillierter: *Art des Essens abends* und *Uhrzeit des Koffeins*. Sie baut ihren eigenen, medizinisch hochspezifischen Tracker Stück für Stück weiter um, aber der Prozess frisst Lineale, neues Papier und ist in der reinen Handschrift unglaublich umständlich und bei der händischen Auswertung extrem fehleranfällig.\n    *   **App-Implikation (Status Quo vs Zukunft):** Wir sehen hier genau, dass Self-User ihre \"Fragepläne\" kontinuierlich zerschneiden, umschreiben und updaten müssen, je mehr sie lernen. Aktuell heißt das: altes Buch wegschmeißen, neue Tabelle malen. Eine App muss es erlauben, dem Tracking-Plan im laufenden Prozess nahtlos Spalten (Fragen) hinzuzufügen.\n\nDas beschreibt die Natur eines wissbegierigen Self-Users besser als jedes abstrakte Dokument!\n\n---\n\n### 3. Was deckt Hanna sonst noch ab? Der Tageseinfluss!\n\nDas ist der perfekte blinde Fleck bei ihr. Schlaf und Wachheit existieren ja nicht isoliert.\n\n**Implizite Cluster, die sie noch vertritt:**\n1.  **Hormonelle/Somatische Auslöser:** Frauen in der Menopause (wachen wegen nächtlicher Hitzewallungen auf) oder Menschen mit chronischen Schmerzen. Das Aufwachen ist zuerst körperlich, und *dann* springt das Gedankenkarussell (Psyche) an.\n2.  **Fehldiagnostik am Tag:** Extrem wichtig. Die Folgen am nächsten Tag sind nicht \"schlechte Laune\", sondern kognitive Überforderung.\n\nDaraus ergibt sich dieses Status-Quo-Szenario über den kausalen Zusammenhang zwischen Tag und Nacht:\n\n*   **Szenario: The Domino Effect (Symptom Misattribution)**\n    *   **Kategorie:** `capture.routine` & `analysis.self_reflect`\n    *   **Worum es geht:** Hanna trackt ihren Tagesverlauf (wie sie sich fühlt) komplett getrennt von ihrem Schlaftagebuch, oder sie mischt es lieblos zusammen. An einem Dienstag schreibt sie: *\"Stimmung mies (2/10), fast im Meeting geweint, gestresst, nichts geschafft, fühlte mich fast schon depressiv.\"*\n    *   **Das Status-Quo-Problem:** Wenn sie Wochen später diesen Dienstag isoliert betrachtet, sieht das aus wie eine Vorstufe zum Burnout oder zur echten Depression (genau die Angst, die Lisa/Persona 005 plagt).\n    *   Was sie auf dem Papier extrem schlecht nachverfolgen kann: An jenem Dienstag war nicht ihre Arbeit zu viel oder ihre mentale Verfassung defekt, sondern ihr Schlaf von Montag auf Dienstag war massiv zerstört (3 Stunden Wachepisode).\n    *   Sie projiziert ihr Problem auf ihre Arbeits-Belastbarkeit, weil Stimmungs-Zettel und Schlaf-Zettel keine Verbindung haben.\n    *   **App-Value / Design Need:** Wir lernen, dass Schlaf als **Meta-Layer** die Grundauslastung einer Batterie ist. Ein Mood-Rating (\"Heute alles Mist\") ohne den verknüpften Schlaf der Vornacht auszuwerten, ist wie das Betrachten der Tank-Warnlampe im Auto, ohne zu wissen, dass vorher jemand ein Loch in den Tank gebohrt hat. Stimmungs-Protokolle bei Self-Usern lügen sie oft an, weil sie nicht an Basisvariablen wie Schlaf geknüpft sind.\n\n---\n\n**Damit hat Hanna ein grandios-kompaktes und enorm intelligentes Profil, das sich zu 100% von Max unterscheidet:**\n1. The Detective Work (Aus dem Status Quo iterativ schlaue Metriken bauen - Dein Feedback!)\n2. The Domino Effect (Tagesstimmung vs. Grundressource Schlaf falsch verknüpft - Fehldiagnostik im DIY-Modus).\n\nFindest du diese Integration von Hannas Use Cases gut? Falls ja, fehlt uns im ABC jetzt fast nur noch das unbetreute Leid im Warteraum des Kassensystems: **Lisa (The Waitlist Bridger) ... oder Jana, moment:**\n\nJ (Jana), L (Lena, schon in Session-Coverage teils vorhanden, aber wir prüfen das systematisch), L (Lisa).\n\nWelche als nächstes, Lisa oder Jana?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 2109,
+        "parts": [
+          {
+            "text": "Das ist extrem aufmerksam von dir! Dein Gedächtnis trügt dich nicht: Du hast absolut recht,"
+          },
+          {
+            "text": " **Max (SCEN-002-01)** deckt das nächtliche Schreiben im Dunkeln inklusive Auf"
+          },
+          {
+            "text": "wecken der Partnerin und illegiblem Gekritzel bereits komplett als *Gold Standard* für `capture.spontaneous"
+          },
+          {
+            "text": "` ab. Und auch Lena und Max decken das unschöne \"Erwachen\" am nächsten Morgen mit den eigenen Einträgen"
+          },
+          {
+            "text": " schon gut ab.\n\nWir werfen Sz 1 und Sz 2 von Hanna daher sofort und ohne Reue über Bord. Wir brauchen keine Red"
+          },
+          {
+            "text": "undanz, sondern Lückenfüllung!\n\nLass uns deine Punkte systematisch durchgehen.\n\n---\n\n### 1. Elias & andere"
+          },
+          {
+            "text": " Personengruppen (Implicit Clusters)\nWen vertritt Elias noch, außer klassischen Sozialphobikern?\nIn"
+          },
+          {
+            "text": " seiner Persona-Definition (`PERSONA-009`) steht bei \"Cluster Representation\":\n*   **Menschen mit Angst um"
+          },
+          {
+            "text": " berufliche Nachteile (Beamtenanwärter, Lehramtsstudenten, Piloten):** Ein ries"
+          },
+          {
+            "text": "iges Problem in Deutschland (Gesundheitsprüfungen für *Verbeamtung* oder *Berufsunfähigkeitsversicherung"
+          },
+          {
+            "text": "*). Jegliche mentale Tracking-Spur auf dem Handy kann für sie eine existenzielle Bedrohung darstellen, falls"
+          },
+          {
+            "text": " Versicherungen/Gutachter anfordern.\n*   **\"Secret Users\" in kontrollierenden / missbräuchlichen Beziehungen:** User"
+          },
+          {
+            "text": ", deren Partner das Handy checken. Hier ist eine Tracking-App eine massive Gefahrenquelle. Das Handy zu ents"
+          },
+          {
+            "text": "perren ist eine riskante Aktion.\n\n**Machen wir daraus neue Szenarien?**\nWir müssen kein komplett"
+          },
+          {
+            "text": " neues Szenario für diese User schreiben, *weil die bereits für Elias vereinbarten neuen Szenarien genau diese Extrem-Fälle abdecken!* "
+          },
+          {
+            "text": "\nDas vorhin diskutierte **Panic Delete-Szenario mit dem \"Therapeuten als rettendes Backup\"** ist genau die Lösung"
+          },
+          {
+            "text": " für einen missbrauchten Teenager, dessen Eltern das Handy konfiszieren, oder eine Person in einer toxischen Beziehung. Der"
+          },
+          {
+            "text": " radikale, unwiderrufliche *Clean Exit* auf dem Gerät (mit Wiederherstellung in der sicheren Therapeuten-"
+          },
+          {
+            "text": "Praxis) bedient exakt diese vulnerablen Gruppen. \n=> **Fazit zu Elias:** Elias ist durch das"
+          },
+          {
+            "text": " Panic-Delete und den Tarnkappen/Sichthilfeschutz-Aspekt perfekt als Schutzschild für diese"
+          },
+          {
+            "text": " verdeckten Use-Cases kalibriert. Das nehmen wir exakt so für ihn auf.\n\n---\n\n### 2."
+          },
+          {
+            "text": " Hannas Iterative Forschungs-Reise (Feedback 3 super umgesetzt)\n\nDas ist ein gigantisch gutes"
+          },
+          {
+            "text": " Status-Quo-Szenario! Es verknüpft Datenerfassung, Mustererkennung und eigen"
+          },
+          {
+            "text": "mächtige Anpassung (`modification.autonomous`) bei Self-Usern auf brillante Weise. Wir bauen eine kleine \"Hero"
+          },
+          {
+            "text": "'s Journey\" für den Daten-Laien, der zum Selbsterkunder wird. Ein exzellenter Blueprint"
+          },
+          {
+            "text": " dafür, wie die App den User in V3 methodisch coachen könnte!\n\nHier ist der Wurf für das von dir vorgeschlagene"
+          },
+          {
+            "text": " iterativ-detektivische Szenario:\n\n*   **Szenario: The Detective Work (Autonomous Protocol Iteration)**\n    *   "
+          },
+          {
+            "text": "**Kategorie:** `modification.autonomous` & `analysis.self_reflect`\n    *   **Worum es geht"
+          },
+          {
+            "text": " (Phase 1 - Der Anstoß):** Hanna ist chronisch erschöpft, weil sie oft um 3 Uhr wachliegt"
+          },
+          {
+            "text": " (Gedankenkarussell). Sie trackt aktuell in ihrem Kalender nur *Wann bin ich wachgew"
+          },
+          {
+            "text": "orden?* und *Dauer*. Dann hört sie in einem Schlafmedizin-Podcast (z.B. von Huberman oder"
+          },
+          {
+            "text": " einer Ratgebersendung) von etwas weniger Bekanntem: Nicht nur Kaffee, sondern eine *Insulin-/Blutzuck"
+          },
+          {
+            "text": "erspitze vor dem Schlafengehen* (z.B. späte Kohlenhydrate oder abendlicher Zucker) kann dazu führen,"
+          },
+          {
+            "text": " dass der Blutzucker nachts extrem abfällt, was einen massiven Cortisol-/Adrenalinausstoß auslöst. Man wacht"
+          },
+          {
+            "text": " um 3 Uhr mit Herzrasen hellwach auf. \n    *   **Phase 2 - Anpassung Papier"
+          },
+          {
+            "text": " (Das Iterieren):** Hanna hat eine Offenbarung: \"War das der späte Teller Pasta oder die Sch"
+          },
+          {
+            "text": "okolade gestern?\" Sie zieht am Abend mit dem Lineal eine neue Spalte in ihr Schlaftagebuch. Sie"
+          },
+          {
+            "text": " nennt sie: \"Zeit der letzten Mahlzeit & Süßigkeiten Ja/Nein\". \n    *   **Phase 3 - Das frust"
+          },
+          {
+            "text": "rierende Auswerten:** Zwei Wochen später sitzt sie am Küchentisch. Sie nutzt zwei Textmarker: Einen roten für N"
+          },
+          {
+            "text": "ächte mit 3-Uhr-Erwachen, einen gelben für Tage mit \"späten Mahlzeiten\"."
+          },
+          {
+            "text": " Sie kramt die Daten zusammen und scannt hin und her. Sie bemerkt tatsächlich eine starke Korrelation:"
+          },
+          {
+            "text": " Die roten und gelben Linien treten fast immer gemeinsam auf!\n    *   **Phase 4 - Feintuning"
+          },
+          {
+            "text": " des Plans:** Die simple Frage \"Späte Mahlzeit\" reicht ihr plötzlich nicht mehr. Sie streicht die alte Spalte wieder"
+          },
+          {
+            "text": " durch und zeichnet ein neues Layout. Diesmal erfasst sie detaillierter: *Art des Essens abends* und *Uhrzeit des"
+          },
+          {
+            "text": " Koffeins*. Sie baut ihren eigenen, medizinisch hochspezifischen Tracker Stück für Stück weiter um, aber der Prozess fris"
+          },
+          {
+            "text": "st Lineale, neues Papier und ist in der reinen Handschrift unglaublich umständlich und bei der händischen Auswertung extrem fehleran"
+          },
+          {
+            "text": "fällig.\n    *   **App-Implikation (Status Quo vs Zukunft):** Wir sehen hier genau, dass Self-User ihre"
+          },
+          {
+            "text": " \"Fragepläne\" kontinuierlich zerschneiden, umschreiben und updaten müssen, je mehr sie lernen."
+          },
+          {
+            "text": " Aktuell heißt das: altes Buch wegschmeißen, neue Tabelle malen. Eine App muss es erlauben"
+          },
+          {
+            "text": ", dem Tracking-Plan im laufenden Prozess nahtlos Spalten (Fragen) hinzuzufügen."
+          },
+          {
+            "text": "\n\nDas beschreibt die Natur eines wissbegierigen Self-Users besser als jedes abstrakte Dokument!\n\n---\n\n### "
+          },
+          {
+            "text": "3. Was deckt Hanna sonst noch ab? Der Tageseinfluss!\n\nDas ist der perfekte blinde Fleck bei ihr"
+          },
+          {
+            "text": ". Schlaf und Wachheit existieren ja nicht isoliert.\n\n**Implizite Cluster, die sie noch vertritt:**\n1"
+          },
+          {
+            "text": ".  **Hormonelle/Somatische Auslöser:** Frauen in der Menopause (wachen wegen nächtlicher"
+          },
+          {
+            "text": " Hitzewallungen auf) oder Menschen mit chronischen Schmerzen. Das Aufwachen ist zuerst körperlich, und"
+          },
+          {
+            "text": " *dann* springt das Gedankenkarussell (Psyche) an.\n2.  **Fehldiagnost"
+          },
+          {
+            "text": "ik am Tag:** Extrem wichtig. Die Folgen am nächsten Tag sind nicht \"schlechte Laune\", sondern kognitive Überforderung.\n\n"
+          },
+          {
+            "text": "Daraus ergibt sich dieses Status-Quo-Szenario über den kausalen Zusammenhang zwischen Tag und Nacht:"
+          },
+          {
+            "text": "\n\n*   **Szenario: The Domino Effect (Symptom Misattribution)**\n    *   **Kategorie:**"
+          },
+          {
+            "text": " `capture.routine` & `analysis.self_reflect`\n    *   **Worum es geht:** Hanna trackt ihren"
+          },
+          {
+            "text": " Tagesverlauf (wie sie sich fühlt) komplett getrennt von ihrem Schlaftagebuch, oder sie mis"
+          },
+          {
+            "text": "cht es lieblos zusammen. An einem Dienstag schreibt sie: *\"Stimmung mies (2/10), fast im"
+          },
+          {
+            "text": " Meeting geweint, gestresst, nichts geschafft, fühlte mich fast schon depressiv.\"*\n    *   "
+          },
+          {
+            "text": "**Das Status-Quo-Problem:** Wenn sie Wochen später diesen Dienstag isoliert betrachtet, sieht das aus wie eine"
+          },
+          {
+            "text": " Vorstufe zum Burnout oder zur echten Depression (genau die Angst, die Lisa/Persona 005 pl"
+          },
+          {
+            "text": "agt).\n    *   Was sie auf dem Papier extrem schlecht nachverfolgen kann: An jenem Dienstag war nicht"
+          },
+          {
+            "text": " ihre Arbeit zu viel oder ihre mentale Verfassung defekt, sondern ihr Schlaf von Montag auf Dienstag war massiv zerstört (3 Stunden W"
+          },
+          {
+            "text": "achepisode).\n    *   Sie projiziert ihr Problem auf ihre Arbeits-Belastbarkeit, weil Stimm"
+          },
+          {
+            "text": "ungs-Zettel und Schlaf-Zettel keine Verbindung haben.\n    *   **App-Value / Design Need"
+          },
+          {
+            "text": ":** Wir lernen, dass Schlaf als **Meta-Layer** die Grundauslastung einer Batterie ist. Ein Mood-Rating"
+          },
+          {
+            "text": " (\"Heute alles Mist\") ohne den verknüpften Schlaf der Vornacht auszuwerten, ist wie das Betrachten"
+          },
+          {
+            "text": " der Tank-Warnlampe im Auto, ohne zu wissen, dass vorher jemand ein Loch in den Tank gebohrt hat. St"
+          },
+          {
+            "text": "immungs-Protokolle bei Self-Usern lügen sie oft an, weil sie nicht an Basisvariablen wie"
+          },
+          {
+            "text": " Schlaf geknüpft sind.\n\n---\n\n**Damit hat Hanna ein grandios-kompaktes und enorm"
+          },
+          {
+            "text": " intelligentes Profil, das sich zu 100% von Max unterscheidet:**\n1. The Detective Work (Aus dem Status"
+          },
+          {
+            "text": " Quo iterativ schlaue Metriken bauen - Dein Feedback!)\n2. The Domino Effect (Tagesst"
+          },
+          {
+            "text": "immung vs. Grundressource Schlaf falsch verknüpft - Fehldiagnostik im DIY-Modus).\n\nFind"
+          },
+          {
+            "text": "est du diese Integration von Hannas Use Cases gut? Falls ja, fehlt uns im ABC jetzt fast nur noch das unbetre"
+          },
+          {
+            "text": "ute Leid im Warteraum des Kassensystems: **Lisa (The Waitlist Bridger) ... oder Jana,"
+          },
+          {
+            "text": " moment:**\n\nJ (Jana), L (Lena, schon in Session-Coverage teils vorhanden, aber wir prüfen das systemat"
+          },
+          {
+            "text": "isch), L (Lisa).\n\nWelche als nächstes, Lisa oder Jana?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

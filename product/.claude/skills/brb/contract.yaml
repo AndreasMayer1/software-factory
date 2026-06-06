@@ -1,0 +1,25 @@
+contract_version: 1
+skill: brb
+purpose: >
+  Cache-keepalive handler for idle sessions while the user is away.
+  Starts a periodic wakeup loop (4m45s) to prevent Anthropic prompt-cache
+  expiry; stops when the user returns.
+
+derived_from: {}
+
+produces: {}
+
+quality_criteria:
+  - Loop is started only when the LLM is idle (no pending work).
+  - Loop stops immediately when a user-return signal appears in conversation history.
+
+may_invoke: []
+# Note: invokes the built-in 'loop' skill (not a project skill — not listed here)
+
+side_effects: []
+
+preconditions:
+  - User has sent "brb" or "afk" and the LLM has finished its current work.
+
+postconditions:
+  - Cache keepalive is running (or user has already returned and no loop was started).

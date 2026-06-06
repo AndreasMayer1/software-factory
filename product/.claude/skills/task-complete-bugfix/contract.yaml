@@ -1,0 +1,48 @@
+contract_version: 1
+skill: task-complete-bugfix
+purpose: >
+  Clean up debug artifacts from a bugfix worktree (DIAG-* debugPrint and
+  TEMPORARY: blocks), verify quality, complete the task, merge the bugfix
+  branch into develop, and remove the worktree.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Provides worktree_path and task_id for cleanup scope and git operations.
+
+produces: {}
+
+quality_criteria:
+  - Only files that the bugfix branch itself touched are scanned (via git diff against merge-base).
+  - DIAG-* debugPrint statements and TEMPORARY: blocks are removed; real catch-block logging is kept.
+  - Removals presented to user and confirmed before applying.
+  - dart fix --apply and dart analyze run after removals.
+  - Merge blocked if main working tree has uncommitted changes — auto-stash is never used.
+  - git add and git commit run as separate commands inside the worktree.
+
+user_input_gates:
+  - phase: "Step 4 — Present findings and ask for removal approval"
+    description: "Developer approves the list of DIAG-* prints and TEMPORARY: blocks to be removed before the cleanup is applied."
+    decision_kind: approval
+    required: always
+
+may_invoke:
+  - task-complete
+
+side_effects:
+  - target: <worktree_path>/lib/
+    action: write
+    note: Debug code removed from changed files.
+  - target: git history (develop branch)
+    action: write
+    note: Bugfix branch merged into develop with --no-ff after task-complete commits.
+
+preconditions:
+  - A bugfix worktree exists with a task_id goal.md referencing its path.
+  - The main working tree has no uncommitted changes (required for merge).
+
+postconditions:
+  - All DIAG-* and TEMPORARY: artifacts removed from the worktree.
+  - Bugfix branch merged into develop and worktree removed.

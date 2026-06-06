@@ -1,0 +1,434 @@
+# Schema: goal_metadata.yaml
+#
+# Canonical source of truth for the YAML frontmatter of every goal.md produced by
+# task-create — the most widely consumed shared artifact in the factory (every skill
+# that executes work reads goal.md before starting).
+#
+# Produced by: task-create (also task-derive-from-requ, release-begin-impl in plan-driven mode)
+# Consumed by: code-simple, code-complex, code-test, code-bugfix, task-complete,
+#              task-derive-from-requ, verify-quality, task-start, claude-route, release-begin-impl,
+#              next_tasks.py, generate_status_overview.py, coverage_report.py,
+#              check_skill_contracts.py
+#
+# REPLACES (deleted in the same commit that introduced this schema — REQ-PROC-044 D-5):
+#   requirements_tasks/README.md section "Meta Information System > Quick Reference"
+#   the "Task frontmatter (in goal.md)" YAML code block — replaced with a pointer here.
+#
+# AUTHORITATIVE SEMANTICS (rules, lifecycle, priority codes) remain in
+#   requirements_tasks/process/AI_rules/requirements_management/requirements_and_tasks/requirements.md
+# This schema owns the field SHAPE; that requirement owns the field POLICY. They are
+# different layers (shape vs. rule) and intentionally coexist.
+#
+# Dialect: flat YAML with required:/optional: blocks (REQ-PROC-044 D-2). NOT full JSON Schema.
+
+schema_version: 1
+artifact: goal.md (YAML frontmatter)
+description: >
+  Frontmatter block at the top of every goal.md. Carries task identity, lifecycle
+  state, priority, coverage mapping, and optional operational metadata.
+
+required:
+  task_id:
+    type: string
+    pattern: "TASK-[A-Z]+-[0-9]+-[0-9]+(-[0-9]+)?"
+    example: TASK-FUNC-007-03
+    description: Globally unique task ID allocated by allocate_task_id.py. Never manual.
+
+  type:
+    type: string
+    enum: [explore, impl, verify, bugfix, optimize]
+    description: >
+      Determines which workflow skill runs and whether verify-quality applies.
+      'impl' is the broadest — covers code, docs, and design artifacts.
+      'verify' is created by task-derive-from-requ to audit ACs after impl tasks complete.
+      'optimize' is the autonomous claude-optimize cycle task (REQ-PROC-006): minted by
+      scripts/optimize/run_monitors.py with awaiting:[], routed via task-start → claude-route to the
+      claude-optimize producer skill. Runs unattended; only the improvement task it
+      produces carries awaiting:["user-unblock"] (G-INV-1).
+      (define/review/analyze were aliases for explore; folded in — use explore instead.)
+
+  parent_requirement:
+    type: string
+    pattern: "REQ-[A-Z]+-[0-9]+(-[0-9]+)?"
+    example: REQ-FUNC-007
+    description: ID of the requirements.md that grounds this task. Must resolve to a file.
+
+  status:
+    type: string
+    enum: [pending, in_progress, completed, blocked, cancelled, deprecated]
+    description: >
+      Lifecycle state. Managed by task-complete ('completed') and the orchestrator.
+      next_tasks.py reads this to filter the work queue.
+      'blocked' is only valid when awaiting[] is non-empty (external blocker); use 'pending' for tasks blocked only by after[] dependencies.
+      'cancelled' / 'deprecated' retain the folder for historical record; add a companion date field (cancelled: YYYY-MM-DD).
+
+  created:
+    type: string
+    format: date  # YYYY-MM-DD
+    description: Task creation date. Set once by task-create; never updated.
+
+optional:
+  started:
+    type: string
+    format: date
+    description: Date work began. Set by task-start when status flips to in_progress.
+
+  effort:
+    type: string
+    enum: [XS, S, M, L, XL]
+    description: >
+      Estimated effort. Used by doc-lookup-dependencies budget calculation (REQ-PROC-053 §8).
+
+  urgency:
+    type: integer
+    minimum: 0
+    maximum: 5
+    description: 0 = none; 5 = blocking critical path. Inherited from parent unless different.
+
+  urgency_reason:
+    type: string
+    pattern: "U[0-5]-[A-Z_]+"
+    example: U4-BLOCKING
+
+  impact:
+    type: integer
+    minimum: 0
+    maximum: 5
+    description: 0 = none; 5 = enables major value. Inherited from parent.
+
+  impact_reason:
+    type: string
+    pattern: "I[0-5]-[A-Z_]+"
+    example: I5-ENAB
+
+  after:
+    type: array
+    items: { type: string, pattern: "TASK-[A-Z]+-[0-9]+-[0-9]+(-[0-9]+)?" }
+    description: >
+      Task IDs this task must wait for. MUST contain only TASK-IDs — external blockers
+      go in awaiting[].
+
+  awaiting:
+    type: array
+    items: { type: string }
+    description: External blockers ONLY. Non-empty = permanent block. Never put TASK-IDs here.
+
+  awaiting_note:
+    type: string
+    description: Plain-text explanation of the external blocker. Required when awaiting is non-empty.
+
+  covers:
+    type: object
+    description: Coverage mapping back to parent requirement trackable items.
+    keys:
+      acceptance_criteria:
+        type: array
+        items: { type: string, pattern: "AC-[0-9]+" }
+      sections:
+        type: array
+        items: { type: string, pattern: "SEC-[0-9]+" }
+
+  scope_description:
+    type: string
+    description: Brief summary of what this task implements. Shown in status overview.
+
+  release_description:
+    type: string
+    description: User-benefit description for release notes. Max ~25 words. Blank for explore/bugfix.
+
+  opus_recommended:
+    type: boolean
+    default: false
+    description: >
+      When true, orchestrator launches claude --model opus. Set by task-create per the
+      Opus Recommendation Check rubric.
+
+  writes_requirements:
+    type: boolean
+    default: false
+    description: When true, next_tasks.py keeps this task on the critical path without target_package.
+
+  target_package:
+    type: string
+    description: >
+      Release package this task targets. Free-form name matching an entry in RELEASE_BACKLOG.md
+      (e.g. "Transfer Data Model", "claude-optimize"). Absent for process/ and flow-derived
+      explore tasks. See requirements_frontmatter.yaml target_package for the authoritative docs.
+
+  requirements_version:
+    type: object
+    description: Snapshot of requirements.md at task creation — enables git show for historical view.
+    keys:
+      commit: { type: string, pattern: "[0-9a-f]{7}", description: "7-char git hash" }
+      file: { type: string, description: "Relative path (always ../requirements.md)" }
+
+  completed:
+    type: string
+    format: date
+    description: Date the task was marked completed by task-complete. Absent until then.
+
+  session_completed_at:
+    type: string
+    format: datetime
+    description: UTC ISO-8601 timestamp written by task-complete in automated mode. Companion to completed.
+
+  session_id:
+    type: string
+    description: UUID of the automation session. Set in automated mode; enables session-log lookup.
+
+  session_account:
+    type: string
+    description: Account identifier for the session. Companion to session_id.
+
+  release_chunk:
+    type: string
+    description: Release chunk identifier when part of a chunked release plan. Informational.
+
+  verification_task:
+    type: boolean
+    default: false
+    description: When true, this task verifies a prior explore task; ranks alongside it unpackaged.
+
+  verification_bundle:
+    type: string
+    description: ID of the explore task this verification task validates. Present only when verification_task.
+
+  source_gap:
+    type: string
+    description: Set by requ-derive-from-flow when filling a coverage gap. Presence skips target_package lookup.
+
+  source_exploration:
+    type: string
+    description: Task ID of the explore task whose synthesis seeded this impl task.
+
+  bundle_id:
+    type: string
+    description: Identifier grouping tasks seeded together from one exploration (e.g. FU-1).
+
+  worktree_path:
+    type: string
+    description: Absolute path to the git worktree for a bugfix task. Bugfix tasks only.
+
+  cascade_type:
+    type: string
+    enum: [user_needs]
+    description: Set for multi-pass cascade tasks; triggers Cascade Passes section + cascade_log.md.
+
+  cascade_status:
+    type: string
+    enum: [pass-1-pending, pass-1-done, pass-2-pending, pass-2-done, pass-3-pending, pass-3-done, pass-4-pending, pass-4-done, complete]
+    description: Current pass in a cascade task. Companion to cascade_type.
+
+  # --- Flow-derived task metadata (written by requ-derive-from-flow / ux-create-flow) ---
+
+  source_flows:
+    type: array
+    items: { type: string }
+    description: >
+      Flows this task implements (e.g. "FLOW-003 — Session Start & Data Transfer (primary)").
+      Written by requ-derive-from-flow. Read by requ-verify-flow-coverage Phase 0.
+
+  source_flow:
+    type: string
+    description: >
+      Singular flow reference when only one source flow applies. Companion to source_flows
+      for tasks created from a single flow.
+
+  cross_flow_impact:
+    type: string
+    description: >
+      Comma-separated flow IDs or "isolated". Documents whether this task's changes affect
+      flows beyond the primary source_flow(s).
+
+  related_flows:
+    type: array
+    items: { type: string }
+    description: Flow IDs related to this task but not directly implemented by it.
+
+  depends_on_foundations:
+    type: array
+    items: { type: string }
+    description: >
+      Foundation IDs (e.g. F3) that must exist before this task can run.
+      Read by requ-verify-flow-coverage Phase 0.
+
+  foundation_for:
+    type: array
+    items: { type: string }
+    description: >
+      Foundation IDs that this task establishes. Companion to depends_on_foundations.
+
+  verification_gaps:
+    type: array
+    items: { type: integer }
+    description: >
+      Step indices within the flow that still lack coverage after this task.
+      Read by requ-verify-flow-coverage Phase 0.
+
+  verification_foundations:
+    type: array
+    items: { type: string }
+    description: >
+      Foundation IDs whose coverage this verification task checks.
+      Read by requ-verify-flow-coverage Phase 0.
+
+  source_matrix:
+    type: string
+    description: >
+      Relative path to the requirements matrix file for the flow cluster.
+      Read by requ-verify-flow-coverage Phase 0.
+
+  status_gap:
+    type: string
+    description: Coverage gap status (e.g. "not_started"). Set by requ-derive-from-flow.
+
+  # --- Release / backlog metadata ---
+
+  target_release:
+    type: string
+    description: >
+      Release version string this task targets (e.g. "0.0.1"). Null (~) when unassigned.
+
+  backlog_id:
+    type: string
+    description: >
+      RELEASE_BACKLOG.md item ID this task is tracked under (e.g. "IMPL-C").
+
+  # --- Task orchestration / planning metadata ---
+
+  orchestration_task:
+    type: boolean
+    description: >
+      When true, this task coordinates or delegates to sub-tasks rather than producing
+      direct deliverables.
+
+  task_type:
+    type: string
+    description: >
+      Fine-grained type label used by some orchestration skills (e.g. "impl", "validate").
+      Supplements the coarser `type` field.
+
+  plan_path:
+    type: string
+    description: Path to the plan file that seeded this task's creation.
+
+  plan_source:
+    type: string
+    description: Path to the protocol/plan document whose analysis justified creating this task.
+
+  expected_tool_calls:
+    type: integer
+    description: Estimated number of tool calls for the task. Used for budget / complexity signals.
+
+  synthesis_dependent:
+    type: boolean
+    description: >
+      When true, completing this task requires holding multiple artifacts in context simultaneously
+      (synthesis-level reasoning; informs Opus recommendation).
+
+  synthesis_justification:
+    type: string
+    description: Explanation of why synthesis_dependent is true. Present only when synthesis_dependent.
+
+  discovery_command:
+    type: string
+    description: >
+      Open-scope (S2) tasks only: shell command whose stdout integer is the runtime
+      work-item count (e.g. "flutter analyze 2>&1 | grep -c error"). Lets an execution
+      skill decide inline vs. fan-out at runtime. Absent when scope is closed.
+      Consumed by execution skills (TASK-PROC-001-10).
+
+  updated:
+    type: string
+    format: date
+    description: Date the goal.md was last substantively updated. Optional companion to created.
+
+  blocks:
+    type: array
+    items: { type: string, pattern: "TASK-[A-Z]+-[0-9]+-[0-9]+(-[0-9]+)?" }
+    description: >
+      Task IDs that cannot start until this task completes. Inverse of after[].
+
+  task_split_info:
+    type: object
+    description: >
+      Present when a large task is split into ordered parts.
+    keys:
+      part: { type: integer, description: "This task's part number." }
+      total_parts: { type: integer, description: "Total number of parts in the split." }
+      sibling_tasks: { type: array, items: { type: string }, description: "Other part task IDs." }
+
+  tags:
+    type: array
+    items: { type: string }
+    description: Free-form labels for filtering/grouping (e.g. [user-needs, personas]).
+
+  cancelled_date:
+    type: string
+    format: date
+    description: "Date the task was cancelled. Companion to status=cancelled."
+
+  cancellation_reason:
+    type: string
+    description: Explanation of why the task was cancelled. Present when cancelled_date is set.
+
+  # --- Legacy / one-off fields (present in ≤1 corpus file; declared to avoid false positives) ---
+
+  cancelled:
+    type: string
+    description: "Legacy alias for cancelled_date (date string). Use cancelled_date in new tasks."
+
+  cancelled_reason:
+    type: string
+    description: "Legacy alias for cancellation_reason. Use cancellation_reason in new tasks."
+
+  use_opus:
+    type: boolean
+    description: "Legacy predecessor of opus_recommended. Use opus_recommended in new tasks."
+
+  source:
+    type: string
+    description: Source document or file path that justified creating this task.
+
+  references:
+    type: array
+    items: { type: string }
+    description: General reference list (documents, files, task IDs). Ad-hoc field.
+
+  user_needs_references:
+    type: array
+    items: { type: string }
+    description: Paths to user-needs documents referenced by this task.
+
+  related_exploration:
+    type: string
+    description: Path or ID of a related exploration task. One-off field.
+
+  paused_date:
+    type: string
+    format: date
+    description: Date work on this task was paused.
+
+  paused_reason:
+    type: string
+    description: Explanation of why work was paused.
+
+  reopened:
+    type: string
+    description: Date the task was reopened after being paused or blocked.
+
+  reopened_reason:
+    type: string
+    description: Explanation of why the task was reopened.
+
+  skip_sketch:
+    type: boolean
+    description: When true, skips the UI sketch step for a UI task.
+
+  skill_chain_depth:
+    type: integer
+    description: Depth of the skill invocation chain. Used by some orchestration skills.
+
+  parent_requirement_path:
+    type: string
+    description: Explicit file path to the parent requirement. Supplement to parent_requirement ID.

@@ -1,0 +1,272 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Gefällt mir. Dann weiter",
+        "role": "user",
+        "tokenCount": 8,
+        "createTime": "2026-02-22T08:45:46.052Z"
+      },
+      {
+        "text": "**Initiating Persona Review**\n\nI'm now focused on the next persona alphabetically after Dr. med. Turan, aiming to continue the systematic review of personas for missing scenarios. I've finished PERSONA-008, David, and PERSONA-012, Dr. med. Turan. The process is underway, and I'm prepared for the next persona.\n\n\n**Reviewing Dr. Sarah**\n\nI'm now diving into Dr. Sarah's persona, PERSONA-001. I'm focusing on her role as a therapist using CBT with paper-based workflows. I've pinpointed several existing scenarios, but I'm also identifying missing pieces in her lifecycle, particularly the \"Friday Night Gutachten\" report writing. This 'analysis.therapist_solo' scenario is crucial, and I'm also turning over how the system can address her time constraints.\n\n\n**Expanding Dr. Sarah's Workflow**\n\nI'm now zeroing in on critical gaps in Dr. Sarah's workflow. I'm focusing on scenarios around archiving protocols for long periods to meet German legal requirements, highlighting the physical storage challenges of paper-based systems, and exploring peer exchange and in-session protocol modifications. I'm also considering unique aspects, like Kassenprüfung, and patient returns after many years, and the maintenance phase, which were not considered before.\n\n\n**Analyzing Workflow Changes**\n\nI'm now zeroing in on collaborative modifications during sessions, particularly the in-session protocol pivot where I can visualize Dr. Sarah needing to change her paper-based protocols, and how this evolves mid-therapy. I've considered the Intervision Photocopier scenario, where knowledge sharing is hampered by inefficient copying or poorly formatted documents, so the \"sharing blueprint\" problem is top of mind. Also, I'm considering scenarios for 10-year storage of paper protocols.\n\n\n**Addressing Archiving Needs**\n\nI'm now fully immersed in the archiving implications for Dr. Sarah. I'm focusing on the legal requirement for 10-year storage of clinical documentation, the space constraints of physical binders, and the scanning challenges that are specific to Dr. Sarah's persona, which uses paper-based workflows. It's a key pain point. I'm also examining her use of \"Notfallkoffer\" / Skill-chains, and how she makes them accessible to clients.\n\n\n**Finalizing Scenarios for Dr. Sarah**\n\nI've completed refining Dr. Sarah's core scenarios, specifically: the Friday Night Gutachten, the Mid-Session Protocol Pivot, the Intervision Wheel-Reinvention, and the 10-Year Safe Squeeze. I've re-aligned these with her specific needs and workflows. I've confirmed that the critical collaborative modification scenario is addressed in detail in the workflow, keeping it perfectly aligned with the persona.\n\n\n",
+        "role": "model",
+        "tokenCount": 1456,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Initiating Persona Review**\n\nI'm now focused on the next persona alphabetically after Dr. med. Turan, aiming to continue the systematic review of personas for missing scenarios. I've finished PERSONA-008, David, and PERSONA-012, Dr. med. Turan. The process is underway, and I'm prepared for the next persona.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Reviewing Dr. Sarah**\n\nI'm now diving into Dr. Sarah's persona, PERSONA-001. I'm focusing on her role as a therapist using CBT with paper-based workflows. I've pinpointed several existing scenarios, but I'm also identifying missing pieces in her lifecycle, particularly the \"Friday Night Gutachten\" report writing. This 'analysis.therapist_solo' scenario is crucial, and I'm also turning over how the system can address her time constraints.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Expanding Dr. Sarah's Workflow**\n\nI'm now zeroing in on critical gaps in Dr. Sarah's workflow. I'm focusing on scenarios around archiving protocols for long periods to meet German legal requirements, highlighting the physical storage challenges of paper-based systems, and exploring peer exchange and in-session protocol modifications. I'm also considering unique aspects, like Kassenprüfung, and patient returns after many years, and the maintenance phase, which were not considered before.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Analyzing Workflow Changes**\n\nI'm now zeroing in on collaborative modifications during sessions, particularly the in-session protocol pivot where I can visualize Dr. Sarah needing to change her paper-based protocols, and how this evolves mid-therapy. I've considered the Intervision Photocopier scenario, where knowledge sharing is hampered by inefficient copying or poorly formatted documents, so the \"sharing blueprint\" problem is top of mind. Also, I'm considering scenarios for 10-year storage of paper protocols.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Addressing Archiving Needs**\n\nI'm now fully immersed in the archiving implications for Dr. Sarah. I'm focusing on the legal requirement for 10-year storage of clinical documentation, the space constraints of physical binders, and the scanning challenges that are specific to Dr. Sarah's persona, which uses paper-based workflows. It's a key pain point. I'm also examining her use of \"Notfallkoffer\" / Skill-chains, and how she makes them accessible to clients.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Finalizing Scenarios for Dr. Sarah**\n\nI've completed refining Dr. Sarah's core scenarios, specifically: the Friday Night Gutachten, the Mid-Session Protocol Pivot, the Intervision Wheel-Reinvention, and the 10-Year Safe Squeeze. I've re-aligned these with her specific needs and workflows. I've confirmed that the critical collaborative modification scenario is addressed in detail in the workflow, keeping it perfectly aligned with the persona.\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-22T08:45:46.053Z"
+      },
+      {
+        "text": "Super. Dann tauchen wir jetzt tief in die Welt von **Dr. Sarah (PERSONA-001 / The Structured VT Professional)** ein. \n\n**Rolle:** Psychologische Psychotherapeutin (Verhaltenstherapie), Kassenzulassung, klassisches 50-Minuten-Setting. Arbeitet stark struktur- und protokollgetrieben.\n**Aktuelle Szenarien (bereits als Gold Standard genehmigt):**\n*   `creation`: Bereitet individualisiertes Angstprotokoll in Word/auf Papier vor (SCEN-001-01)\n*   `distribution`: 10-Minuten-Erklärung & Barrier-Diskussion mit Klientin (SCEN-001-03)\n*   `analysis`: Gemeinsame Mustererkennung auf dem Papier während der Sitzung (SCEN-001-02)\n\nIhr \"Kern-Flow\" am und mit dem Patienten ist perfekt dokumentiert. Die großen Lücken bei ihr liegen in der Anpassung laufender Prozesse, in der Peer-to-Peer-Kommunikation und im Endgegner jeder deutschen VT-Praxis: der Bürokratie.\n\nHier sind die fehlenden Szenarien für Dr. Sarah:\n\n#### A. Bürokratie & Datenaggregation (Der absolute Schmerz-Punkt)\n\n*   **Szenario 1: The Friday Night Gutachten (Aggregating the Chaos)**\n    *   **Kategorie:** `analysis.therapist_solo` / `management.share_externally`\n    *   **Worum es geht:** Anna (die Patientin) braucht eine Therapieverlängerung. Dr. Sarah sitzt Freitagabend um 19:30 Uhr an ihrem PC, um den 10-seitigen Bericht für den Kassen-Gutachter (PTV3) zu tippen. Sie muss *objektivierbare Fortschritte* beweisen. Sie kramt 15 zerknitterte, handschriftliche Wochenprotokolle von Anna aus dem Safe. Sie versucht manuell mit dem Stift zu zählen, wie sich die Anzahl der Panikattacken pro Woche im Verlauf eines halben Jahres verändert hat. \n    *   **Warum wir es brauchen (Der App-Value):** Das wertvollste an getrackten Daten für Kassen-Therapeuten ist nicht nur der Moment der Besprechung, sondern die langfristige Zusammenfassung. Eine App, die \"15 Wochen\" auf einen Blick aggregiert, rettet Dr. Sarah 2 Stunden Lebenszeit am Freitagabend. Das ist ein echtes Killer-Feature für Therapeuten.\n\n#### B. Plan Modification (Der \"Work in Progress\" Schmerz)\n\n*   **Szenario 2: The Mid-Session Protocol Pivot**\n    *   **Kategorie:** `modification.collaborative`\n    *   **Worum es geht:** Mitten in einer gemeinsamen Datenanalyse merken Sarah und Anna: Die Spalte \"Angstniveau\" reicht nicht. Das eigentliche Problem ist das stundenlange *Grübeln* danach. Dr. Sarah streicht mit dem Stift wild eine Spalte auf dem Papier durch, quetscht handschriftlich \"Dauer des Grübelns in Min.\" an den Rand und bittet Anna, ab morgen *so* zu tracken. Dr. Sarah nimmt sich fest vor, die Word-Vorlage für nächste Woche am PC zu ändern – und vergisst es natürlich im Praxisstress. Anna bringt nächste Woche wieder den alten, ausgedruckten Zettel mit handschriftlichen Pfeilen mit.\n    *   **Warum wir es brauchen:** Es definiert den Blueprint, wie Pläne modifiziert werden müssen: Eine Modifikation an einem *aktiven* Patienten-Plan (Client Copy) muss live und nahtlos funktionieren, ohne den Zettel-Chaos-Kreislauf neu zu starten.\n\n#### C. Peer Exchange & Fachliche Isolation\n\n*   **Szenario 3: The Intervision Wheel-Reinvention**\n    *   **Kategorie:** `sharing.peer_exchange`\n    *   **Worum es geht:** Dr. Sarah trifft sich monatlich mit ihrer Intervisionsgruppe (Qualitätszirkel). Eine Kollegin stellt ein fantastisch adaptiertes SORKC-Modell zur Rückfallprävention bei Binge-Eating vor. Dr. Sarah fragt begeistert nach dem Plan. Die Kollegin sagt: \"Ich kopiere es dir gleich\" (der Toner streikt) oder \"Ich schick dir morgen die zerschossene Word-Datei per Mail.\" Das Ende vom Lied: Jeder in Deutschland formatiert seine eigenen Tracker komplett neu.\n    *   **Warum wir es brauchen:** Eröffnet für die Zukunft (Post-MVP) den kompletten Bereich des \"Plan-Sharings\" von Therapeut zu Therapeut und erklärt, warum fertige, teilbare Templates auf Gold stoßen.\n\n#### D. Lebenszyklus (Archivierung)\n\n*   **Szenario 4: The 10-Year Safe Squeeze**\n    *   **Kategorie:** `management.archive_and_retrieve`\n    *   **Worum es geht:** Annas Therapie endet erfolgreich. Dr. Sarah dokumentiert den Fall in ihrer Praxis-Software ab. Die Patientenrechte fordern eine Aufbewahrungsfrist von 10 Jahren (Patientenrechtegesetz § 630f SGB V). Wohin mit dem Ordner voll physischer Tagesprotokolle? Wenn Sarah die Papiere behält, explodiert ihr Panzerschrank platzmäßig in drei Jahren. Wenn sie die Papiere händisch Seite für Seite in ihr Verwaltungssystem einscannt (wie aktuell viele), verbrennt sie Zeit ohne Ende. Wenn sie die Zettel wegwirft, plagt sie die Angst vor Beweisnot im Falle einer Beschwerde.\n    *   **Warum wir es brauchen:** Validiert den lokalen, offline PDF-Daten-Export der App. Die Papiermethode hat keine praktikable Langzeit-Sicherungsstrategie für Therapeuten.\n\n---\n\n**Vollständigkeits-Check für Dr. Sarah:**\n*   [x] Planerstellung (Erledigt: SCEN-001-01)\n*   [x] Planübergabe (Erledigt: SCEN-001-03)\n*   [x] Datenanalyse im Termin (Erledigt: SCEN-001-02)\n*   [x] Therapeutische Dokumentation / Report (Neu -> abgedeckt durch Sz 1)\n*   [x] Protokoll-Evolution während Therapie (Neu -> abgedeckt durch Sz 2)\n*   [x] Austausch unter Kollegen (Neu -> abgedeckt durch Sz 3)\n*   [x] Archivierungs-Albtraum nach §630f (Neu -> abgedeckt durch Sz 4)\n\nBist du mit diesen vier Szenarien für Dr. Sarah einverstanden?\n\nDamit wären wir auch direkt bei der nächsten Persona, dem Skeptiker: **Elias (The Skeptical Guardian / PERSONA-009)**.",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1527,
+        "parts": [
+          {
+            "text": "Super. Dann tau"
+          },
+          {
+            "text": "chen wir jetzt tief in die Welt von **Dr. Sarah (PERSONA-001 / The Structured VT Professional)** ein. "
+          },
+          {
+            "text": "\n\n**Rolle:** Psychologische Psychotherapeutin (Verhaltenstherapie), Kassenzulassung, klass"
+          },
+          {
+            "text": "isches 50-Minuten-Setting. Arbeitet stark struktur- und protokollgetrieben.\n**Aktuelle Szenarien"
+          },
+          {
+            "text": " (bereits als Gold Standard genehmigt):**\n*   `creation`: Bereitet individualisiertes Angstprot"
+          },
+          {
+            "text": "okoll in Word/auf Papier vor (SCEN-001-01)\n*   `distribution`: "
+          },
+          {
+            "text": "10-Minuten-Erklärung & Barrier-Diskussion mit Klientin (SCEN-001-03)\n*   "
+          },
+          {
+            "text": "`analysis`: Gemeinsame Mustererkennung auf dem Papier während der Sitzung (SCEN-001-02)\n\nIhr"
+          },
+          {
+            "text": " \"Kern-Flow\" am und mit dem Patienten ist perfekt dokumentiert. Die großen Lücken bei ihr liegen in der Anpass"
+          },
+          {
+            "text": "ung laufender Prozesse, in der Peer-to-Peer-Kommunikation und im Endgegner jeder deutschen VT"
+          },
+          {
+            "text": "-Praxis: der Bürokratie.\n\nHier sind die fehlenden Szenarien für Dr. Sarah:\n\n#### A"
+          },
+          {
+            "text": ". Bürokratie & Datenaggregation (Der absolute Schmerz-Punkt)\n\n*   **Szenario 1: The Friday Night"
+          },
+          {
+            "text": " Gutachten (Aggregating the Chaos)**\n    *   **Kategorie:** `analysis.therapist_solo` / `management.share"
+          },
+          {
+            "text": "_externally`\n    *   **Worum es geht:** Anna (die Patientin) braucht eine Therapieverlängerung."
+          },
+          {
+            "text": " Dr. Sarah sitzt Freitagabend um 19:30 Uhr an ihrem PC, um den 10-seitigen Bericht für den Kassen"
+          },
+          {
+            "text": "-Gutachter (PTV3) zu tippen. Sie muss *objektivierbare Fortschritte* beweisen. Sie"
+          },
+          {
+            "text": " kramt 15 zerknitterte, handschriftliche Wochenprotokolle von Anna aus dem Safe. Sie versucht"
+          },
+          {
+            "text": " manuell mit dem Stift zu zählen, wie sich die Anzahl der Panikattacken pro Woche im Verlauf eines halben Jahres verändert hat. \n"
+          },
+          {
+            "text": "    *   **Warum wir es brauchen (Der App-Value):** Das wertvollste an getrackten Daten für K"
+          },
+          {
+            "text": "assen-Therapeuten ist nicht nur der Moment der Besprechung, sondern die langfristige Zusammenfassung. Eine App,"
+          },
+          {
+            "text": " die \"15 Wochen\" auf einen Blick aggregiert, rettet Dr. Sarah 2 Stunden Lebenszeit am Freitagabend."
+          },
+          {
+            "text": " Das ist ein echtes Killer-Feature für Therapeuten.\n\n#### B. Plan Modification (Der \"Work in Progress\" Sch"
+          },
+          {
+            "text": "merz)\n\n*   **Szenario 2: The Mid-Session Protocol Pivot**\n    *   **"
+          },
+          {
+            "text": "Kategorie:** `modification.collaborative`\n    *   **Worum es geht:** Mitten in einer gemeinsamen"
+          },
+          {
+            "text": " Datenanalyse merken Sarah und Anna: Die Spalte \"Angstniveau\" reicht nicht. Das eigentliche Problem ist das st"
+          },
+          {
+            "text": "undenlange *Grübeln* danach. Dr. Sarah streicht mit dem Stift wild eine Spalte auf"
+          },
+          {
+            "text": " dem Papier durch, quetscht handschriftlich \"Dauer des Grübelns in Min.\" an den Rand und b"
+          },
+          {
+            "text": "ittet Anna, ab morgen *so* zu tracken. Dr. Sarah nimmt sich fest vor, die Word-Vorlage für nächste Woche"
+          },
+          {
+            "text": " am PC zu ändern – und vergisst es natürlich im Praxisstress. Anna bringt nächste Woche wieder den alten, aus"
+          },
+          {
+            "text": "gedruckten Zettel mit handschriftlichen Pfeilen mit.\n    *   **Warum wir es brauchen:** Es definiert den"
+          },
+          {
+            "text": " Blueprint, wie Pläne modifiziert werden müssen: Eine Modifikation an einem *aktiven* Patienten-Plan (Client"
+          },
+          {
+            "text": " Copy) muss live und nahtlos funktionieren, ohne den Zettel-Chaos-Kreislauf neu zu starten.\n\n#### C. Peer"
+          },
+          {
+            "text": " Exchange & Fachliche Isolation\n\n*   **Szenario 3: The Intervision Wheel-Reinvention**\n    *   **Kategorie:**"
+          },
+          {
+            "text": " `sharing.peer_exchange`\n    *   **Worum es geht:** Dr. Sarah trifft sich monatlich mit"
+          },
+          {
+            "text": " ihrer Intervisionsgruppe (Qualitätszirkel). Eine Kollegin stellt ein fantastisch adaptiertes SORKC-"
+          },
+          {
+            "text": "Modell zur Rückfallprävention bei Binge-Eating vor. Dr. Sarah fragt begeistert nach dem Plan. Die Kollegin sagt"
+          },
+          {
+            "text": ": \"Ich kopiere es dir gleich\" (der Toner streikt) oder \"Ich schick dir morgen die zerschossene Word-Datei"
+          },
+          {
+            "text": " per Mail.\" Das Ende vom Lied: Jeder in Deutschland formatiert seine eigenen Tracker komplett neu.\n    *   **Warum"
+          },
+          {
+            "text": " wir es brauchen:** Eröffnet für die Zukunft (Post-MVP) den kompletten Bereich des \"Plan-Sharings\" von"
+          },
+          {
+            "text": " Therapeut zu Therapeut und erklärt, warum fertige, teilbare Templates auf Gold stoßen.\n\n#### D. Lebenszyklus (Arch"
+          },
+          {
+            "text": "ivierung)\n\n*   **Szenario 4: The 10-Year Safe Squeeze**\n    *   **Kategorie:**"
+          },
+          {
+            "text": " `management.archive_and_retrieve`\n    *   **Worum es geht:** Annas Therapie endet erfolgreich"
+          },
+          {
+            "text": ". Dr. Sarah dokumentiert den Fall in ihrer Praxis-Software ab. Die Patientenrechte fordern eine Aufbewahrungsfrist von 10"
+          },
+          {
+            "text": " Jahren (Patientenrechtegesetz § 630f SGB V). Wohin mit dem Ordner voll physischer Tagesprot"
+          },
+          {
+            "text": "okolle? Wenn Sarah die Papiere behält, explodiert ihr Panzerschrank platzmäßig in drei Jahren. Wenn sie die"
+          },
+          {
+            "text": " Papiere händisch Seite für Seite in ihr Verwaltungssystem einscannt (wie aktuell viele), verbrennt sie Zeit ohne"
+          },
+          {
+            "text": " Ende. Wenn sie die Zettel wegwirft, plagt sie die Angst vor Beweisnot im Falle einer Besch"
+          },
+          {
+            "text": "werde.\n    *   **Warum wir es brauchen:** Validiert den lokalen, offline PDF-Daten-Export der App. Die Papi"
+          },
+          {
+            "text": "ermethode hat keine praktikable Langzeit-Sicherungsstrategie für Therapeuten.\n\n---\n\n**Vollständigkeits"
+          },
+          {
+            "text": "-Check für Dr. Sarah:**\n*   [x] Planerstellung (Erledigt: SCEN-"
+          },
+          {
+            "text": "001-01)\n*   [x] Planübergabe (Erledigt: SCEN"
+          },
+          {
+            "text": "-001-03)\n*   [x] Datenanalyse im Termin (Erledigt: SC"
+          },
+          {
+            "text": "EN-001-02)\n*   [x] Therapeutische Dokumentation / Report (Neu ->"
+          },
+          {
+            "text": " abgedeckt durch Sz 1)\n*   [x] Protokoll-Evolution während Therapie (Neu -> abgedeckt"
+          },
+          {
+            "text": " durch Sz 2)\n*   [x] Austausch unter Kollegen (Neu -> abgedeckt durch Sz 3"
+          },
+          {
+            "text": ")\n*   [x] Archivierungs-Albtraum nach §630f (Neu -> abgedeckt durch Sz 4)\n\n"
+          },
+          {
+            "text": "Bist du mit diesen vier Szenarien für Dr. Sarah einverstanden?\n\nDamit wären wir auch direkt bei der nächsten Persona,"
+          },
+          {
+            "text": " dem Skeptiker: **Elias (The Skeptical Guardian / PERSONA-009)**."
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+contract_version: 1
+skill: code-simple
+purpose: >
+  End-to-end workflow for simple (1–3 file), single-layer tasks — from task workspace
+  creation through implementation, tests, quality gates, and commit. Delegates to
+  implementation-engineer and test-engineer agents; coordinates scribble gate for
+  Presentation Layer changes.
+
+derived_from:
+  required:
+    - path: requirements_tasks/<category>/<req>/<feature>/tasks/<task>/goal.md
+      schema: .claude/schemas/goal_metadata.yaml
+      source: skill:task-create   # produced by task-create skill
+      role: task objective, scope, effort, covers, and skip_scribble flag
+    - path: doc/architecture/
+      role: Clean Architecture layer guidelines; read all relevant .md files before implementation
+    - path: doc/testing/
+      role: test quality gates and testing patterns; MANDATORY before any test work
+  optional:
+    - path: doc/presentation/design/persona_design_bridge.md
+      role: persona-to-design mapping; required when task involves Presentation Layer
+    - path: requirements_tasks/<feature>/scribbles/v{n}/
+      schema: null
+      role: >
+        approved wireframe referenced during implementation for element choices;
+        present only when task modifies Presentation Layer and scribble exists;
+        producer: ui-create-scribble
+    - path: requirements_tasks/<feature>/scribbles/v{n}/flutter_handoff.yaml
+      schema: null
+      role: per-element HTML-selector → Flutter-widget mapping; read during implementation
+    - path: requirements_tasks/<feature>/scribbles/v{n}/metadata.yaml
+      schema: .claude/schemas/scribble_metadata.yaml
+      role: confirms status == 'approved' before referencing the scribble
+    - path: requirements_user_needs/user_flows/concept_canon.yaml
+      role: canonical names for classes, BLoC events/states, user-facing strings
+
+produces:
+  required:
+    - path: lib/<feature>/**/*.dart
+      schema: null
+      role: 1–3 implementation source files (exact paths determined by goal.md scope)
+    - path: test/<feature>/**/*_test.dart
+      schema: null
+      role: test file(s) for each produced source file
+    - path: requirements_tasks/<task>/plans_and_protocols/lookup_log.jsonl
+      schema: null
+      role: doc-lookup-dependencies log per REQ-PROC-053 AC-07
+  conditional:
+    - path: requirements_tasks/<task>/plans_and_protocols/<date>_protocol_*.md
+      condition: written by claude-log skill after implementation
+      schema: null
+      role: cross-session memory — agent ID, findings, next steps
+
+side_effects:
+  - target: requirements_tasks/<task>/goal.md
+    write: status field updated to 'in_progress' then 'completed' by task-complete
+  - target: requirements_tasks/<task>/plans_and_protocols/lookup_log.jsonl
+    write: new entries appended by each doc-lookup-dependencies invocation
+
+may_invoke:
+  - task-create        # step 1 — initialize workspace if not already done
+  - ui-create-scribble # Sketch Gate — when Presentation Layer and no approved scribble
+  - verify-quality     # step 5 — quality gates (REQ-PROC-046 G1–G8, TQ1–TQ4, SP1–SP6)
+  - task-complete      # step 8 — marks complete and commits
+  - doc-update-guidelines  # step 7 — mandatory post-implementation guideline check
+  - doc-lookup-dependencies  # per new API surface (AC-07 / REQ-PROC-053)
+  - doc-update-tokens  # when a missing design token is discovered during implementation
+
+quality_criteria:
+  - All produced lib/ files pass dart analyze with zero errors
+  - All produced test/ files pass flutter test with zero failures
+  - No lib/ file added without a corresponding test/ file
+  - verify-quality exits 0 before task-complete is called
+  - flutter_handoff.yaml is only referenced when metadata.yaml status == 'approved'
+  - WHY comments present on non-obvious code per CLAUDE.md §5
+  - lookup_log.jsonl exists (even if empty) when any doc-lookup-dependencies call was made

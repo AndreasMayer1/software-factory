@@ -1,0 +1,68 @@
+contract_version: 1
+skill: ui-visual-validate
+purpose: >
+  Advisory, non-blocking vision comparison of integration-test screenshots against the approved
+  scribble, its verification_seeds, and re-derive sources. CONSUMER only — writes a findings
+  report and never mutates source. Scope distinct from ui-verify-flutter (code-only structural)
+  and ui-improve-flutter (human-driven polish that edits source).
+
+# NOTE: produces/derived_from `path:` values are artifact-registry TOKEN NAMES (REQ-PROC-044-02,
+# create-skill §4b), not file paths. derived_from inputs use `source: external` because the
+# token-name contract format does not yet interoperate with the skill:<producer> basename
+# cross-reference (producers still declare raw paths) — see check_skill_contracts.py rule 2.
+
+derived_from:
+  required:
+    - path: scribble-metadata
+      source: external
+      schema: .claude/schemas/scribble_metadata.yaml
+      reason: Locates the approved version (status approved) and the personas/rules to check.
+    - path: handoff
+      source: external
+      schema: .claude/schemas/flutter_handoff.yaml
+      reason: verification_seeds block (primary check list) plus the screen/element mapping.
+    - path: scribble
+      source: external
+      reason: Approved screen HTML — the visual reference each screenshot is compared against.
+    - path: integration-test
+      source: external
+      reason: >
+        Screenshots captured by the feature's integration tests (NN_<name>.png per scribble
+        screen); the actual artifact under visual validation.
+  optional:
+    - path: token-source
+      source: external
+      reason: Design tokens used to judge persona-sizing (`sizing`) seeds visually.
+    - path: design-rule
+      source: external
+      reason: T1/T2 rules giving visual context for hierarchy/component/accessibility seeds.
+    - path: persona
+      source: external
+      reason: Persona sizing/constraint context referenced by metadata.yaml.
+
+produces:
+  required:
+    - path: flutter-review
+      reason: >
+        Advisory visual_validation.md report (per-seed match / advisory / unverifiable) written
+        to scribbles/flutter_review/; co-located with ui-verify-flutter's structural comparison.
+
+quality_criteria:
+  - Each verification seed is checked against the matching screenshot (match/advisory/unverifiable).
+  - The report is advisory — never blocks a commit or task and never exits non-zero on findings.
+  - Seeds cover LOCKED-IN items only; no checks are invented for RE-DERIVE items.
+  - No source, scribble, or handoff file is modified (read-only).
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_tasks/<feature>/scribbles/flutter_review/
+    action: write
+    note: Advisory visual_validation.md written/updated; no other tree is touched.
+
+preconditions:
+  - An approved scribble with a verification_seeds-bearing flutter_handoff.yaml exists; otherwise
+    the skill reports the gap and exits advisory (does not fail).
+
+postconditions:
+  - visual_validation.md exists summarising per-screen, per-seed advisory findings.

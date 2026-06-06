@@ -1,0 +1,60 @@
+contract_version: 1
+skill: doc-split
+purpose: >
+  Split an oversized doc/ guideline file (≥600 lines) into topic-cohesive
+  parts per REQ-PROC-048. Verifies no content is lost (word count, heading
+  coverage, code fence parity), deletes the source, updates cross-references,
+  and creates a subfolder README when ≥3 outputs are produced.
+
+derived_from:
+  required:
+    - path: guideline
+      source: external
+      reason: The oversized guideline file to be split — read in full before any output is produced.
+
+produces:
+  required:
+    - path: guideline
+      reason: First topic-cohesive output file.
+    - path: guideline
+      reason: Second topic-cohesive output file (2-file topology).
+  conditional:
+    - path: guideline
+      condition: created for ≥3-file topology (new subfolder introduced).
+      reason: REQ-PROC-026 §4.5 subfolder README conformance.
+    - path: guideline
+      condition: updated in all cases to reflect deleted source and new output files.
+      reason: Parent README table must reflect new structure.
+
+quality_criteria:
+  - Word count ratio of outputs vs. source ≥ 99% before source is deleted.
+  - All section headings from the source appear in at least one output file.
+  - Code fence count matches between source and outputs.
+  - No output file exceeds 600 lines after the split.
+  - Depth-2 source (doc/X/Y/file.md) may only use the 2-file topology.
+  - update_doc_references.py finds zero remaining references to the deleted source path.
+
+user_input_gates:
+  - phase: "Step 2 — Decide topology (depth-2 source needing ≥3 outputs)"
+    description: "Developer approves the level-1 folder redesign required when a depth-2 source file would need ≥3 output files, creating a forbidden level-3 path."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires when the source file is already at depth 2 (doc/X/Y/file.md) AND content truly requires ≥3 output files."
+
+may_invoke: []
+
+side_effects:
+  - target: doc/<path>/<file>.md
+    action: delete
+    note: Source file deleted after all outputs are verified.
+  - target: doc/<path>/README.md
+    action: write
+    note: Parent README updated with new file rows.
+
+preconditions:
+  - Source file exists and is accessible.
+  - User has confirmed the split (or depth and topology allow auto-proceed).
+
+postconditions:
+  - Source file is deleted; all content redistributed to output files.
+  - No orphan cross-references to the source path remain.

@@ -1,0 +1,235 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Das nehmen wir natürlich auf! \nJetzt sind wir einmal durch, Glückwunsch zurück!\nDu hast den Überblick, den ich inzwischen schon verloren habe. Erkennst du noch blinde flecken auf der Karte, die es lohnt zu erkunden? ",
+        "role": "user",
+        "tokenCount": 52,
+        "createTime": "2026-03-01T09:31:13.029Z"
+      },
+      {
+        "text": "**Leveraging Past Data**\n\nI'm now integrating previous scenario data for Sophie, as the alphabetized persona review has just been completed. The focus is to take a wider view, stepping back to use the existing data.\n\n\n**Pinpointing Missing Aspects**\n\nI'm now diving deep into the whole structure, with the recently added scenarios. The aim is to thoroughly check for any gaps or overlooked areas within the entire system.\n\n\n**Analyzing Local App Challenges**\n\nI'm now zeroing in on the conceptual and legal hurdles a local-first mental health app faces, specifically within the German healthcare context. I've pinpointed \"Hardware Loss & Legacy Data\" as a critical blind spot, especially considering the amnesia-like impact of losing years of personal journal entries on a zero-cloud system. Additionally, I'm considering multi-language and cultural needs for migrant users, with the goal of expanding the existing personas to meet them.\n\n\n**Addressing New Blind Spots**\n\nI'm now zeroing in on new, crucial blind spots. Specifically, I am now thinking about hurdles for patients with a migration background, like language barriers, cultural stigma, and bureaucratic difficulties. Additionally, I am now thinking about posthumous data handling for the app, including a \"Dead Man's Switch\", and the accessibility of the app to users with visual/motor impairments. I am also planning to improve the existing personas by adding this information.\n\n\n**Prioritizing Blind Spot Topics**\n\nI'm now focusing on the most critical blind spots to present. I'm prioritizing the earlier flagged \"Multi-Kulti\" hurdles alongside the app's fundamental \"No-Cloud Backup\" responsibility. I'm drafting the response, starting with celebration of the completed matrix. Then, I will address the promise of expanding on the \"Multi-Kulti/Migranten\" hurdles, as well as the somatic limitations, such as tremors and visual impairment.",
+        "role": "model",
+        "tokenCount": 1174,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Leveraging Past Data**\n\nI'm now integrating previous scenario data for Sophie, as the alphabetized persona review has just been completed. The focus is to take a wider view, stepping back to use the existing data.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Pinpointing Missing Aspects**\n\nI'm now diving deep into the whole structure, with the recently added scenarios. The aim is to thoroughly check for any gaps or overlooked areas within the entire system.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Local App Challenges**\n\nI'm now zeroing in on the conceptual and legal hurdles a local-first mental health app faces, specifically within the German healthcare context. I've pinpointed \"Hardware Loss & Legacy Data\" as a critical blind spot, especially considering the amnesia-like impact of losing years of personal journal entries on a zero-cloud system. Additionally, I'm considering multi-language and cultural needs for migrant users, with the goal of expanding the existing personas to meet them.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Addressing New Blind Spots**\n\nI'm now zeroing in on new, crucial blind spots. Specifically, I am now thinking about hurdles for patients with a migration background, like language barriers, cultural stigma, and bureaucratic difficulties. Additionally, I am now thinking about posthumous data handling for the app, including a \"Dead Man's Switch\", and the accessibility of the app to users with visual/motor impairments. I am also planning to improve the existing personas by adding this information.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Prioritizing Blind Spot Topics**\n\nI'm now focusing on the most critical blind spots to present. I'm prioritizing the earlier flagged \"Multi-Kulti\" hurdles alongside the app's fundamental \"No-Cloud Backup\" responsibility. I'm drafting the response, starting with celebration of the completed matrix. Then, I will address the promise of expanding on the \"Multi-Kulti/Migranten\" hurdles, as well as the somatic limitations, such as tremors and visual impairment.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T09:31:13.032Z"
+      },
+      {
+        "text": "\n\n\nEs ist tatsächlich ein meisterhafter Meilenstein! Wir haben eine wasserdichte Matrix geschaffen, die das menschliche Leid, die bürokratischen Hürden und die kognitiven Fallen rund um Psychotherapie in Deutschland vermutlich besser dokumentiert als so manches Fachbuch. Herzlichen Glückwunsch zu dieser Weitsicht!\n\nAber du hast Recht: Wenn man vom Boden abhebt und das fertige Mosaik von oben betrachtet, gibt es tatsächlich noch **drei große, hochrelevante blinde Flecken**, die im System \"Mental Health Tracking\" klaffen. \n\nUnd bei dem Ersten muss ich deinen eigenen, brillanten Gedanken von vorhin wieder aufgreifen, den wir bewusst \"geparkt\" hatten:\n\n---\n\n### Blinder Fleck 1: Die Migrations- & Kultur-Barriere (Dein Multi-Kulti Punkt!)\nDeutschland hat über 20 % Menschen mit Migrationshintergrund, und in der psychologischen Versorgung fallen sie extrem oft durchs Raster. \n*   **Der Sprach-Barrier-Schmerz:** Patienten, die Deutsch gut im Alltag sprechen, bei *komplexen psychologischen Gefühlszuständen* aber in ihre Muttersprache wechseln müssten. Standard-Papierprotokolle deutscher Ärzte sind oft extrem akademisch formuliert (BDI, SORKC). Wenn die Patienten das handschriftlich nicht in ihrer Heimatsprache tracken können (bzw. der Therapeut es danach nicht versteht), geht die Präzision völlig verloren. Eine App, die auf Arabisch/Türkisch trackt, dem deutschen Arzt aber das fertige Dashboard/Template in deutschem Ärzte-Kauderwelsch ausspuckt, wäre ein interkultureller Gamechanger.\n*   **Der harte kulturelle Stigma-Faktor:** In bestimmten stark patriarchalisch geprägten Kulturen existiert \"Depression\" nicht als anerkanntes Konzept. Elias’ Versteckspiel ist kindlich im Vergleich zu jungen Migrantinnen, deren Familie vielleicht absolut nie das Tagebuch finden darf, in dem von häuslichen Pflichten, Überforderung und Therapie steht. \n\n### Blinder Fleck 2: Die absolute physische Barrierefreiheit (Motorik)\nWir haben bei Nina (Long-COVID) die energetische Erschöpfung beleuchtet. Aber was ist mit purer **physischer Beeinträchtigung** beim Tracking?\n*   **Lithium-Tremor & Medikamente:** Dr. Turans Psychiatrie-Patienten nehmen oft Psychopharmaka, die starkes Händezittern (Tremor) auslösen. Wenn Herr Berger ein Stimmungstagebuch mit Kuli auf kleinen Linien ausfüllen muss, fühlt er sich allein durch das zittrige Kritzeln wie ein Wrack. Papiertracker stigmatisieren physisch. Eine App mit gigantischen, touch-freundlichen Slidern rettet hier die Würde der Patienten.\n*   **Tears & Blurry Vision:** Tränennasse Augen während einer Krise (wie bei Jana oder Max) oder Altersfehlsichtigkeit lassen die 10-Punkt-Schrift gedruckter PDFs einfach verschwimmen. Barrierefreiheit bedeutet hier nicht nur Screenreader-Support, sondern: *Ich muss die App notfalls verschwommen oder blind bedienen können.*\n\n### Blinder Fleck 3: Das \"Local-First\" Backup Paradoxon\nWir positionieren uns absolut als Privacy-First, Serverless und \"Data only on your device\"-Plattform. Das ist ethisch fantastisch, schafft aber eine massive Haftungslücke, wenn das Gerät kaputt geht (im Wasser landet, gestohlen wird):\n*   Wenn Lena (Grief) 6 Monate intensivstes Traum-Protokoll führt, und ihr iPhone ins Meer fällt, hat sie als Analog-Gegnerin *alles* verloren. Keine iCloud hilft ihr (da wir Syncs eventuell bewusst ausschließen/erschweren).\n*   **Der Use Case:** Wir brauchen ein \"Hardware Death / Disaster Recovery\"-Szenario. Wie baut eine extrem private, lokal fokussierte App Vertrauen auf, dass die Jahre an Therapie nicht plötzlich vernichtet werden, ohne dabei wieder zum gläsernen Cloud-Sünder zu werden? Wir müssen dokumentieren, *wie Nutzer mit Verlustangst vor Datenverlust umgehen*, wenn man ihnen die Cloud wegnimmt.\n\n---\n\n### Der Fahrplan: Wie wollen wir den Deckel draufmachen?\n\nWir haben nun einen gigantischen, beschlossenen Berg an fehlenden Status-Quo-Szenarien vorliegen. Wir könnten jetzt:\n\n**A) Das \"Multi-Kulti\" / \"Motorik\" Fass direkt aufmachen:** Und hier noch 2-3 konkrete Profil-Ergänzungen oder kurze Sonder-Personas ableiten. \n**B) Es wirklich für \"V2 / Post-MVP\" parken:** Die bestehenden blinden Flecke bewusst als spätere Epics für die Roadmap stehenlassen, um den aktuellen Scope nicht zu zerreißen.\n**C) Die Massen-Produktion starten:** Wenn dir die Liste an Ergänzungen für die bestehenden Charaktere absolut ausreicht, würde ich exakt jetzt beginnen, per Batch all die neu besprochenen Szenarien in unserem sauberen `.md`-Format und der passenden Drei-Akt-Struktur abzutippen, damit sie ins Repo fließen können.\n\nBist du \"satt\" von Use-Cases, oder reizt es dich, die kulturelle/motorische Komponente sofort ins Design zu gießen?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1185,
+        "parts": [
+          {
+            "text": "\n\n\nEs ist tatsächlich ein meisterhafter Me"
+          },
+          {
+            "text": "ilenstein! Wir haben eine wasserdichte Matrix geschaffen, die das menschliche Leid, die bürokratischen H"
+          },
+          {
+            "text": "ürden und die kognitiven Fallen rund um Psychotherapie in Deutschland vermutlich besser dokumentiert als so manches Fachbuch. Herz"
+          },
+          {
+            "text": "lichen Glückwunsch zu dieser Weitsicht!\n\nAber du hast Recht: Wenn man vom Boden abhebt und das fert"
+          },
+          {
+            "text": "ige Mosaik von oben betrachtet, gibt es tatsächlich noch **drei große, hochrelevante blinde Flecken**, die"
+          },
+          {
+            "text": " im System \"Mental Health Tracking\" klaffen. \n\nUnd bei dem Ersten muss ich deinen eigenen, brillanten Gedanken von"
+          },
+          {
+            "text": " vorhin wieder aufgreifen, den wir bewusst \"geparkt\" hatten:\n\n---\n\n### Blinder Fleck 1: Die Mig"
+          },
+          {
+            "text": "rations- & Kultur-Barriere (Dein Multi-Kulti Punkt!)\nDeutschland hat über 20 % Menschen"
+          },
+          {
+            "text": " mit Migrationshintergrund, und in der psychologischen Versorgung fallen sie extrem oft durchs Raster. \n*   **Der"
+          },
+          {
+            "text": " Sprach-Barrier-Schmerz:** Patienten, die Deutsch gut im Alltag sprechen, bei *komplexen psychologischen Gef"
+          },
+          {
+            "text": "ühlszuständen* aber in ihre Muttersprache wechseln müssten. Standard-Papierprotokolle deutscher Ärzte sind oft"
+          },
+          {
+            "text": " extrem akademisch formuliert (BDI, SORKC). Wenn die Patienten das handschriftlich nicht in ihrer Heim"
+          },
+          {
+            "text": "atsprache tracken können (bzw. der Therapeut es danach nicht versteht), geht die Präzision völlig verloren. Eine App, die auf Arab"
+          },
+          {
+            "text": "isch/Türkisch trackt, dem deutschen Arzt aber das fertige Dashboard/Template in deutschem Ärzte-Kaud"
+          },
+          {
+            "text": "erwelsch ausspuckt, wäre ein interkultureller Gamechanger.\n*   **Der harte kulture"
+          },
+          {
+            "text": "lle Stigma-Faktor:** In bestimmten stark patriarchalisch geprägten Kulturen existiert \"Depression\" nicht als aner"
+          },
+          {
+            "text": "kanntes Konzept. Elias’ Versteckspiel ist kindlich im Vergleich zu jungen Migrantinnen, deren Familie vielleicht"
+          },
+          {
+            "text": " absolut nie das Tagebuch finden darf, in dem von häuslichen Pflichten, Überforderung und Therapie steht. \n\n### Blinder Fleck"
+          },
+          {
+            "text": " 2: Die absolute physische Barrierefreiheit (Motorik)\nWir haben bei Nina (Long-COVID)"
+          },
+          {
+            "text": " die energetische Erschöpfung beleuchtet. Aber was ist mit purer **physischer Beeinträcht"
+          },
+          {
+            "text": "igung** beim Tracking?\n*   **Lithium-Tremor & Medikamente:** Dr. Turans Psychiatrie-Patienten nehmen oft Psychopharm"
+          },
+          {
+            "text": "aka, die starkes Händezittern (Tremor) auslösen. Wenn Herr Berger ein Stimmungstagebuch mit Kuli auf kleinen"
+          },
+          {
+            "text": " Linien ausfüllen muss, fühlt er sich allein durch das zittrige Kritzeln wie ein Wrack."
+          },
+          {
+            "text": " Papiertracker stigmatisieren physisch. Eine App mit gigantischen, touch-freundlichen Slidern"
+          },
+          {
+            "text": " rettet hier die Würde der Patienten.\n*   **Tears & Blurry Vision:** Tränennasse"
+          },
+          {
+            "text": " Augen während einer Krise (wie bei Jana oder Max) oder Altersfehlsichtigkeit lassen die 10-Punkt-Schrift"
+          },
+          {
+            "text": " gedruckter PDFs einfach verschwimmen. Barrierefreiheit bedeutet hier nicht nur Screenreader-Support, sondern: *"
+          },
+          {
+            "text": "Ich muss die App notfalls verschwommen oder blind bedienen können.*\n\n### Blinder Fleck 3:"
+          },
+          {
+            "text": " Das \"Local-First\" Backup Paradoxon\nWir positionieren uns absolut als Privacy-First, Serverless und \"Data"
+          },
+          {
+            "text": " only on your device\"-Plattform. Das ist ethisch fantastisch, schafft aber eine massive Haftungslücke, wenn das Gerät kaputt geht"
+          },
+          {
+            "text": " (im Wasser landet, gestohlen wird):\n*   Wenn Lena (Grief) 6 Monate intensivstes Traum-Pro"
+          },
+          {
+            "text": "tokoll führt, und ihr iPhone ins Meer fällt, hat sie als Analog-Gegnerin *alles* verloren. Keine"
+          },
+          {
+            "text": " iCloud hilft ihr (da wir Syncs eventuell bewusst ausschließen/erschweren).\n*   **Der Use"
+          },
+          {
+            "text": " Case:** Wir brauchen ein \"Hardware Death / Disaster Recovery\"-Szenario. Wie baut eine extrem private, lokal fok"
+          },
+          {
+            "text": "ussierte App Vertrauen auf, dass die Jahre an Therapie nicht plötzlich vernichtet werden, ohne dabei wieder zum gläsernen Cloud-Sünder zu"
+          },
+          {
+            "text": " werden? Wir müssen dokumentieren, *wie Nutzer mit Verlustangst vor Datenverlust umgehen*, wenn man ihnen"
+          },
+          {
+            "text": " die Cloud wegnimmt.\n\n---\n\n### Der Fahrplan: Wie wollen wir den Deckel draufmachen?\n\nWir haben nun"
+          },
+          {
+            "text": " einen gigantischen, beschlossenen Berg an fehlenden Status-Quo-Szenarien vorliegen. Wir könnten jetzt"
+          },
+          {
+            "text": ":\n\n**A) Das \"Multi-Kulti\" / \"Motorik\" Fass direkt aufmachen:** Und hier"
+          },
+          {
+            "text": " noch 2-3 konkrete Profil-Ergänzungen oder kurze Sonder-Personas ableiten. \n**B) Es"
+          },
+          {
+            "text": " wirklich für \"V2 / Post-MVP\" parken:** Die bestehenden blinden Flecke bewusst als spätere Ep"
+          },
+          {
+            "text": "ics für die Roadmap stehenlassen, um den aktuellen Scope nicht zu zerreißen.\n**C) Die Massen-Produ"
+          },
+          {
+            "text": "ktion starten:** Wenn dir die Liste an Ergänzungen für die bestehenden Charaktere absolut ausreicht, würde ich ex"
+          },
+          {
+            "text": "akt jetzt beginnen, per Batch all die neu besprochenen Szenarien in unserem sauberen `.md`-Format und der passenden Drei"
+          },
+          {
+            "text": "-Akt-Struktur abzutippen, damit sie ins Repo fließen können.\n\nBist du \"s"
+          },
+          {
+            "text": "att\" von Use-Cases, oder reizt es dich, die kulturelle/motorische Komponente sofort ins Design"
+          },
+          {
+            "text": " zu gießen?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

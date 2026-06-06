@@ -1,0 +1,315 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Ja übernehmen wir für Michael. Dann weiter mit Nina. ",
+        "role": "user",
+        "tokenCount": 13,
+        "createTime": "2026-03-01T08:59:41.107Z"
+      },
+      {
+        "text": "**Accepting the Parameters**\n\nI've accepted scenarios four and five as viable options for Michael, and I'm transitioning my focus to Nina, \"The Energy Budgeter\" (PERSONA-013). My analysis is now geared towards understanding her challenges, particularly regarding Long-COVID and Post-Exertional Malaise (PEM).\n\n\n**Focusing on Nina's Needs**\n\nI'm now fully immersed in understanding Nina's situation as \"The Energy Budgeter\". Her meticulous data tracking, especially using Garmin, highlights a significant challenge: connecting immediate activities with delayed PEM crashes. I'm focusing on scenarios that address her needs and blind spots, particularly how to connect data for better pacing and explaining limitations. I'm actively exploring data capture strategies within the \"Spoon Theory\" context.\n\n\n**Analyzing Nina's Challenges**\n\nI'm now zeroing in on the disconnect between Nina's Tuesday/Wednesday activities and her Friday crash. The 48-hour lag is a major issue. I've pinpointed a key UI limitation: tracking during a crash requires energy. Scenario 2, \"Too Exhausted to Track,\" highlights this paradox and the need for zero-click solutions. I'm also considering Scenario 3, \"But You Look Healthy,\" addressing the need for external validation, and Scenario 4, \"Canceling Plans,\" focusing on relational data.\n\n\n**Justifying Limitations & Needs**\n\nI'm now framing how Nina can utilize data to set firm boundaries with others, for instance, by stating, \"My body battery is at 5, I cannot come to the party.\" The data provides external validation, mitigating feelings of guilt.",
+        "role": "model",
+        "tokenCount": 1019,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Accepting the Parameters**\n\nI've accepted scenarios four and five as viable options for Michael, and I'm transitioning my focus to Nina, \"The Energy Budgeter\" (PERSONA-013). My analysis is now geared towards understanding her challenges, particularly regarding Long-COVID and Post-Exertional Malaise (PEM).",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Focusing on Nina's Needs**\n\nI'm now fully immersed in understanding Nina's situation as \"The Energy Budgeter\". Her meticulous data tracking, especially using Garmin, highlights a significant challenge: connecting immediate activities with delayed PEM crashes. I'm focusing on scenarios that address her needs and blind spots, particularly how to connect data for better pacing and explaining limitations. I'm actively exploring data capture strategies within the \"Spoon Theory\" context.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Nina's Challenges**\n\nI'm now zeroing in on the disconnect between Nina's Tuesday/Wednesday activities and her Friday crash. The 48-hour lag is a major issue. I've pinpointed a key UI limitation: tracking during a crash requires energy. Scenario 2, \"Too Exhausted to Track,\" highlights this paradox and the need for zero-click solutions. I'm also considering Scenario 3, \"But You Look Healthy,\" addressing the need for external validation, and Scenario 4, \"Canceling Plans,\" focusing on relational data.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Justifying Limitations & Needs**\n\nI'm now framing how Nina can utilize data to set firm boundaries with others, for instance, by stating, \"My body battery is at 5, I cannot come to the party.\" The data provides external validation, mitigating feelings of guilt.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T08:59:41.109Z"
+      },
+      {
+        "text": "\n\n\nSehr gut, Michael ist hiermit ebenfalls final und \"wasserfest\" abgenommen. \n\nWir kommen nun zum großen Finale unseres Basis-Sets: **Nina (The Energy Budgeter / PERSONA-013)**.\n\n**Rolle:** Self-User (kämpft oft mit medizinischer Eigenverantwortung, da das Standard-Kassensystem ME/CFS und Long-COVID noch kaum verlässlich therapiert).\n**Archetyp:** Die \"Energy Envelope\"-Managerin. Chronisches Fatigue-Syndrom. Ihr Akku lädt nie über 30%, Aktivitäten rauben exorbitant Energie.\n**Ihre Besonderheit:** Sie *will* und *muss* penibel tracken, um Abstürze (Crashes) zu vermeiden, aber das Tooling versagt an der Biologie der Krankheit.\n\nNina repräsentiert das Cluster **Chronische und \"Unsichtbare\" Krankheiten (Lyme, Fibromyalgie, ME/CFS, Autoimmunerkrankungen, Endometriose-Schmerzphasen)**. Für sie ist Tracking keine Achtsamkeits-Übung, sondern knallhartes Navigieren in einem feindlichen Alltag (\"Pacing\" / \"Spoon Theory\").\n\nHier sind die 4 zwingenden Szenarien, die dieses Cluster definieren:\n\n### A. Das Paradox der Krankheit (Capture)\n\n*   **Szenario 1: The Energy Cost of Tracking (Brain Fog)**\n    *   **Kategorie:** `capture.routine` (Sonderfall Crash)\n    *   **Worum es geht:** Nina liegt an einem schweren Crash-Tag (Schmerzen, Lichtempfindlichkeit, starker \"Brain Fog\" / Wortfindungsstörungen) dunkel abgedunkelt im Bett. Sie muss dokumentieren, *wie tief* der Absturz ist.\n    *   **Das Status-Quo-Problem:** Ein Papiertagebuch mit kleinen Kästchen erfordert Licht, Feinmotorik (aufsetzen, Stift halten) und Fokus. Alles führt sofort zur Symptomverschlechterung. Wenn sie eine App auf dem Handy öffnet, strahlt sie der weiße Bildschirm an. Zu viele Tabs, kleine Schriften oder Sätze formulieren zu müssen, frisst ihre sprichwörtlich \"letzten Löffel Energie\" auf. Sie schließt die App oder klappt das Buch zu und der tiefste, wichtigste Datensatz (der Crash) bleibt für Wochen undokumentiert, weil *das Tracken selbst krank macht*.\n    *   **Warum wir es brauchen:** Setzt radikale Vorgaben für Barrierefreiheit in der Psychiatrie / bei Fatigue. **Zero-Friction-Capture.** Riesige Buttons. Reiner Darkmode. Notfalls Sprach-Erfassung mit geschlossenem Auge oder grobe Widget-Slider auf dem Homescreen. UI muss bedienbar sein, wenn der Nutzer nur 2% Batterie hat.\n\n### B. Die zeitverzögerte Rache des Körpers (Die Daten-Lücke)\n\n*   **Szenario 2: The 72-Hour PEM Lag (Hunting the Trigger)**\n    *   **Kategorie:** `analysis.self_reflect` (Pattern Recognition)\n    *   *(Bereits im Brainstorming angeschnitten, hier voll entfaltet)*\n    *   **Worum es geht:** Nina erwacht an einem Freitagmorgen mit \"Post-Exertional Malaise\" (PEM – die typische massive Symptomverschlechterung nach Belastung). Sie hat Gliederschmerzen wie bei schwerer Grippe. Sie sucht den Auslöser. Gestern war sie nur im Bett. Mittwoch auch. \n    *   **Das Status-Quo-Problem:** PEM bei Long-COVID/ME/CFS tritt mit einer Zeitverzögerung (Lag) von 24 bis 72 Stunden auf! Ein Papierkalender reiht die Tage starr aneinander. Es gibt für einen Patienten keinen einfachen visuellen Weg, eine rote Symptom-Linie am *Freitag* in Bezug zu einem Ausflug in den Supermarkt am *Dienstagnachmittag* zu setzen. Ninas Auswertungsversuch gleicht einem mühsamen Herumgeblättere. Ohne die Verzögerung visuell sehen zu können, beschuldigt sie ständig das falsche Ereignis und ruiniert ihre eigene \"Pacing\"-Strategie.\n    *   **Warum wir es brauchen:** Eine absolut gigantische UX/Daten-Architektur-Regel: **Trend-Analysen und Korrelationen in der App müssen \"Lag\" (zeitliche Verzögerung) abbilden können.** Das unterscheidet einen rudimentären PDF-Tabelle-Tracker von einem echten, smarten klinischen Assistenzsystem für den Nutzer.\n\n### C. Hardware vs. Hardware (Wenn das Smart Device lügt)\n\n*   **Szenario 3: The Wearable Gaslighting (Smartwatch vs. Mitochrondrien)**\n    *   **Kategorie:** `capture.spontaneous` & Datenschnittstellen\n    *   **Worum es geht:** Nina trägt (wie tausende Long-COVID-Patienten) ständig eine Smartwatch, um ihre Herzfrequenz unter einem bestimmten Wert (Pacing-Limit) zu halten und Schlaf zu messen. Am Samstag wacht sie extrem zerschlagen auf. Die Garmin-Watch summt fröhlich: *\"Super! Dein Schlaf hat dich um +80% erholt. Du bist bereit für ein intensives Training!\"*\n    *   **Das Status-Quo-Problem:** Fitness-Uhren werten Parameter neurotypischer, gesunder Menschen (Schlafdauer, Basis-HRV) oft fälschlicherweise als \"Du bist fit\" aus, obwohl bei ME/CFS-Patienten die zelluläre Energiegewinnung gestört ist. Ninas subjektive \"Battery\" ist in Realität auf 5%, das Gerät beharrt auf 80%. Nina steht weinend in der Küche. Nicht nur Ärzte glauben ihr oft nicht, sondern jetzt verhöhnt sie auch noch ihr eigener teurer Tracker, dem sie vertraut hat. \n    *   **Warum wir es brauchen:** Eröffnet das Wearable-Feld. Wenn User externe Hardware-Daten in die App ziehen, **muss es eine hierarchisch stärkere Überschreiben-Funktion (Subjektives Feeling trumpft Metrik)** geben. Subjektive Tagebuch-Daten fangen das Hardware-Versagen (bzw. unkalibrierte Sensoren für Kranke) ab.\n\n### D. Gesellschaftliche Grenzzuhung \n\n*   **Szenario 4: The Quantified Cancellation (Der emotionale Schutzschild)**\n    *   **Kategorie:** `management.share_externally` / Coping \n    *   **Worum es geht:** Samstagabend ist der Geburtstag von Ninas bester Freundin. Nina weiß: *\"Wenn ich heute hingehe, zahle ich nächste Woche mit einem schweren Crash dafür.\"* Ihr fällt das Absagen extrem schwer (Schuldgefühle). In der Vergangenheit hat sie einfach Ausreden erfunden.\n    *   **Das Status-Quo-Problem:** Nina zögert und will gerade kapitulieren (und trotz Symptomen auf die Party gehen, was gesundheitlich fahrlässig ist). Sie holt stattdessen ihr Pacing-Tagebuch/Smartphone hervor. Sie schaut objektiv auf die Zahlen der laufenden Woche (Pulsspitzen beim Duschen dokumentiert, Energielöffel bereits am Donnerstag aufgebraucht). Erst durch das **visuelle Bestätigen** (\"Schau hier, die Daten sagen objektiv: Es geht absolut nicht, ich darf mich nicht gefährden!\") hat sie das Rückgrat, der Freundin ohne große Entschuldigung abzusagen.\n    *   **Warum wir es brauchen:** Das zeigt, dass Tracking für das Chronisch-Kranken-Cluster oft auch die Aufgabe eines externen \"Anwalts\" für den Selbstschutz einnimmt. Die App hilft dabei, die Erschöpfung vor sich selbst zu rechtfertigen. Ein schnelles Summary-Dashboard erfüllt hier die Aufgabe emotionaler \"Permission to rest\".\n\n---\n\n**Vollständigkeits-Check für Nina:**\nNina verlangt UI/UX-Meisterleistung. Für niemanden ist \"App öffnen\" so anstrengend wie für jemanden ohne Energie, und niemand ist so extrem von den Daten (Hardware/Bio) abhängig.\n*   [x] Barrierefreiheit beim Crash (Energy-Cost / UI): Sz 1\n*   [x] Zeitliche Lags und Analysen der 48-72h Verzögerung: Sz 2\n*   [x] Fehler in externen \"Gesunden\"-Daten auffangen: Sz 3\n*   [x] Daten als Boundary-Support im Privatleben: Sz 4\n\nFindest du dich und Ninas Persona in diesen Szenarien und Herausforderungen für chronische Diagnosen (Fatigue, ME/CFS, Schmerz-Cluster) optimal wieder?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1932,
+        "parts": [
+          {
+            "text": "\n\n\nSehr gut, Michael ist hiermit ebenfalls final und \"wasserfest\" abgenommen"
+          },
+          {
+            "text": ". \n\nWir kommen nun zum großen Finale unseres Basis-Sets: **Nina (The Energy Budgeter / PERSONA-013)**"
+          },
+          {
+            "text": ".\n\n**Rolle:** Self-User (kämpft oft mit medizinischer Eigenverantwortung, da das Standard"
+          },
+          {
+            "text": "-Kassensystem ME/CFS und Long-COVID noch kaum verlässlich therapiert).\n**Archetyp:**"
+          },
+          {
+            "text": " Die \"Energy Envelope\"-Managerin. Chronisches Fatigue-Syndrom. Ihr Akku lädt nie über 3"
+          },
+          {
+            "text": "0%, Aktivitäten rauben exorbitant Energie.\n**Ihre Besonderheit:** Sie *will* und *muss* pen"
+          },
+          {
+            "text": "ibel tracken, um Abstürze (Crashes) zu vermeiden, aber das Tooling versagt an der Bi"
+          },
+          {
+            "text": "ologie der Krankheit.\n\nNina repräsentiert das Cluster **Chronische und \"Unsichtbare\" Krankheiten ("
+          },
+          {
+            "text": "Lyme, Fibromyalgie, ME/CFS, Autoimmunerkrankungen, Endometriose-Sch"
+          },
+          {
+            "text": "merzphasen)**. Für sie ist Tracking keine Achtsamkeits-Übung, sondern knallhartes Navig"
+          },
+          {
+            "text": "ieren in einem feindlichen Alltag (\"Pacing\" / \"Spoon Theory\").\n\nHier sind die 4 zwingenden Szen"
+          },
+          {
+            "text": "arien, die dieses Cluster definieren:\n\n### A. Das Paradox der Krankheit (Capture)\n\n*   **Szenario"
+          },
+          {
+            "text": " 1: The Energy Cost of Tracking (Brain Fog)**\n    *   **Kategorie:** `capture.routine` (Sonder"
+          },
+          {
+            "text": "fall Crash)\n    *   **Worum es geht:** Nina liegt an einem schweren Crash-Tag (Schmerzen,"
+          },
+          {
+            "text": " Lichtempfindlichkeit, starker \"Brain Fog\" / Wortfindungsstörungen) dunkel abgedunkelt im Bett. Sie muss"
+          },
+          {
+            "text": " dokumentieren, *wie tief* der Absturz ist.\n    *   **Das Status-Quo-Problem"
+          },
+          {
+            "text": ":** Ein Papiertagebuch mit kleinen Kästchen erfordert Licht, Feinmotorik (aufsetzen, St"
+          },
+          {
+            "text": "ift halten) und Fokus. Alles führt sofort zur Symptomverschlechterung. Wenn sie eine App auf dem Handy öff"
+          },
+          {
+            "text": "net, strahlt sie der weiße Bildschirm an. Zu viele Tabs, kleine Schriften oder Sätze formulieren zu müssen,"
+          },
+          {
+            "text": " frisst ihre sprichwörtlich \"letzten Löffel Energie\" auf. Sie schließt die App oder kl"
+          },
+          {
+            "text": "appt das Buch zu und der tiefste, wichtigste Datensatz (der Crash) bleibt für Wochen undokumentiert, weil *"
+          },
+          {
+            "text": "das Tracken selbst krank macht*.\n    *   **Warum wir es brauchen:** Setzt radikale Vorgaben für Barrierefreiheit in"
+          },
+          {
+            "text": " der Psychiatrie / bei Fatigue. **Zero-Friction-Capture.** Riesige Buttons. Reiner Darkmode."
+          },
+          {
+            "text": " Notfalls Sprach-Erfassung mit geschlossenem Auge oder grobe Widget-Slider auf dem Homescreen. UI muss bed"
+          },
+          {
+            "text": "ienbar sein, wenn der Nutzer nur 2% Batterie hat.\n\n### B. Die zeitverzögerte R"
+          },
+          {
+            "text": "ache des Körpers (Die Daten-Lücke)\n\n*   **Szenario 2: The 72-"
+          },
+          {
+            "text": "Hour PEM Lag (Hunting the Trigger)**\n    *   **Kategorie:** `analysis.self_reflect` (Pattern Recognition)"
+          },
+          {
+            "text": "\n    *   *(Bereits im Brainstorming angeschnitten, hier voll entfaltet)*\n    *   **Worum es geht:** Nina erwacht"
+          },
+          {
+            "text": " an einem Freitagmorgen mit \"Post-Exertional Malaise\" (PEM – die typische massive Symptomverschlechterung nach Bel"
+          },
+          {
+            "text": "astung). Sie hat Gliederschmerzen wie bei schwerer Grippe. Sie sucht den Auslöser. Gestern war sie nur"
+          },
+          {
+            "text": " im Bett. Mittwoch auch. \n    *   **Das Status-Quo-Problem:** PEM bei Long-COVID/ME/CFS tritt"
+          },
+          {
+            "text": " mit einer Zeitverzögerung (Lag) von 24 bis 72 Stunden auf! Ein Papierkalender rei"
+          },
+          {
+            "text": "ht die Tage starr aneinander. Es gibt für einen Patienten keinen einfachen visuellen Weg, eine rote Symptom-Linie am *"
+          },
+          {
+            "text": "Freitag* in Bezug zu einem Ausflug in den Supermarkt am *Dienstagnachmittag* zu setzen."
+          },
+          {
+            "text": " Ninas Auswertungsversuch gleicht einem mühsamen Herumgeblättere. Ohne die Verz"
+          },
+          {
+            "text": "ögerung visuell sehen zu können, beschuldigt sie ständig das falsche Ereignis und ruiniert ihre eigene \"P"
+          },
+          {
+            "text": "acing\"-Strategie.\n    *   **Warum wir es brauchen:** Eine absolut gigantische UX/Daten-"
+          },
+          {
+            "text": "Architektur-Regel: **Trend-Analysen und Korrelationen in der App müssen \"Lag\" (zeit"
+          },
+          {
+            "text": "liche Verzögerung) abbilden können.** Das unterscheidet einen rudimentären PDF-Tabelle-Tracker von einem echten, smart"
+          },
+          {
+            "text": "en klinischen Assistenzsystem für den Nutzer.\n\n### C. Hardware vs. Hardware (Wenn das Smart Device"
+          },
+          {
+            "text": " lügt)\n\n*   **Szenario 3: The Wearable Gaslighting (Smartwatch vs. Mito"
+          },
+          {
+            "text": "chrondrien)**\n    *   **Kategorie:** `capture.spontaneous` & Datenschnittstellen\n    *   **Worum"
+          },
+          {
+            "text": " es geht:** Nina trägt (wie tausende Long-COVID-Patienten) ständig eine Smartwatch, um ihre Herzfrequenz unter"
+          },
+          {
+            "text": " einem bestimmten Wert (Pacing-Limit) zu halten und Schlaf zu messen. Am Samstag wacht sie extrem zerschlagen"
+          },
+          {
+            "text": " auf. Die Garmin-Watch summt fröhlich: *\"Super! Dein Schlaf hat dich um +80% erholt. Du"
+          },
+          {
+            "text": " bist bereit für ein intensives Training!\"*\n    *   **Das Status-Quo-Problem:** Fitness-Uh"
+          },
+          {
+            "text": "ren werten Parameter neurotypischer, gesunder Menschen (Schlafdauer, Basis-HRV) oft f"
+          },
+          {
+            "text": "älschlicherweise als \"Du bist fit\" aus, obwohl bei ME/CFS-Patienten die zelluläre Energieg"
+          },
+          {
+            "text": "ewinnung gestört ist. Ninas subjektive \"Battery\" ist in Realität auf 5%, das Gerät beh"
+          },
+          {
+            "text": "arrt auf 80%. Nina steht weinend in der Küche. Nicht nur Ärzte glauben ihr oft nicht, sondern jetzt verhöhnt sie"
+          },
+          {
+            "text": " auch noch ihr eigener teurer Tracker, dem sie vertraut hat. \n    *   **Warum wir es brauchen:** Eröffnet"
+          },
+          {
+            "text": " das Wearable-Feld. Wenn User externe Hardware-Daten in die App ziehen, **muss es eine hierarch"
+          },
+          {
+            "text": "isch stärkere Überschreiben-Funktion (Subjektives Feeling trumpft Metrik)** geben. Subjektive Tage"
+          },
+          {
+            "text": "buch-Daten fangen das Hardware-Versagen (bzw. unkalibrierte Sensoren für Kranke) ab.\n\n### D."
+          },
+          {
+            "text": " Gesellschaftliche Grenzzuhung \n\n*   **Szenario 4: The Quantified Cancellation (Der emotionale Schutz"
+          },
+          {
+            "text": "schild)**\n    *   **Kategorie:** `management.share_externally` / Coping \n    *   **Worum es"
+          },
+          {
+            "text": " geht:** Samstagabend ist der Geburtstag von Ninas bester Freundin. Nina weiß: *\"Wenn ich heute hingehe, zah"
+          },
+          {
+            "text": "le ich nächste Woche mit einem schweren Crash dafür.\"* Ihr fällt das Absagen extrem schwer (Schuldgefühle). In"
+          },
+          {
+            "text": " der Vergangenheit hat sie einfach Ausreden erfunden.\n    *   **Das Status-Quo-Problem:** Nina"
+          },
+          {
+            "text": " zögert und will gerade kapitulieren (und trotz Symptomen auf die Party gehen, was gesundheitlich fah"
+          },
+          {
+            "text": "rlässig ist). Sie holt stattdessen ihr Pacing-Tagebuch/Smartphone hervor. Sie schaut obj"
+          },
+          {
+            "text": "ektiv auf die Zahlen der laufenden Woche (Pulsspitzen beim Duschen dokumentiert, Energielöffel bereits am Donnerstag"
+          },
+          {
+            "text": " aufgebraucht). Erst durch das **visuelle Bestätigen** (\"Schau hier, die Daten sagen objektiv: Es"
+          },
+          {
+            "text": " geht absolut nicht, ich darf mich nicht gefährden!\") hat sie das Rückgrat, der Freundin ohne große Entschuldigung abzusagen."
+          },
+          {
+            "text": "\n    *   **Warum wir es brauchen:** Das zeigt, dass Tracking für das Chronisch-Kranken-Cluster oft auch die Aufgabe eines"
+          },
+          {
+            "text": " externen \"Anwalts\" für den Selbstschutz einnimmt. Die App hilft dabei, die Erschöpfung"
+          },
+          {
+            "text": " vor sich selbst zu rechtfertigen. Ein schnelles Summary-Dashboard erfüllt hier die Aufgabe emotionaler \"Permission to rest\".\n\n---\n\n**"
+          },
+          {
+            "text": "Vollständigkeits-Check für Nina:**\nNina verlangt UI/UX-Meisterleistung. Für niem"
+          },
+          {
+            "text": "anden ist \"App öffnen\" so anstrengend wie für jemanden ohne Energie, und niemand ist so extrem von den Daten ("
+          },
+          {
+            "text": "Hardware/Bio) abhängig.\n*   [x] Barrierefreiheit beim Crash (Energy-Cost / UI):"
+          },
+          {
+            "text": " Sz 1\n*   [x] Zeitliche Lags und Analysen der 48-72h Verzögerung: Sz"
+          },
+          {
+            "text": " 2\n*   [x] Fehler in externen \"Gesunden\"-Daten auffangen: Sz 3\n*"
+          },
+          {
+            "text": "   [x] Daten als Boundary-Support im Privatleben: Sz 4\n\nFindest du dich und Ninas Persona in diesen Szen"
+          },
+          {
+            "text": "arien und Herausforderungen für chronische Diagnosen (Fatigue, ME/CFS, Schmerz-Cluster) optimal"
+          },
+          {
+            "text": " wieder?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

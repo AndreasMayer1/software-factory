@@ -1,0 +1,241 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Gut,  übernehmen wir das für max. Wen repräsentiert max noch? Gibt es da noch Szenarien die noch nicht abgedeckt sind? Gibt es noch Szenarien die außerhalb des trackings liegen? ",
+        "role": "user",
+        "tokenCount": 46,
+        "createTime": "2026-03-01T08:44:04.023Z"
+      },
+      {
+        "text": "**Accepting New Scenarios**\n\nI've accepted the two new Max scenarios, \"Bed Gravity\" (Sz 6) and \"BDI-2 Fog\" (Sz 7). The process is now focused on identifying Max's implicit clusters and other relevant representations. I'm moving toward identifying any other possible relevant factors.\n\n\n**Exploring Unmet Needs**\n\nI'm now investigating unmet scenarios beyond typical tracking. I'm focusing on scenarios outside of the classic cycle to expand Max's persona, specifically considering severe depression and burnout. I'm focusing on social isolation as a key concept, looking at how the app ecosystem can address that need. I am holding off on Michael's persona to complete Max's work.\n\n\n**Analyzing Crisis Intervention**\n\nI am now focusing on crisis intervention, considering the \"Black Hole of Communication\" caused by depression and isolation, and therapy abandonment during burnout. I'm exploring bridging features to improve connection, as social aspects were excluded, as well as medication compliance. I am also considering barriers to crisis resources within the app, especially after reviewing \"Bed Gravity.\"\n\n\n**Prioritizing Crisis Intervention**\n\nI'm now zeroing in on a critical, out-of-the-box scenario: Max's urgent need at 4 AM, experiencing an actively suicidal thought or severe self-harm urge. The friction of accessing help is the main focus, especially as he can't face using the phone to find help. I'm exploring an emergency \"exit\" for his application. I'm also refining \"Burnout\" representations to distinguish them from Nina and Michael's domains. I will concentrate on deeper aspects of executive dysfunction and deep depression. I also need to evaluate the \"passive failure\" concept as part of the app lifecycle.\n\n\n**Defining App Behavior**\n\nI'm now focusing on Max's adverse reaction to typical app notifications, which I'm considering \"alarm punishment\" rather than fatigue. The core rule for the app is \"Do Not Disturb,\" or \"Silence is Golden.\" I've framed his representations as experiencing burnout/total depletion, atypical depression, and at-risk system dropouts. I'm exploring two new scenarios, dealing with notifications when depleted and accessing crisis lifelines at 4 AM.",
+        "role": "model",
+        "tokenCount": 1437,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Accepting New Scenarios**\n\nI've accepted the two new Max scenarios, \"Bed Gravity\" (Sz 6) and \"BDI-2 Fog\" (Sz 7). The process is now focused on identifying Max's implicit clusters and other relevant representations. I'm moving toward identifying any other possible relevant factors.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Exploring Unmet Needs**\n\nI'm now investigating unmet scenarios beyond typical tracking. I'm focusing on scenarios outside of the classic cycle to expand Max's persona, specifically considering severe depression and burnout. I'm focusing on social isolation as a key concept, looking at how the app ecosystem can address that need. I am holding off on Michael's persona to complete Max's work.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Crisis Intervention**\n\nI am now focusing on crisis intervention, considering the \"Black Hole of Communication\" caused by depression and isolation, and therapy abandonment during burnout. I'm exploring bridging features to improve connection, as social aspects were excluded, as well as medication compliance. I am also considering barriers to crisis resources within the app, especially after reviewing \"Bed Gravity.\"",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Prioritizing Crisis Intervention**\n\nI'm now zeroing in on a critical, out-of-the-box scenario: Max's urgent need at 4 AM, experiencing an actively suicidal thought or severe self-harm urge. The friction of accessing help is the main focus, especially as he can't face using the phone to find help. I'm exploring an emergency \"exit\" for his application. I'm also refining \"Burnout\" representations to distinguish them from Nina and Michael's domains. I will concentrate on deeper aspects of executive dysfunction and deep depression. I also need to evaluate the \"passive failure\" concept as part of the app lifecycle.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Defining App Behavior**\n\nI'm now focusing on Max's adverse reaction to typical app notifications, which I'm considering \"alarm punishment\" rather than fatigue. The core rule for the app is \"Do Not Disturb,\" or \"Silence is Golden.\" I've framed his representations as experiencing burnout/total depletion, atypical depression, and at-risk system dropouts. I'm exploring two new scenarios, dealing with notifications when depleted and accessing crisis lifelines at 4 AM.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T08:44:04.026Z"
+      },
+      {
+        "text": "\n\n\nMax ist eine unerschöpfliche Quelle für UX-Entscheidungen, weil sein Zustand (schwere Depression) der ultimative \"Stresstest\" für jede App-Nutzbarkeit ist.\n\nWenn wir in seine Persona-Definition schauen, vertritt er neben der reinen \"Major Depression\" explizit folgende **Implicit Clusters**:\n1. **Das Burnout-Cluster:** Völlige Depletion (Auszehrung). Es geht nicht um \"Trauer\" (Lena), sondern um einen komplett entleerten Akku. Das Gehirn hat schlicht keine Betriebsspannung mehr.\n2. **Patienten mit Anhedonie (Gefühlstaubheit):** Menschen, die nicht tief \"traurig\" sind (weinen), sondern völlig stumpf und grau (Emotionale Flatline).\n3. **Dropout-gefährdete Patienten:** Jene, bei denen die Scham so groß ist, dass sie aus dem Hilfesystem fallen, wenn die Hürden zu hoch werden.\n\nMit dem Blick auf \"Szenarien **außerhalb** des Trackings\" (also Systemverhalten und passives Erleben) stoßen wir bei diesen Clustern noch auf zwei essenzielle, fast lebensrettende Aspekte, die den Status-Quo-Schmerz veranschaulichen:\n\n### C. Out-of-the-Box: Wenn das System nach draußen funkt (Passiver Schmerz)\n\n*   **Szenario 8: The Cheerful Mockery (Toxic Notifications)**\n    *   **Kategorie:** Lifecycle / UX außerhalb der App (Passiver System-Touchpoint)\n    *   **Worum es geht:** Max hat irgendwann eine Standard-Gesundheits-App runtergeladen oder sich einen Kalender-Reminder gesetzt. Um 20:00 Uhr leuchtet sein Display auf: *\"Hey Max! 👋 Zeit für dein Stimmungs-Update! Hast du heute gelächelt?\"* \n    *   **Das Status-Quo-Problem:** Max liegt apathisch auf der Couch. Diese \"motivierende\" Standard-Erinnerung ist für einen depressiven/Burnout-Patienten ein Schlag ins Gesicht. Die fröhliche Formulierung verhöhnt seinen Zustand (Toxic Positivity). Der Aufwand der Interaktion ist zu hoch, und der Push löst als Trigger direkte Schuldgefühle und Ablehnung aus. Max wischt den Alarm wütend/beschämt weg und deinstalliert die App kurz darauf, um den \"Ankläger\" auf seinem Handy mundtot zu machen.\n    *   **Warum wir es brauchen:** Es ist ein absolut zwingendes Gegen-Szenario. Es verbietet unserer Software jemals Push-Nachrichten mit Emoticons, \"Gamification-Language\" oder wertenden Sätzen (\"Vergiss deine Ziele nicht!\") zu senden. Benachrichtigungen im Mental-Health-Bereich müssen lautlos, stoisch, ultra-neutral und unsichtbar abbaubar sein.\n\n### D. Out-of-the-Box: Die absolute Notsituation (Ohne Therapie-Protokoll)\n\n*   **Szenario 9: The Friction of Help (Der Berg vor dem Notruf)**\n    *   **Kategorie:** `intervention.safety` (Spezialfall für stumme Krisen)\n    *   **Worum es geht:** Es ist 4 Uhr morgens. Max hat einen massiven Einbruch. Passive Suizidgedanken (\"Es wäre besser, wenn ich nicht mehr aufwache\") verdichten sich. Dr. Sarah hat mit ihm besprochen: \"Wenn das passiert, rufen Sie die Telefonseelsorge an oder fahren Sie in die Klinik.\"\n    *   **Das Status-Quo-Problem:** Max starrt auf sein Handy. Die exekutive Dysfunktion (Handlungslähmung) der Depression in dieser extremen Schwere führt dazu, dass simple Schritte unüberwindbar werden. Sein Ablauf wäre: Browser öffnen -> \"Telefonseelsorge\" googeln -> an zwei Cookie-Bannern vorbeiklicken -> schauen, welche der 5 URLs die richtige ist -> die 0800er Nummer markieren -> in den Dialer kopieren -> anrufen. Das sind ca. 7 Klicks und Sucharbeit. Dieser winzige \"Reibungsverlust\" in einer digitalen Welt (Friction) führt dazu, dass Max das Handy sperrt und stumm weiterleidet. Er ruft *nicht* an.\n    *   **Warum wir es brauchen:** Zeigt die absolute Verantwortung einer solchen App, in die passiven Layer ein echtes Sicherheitsnetz einzuweben. Ein Krisen-Button muss IMMER da sein, egal auf welchem Screen man ist, und er muss mit einem Klick das OS-Anruf-Fenster (112, 116117 oder Seelsorge) öffnen. Bei schwerer Depression kosten Cookie-Banner wortwörtlich das Leben.\n\n---\n\nMit diesen beiden additions:\n*   Dem passiven Erleiden einer Benachrichtigung (Szenario 8 - Cheerful Mockery)\n*   Dem gescheiterten Kampf an den Notfallkontakt zu kommen (Szenario 9 - Friction of Help)\n\n... haben wir den **Sog der absoluten Energielosigkeit und Sinnlosigkeit (Burnout & Anhedonie)** zu 100% manifestiert. Alles was diese Patienten tun sollen, muss \"Mühelos und ohne Reue ignorierbar\" oder \"Mit einem einzigen Finger-Tap auf der Matratze auslösbar\" sein. \n\nHabe ich mit diesen beiden Extrapolationen deine Gedanken zu den Restgruppen getroffen? Wir können das genau so verankern.\n\nWenn ja, biegen wir ein in die Welt derer, die weder depressiv weinen noch zum Therapeuten gehen, sondern die absolute Maschinen-Mentality fahren: **Michael, The High Performer (PERSONA-006)**. Einverstanden?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1271,
+        "parts": [
+          {
+            "text": "\n\n\nMax ist eine unerschöpfliche Quelle für"
+          },
+          {
+            "text": " UX-Entscheidungen, weil sein Zustand (schwere Depression) der ultimative \"Stresstest\" für jede"
+          },
+          {
+            "text": " App-Nutzbarkeit ist.\n\nWenn wir in seine Persona-Definition schauen, vertritt er neben der reinen \""
+          },
+          {
+            "text": "Major Depression\" explizit folgende **Implicit Clusters**:\n1. **Das Burnout-Cluster:** Völlige Depletion (Aus"
+          },
+          {
+            "text": "zehrung). Es geht nicht um \"Trauer\" (Lena), sondern um einen komplett entleerten Akku. Das Gehir"
+          },
+          {
+            "text": "n hat schlicht keine Betriebsspannung mehr.\n2. **Patienten mit Anhedonie (Gefühlsta"
+          },
+          {
+            "text": "ubheit):** Menschen, die nicht tief \"traurig\" sind (weinen), sondern völlig stumpf und grau (Emotion"
+          },
+          {
+            "text": "ale Flatline).\n3. **Dropout-gefährdete Patienten:** Jene, bei denen die Scham so groß ist,"
+          },
+          {
+            "text": " dass sie aus dem Hilfesystem fallen, wenn die Hürden zu hoch werden.\n\nMit dem Blick auf \"Szenarien **"
+          },
+          {
+            "text": "außerhalb** des Trackings\" (also Systemverhalten und passives Erleben) stoßen wir bei diesen Cl"
+          },
+          {
+            "text": "ustern noch auf zwei essenzielle, fast lebensrettende Aspekte, die den Status-Quo-Sch"
+          },
+          {
+            "text": "merz veranschaulichen:\n\n### C. Out-of-the-Box: Wenn das System nach dra"
+          },
+          {
+            "text": "ußen funkt (Passiver Schmerz)\n\n*   **Szenario 8: The Cheerful Mockery (Toxic Notifications)**"
+          },
+          {
+            "text": "\n    *   **Kategorie:** Lifecycle / UX außerhalb der App (Passiver System-Touchpoint)\n    *   **Worum"
+          },
+          {
+            "text": " es geht:** Max hat irgendwann eine Standard-Gesundheits-App runtergeladen oder sich einen Kalender-Reminder"
+          },
+          {
+            "text": " gesetzt. Um 20:00 Uhr leuchtet sein Display auf: *\"Hey Max! 👋 Zeit für"
+          },
+          {
+            "text": " dein Stimmungs-Update! Hast du heute gelächelt?\"* \n    *   **Das Status-Quo-Problem:** Max"
+          },
+          {
+            "text": " liegt apathisch auf der Couch. Diese \"motivierende\" Standard-Erinnerung ist für einen depressiven/"
+          },
+          {
+            "text": "Burnout-Patienten ein Schlag ins Gesicht. Die fröhliche Formulierung verhöhnt seinen Zustand (Toxic Positivity)."
+          },
+          {
+            "text": " Der Aufwand der Interaktion ist zu hoch, und der Push löst als Trigger direkte Schuldgefühle und Ablehnung aus. Max wis"
+          },
+          {
+            "text": "cht den Alarm wütend/beschämt weg und deinstalliert die App kurz darauf, um den \"Ankl"
+          },
+          {
+            "text": "äger\" auf seinem Handy mundtot zu machen.\n    *   **Warum wir es brauchen:** Es ist ein absolut zwingendes Gegen"
+          },
+          {
+            "text": "-Szenario. Es verbietet unserer Software jemals Push-Nachrichten mit Emoticons, \"Gamification-Language\" oder wertenden S"
+          },
+          {
+            "text": "ätzen (\"Vergiss deine Ziele nicht!\") zu senden. Benachrichtigungen im Mental-Health-Bereich müssen laut"
+          },
+          {
+            "text": "los, stoisch, ultra-neutral und unsichtbar abbaubar sein.\n\n### D. Out-of-the-Box:"
+          },
+          {
+            "text": " Die absolute Notsituation (Ohne Therapie-Protokoll)\n\n*   **Szenario 9: The Friction of Help (Der"
+          },
+          {
+            "text": " Berg vor dem Notruf)**\n    *   **Kategorie:** `intervention.safety` (Spezialfall für st"
+          },
+          {
+            "text": "umme Krisen)\n    *   **Worum es geht:** Es ist 4 Uhr morgens. Max hat einen mass"
+          },
+          {
+            "text": "iven Einbruch. Passive Suizidgedanken (\"Es wäre besser, wenn ich nicht mehr aufwache\") verd"
+          },
+          {
+            "text": "ichten sich. Dr. Sarah hat mit ihm besprochen: \"Wenn das passiert, rufen Sie die Telefonseels"
+          },
+          {
+            "text": "orge an oder fahren Sie in die Klinik.\"\n    *   **Das Status-Quo-Problem:** Max st"
+          },
+          {
+            "text": "arrt auf sein Handy. Die exekutive Dysfunktion (Handlungslähmung) der Depression in dieser extremen Schwere führt"
+          },
+          {
+            "text": " dazu, dass simple Schritte unüberwindbar werden. Sein Ablauf wäre: Browser öffnen -> \"Telefonseelsorge\""
+          },
+          {
+            "text": " googeln -> an zwei Cookie-Bannern vorbeiklicken -> schauen, welche der 5 URLs die richtige ist -> die 0"
+          },
+          {
+            "text": "800er Nummer markieren -> in den Dialer kopieren -> anrufen. Das sind ca. 7 Klicks und"
+          },
+          {
+            "text": " Sucharbeit. Dieser winzige \"Reibungsverlust\" in einer digitalen Welt (Friction) führt dazu, dass Max das"
+          },
+          {
+            "text": " Handy sperrt und stumm weiterleidet. Er ruft *nicht* an.\n    *   **Warum wir es brauchen:** Ze"
+          },
+          {
+            "text": "igt die absolute Verantwortung einer solchen App, in die passiven Layer ein echtes Sicherheitsnetz einzuweben. Ein Krisen-Button"
+          },
+          {
+            "text": " muss IMMER da sein, egal auf welchem Screen man ist, und er muss mit einem Klick das OS-An"
+          },
+          {
+            "text": "ruf-Fenster (112, 116117 oder Seelsorge) öffnen. Bei"
+          },
+          {
+            "text": " schwerer Depression kosten Cookie-Banner wortwörtlich das Leben.\n\n---\n\nMit diesen beiden additions:\n*   Dem"
+          },
+          {
+            "text": " passiven Erleiden einer Benachrichtigung (Szenario 8 - Cheerful Mockery)\n*   Dem gesche"
+          },
+          {
+            "text": "iterten Kampf an den Notfallkontakt zu kommen (Szenario 9 - Friction of Help)\n\n... haben"
+          },
+          {
+            "text": " wir den **Sog der absoluten Energielosigkeit und Sinnlosigkeit (Burnout & Anhedonie)** zu 10"
+          },
+          {
+            "text": "0% manifestiert. Alles was diese Patienten tun sollen, muss \"Mühelos und ohne Reue ignorierbar\" oder"
+          },
+          {
+            "text": " \"Mit einem einzigen Finger-Tap auf der Matratze auslösbar\" sein. \n\nHabe ich mit diesen beiden Ext"
+          },
+          {
+            "text": "rapolationen deine Gedanken zu den Restgruppen getroffen? Wir können das genau so verankern.\n\nWenn ja, biegen"
+          },
+          {
+            "text": " wir ein in die Welt derer, die weder depressiv weinen noch zum Therapeuten gehen, sondern die absolute Maschinen"
+          },
+          {
+            "text": "-Mentality fahren: **Michael, The High Performer (PERSONA-006)**. Einverstanden?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

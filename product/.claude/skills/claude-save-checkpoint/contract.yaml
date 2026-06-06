@@ -1,0 +1,42 @@
+contract_version: 1
+skill: claude-save-checkpoint
+purpose: >
+  Preserve session context for restart by writing a checkpoint_summary.md with
+  overview, user feedback, open items, and protocol index. Also appends a
+  protocol entry to the latest protocol.md.
+
+derived_from:
+  required:
+    - path: plans-dir
+      source: skill:task-create
+      reason: All protocol files in this directory are read to build the checkpoint summary.
+
+produces:
+  required:
+    - path: protocol
+      reason: Session overview, user feedback, open items, and protocol file index.
+  conditional:
+    - path: protocol
+      condition: appended with a checkpoint entry referencing checkpoint_summary.md.
+      reason: Protocol continuity — checkpoint event is recorded in the running log.
+
+quality_criteria:
+  - checkpoint_summary.md contains overview (3–5 sentences), user feedback, open items, and protocol index.
+  - Protocol entry includes the checkpoint agent ID.
+  - No implementation details duplicated — those belong in protocol.md files.
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_tasks/<task>/plans_and_protocols/checkpoint_summary.md
+    action: write
+    note: Full session checkpoint written.
+  - target: requirements_tasks/<task>/plans_and_protocols/<date>_protocol.md
+    action: append
+    note: Checkpoint event entry appended.
+
+preconditions:
+  - A task is active with a plans_and_protocols/ directory.
+
+postconditions:
+  - checkpoint_summary.md exists and protocol.md records the checkpoint event.

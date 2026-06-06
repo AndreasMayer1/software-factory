@@ -1,0 +1,47 @@
+contract_version: 1
+skill: claude-create-agent
+purpose: >
+  Create a governed .claude/agents/<name>.md agent definition: enforces the
+  when-to-create gate, collision-checked naming, artifact-establishment gate
+  (expertise segment + contract tokens), allowed_tools intent-class heuristic,
+  required structural sections, Domain-Vocabulary authoring aid, and contract
+  sidecar emission. References (does not re-derive) the split rubric.
+
+derived_from:
+  optional:
+    - path: agent
+      source: external
+      reason: Listed to collision-check the new agent name against existing project agents.
+    - path: skill
+      source: external
+      reason: Holds the canonical sub-skill-vs-agent split rubric (§"Phase Split Decision"), referenced not restated.
+
+produces:
+  required:
+    - path: agent
+      reason: The agent definition file with frontmatter, role identity, and the five required sections.
+  conditional:
+    - path: agent-contract
+      condition: always written alongside the agent file.
+      reason: Sidecar contract declaring what the agent consumes and produces (REQ-PROC-044 mechanism).
+    - path: pending-question
+      condition: automated mode — artifact-establishment gate encounters an unregistered expertise segment or contract token.
+      reason: Escalation checkpoint; developer must ratify the proposed registry entry before authoring proceeds.
+    - path: pending-answer
+      condition: automated mode — written alongside pending-question as the answer template.
+      reason: Template copied so the developer has a ready-to-fill answer file.
+
+quality_criteria:
+  - Name collides with no Claude built-in, han-* import, or existing project agent.
+  - allowed_tools is the narrowest set for the intent class; bare "*" only with a recorded justification.
+  - Role identity is <=50 tokens and the five required sections are present and ordered.
+  - Domain Vocabulary holds 10-25 expert-tier terms passing the 15-year-practitioner test; shallow terms rejected.
+  - The when-to-create gate passed before the file was written.
+
+preconditions:
+  - The when-to-create gate (no existing agent/skill suffices; agent-vs-session check passes) is satisfied.
+  - No agent with the same name already exists.
+
+postconditions:
+  - .claude/agents/<name>.md exists with valid frontmatter and the five required sections.
+  - .claude/agents/<name>.contract.yaml exists with contract_version 1.

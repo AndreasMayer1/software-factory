@@ -1,0 +1,129 @@
+# Schema: concept_canon_entry.yaml
+#
+# Canonical source of truth for the SHAPE of a single entry under `concepts:` in
+# requirements_user_needs/concept_canon/concept_canon.yaml.
+#
+# Produced/maintained by: ux-write-canon-concept (sole gatekeeper)
+# Consumed by: every authoring path that produces user-facing language (requ-explore,
+#              ux-create-flow, ux-write-scenario, code-simple, code-complex,
+#              ui-scribble-iterate, product-intake), generate_concept_canon_md.py,
+#              check_canon.py, check_skill_contracts.py
+#
+# REPLACES (deleted in the same commit that introduced this schema — REQ-PROC-044 D-5):
+#   .claude/skills/ux-write-canon-concept/SKILL.md "Add" step 3 inline field enumeration
+#   ("id, type, status, archived_reason, name_canonical, aliases, description,
+#   audience_variants, provenance, related, examples, forbidden_synonyms") — replaced with
+#   a pointer to this schema. The procedural Add/Update/Rename steps are PRESERVED.
+#   concept_canon/README.md "Files in this folder" already names concept_canon.yaml the
+#   "Full schema"; that pointer now resolves to this file.
+#
+# Dialect: flat YAML with required:/optional: blocks (REQ-PROC-044 D-2). NOT full JSON Schema.
+
+schema_version: 1
+artifact: concept_canon.yaml (single entry under concepts:)
+description: >
+  One canonical user-facing concept (object, state, or operation) the product commits
+  to naming consistently across all artifacts and registers.
+
+required:
+  id:
+    type: string
+    pattern: "CONCEPT-[A-Z0-9-]+"
+    example: CONCEPT-HAND-OVER
+    description: >
+      Stable ID derived from the canonical English name (UPPER-KEBAB). A canonical-name
+      rename keeps the original ID and pushes the old name to aliases.legacy.
+
+  type:
+    type: string
+    enum: [object, state, operation]
+    description: Object the user perceives, state an object can be in, or operation the user performs.
+
+  status:
+    type: string
+    enum: [active, archived]
+    description: archived concepts retain their ID; set archived_reason when archived.
+
+  archived_reason:
+    type: string
+    description: Reason string when status == archived; empty string otherwise.
+
+  name_canonical:
+    type: string
+    description: The single user-facing name the product commits to (lay register by default).
+
+  aliases:
+    type: object
+    description: Alternate names by axis.
+    keys:
+      de: { type: string, description: "German canonical name." }
+      code:
+        type: array
+        description: Code-side identifiers that diverge from the user-facing name.
+        items:
+          type: object
+          required_keys: [identifier, artefact, reason]
+      legacy:
+        type: array
+        items: { type: string }
+        description: Previous canonical names retained after a rename.
+
+  description:
+    type: string
+    description: One-paragraph definition of the concept.
+
+  provenance:
+    type: object
+    description: >
+      Evidence level per language. Ascending levels are inferred, proto-evidenced, evidenced.
+    keys:
+      en: { type: object, required_keys: [level, sources, validated_at, notes] }
+      de: { type: object, required_keys: [level, sources, validated_at, notes] }
+
+optional:
+  states:
+    type: array
+    items: { type: string }
+    description: >
+      Present on object-type entries — the states this object can be in (names only;
+      the state machine lives in code).
+
+  operations:
+    type: array
+    items: { type: string }
+    description: Present on object-type entries — operations the user can perform on it.
+
+  forbidden_synonyms:
+    type: array
+    description: Terms explicitly rejected for this concept.
+    items:
+      type: object
+      required_keys: [term, lang, note]
+      optional_keys: [constrained_by, evidence]
+
+  related:
+    type: array
+    items: { type: string }
+    description: Related CONCEPT-* IDs.
+
+  examples:
+    type: object
+    description: Usage sentences per language.
+    keys:
+      en: { type: array, items: { type: string } }
+      de: { type: array, items: { type: string } }
+
+  audience_variants:
+    type: object
+    description: >
+      Register overrides. Axis is therapist + self_user (self_user is the lay-register
+      placeholder; both lay sub-groups read the same canonical names). Empty objects when
+      the register is uniform.
+    keys:
+      therapist: { type: object }
+      self_user: { type: object }
+
+  introduced_by:
+    type: string
+    pattern: "REQ-[A-Z]+-[0-9]+"
+    description: Requirement ID that introduced this concept.

@@ -1,0 +1,43 @@
+contract_version: 1
+kind: external-interface
+interface: E4
+title: LLM web research
+direction: factory -> web -> factory
+purpose: >
+  doc-lookup-dependencies / find-docs fetch current API docs. The response body is
+  inherently variable, so the postcondition is "the fetch succeeded from an allowed
+  host", never "the body matches schema X".
+
+derived_from:
+  required:
+    - path: "ctx7:docs:<library-id>"
+      source: external
+      input_modality: command_output    # ctx7 CLI prints docs to stdout
+      schema: null
+      reason: Preferred structured-doc channel.
+  optional:
+    - path: "https://<official-docs-host>/*"
+      source: external
+      input_modality: url_response       # WebFetch / curl fallback
+      schema: null
+      reason: Fallback when ctx7 returns nothing.
+
+produces: {}     # web research is informational; it emits no factory artifact directly
+
+quality_criteria:
+  - check: network_host_allowlisted
+    target: "<fetched-url>"
+    args: [flutter.dev, dart.dev, pub.dev, docs.python.org]
+    note: Precondition guard — refuse fetches outside the doc allowlist.
+  - check: url_returned_2xx
+    target: "<fetched-url>"
+    note: Applies to the WebFetch/curl fallback path.
+  - check: command_output_nonempty
+    target_command: [ctx7, docs, "<library-id>", "<query>"]
+    note: ctx7 exits 0 even when empty; emptiness is the real failure -> fall back.
+
+preconditions:
+  - REQ-PROC-053 per-task lookup budget not exhausted.
+postconditions:
+  - Fetched docs are treated as informational, not authoritative; no downstream
+    artifact assumes response-schema conformance (parent exploration §E4).

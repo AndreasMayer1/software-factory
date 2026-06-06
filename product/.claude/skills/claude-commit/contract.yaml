@@ -1,0 +1,35 @@
+contract_version: 1
+skill: claude-commit
+purpose: >
+  Write a compliant Conventional Commits message and commit all staged changes.
+  Collects doc-lookup stats from the active task's lookup_log.jsonl and appends
+  them to the commit body. Performs a post-commit check for related unstaged files.
+
+derived_from:
+  optional:
+    - path: lookup-log
+      source: skill:doc-lookup-dependencies
+      reason: Doc-lookup statistics appended to commit body (looked_up / skipped / fallback counts).
+
+produces: {}
+
+quality_criteria:
+  - Commit message uses Conventional Commits format (type(scope)[:] subject).
+  - Subject is imperative mood, lowercase after colon, ≤72 chars, no period.
+  - git add and git commit are NEVER chained in a single command.
+  - --no-verify is never used.
+  - TASK-ID goes in scope, not appended to the subject.
+
+may_invoke: []
+
+side_effects:
+  - target: git history
+    action: write
+    note: Creates a git commit containing all staged changes.
+
+preconditions:
+  - Files to commit are already staged (git add run separately before this skill).
+
+postconditions:
+  - A git commit exists with a compliant message.
+  - Post-commit check for related unstaged files has been performed.

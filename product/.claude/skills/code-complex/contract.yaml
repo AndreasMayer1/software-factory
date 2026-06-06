@@ -1,0 +1,89 @@
+contract_version: 1
+skill: code-complex
+purpose: >
+  End-to-end workflow for complex, multi-file architectural changes. CONSUMER of goal.md:
+  spawns architecture-advisor to plan, runs sequential implementation batches across layers,
+  executes tests, runs the per-change quality gates, and closes the task. The heavyweight
+  sibling of code-simple.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: >
+        The task objective + ACs. Read by architecture-advisor in step 2 to build the
+        high-level plan. Produced by task-create / task-create-code.
+  optional:
+    - path: guideline
+      source: external
+      reason: Architecture/domain/presentation/testing guidelines consulted by the planner.
+    - path: scribble-metadata
+      source: skill:ui-scribble-iterate
+      schema: .claude/schemas/scribble_metadata.yaml
+      condition: read when the plan touches the Presentation Layer.
+      reason: Approved scribble grounds Presentation-Layer plan steps.
+    - path: concept-canon
+      source: skill:ux-write-canon-concept
+      schema: .claude/schemas/concept_canon_entry.yaml
+      condition: read when naming new symbols or user-facing concepts.
+      reason: Canonical names for the implementation batches.
+
+produces:
+  required:
+    - path: plan
+      reason: The architecture-advisor high-level plan (scope, batches, YAGNI deferrals).
+    - path: source
+      reason: The implemented Dart source files across the planned batches.
+    - path: test
+      reason: Initial test file(s) for each batch (run by test-engineer).
+  conditional:
+    - path: protocol
+      condition: written when the optional han-adversarial-validator step runs.
+      reason: Adversarial review of the plan's evidence base.
+    - path: pubspec
+      condition: edited only when the plan lists new packages (after admission gate).
+      reason: Dependency additions for the feature (REQ-PROC-060 admission gate first).
+
+quality_criteria:
+  - The plan is approved before implementation begins.
+  - Each implementation batch is ≤ 3 source files; batches run Data → Presentation order.
+  - All written tests pass before completion; verify-quality returns GREEN.
+  - Value trade-off decisions in code carry a WHY comment referencing the originating record.
+
+user_input_gates:
+  - phase: "Step 3 — Plan Size Check (split decision)"
+    description: "Developer decides whether to split an oversized plan into smaller tasks before implementation begins."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires when the plan exceeds size thresholds (>10 files, all 3 layers with significant changes, >1 focused session estimated, or high complexity)."
+  - phase: "Step 4 — User Approval"
+    description: "Developer approves the (possibly reduced) implementation plan before any code is written."
+    decision_kind: approval
+    required: always
+
+may_invoke:
+  - task-create
+  - task-create-code       # task splitting when the plan is too large
+  - ui-scribble-iterate
+  - doc-update-tokens
+  - ux-write-canon-concept
+  - doc-lookup-dependencies
+  - doc-update-guidelines
+  - claude-log
+  - task-complete
+
+side_effects:
+  - target: requirements_tasks/<category>/<req>/<feature>/tasks/<task>/goal.md
+    action: write
+    note: Scope may be reduced in goal.md when the plan is split into sibling tasks.
+  - target: requirements_tasks/<category>/<req>/<feature>/tasks/<task>/plans_and_protocols/
+    action: append
+    note: Plan, adversarial review, and per-agent protocol logs.
+
+preconditions:
+  - A goal.md exists for the task and conforms to goal_metadata.yaml (entry pre-check).
+  - New packages, if any, have developer pre-authorization (REQ-PROC-060).
+
+postconditions:
+  - All planned files implemented + tested, gates GREEN, and task-complete has committed.

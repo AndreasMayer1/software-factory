@@ -1,0 +1,51 @@
+contract_version: 1
+skill: claude-automated-mode
+purpose: >
+  Load and apply rules for unattended (automated) session execution.
+  Detects whether automated mode is active, runs the bootstrap check
+  (next_tasks.py), and replaces all user-confirmation checkpoints with
+  the pending_feedback write-and-terminate procedure.
+
+derived_from:
+  required:
+    - path: automation-sentinel
+      source: external
+      reason: Sentinel file that must exist for automated mode to be active.
+  optional:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Active in-progress task — needed to write question.md with task_id and session_id.
+    - path: pending-answer
+      source: external
+      reason: Template copied to answer.md when a question is posed; must not be written by AI.
+
+produces:
+  conditional:
+    - path: pending-question
+      condition: written when the current skill reaches a checkpoint requiring human input.
+      reason: Triggers orchestrator pause; contains the question for the developer.
+    - path: pending-answer
+      condition: copied from TEMPLATE_answer.md alongside question.md.
+      reason: Placeholder for the developer's answer; sentinel prevents AI overwrite.
+
+quality_criteria:
+  - Automated mode detection requires BOTH the env var AND the sentinel file.
+  - Every user-confirmation checkpoint is replaced with question.md + terminate.
+  - AI never writes content to answer.md.
+  - question.md contains task_id, session_id, and the full question with context.
+  - A spawned-agent rate/session limit is propagated by re-emitting the limit line to
+    stdout + terminating (task left in_progress), never turned into a question.md.
+
+may_invoke: []
+
+side_effects:
+  - target: automation/pending_feedback/<TASK_ID>/
+    action: write
+    note: question.md and answer.md written when a checkpoint requires human input.
+
+preconditions:
+  - CLAUDE_AUTOMATED_MODE=1 env var and automation/.automated_mode file both exist.
+
+postconditions:
+  - All confirmation checkpoints in the session use the pending_feedback procedure.

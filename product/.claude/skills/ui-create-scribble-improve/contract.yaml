@@ -1,0 +1,63 @@
+contract_version: 1
+skill: ui-create-scribble-improve
+purpose: >
+  Autonomously improve scribble generation quality by running a vision-evaluated
+  iteration loop: generate scribbles for fixture requirements, score them with a
+  16-criterion rubric, propose targeted changes to the generator agent, and commit
+  improvements that pass recheck scoring.
+  NOTE (TASK-PROC-044-07 split): generation logic moved from the monolithic
+  ui-create-scribble skill into the ui-scribble-generator agent; quality is now also
+  shaped by the three reviewer agents + ui-scribble-auto-review. This contract repoints
+  to the generator as the primary target; a follow-up should extend the loop to the
+  reviewer set (flagged in the SCRIBBLE-SPLIT protocol).
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Task workspace providing the iteration log path and task context.
+    - path: agent
+      source: external
+      reason: The generation agent being improved — read by Generator and Skill Updater agents in each iteration.
+    - path: requirements
+      source: skill:requ-explore
+      reason: Fixture requirements selected for scribble generation (Simple, Medium, Complex).
+
+produces:
+  required:
+    - path: protocol
+      reason: Iteration log with fixture selection, scores, proposed changes, and outcomes.
+  conditional:
+    - path: agent
+      condition: updated in the worktree when a proposed change improves the fixture score.
+      reason: The improved generator version committed to the improvement branch.
+    - path: scribble-component
+      condition: created or updated when component candidates are harvested from regenerated scribbles.
+      reason: Component library entry added or updated with structural compatibility.
+
+quality_criteria:
+  - Termination when average score ≥ 25.6/32, plateau detected (2 iterations no improvement), or 5-iteration budget exhausted.
+  - Changes reverted in the worktree when recheck score is lower than before.
+  - Generator writes to worktree scribbles/ not to requirements_tasks/ scribbles/.
+  - All git operations run inside the worktree (not main working tree).
+
+may_invoke:
+  - task-create
+  - ui-scribble-iterate
+
+side_effects:
+  - target: <worktree>/.claude/agents/ui-scribble-generator.md
+    action: write
+    note: Generator agent updated in the improvement branch when recheck passes.
+  - target: requirements_tasks/_scribble_components/<c_xxx>/
+    action: write
+    note: New component entries created when candidate annotation + multi-screen confirmation.
+
+preconditions:
+  - A task exists under REQ-PROC-032-02 (or task-create is invoked to create one).
+  - Fixture requirements with personas_served are available in functional requirements.
+
+postconditions:
+  - Improvement branch ready for PR with committed skill changes.
+  - iteration_log.md documents all iteration outcomes.

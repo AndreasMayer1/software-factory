@@ -1,0 +1,260 @@
+# Schema: requirements_frontmatter.yaml
+#
+# Canonical source of truth for the SHAPE of YAML frontmatter in every requirements.md.
+#
+# Produced by: requ-explore (also requ-derive-from-flow, requ-assign-packages update fields)
+# Consumed by: task-create, task-derive-from-requ, requ-merge, coverage_report.py,
+#              check_ac_coverage.py, generate_status_overview.py, sync_task_packages.py,
+#              check_skill_contracts.py
+#
+# REPLACES (deleted in the same commit that introduced this schema — REQ-PROC-044 D-5):
+#   requirements_tasks/README.md section "Meta Information System > Quick Reference"
+#   the "Requirement frontmatter (in requirements.md)" YAML code block — replaced with a
+#   pointer here. The "Tool Dependency Field" decision rules in that README are PRESERVED.
+#
+# AUTHORITATIVE SEMANTICS (priority codes, status lifecycle, ID generation, package
+# assignment rules) remain in
+#   requirements_tasks/process/AI_rules/requirements_management/requirements_and_tasks/requirements.md
+#   + requirements_tasks/package_assignment_rules.md
+# This schema owns the field SHAPE; those documents own the POLICY.
+#
+# Dialect: flat YAML with required:/optional: blocks (REQ-PROC-044 D-2). NOT full JSON Schema.
+
+schema_version: 1
+artifact: requirements.md (YAML frontmatter)
+description: >
+  Frontmatter block at the top of every requirements.md. Carries requirement identity,
+  priority, status, effort, tool dependency, trackable items, package assignment, and
+  user-needs links.
+
+required:
+  id:
+    type: string
+    pattern: "REQ-[A-Z]+-[0-9]+(-[0-9]+)?"
+    example: REQ-FUNC-042
+    description: Requirement ID allocated by allocate_req_id.py. Child features derive -NN suffix.
+
+  status:
+    type: string
+    enum: [placeholder, draft, defined, in_progress, active, implemented, deprecated, completed]
+    description: >
+      Lifecycle. 'draft' = initial capture, incomplete; 'defined' = concrete deliverable
+      awaiting tasks; 'active' = living document (process/standard); 'implemented' = all
+      coverage complete (never set by requ-explore); 'deprecated' = no longer relevant
+      (when made obsolete by another requirement, also add `superseded_by: [REQ-ID]`);
+      'placeholder' = auto-created feature awaiting its quality gate.
+      'completed' is a legacy corpus value (prefer 'implemented'); retained to avoid false
+      positives on old files. Canonical transitions: requirements_management/requirements_and_tasks/requirements.md.
+
+optional:
+  tool_dependency:
+    type: string
+    enum: [tool_agnostic, claude_code, roo_code]
+    default: tool_agnostic
+    description: Tool-specificity for migration filtering. Default tool_agnostic. See README decision rules.
+
+  feature_path:
+    type: string
+    example: "therapist/data_transfer"
+    description: >
+      lib/features/ mirror path for the UI feature this requirement covers (e.g.
+      `therapist/data_transfer` for `lib/features/therapist/data_transfer/`). Required
+      when ui-scribble-iterate generates a new scribble for this requirement so it knows
+      where to write. For lib/core/ features, use `_core/<subpath>`.
+
+  urgency:
+    type: integer
+    minimum: 0
+    maximum: 5
+
+  urgency_reason:
+    type: string
+    pattern: "U[0-5]-[A-Z_]+"
+    example: U4-DEP
+
+  impact:
+    type: integer
+    minimum: 0
+    maximum: 5
+
+  impact_reason:
+    type: string
+    pattern: "I[0-5]-[A-Z_]+"
+    example: I5-MVP
+
+  effort:
+    type: string
+    enum: [XS, S, M, L, XL, XXL, ongoing]
+    description: >
+      XXL reserved for epic requirements. 'ongoing' for process requirements with no fixed
+      endpoint (continuously evolving standards/guidelines).
+
+  release_chunk:
+    type: string
+    description: Chunk label; written only when derived from a flow with release_scope.
+
+  target_package:
+    type: string
+    description: >
+      Top-level package = the package with the earliest version among assigned trackable
+      items (computed). Omitted when no items assigned. Package names come from RELEASE_BACKLOG.md.
+
+  market_research_refs:
+    type: array
+    description: Market-research findings backing this requirement. Present (possibly empty) on functional features.
+    items: { type: string }
+
+  trackable_items:
+    type: object
+    description: The items tasks cover and coverage scripts track.
+    keys:
+      acceptance_criteria:
+        type: array
+        items:
+          type: object
+          required_keys: [id, text]
+          optional_keys: [target_package]
+          keys:
+            id: { type: string, pattern: "AC-[0-9]+" }
+            text: { type: string }
+            target_package: { type: string }
+      sections:
+        type: array
+        items:
+          type: object
+          required_keys: [id, name]
+          optional_keys: [target_package]
+          keys:
+            id: { type: string, pattern: "SEC-[0-9]+" }
+            name: { type: string }
+            target_package: { type: string }
+
+  user_needs:
+    type: object
+    description: Links to user-needs artifacts. Present on functional features. See README_13.
+    keys:
+      implements_flows:
+        type: array
+        items:
+          type: object
+          required_keys: [id]
+          optional_keys: [steps, coverage]
+          keys:
+            id: { type: string }
+            steps: { type: array, items: { type: integer } }
+            coverage: { type: string, enum: [partial, full] }
+      addresses_scenarios:
+        type: array
+        items: { type: string }
+      personas_served:
+        type: array
+        items: { type: string }
+
+  # --- Provenance / dependency metadata (near-universal in the corpus) ---
+
+  created:
+    type: string
+    format: date
+    description: Date the requirement was first authored. Set once; never updated.
+
+  updated:
+    type: string
+    format: date
+    description: Date the requirement was last substantively revised.
+
+  after:
+    type: array
+    items: { type: string, pattern: "REQ-[A-Z]+-[0-9]+(-[0-9]+)?" }
+    description: >
+      Requirement IDs that must be completed / active before this one is actionable.
+
+  blocks:
+    type: array
+    items: { type: string }
+    description: >
+      Requirement or task IDs that depend on this requirement. Inverse of after[].
+
+  superseded_by:
+    type: string
+    pattern: "REQ-[A-Z]+-[0-9]+(-[0-9]+)?"
+    description: >
+      REQ-ID of the requirement that makes this one obsolete. Only present when
+      `status: deprecated` and the deprecation was caused by another requirement
+      subsuming this one's full scope. Set by requ-explore reactive restructuring
+      analysis (REQ-PROC-045 AC-18 / SEC-09).
+
+  stakeholder:
+    type: string
+    description: >
+      Primary stakeholder group this requirement serves (e.g. "developer", "app_provider").
+
+  parent:
+    type: string
+    pattern: "REQ-[A-Z]+-[0-9]+(-[0-9]+)?"
+    description: >
+      Parent requirement ID when this is a child/sub-requirement.
+
+  parent_epic:
+    type: string
+    pattern: "REQ-[A-Z]+-[0-9]+(-[0-9]+)?"
+    description: >
+      Epic requirement this belongs to (broader grouping than parent).
+
+  parent_requirement:
+    type: string
+    pattern: "REQ-[A-Z]+-[0-9]+(-[0-9]+)?"
+    description: >
+      Alias for parent used in some older requirements; prefer parent for new files.
+
+  # --- Top-level personas_served (corpus uses this outside user_needs block) ---
+
+  personas_served:
+    type: array
+    items: { type: string }
+    description: >
+      Persona IDs served by this requirement at the top level (e.g. [PERSONA-015]).
+      When present at top level, takes precedence over user_needs.personas_served.
+
+  # --- Descriptive / classification metadata ---
+
+  title:
+    type: string
+    description: Human-readable title for the requirement (supplement to the h1 heading).
+
+  category:
+    type: string
+    description: >
+      High-level category (e.g. "non-functional"). Informational; primarily for filtering.
+
+  subcategory:
+    type: string
+    description: Sub-classification within category (e.g. "branding").
+
+  priority:
+    type: string
+    description: Priority label (e.g. "high"). Supplemental to urgency/impact integers.
+
+  tags:
+    type: array
+    items: { type: string }
+    description: Free-form labels for filtering/grouping.
+
+  # --- Exploration / research metadata ---
+
+  explored:
+    type: string
+    format: date
+    description: Date exploration of this requirement was completed (set by requ-explore).
+
+  vcd_activation_date:
+    type: string
+    format: date
+    description: >
+      Date the Value-Centered Design process was activated for this requirement.
+
+  sections:
+    type: array
+    items: { type: string }
+    description: >
+      Top-level sections list (legacy; normally sections live inside trackable_items).
+      Used in requirements files that predate the nested trackable_items structure.

@@ -1,0 +1,198 @@
+===== check_complexity.py =====
+lib/config/theme/theme.dart:21: buildTransitions: parameters 5 exceeds 4
+lib/config/theme/theme.dart:38: lightScheme: sloc 52 exceeds 50
+lib/config/theme/theme.dart:97: lightMediumContrastScheme: sloc 52 exceeds 50
+lib/config/theme/theme.dart:156: lightHighContrastScheme: sloc 52 exceeds 50
+lib/config/theme/theme.dart:215: darkScheme: sloc 52 exceeds 50
+lib/config/theme/theme.dart:274: darkMediumContrastScheme: sloc 52 exceeds 50
+lib/config/theme/theme.dart:333: darkHighContrastScheme: sloc 52 exceeds 50
+lib/config/theme/theme.dart:511: MaterialScheme: parameters 50 exceeds 4
+lib/config/theme/theme.dart:653: ExtendedColor: parameters 8 exceeds 4
+lib/core/design_system/atoms/grid_example.dart:8: build: sloc 71 exceeds 50
+lib/core/design_system/atoms/inputs/likert_scale.dart:5: DSLikertScale: parameters 5 exceeds 4
+lib/core/design_system/atoms/inputs/likert_scale.dart:15: build: sloc 72 exceeds 50
+lib/core/design_system/atoms/typography.dart:5: BaseText: parameters 7 exceeds 4
+lib/core/design_system/atoms/typography.dart:39: DisplayText: parameters 7 exceeds 4
+lib/core/design_system/atoms/typography.dart:57: BodyText: parameters 7 exceeds 4
+lib/core/design_system/config/layout/navigation.dart:21: NavigationConfig: parameters 5 exceeds 4
+lib/core/design_system/molecules/error_display.dart:27: build: sloc 52 exceeds 50
+lib/core/design_system/molecules/form_row.dart:4: FormRow: parameters 6 exceeds 4
+lib/core/design_system/molecules/list_item.dart:5: ListItem: parameters 8 exceeds 4
+lib/core/design_system/molecules/radio_card.dart:4: RadioCard: parameters 7 exceeds 4
+lib/core/design_system/organisms/layout/base/app_bar_config.dart:48: AppBarConfig: parameters 7 exceeds 4
+lib/core/design_system/organisms/layout/base/custom_navigation_bar.dart:7: CustomNavigationBar: parameters 7 exceeds 4
+lib/core/design_system/organisms/layout/base/stack_navigator.dart:18: StackNavigator: parameters 5 exceeds 4
+lib/core/design_system/organisms/layout/base/view_config.dart:13: ViewConfig: parameters 6 exceeds 4
+lib/core/design_system/organisms/layout/responsive/responsive_layout_builder.dart:15: ResponsiveLayoutBuilder: parameters 8 exceeds 4
+lib/core/design_system/organisms/layout/responsive/responsive_layout_builder.dart:62: build: sloc 149 exceeds 50
+lib/core/design_system/organisms/modal_dialog.dart:4: ModalDialog: parameters 8 exceeds 4
+lib/core/design_system/organisms/modal_dialog.dart:21: build: sloc 65 exceeds 50
+lib/core/domain/entities/action_item.dart:6: ActionItem: parameters 5 exceeds 4
+lib/core/domain/entities/contact.dart:14: Contact: parameters 5 exceeds 4
+lib/core/domain/entities/contact.dart:42: copyWith: parameters 5 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/question.dart:21: fromJson: cyclomatic complexity 25 exceeds 20
+lib/core/domain/entities/questionnaire_plan_entities/question.dart:75: create: cyclomatic complexity 28 exceeds 20
+lib/core/domain/entities/questionnaire_plan_entities/question.dart:75: create: parameters 7 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/question.dart:75: create: sloc 51 exceeds 50
+lib/core/domain/entities/questionnaire_plan_entities/question.dart:136: _: parameters 8 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/question.dart:173: copyWith: parameters 8 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/questionnaire.dart:23: _: parameters 8 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/questionnaire.dart:34: create: parameters 7 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/questionnaire.dart:161: copyWith: parameters 8 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/questionnaire_plan.dart:19: _: parameters 8 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/questionnaire_plan.dart:28: create: parameters 7 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/questionnaire_plan.dart:153: copyWith: parameters 7 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/time_interval.dart:14: TimeInterval: parameters 7 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/time_interval.dart:106: copyWith: parameters 7 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/v1/question.dart:49: create: parameters 7 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/v1/question.dart:106: _: parameters 8 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/v1/question.dart:151: copyWith: parameters 8 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/v1/questionnaire.dart:13: _: parameters 7 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/v1/questionnaire.dart:23: create: parameters 5 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/v1/questionnaire.dart:131: copyWith: parameters 7 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/v1/questionnaire_plan.dart:10: _: parameters 7 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/v1/questionnaire_plan.dart:17: create: parameters 5 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/v1/questionnaire_plan.dart:104: copyWith: parameters 6 exceeds 4
+lib/core/domain/entities/questionnaire_plan_entities/v1/time_interval.dart:7: TimeInterval: parameters 7 exceeds 4
+lib/core/domain/entities/tracking_entry_entities/tracking_entry.dart:14: _: parameters 7 exceeds 4
+lib/core/domain/entities/tracking_entry_entities/tracking_entry.dart:24: create: parameters 7 exceeds 4
+lib/core/domain/entities/tracking_entry_entities/transfer_bundle.dart:31: _: parameters 5 exceeds 4
+lib/core/domain/entities/tracking_entry_entities/transfer_bundle.dart:39: assemble: parameters 5 exceeds 4
+lib/core/domain/entities/tracking_entry_entities/transfer_bundle.dart:39: assemble: sloc 63 exceeds 50
+lib/core/injection/injection_container.config.dart:92: $initGetIt: sloc 80 exceeds 50
+lib/core/widgets/layout/scaffold_builder.dart:15: buildScaffold: parameters 7 exceeds 4
+lib/core/widgets/therapist/therapist_navigation_ui.dart:14: build: sloc 56 exceeds 50
+lib/features/client/data_input/presentation/bloc/data_input_state.dart:5: Question: parameters 5 exceeds 4
+lib/features/client/data_input/presentation/bloc/data_input_state.dart:29: DataInputState: parameters 5 exceeds 4
+lib/features/client/data_input/presentation/bloc/data_input_state.dart:42: copyWith: parameters 5 exceeds 4
+lib/features/client/data_input/presentation/widgets/empty_state.dart:15: build: sloc 68 exceeds 50
+lib/features/client/data_input/presentation/widgets/question_card.dart:7: QuestionCard: parameters 7 exceeds 4
+lib/features/client/data_input/presentation/widgets/question_card.dart:20: build: sloc 51 exceeds 50
+lib/features/client/data_receive/presentation/screens/data_beam_scanner_screen.dart:34: build: sloc 59 exceeds 50
+lib/features/client/data_receive/presentation/screens/data_beam_scanner_screen.dart:252: build: sloc 64 exceeds 50
+lib/features/client/data_receive/presentation/screens/plan_receipt_confirm_screen.dart:21: build: sloc 83 exceeds 50
+lib/features/more/presentation/layout/more_layout_config.dart:38: actionGroups: sloc 145 exceeds 50
+lib/features/more/presentation/screens/more_root_screen.dart:42: build: sloc 68 exceeds 50
+lib/features/role_selection/presentation/molecules/role_selection_form.dart:23: build: sloc 62 exceeds 50
+lib/features/role_selection/presentation/screens/onboarding_screen.dart:28: build: sloc 76 exceeds 50
+lib/features/therapist/clients/presentation/organisms/client_list.dart:51: build: sloc 56 exceeds 50
+lib/features/therapist/clients/presentation/widgets/therapist_clients_orchestrator.dart:27: build: sloc 56 exceeds 50
+lib/features/therapist/data_receive/presentation/bloc/therapist_receive_bloc.dart:36: _onChunkScanned: sloc 115 exceeds 50
+lib/features/therapist/data_receive/presentation/bloc/therapist_receive_state.dart:21: TherapistReceiveScanning: parameters 8 exceeds 4
+lib/features/therapist/data_receive/presentation/bloc/therapist_receive_state.dart:87: copyWith: parameters 8 exceeds 4
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:177: build: sloc 144 exceeds 50
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:471: _TherapistScannerBody: parameters 5 exceeds 4
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:556: _initCamera: sloc 71 exceeds 50
+lib/features/therapist/data_transfer/domain/services/plan_transfer_pipeline.dart:209: _validateAndReassemble: sloc 52 exceeds 50
+lib/features/therapist/data_transfer/domain/value_objects/transfer_detection_snapshot.dart:20: TransferDetectionSnapshot: parameters 5 exceeds 4
+lib/features/therapist/data_transfer/domain/value_objects/transfer_detection_snapshot.dart:58: copyWith: parameters 5 exceeds 4
+lib/features/therapist/data_transfer/presentation/bloc/data_beam_state.dart:22: DataBeamReady: parameters 6 exceeds 4
+lib/features/therapist/data_transfer/presentation/bloc/data_beam_state.dart:47: copyWith: parameters 6 exceeds 4
+lib/features/therapist/data_transfer/presentation/widgets/in_person_tab_content.dart:103: build: sloc 111 exceeds 50
+lib/features/therapist/plan_templates/presentation/bloc/plan_template_detail_bloc.dart:14: PlanTemplateDetailBloc: sloc 135 exceeds 50
+lib/features/therapist/plan_templates/presentation/bloc/plan_template_detail_state.dart:12: PlanTemplateDetailState: parameters 5 exceeds 4
+lib/features/therapist/plan_templates/presentation/organisms/plan_detail_view.dart:12: build: sloc 59 exceeds 50
+lib/features/therapist/plan_templates/presentation/organisms/plan_list.dart:52: build: sloc 61 exceeds 50
+lib/features/therapist/plan_templates/presentation/widgets/plan_details_form.dart:8: PlanDetailsForm: parameters 6 exceeds 4
+lib/features/therapist/plan_templates/presentation/widgets/plan_details_form.dart:131: build: sloc 75 exceeds 50
+lib/features/therapist/plan_templates/presentation/widgets/questionnaire_details_view.dart:8: QuestionnaireDetailsView: parameters 6 exceeds 4
+lib/features/therapist/plan_templates/presentation/widgets/questionnaire_details_view.dart:39: build: sloc 64 exceeds 50
+lib/main.dart:77: build: sloc 61 exceeds 50
+
+FAIL: 99 complexity-threshold violation(s).
+exit=1
+
+===== check_type_naming.sh =====
+lib/config/theme/theme.dart:18: class name '_SimplePageTransitionsBuilder' violates type-name regex
+lib/core/design_system/organisms/layout/responsive/responsive_layout_builder.dart:38: class name '_ResponsiveLayoutBuilderState' violates type-name regex
+lib/core/injection/injection_container.config.dart:179: class name '_' violates type-name regex
+lib/features/client/data_input/presentation/screens/client_data_input_root_screen.dart:24: class name '_ClientDataInputRootScreenState' violates type-name regex
+lib/features/client/data_receive/presentation/screens/data_beam_scanner_screen.dart:111: class name '_ScannerBody' violates type-name regex
+lib/features/client/data_receive/presentation/screens/data_beam_scanner_screen.dart:118: class name '_ScannerBodyState' violates type-name regex
+lib/features/role_selection/presentation/organisms/role_selection_dialog.dart:17: class name '_RoleSelectionDialogState' violates type-name regex
+lib/features/role_selection/presentation/screens/onboarding_screen.dart:20: class name '_OnboardingScreenState' violates type-name regex
+lib/features/therapist/clients/presentation/organisms/client_list.dart:44: class name '_ClientListState' violates type-name regex
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:81: class name '_TherapistReceiveScreenState' violates type-name regex
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:327: class name '_CompleteBody' violates type-name regex
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:373: class name '_DiagnosticsPanel' violates type-name regex
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:470: class name '_TherapistScannerBody' violates type-name regex
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:518: class name '_TherapistScannerBodyState' violates type-name regex
+lib/features/therapist/data_transfer/presentation/bloc/data_beam_bloc.dart:22: class name '_DataBeamTimerTicked' violates type-name regex
+lib/features/therapist/data_transfer/presentation/widgets/handover_dialog_content.dart:30: class name '_HandoverDialogShell' violates type-name regex
+lib/features/therapist/data_transfer/presentation/widgets/in_person_tab_content.dart:21: class name '_InPersonTabContentState' violates type-name regex
+lib/features/therapist/data_transfer/presentation/widgets/transfer_success_indicator.dart:26: class name '_TransferSuccessIndicatorState' violates type-name regex
+lib/features/therapist/plan_templates/presentation/organisms/plan_template_detail_content.dart:31: class name '_PlanTemplateDetailContentState' violates type-name regex
+lib/features/therapist/plan_templates/presentation/widgets/plan_details_form.dart:22: class name '_PlanDetailsFormState' violates type-name regex
+lib/features/therapist/plan_templates/presentation/widgets/questionnaire_details_view.dart:21: class name '_QuestionnaireDetailsViewState' violates type-name regex
+lib/generated/l10n/app_localizations.dart:522: class name '_AppLocalizationsDelegate' violates type-name regex
+
+FAIL: 22 type-name violation(s).
+Accepted suffixes: Event, Failure, Bloc, State, Repository, Service,
+UseCase, Entity, ValueObject (or no suffix; PascalCase mandatory).
+exit=1
+
+===== check_architectural_imports.sh =====
+lib/core/domain/entities/action_item.dart:1: import 'package:flutter/material.dart' violates policy for lib/core/domain/**
+lib/core/domain/entities/app_role.dart:1: import 'package:flutter/foundation.dart' violates policy for lib/core/domain/**
+lib/core/domain/entities/contact.dart:2: import 'package:flutter/foundation.dart' violates policy for lib/core/domain/**
+lib/core/domain/entities/questionnaire_plan_entities/choice_options.dart:3: import 'package:flutter/foundation.dart' violates policy for lib/core/domain/**
+lib/core/domain/entities/questionnaire_plan_entities/likert_options.dart:2: import 'package:flutter/foundation.dart' violates policy for lib/core/domain/**
+lib/core/domain/entities/questionnaire_plan_entities/questionnaire_plan.dart:3: import 'package:flutter/foundation.dart' violates policy for lib/core/domain/**
+lib/core/domain/entities/questionnaire_plan_entities/time_interval.dart:2: import 'package:flutter/material.dart' violates policy for lib/core/domain/**
+lib/core/domain/entities/questionnaire_plan_entities/v1/choice_options.dart:3: import 'package:flutter/foundation.dart' violates policy for lib/core/domain/**
+lib/core/domain/entities/questionnaire_plan_entities/v1/likert_options.dart:2: import 'package:flutter/foundation.dart' violates policy for lib/core/domain/**
+lib/core/domain/entities/questionnaire_plan_entities/v1/questionnaire_plan.dart:3: import 'package:flutter/foundation.dart' violates policy for lib/core/domain/**
+lib/core/domain/entities/questionnaire_plan_entities/v1/time_interval.dart:2: import 'package:flutter/material.dart' violates policy for lib/core/domain/**
+lib/core/domain/services/screen_size/i_screen_size_service.dart:1: import 'package:flutter/widgets.dart' violates policy for lib/core/domain/**
+lib/core/domain/services/screen_size/screen_size_service_impl.dart:1: import 'package:flutter/widgets.dart' violates policy for lib/core/domain/**
+
+FAIL: 13 architectural-import violation(s).
+Update scripts/quality/architectural_imports_policy.yaml if the rule
+needs revisiting; do not silence violations in code.
+exit=1
+
+===== check_no_direct_styling.sh =====
+lib/features/role_selection/presentation/molecules/role_selection_form.dart:70:style: ButtonStyle(
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:159:style: TextStyle(fontStyle: FontStyle.italic),
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:344:const Icon(Icons.check_circle, color: Colors.green, size: 64),
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:348:style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+lib/features/therapist/data_receive/presentation/screens/therapist_receive_screen.dart:909:style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+lib/features/therapist/data_transfer/presentation/widgets/data_beam_qr_animator.dart:28:backgroundColor: Colors.white,
+lib/features/therapist/data_transfer/presentation/widgets/data_beam_tier_selector.dart:29:Text('(Webcam 720p)', style: TextStyle(fontSize: 10)),
+lib/features/therapist/data_transfer/presentation/widgets/data_beam_tier_selector.dart:39:Text('(HD-Webcam)', style: TextStyle(fontSize: 10)),
+lib/features/therapist/data_transfer/presentation/widgets/data_beam_tier_selector.dart:49:Text('(Smartphone)', style: TextStyle(fontSize: 10)),
+lib/features/therapist/data_transfer/presentation/widgets/in_person_tab_content.dart:197:style: TextStyle(
+lib/features/therapist/plan_templates/presentation/organisms/plan_detail_view.dart:21:color: Colors.grey.shade100,
+lib/features/therapist/plan_templates/presentation/organisms/plan_detail_view.dart:32:color: Colors.grey.shade100,
+lib/features/therapist/plan_templates/presentation/organisms/plan_detail_view.dart:43:color: Colors.grey.shade100,
+lib/features/therapist/plan_templates/presentation/organisms/plan_detail_view.dart:62:color: Colors.grey.shade100,
+
+FAIL: 14 direct-styling violation(s) under lib/features/.
+Use design-system components from lib/core/design_system/ instead.
+exit=1
+
+===== check_test_smells.py =====
+test/unit/core/design_system/atoms/grid_layout_test.dart:87: prefer expect(x, hasLength(N)) over expect(x.length, N)
+test/unit/core/design_system/molecules/error_display_test.dart:187: prefer expect(x, hasLength(N)) over expect(x.length, N)
+test/unit/core/domain/entities/plan_evaluation_input_test.dart:59: prefer expect(x, hasLength(N)) over expect(x.length, N)
+test/unit/core/domain/entities/questionnaire_plan/question_json_test.dart:116: prefer expect(x, hasLength(N)) over expect(x.length, N)
+test/unit/core/domain/services/questionnaire_plan/question_service_test.dart:58: prefer expect(x, hasLength(N)) over expect(x.length, N)
+test/unit/features/role_selection/presentation/molecules/role_selection_form_test.dart:124: prefer expect(x, hasLength(N)) over expect(x.length, N)
+test/unit/features/therapist/data_transfer/domain/services/plan_transfer_pipeline_test.dart:166: prefer expect(x, hasLength(N)) over expect(x.length, N)
+test/widget/features/therapist/clients/presentation/organisms/client_plans_view_test.dart:278: prefer expect(x, hasLength(N)) over expect(x.length, N)
+test/widget/features/therapist/plan_templates/presentation/organisms/plan_template_detail_content_test.dart:168: prefer expect(x, hasLength(N)) over expect(x.length, N)
+
+FAIL: 9 test-smell finding(s).
+exit=1
+
+===== check_folder_taxonomy.sh =====
+lib/features/role_selection/domain/usecases/check_first_launch_use_case.dart: sub-folder 'usecases' is not in folder_taxonomy_allowlist.txt
+lib/features/role_selection/domain/usecases/get_stored_role_use_case.dart: sub-folder 'usecases' is not in folder_taxonomy_allowlist.txt
+lib/features/role_selection/domain/usecases/persist_role_use_case.dart: sub-folder 'usecases' is not in folder_taxonomy_allowlist.txt
+
+FAIL: 3 folder-taxonomy violation(s).
+Either move the file into an allow-listed sub-folder, or add the
+category to scripts/quality/folder_taxonomy_allowlist.txt with a
+short justification.
+exit=1
+

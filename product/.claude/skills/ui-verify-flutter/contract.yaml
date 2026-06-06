@@ -1,0 +1,61 @@
+contract_version: 1
+skill: ui-verify-flutter
+purpose: >
+  Verify that a Flutter feature implementation structurally matches the approved scribble.
+  CONSUMER of the approved scribble (metadata.yaml + screen HTML + flutter_handoff.yaml):
+  compares each scribble screen against the Flutter widgets and writes a comparison report.
+
+derived_from:
+  required:
+    - path: scribble-metadata
+      source: skill:ui-scribble-iterate
+      schema: .claude/schemas/scribble_metadata.yaml
+      reason: >
+        Locates the approved version (status: approved) and the personas/rules to check.
+        Produced by ui-scribble-iterate.
+    - path: source
+      source: external
+      reason: The Flutter implementation under verification.
+  optional:
+    - path: handoff
+      source: skill:ui-scribble-iterate
+      schema: .claude/schemas/flutter_handoff.yaml
+      condition: used as the primary component mapping when present (more precise than HTML).
+      reason: Component-to-widget mapping for the comparison.
+    - path: scribble
+      source: skill:ui-scribble-iterate
+      condition: per-screen structural check; component mapping parsed from HTML when no handoff.
+      reason: Source-of-truth screen structure for the existence/component checks.
+    - path: guideline
+      source: external
+      reason: T1/T2 rules (touch targets, identity copy) checked in the persona/rule phase.
+    - path: flow-navigation
+      source: agent:ui-scribble-handoff-emitter
+      schema: .claude/schemas/flow_navigation.yaml
+      condition: present when flutter_handoff.yaml carries a flow_navigation_files block; discovered via those pointers.
+      reason: Per-flow navigation graph checked in Phase 3b (AC-38); nav_defect reported when declared edges have no matching route.
+
+produces:
+  required:
+    - path: flutter-review
+      reason: The per-screen match/deviation report consumed by the developer and ui-improve-flutter.
+
+quality_criteria:
+  - Every approved-scribble screen is checked for a matching Flutter file (match/missing).
+  - Each mapped component is checked against the implementation (match/deviation).
+  - Persona/rule checks (touch targets ≥ 48dp, discrete identity copy) are reported.
+  - When flow_navigation.yaml files are referenced in flutter_handoff.yaml, each declared edge is checked against the Flutter routing layer (match/nav_defect/nav_not_checked).
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_tasks/scribbles/<feature_path>/flutter_review/
+    action: write
+    note: Comparison report directory created/updated.
+
+preconditions:
+  - An approved scribble exists under requirements_tasks/scribbles/<feature_path>/ (entry pre-check);
+    otherwise stop and direct the user to ui-scribble-iterate.
+
+postconditions:
+  - comparison.md exists listing every screen's match/deviation status.

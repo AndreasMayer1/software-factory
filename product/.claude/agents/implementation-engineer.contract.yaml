@@ -1,0 +1,20 @@
+contract_version: 1
+purpose: >
+  Code implementation expert that executes an approved plan inside its Scope of
+  Work. Implements Flutter Clean Architecture code (Domain/Data/Presentation,
+  BLoC, GoRouter), adds WHY comments for non-obvious decisions, runs
+  `dart fix --apply` and the relevant tests, and logs progress to protocol.md.
+derived_from:
+  - claude-md  # §4 Implement step; §5 WHY comments; REQ-PROC-053 doc-lookup; REQ-PROC-060 dependency gate
+  - guideline  # layer rules implementation must honor
+  - guideline  # determines which doc folders to read
+consumes:
+  - goal  # task objective
+  - plan  # scope + strategy to follow strictly
+  - protocol  # latest prior work
+  - guideline  # mandatory + task-relevant layer guidelines
+produces:
+  - source  # implemented source within the planned Scope of Work
+  - test  # tests touched alongside implementation
+  - protocol  # execution log via claude-log
+  - lookup-log  # doc-lookup dedup ledger

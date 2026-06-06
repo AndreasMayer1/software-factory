@@ -1,0 +1,30 @@
+# Path-glob → deny-import policy for check_architectural_imports.sh.
+#
+# Each entry has two fields:
+#   path: a single ant-style path glob (relative to project root). The glob
+#         supports '*' (single path segment) and '**' (any depth). Trailing
+#         '/**' applies to every file at any depth beneath the prefix.
+#   deny: a list of regexes; each regex is applied to the import URI
+#         (i.e. the string between the quotes of an `import '...';`).
+#
+# A file is in violation if it matches the `path` glob AND has any import
+# whose URI matches any `deny` regex. Tighten or loosen by editing the
+# regexes; do not edit the script.
+
+- path: "lib/core/domain/**"
+  deny:
+    - "^package:flutter/"
+    - "^package:flutter_bloc/"
+
+- path: "lib/features/*/domain/**"
+  deny:
+    - "^package:flutter/"
+    - "^package:flutter_bloc/"
+
+- path: "lib/features/**"
+  deny:
+    - "^package:flutter/material\\.dart$"
+
+- path: "lib/core/domain/entities/**"
+  deny:
+    - "^dart:collection$"

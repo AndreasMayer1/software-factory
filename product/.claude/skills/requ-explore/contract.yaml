@@ -1,0 +1,128 @@
+contract_version: 1
+skill: requ-explore
+purpose: >
+  Explore and document requirements — the PRODUCER of requirements.md, consumed by every
+  task-derivation and implementation skill. Investigates the requirement hierarchy, user
+  needs, and existing code, then writes WHAT/WHY end-state specifications with trackable
+  acceptance criteria and package assignments.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Defines the exploration objective, parent_requirement, and any Developer Intent.
+    - path: guideline
+      source: external
+      reason: Clean Architecture guidelines applied when scoping technical requirements.
+  optional:
+    - path: guideline
+      source: external
+      reason: Read when the requirement is UI/UX related.
+    - path: guideline
+      source: external
+      reason: Read when the requirement is domain-logic related.
+    - path: guideline
+      source: external
+      reason: Read when the requirement implies testability constraints.
+    - path: persona
+      source: external
+      reason: persona mapping for epics/features; PERSONA-004 system-maintenance check.
+    - path: flow
+      source: external
+      reason: flow coverage mapping for functional features (user_needs block).
+    - path: market-findings
+      source: external
+      reason: market_research_refs population for functional features.
+    - path: concept-canon-index
+      source: skill:ux-write-canon-concept
+      reason: Canon existence check before introducing a user-facing concept.
+    - path: release-backlog
+      source: external
+      reason: package assignment (Phase 2.4).
+
+produces:
+  required:
+    - path: requirements
+      schema: .claude/schemas/requirements_frontmatter.yaml
+      reason: >
+        THE requirement blueprint — id, status, trackable_items, target_package,
+        user_needs links, plus the WHAT/WHY body. Consumed by task-create,
+        task-derive-from-requ, coverage scripts, and most implementation skills.
+  conditional:
+    - path: requirements
+      condition: written when Scenario B creates an epic + feature structure.
+      reason: Epic-level (non-implementable) requirement.
+
+quality_criteria:
+  - requirements.md exists with valid frontmatter conforming to requirements_frontmatter.yaml.
+  - Each AC passes the end-state test (true regardless of implementation path) — no transition verbs.
+  - No forbidden sections (Testing Requirements, Open Questions, Version History, Implementation Roadmap).
+  - trackable_items.acceptance_criteria present when ACs exist in the body.
+  - market_research_refs present (even if empty) on functional features.
+  - Every trackable item has target_package or is explicitly unassigned.
+  - status is consistent with coverage (active for living docs, defined for deliverables; never implemented from this skill).
+
+user_input_gates:
+  - phase: "Phase 1.7 — Background Elicitation"
+    description: "Developer confirms or corrects the AI-drafted motivation statement for the requirement's Purpose section."
+    decision_kind: revision
+    required: conditional
+    condition: "Only fires when goal.md lacks a clear background or motivation section."
+  - phase: "Phase 2.1a — Location Approval Gate"
+    description: "Developer approves the planned requirement location (folder path and Epic/Feature structure) before any files are written."
+    decision_kind: approval
+    required: conditional
+    condition: "Skipped when the user's original prompt named the target folder/file path explicitly, or asked to modify a specific requirement by REQ-ID or path."
+  - phase: "Phase 2.1 — Scenario E Upstream Impact Check"
+    description: "Developer decides whether to run ux-create-flow or product-intake before updating a requirement that affects implements_flows references."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires when extending an existing requirement and the change affects implements_flows references."
+  - phase: "Phase 2.3 — Show diff before applying (existing content changes)"
+    description: "Developer approves changes to existing content in a requirement being extended, before the conflicting content is overwritten."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires in Scenario E (extending existing requirement) when existing content must change because the update contradicts it."
+  - phase: "Phase 2.4 — Package Assignment (UI element items)"
+    description: "Developer selects the target release package for each trackable item that involves a UI element."
+    decision_kind: selection
+    required: conditional
+    condition: "Only fires for individual trackable items (ACs or sections) that involve UI elements."
+  - phase: "Phase 3.1 — Present to User (requirement review)"
+    description: "Developer reviews the generated requirement and provides specific feedback before finalization."
+    decision_kind: revision
+    required: always
+  - phase: "Phase 4.1 — Verify and Tick Acceptance Criteria (unchecked ACs)"
+    description: "Developer resolves any AC that the AI cannot verify as genuinely met before task-complete is invoked."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires when an AC in goal.md's Acceptance Criteria section cannot be verified as met by the AI."
+
+may_invoke:
+  - task-create           # 1.1 workspace init; create bundled exploration/test tasks for open questions
+  - ux-write-canon-concept # 2.2 canon check when a new user-facing concept appears
+  - ux-create-flow        # upstream-impact when a change affects implements_flows
+  - product-intake        # cascade a full top-down change when a requirement edit touches flows
+  - task-complete         # 4.2 mark complete and commit
+
+side_effects:
+  - target: requirements_tasks/<req>/.reserve-<REQ-ID>
+    action: delete
+    note: Reservation marker removed after the pre-allocated requirement ID is written.
+  - target: requirements_tasks/<req>/tasks/<followup>/goal.md
+    action: write
+    note: >
+      Open-question / integration-test / auto-feature follow-up tasks created via
+      task-create when the quality gates require them.
+  - target: requirements_tasks/<category>/<req>/<feature>/tasks/*/goal.md
+    action: write
+    note: target_package synced onto covering tasks via sync_task_packages.py after assignment.
+
+preconditions:
+  - A goal.md describes the exploration objective and parent_requirement.
+  - A requirement ID is available (pre-allocated marker, or allocate_req_id.py for new requirements).
+
+postconditions:
+  - A requirements.md conforming to requirements_frontmatter.yaml exists at the derived path.
+  - All goal.md acceptance criteria for the exploration task are verified and ticked.

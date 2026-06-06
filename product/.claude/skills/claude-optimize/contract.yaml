@@ -1,0 +1,57 @@
+contract_version: 1
+skill: claude-optimize
+purpose: >
+  Consume one candidate event from .factory/optimize/events/, select the
+  highest-priority candidate, and produce one auto-blocked improvement task
+  (or a no-op). Every run commits state.json and runs.tsv.
+
+derived_from:
+  required:
+    - path: optimize-event
+      source: external
+      reason: Candidate events produced by post-task-complete hooks and monitors.
+    - path: optimize-state
+      source: external
+      reason: Run counter and streak state read before selecting a candidate.
+    - path: optimize-runs
+      source: external
+      reason: Run history appended after each invocation.
+
+produces:
+  required:
+    - path: optimize-state
+      reason: Overwritten with updated last_run_ts, total_runs, no_op_streak.
+    - path: optimize-runs
+      reason: One new TSV line appended per run (outcome, target, dimension, notes).
+  conditional:
+    - path: goal
+      condition: written when a candidate is selected and not deny-listed.
+      reason: The produced improvement task; auto-blocked until developer unblocks it.
+
+quality_criteria:
+  - Bugfix candidates are strictly selected first (no fairness or rotation).
+  - Task production is delegated to scripts/optimize/create_optimize_task.py (G-INV-1).
+  - No audit.py calls within this skill (G-INV-3).
+  - Exactly one task produced per run (AC-01).
+  - Every run commits state.json, runs.tsv, and event files regardless of outcome.
+  - Produced task's verification mode is one of the four allowed types (AC-08).
+
+may_invoke:
+  - claude-commit
+
+side_effects:
+  - target: .factory/optimize/events/
+    action: delete
+    note: Selected event file deleted after processing.
+  - target: .factory/optimize/state.json
+    action: write
+    note: Updated run metadata.
+  - target: .factory/optimize/history/runs.tsv
+    action: append
+    note: One TSV line per run.
+
+preconditions:
+  - .factory/optimize/events/ contains at least one candidate event.
+
+postconditions:
+  - One improvement task exists (or a no-op is documented) and state is committed.

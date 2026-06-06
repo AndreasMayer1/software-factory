@@ -1,0 +1,39 @@
+contract_version: 1
+skill: claude-log
+purpose: >
+  Persist agent work to a protocol.md file for cross-session memory.
+  Appends a timestamped entry with agent ID, action, outcome, and next step.
+  Optionally logs WebSearch/WebFetch calls to the task's lookup_log.jsonl.
+
+derived_from:
+  required:
+    - path: plans-dir
+      source: skill:task-create
+      reason: Memory home for the task — protocol.md is read (or created) here.
+
+produces:
+  required:
+    - path: protocol
+      reason: Append-only log; each entry records agent ID, action, outcome, next step.
+  conditional:
+    - path: lookup-log
+      condition: written when the agent performed WebSearch/WebFetch calls this session.
+      reason: Per-task doc-lookup log used by doc-lookup-dependencies for dedup and budget.
+
+quality_criteria:
+  - New protocol.md files include YAML frontmatter with skills_used list.
+  - Entry is skipped if it duplicates the last entry (same agent, same outcome).
+  - Agent ID is always recorded (enables session resume).
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_tasks/<task>/plans_and_protocols/<date>_protocol.md
+    action: append
+    note: Timestamped entry appended (or file created with frontmatter on first call).
+
+preconditions:
+  - A task is active with a plans_and_protocols/ directory.
+
+postconditions:
+  - Protocol.md contains a new entry with the agent's ID and outcome.

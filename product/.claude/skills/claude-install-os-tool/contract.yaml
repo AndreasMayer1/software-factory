@@ -1,0 +1,40 @@
+contract_version: 1
+skill: claude-install-os-tool
+purpose: >
+  Install an OS-level package (apt, pip, brew, npm -g, etc.) safely in any
+  environment. Detects devcontainer presence, updates devcontainer.json when
+  needed, installs the tool, and verifies success.
+
+derived_from:
+  optional:
+    - path: devcontainer
+      source: external
+      reason: Read and updated when a devcontainer is detected, to make the install permanent.
+
+produces:
+  conditional:
+    - path: devcontainer
+      condition: updated only when scripts/util/find_devcontainer.py exits 0 (devcontainer found).
+      reason: Adds the tool to features or postCreateCommand for permanent container inclusion.
+
+quality_criteria:
+  - devcontainer.json is updated ONLY when find_devcontainer.py detects a devcontainer.
+  - Tool is added to features OR postCreateCommand — never both.
+  - Version check is run after installation to confirm success.
+
+may_invoke: []
+
+side_effects:
+  - target: .devcontainer/devcontainer.json
+    action: write
+    note: Updated with the new tool install when devcontainer is present.
+  - target: system package manager
+    action: write
+    note: Tool installed on the host or container OS.
+
+preconditions:
+  - User has provided the tool name and install command.
+
+postconditions:
+  - Tool is installed and version check passes.
+  - devcontainer.json reflects the new tool (if devcontainer was detected).

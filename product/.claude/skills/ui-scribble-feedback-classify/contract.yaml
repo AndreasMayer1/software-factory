@@ -1,0 +1,48 @@
+contract_version: 1
+skill: ui-scribble-feedback-classify
+purpose: >
+  Classify each developer feedback item on a scribble (missing rule / requirement gap /
+  existing rule missed), run the T1/T2 impact check, present new rules for human approval,
+  and route to requ-explore, doc-update-guidelines, ux-validate-rule, or regeneration.
+  Internal Phase-4 step of the ui-scribble-iterate pipeline.
+
+derived_from:
+  required:
+    - path: scribble-feedback
+      source: skill:ui-scribble-iterate
+      reason: The developer feedback items to classify and route.
+    - path: scribble-metadata
+      source: skill:ui-scribble-iterate
+      schema: .claude/schemas/scribble_metadata.yaml
+      reason: rules_applied + personas to scope the classification and impact check.
+    - path: requirements
+      source: skill:requ-explore
+      schema: .claude/schemas/requirements_frontmatter.yaml
+      reason: Distinguish requirement gaps from missing rules.
+
+produces:
+  required:
+    - path: scribble-metadata
+      schema: .claude/schemas/scribble_metadata.yaml
+      reason: T3 rules anchored under new_rules_anchored; classification outcome recorded.
+
+may_invoke:
+  - requ-explore           # requirement_gap classification
+  - doc-update-guidelines  # anchor an approved T1/T2 rule
+  - ux-validate-rule       # persona-conflict validation during rule presentation
+  - ux-write-canon-concept # a new user-facing concept is introduced
+
+quality_criteria:
+  - Every new-rule item is presented for human approval before anchoring (no unilateral tier decisions).
+  - T1/T2 changes run the impact check and mark stale approved scribbles.
+  - doc/ and requirements.md are only changed via doc-update-guidelines / requ-explore.
+
+side_effects:
+  - target: requirements_tasks/<feature>/scribbles/v{prev}/metadata.yaml
+    action: write
+    note: stale_since + pending_rules set on approved scribbles affected by a T1/T2 change.
+
+preconditions:
+  - A scribbles/v{n}/ exists with developer feedback recorded in feedback.md.
+postconditions:
+  - Each feedback item is classified and routed; approved rules are anchored at their tier.

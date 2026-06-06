@@ -1,0 +1,17 @@
+contract_version: 1
+purpose: >
+  General-purpose deep investigation agent (default Opus). Gathers context broadly
+  across code, docs, user needs, and the web, then produces structured, evidence-cited
+  analysis. Report mode persists a findings file; direct mode answers inline without
+  writing a report.
+derived_from:
+  - claude-md  # file-based memory; claude-log on exit
+consumes:
+  - source  # codebase under investigation
+  - guideline  # guidelines
+  - requirements  # requirements and task context
+  - persona  # personas, scenarios, flows
+  - goal  # when a task folder exists (selects report path)
+produces:
+  - protocol  # report mode (when goal.md exists)
+  - value-tradeoff  # report mode (no task folder)

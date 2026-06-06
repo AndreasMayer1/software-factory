@@ -1,0 +1,33 @@
+contract_version: 1
+skill: ux-create-flow
+purpose: >
+  Router-only skill for user flow creation, iteration, and approval.
+  Syncs FLOW_INDEX then dispatches to ux-flow-draft, ux-flow-complete, or
+  ux-flow-approve based on the user message. Does no work itself.
+
+derived_from:
+  optional:
+    - path: flow
+      source: external
+      reason: Only the YAML frontmatter review_status is read (max 30 lines) to resolve ambiguous status.
+
+produces: {}
+
+quality_criteria:
+  - Exactly one sub-skill is invoked per call — no work done in this skill's context.
+  - FLOW_INDEX is synced (sync_flow_index.py) before any routing decision.
+  - File reads are limited to the review_status field only (never the full flow body).
+
+may_invoke:
+  - ux-flow-draft
+  - ux-flow-complete
+  - ux-flow-approve
+  - requ-derive-from-flow
+
+side_effects: []
+
+preconditions:
+  - User has provided a message indicating the desired action (new flow, iteration, or approval).
+
+postconditions:
+  - The appropriate sub-skill has been invoked with the user's full original message.

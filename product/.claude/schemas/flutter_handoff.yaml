@@ -1,0 +1,158 @@
+# Schema: flutter_handoff.yaml
+#
+# Canonical source of truth for the flutter_handoff.yaml file emitted by
+# ui-scribble-iterate inside scribbles/v{n}/ after developer approval.
+#
+# Produced by: ui-scribble-iterate (conditional — only on Phase 5 approval)
+# Consumed by: ui-verify-flutter (read first, before parsing HTML comments),
+#              code-simple / code-complex implementation agents,
+#              check_skill_contracts.py
+#
+# REPLACES (deleted in the same commit that introduced this schema — REQ-PROC-044 D-5):
+#   requirements_tasks/SKETCHES_README.md section "flutter_handoff.yaml (generated
+#   after approval)" — the YAML shape block. The one-line narrative ("ui-verify-flutter
+#   reads this file first if present") is PRESERVED in SKETCHES_README.md with a pointer here.
+#
+# Dialect: flat YAML with required:/optional: blocks (REQ-PROC-044 D-2). NOT full JSON Schema.
+
+schema_version: 1
+artifact: flutter_handoff.yaml
+description: >
+  Per-element HTML-selector -> Flutter-widget mapping produced on scribble approval.
+  Drives structural verification and implementation widget selection.
+
+optional:
+  flow_navigation_files:
+    type: array
+    description: >
+      Pointers to the flow_navigation.yaml file(s) emitted by ui-scribble-handoff-emitter
+      for each user flow this scribble participates in. One entry per participating flow.
+      Absent on legacy handoff files produced before TASK-PROC-032-23.
+      Consumed by ui-verify-flutter (navigation check) and implementation agents.
+    items:
+      type: object
+      required_keys: [flow_id, path]
+      keys:
+        flow_id:
+          type: string
+          description: Flow identifier (e.g. FLOW-002) matching the flow_navigation.yaml flow_id.
+        path:
+          type: string
+          description: >
+            Relative path from the project root to the flow_navigation.yaml file
+            (e.g. "requirements_user_needs/user_flows/instruct_client_on_protocol/flow_navigation.yaml").
+  contract:
+    type: object
+    description: >
+      Single-source contract block emitted by ui-scribble-handoff-emitter. Lists the
+      locked_in and re_derive item keys (from SKETCHES_README "What a Scribble Commits To")
+      plus a source pointer. Absent on legacy handoff files produced before TASK-PROC-032-11.
+    keys:
+      locked_in:
+        type: array
+        items: { type: string }
+        description: LOCKED-IN item keys (L1–L15) from SKETCHES_README contract section.
+      re_derive:
+        type: array
+        items: { type: string }
+        description: RE-DERIVE item keys (D1–D8) from SKETCHES_README contract section.
+      source:
+        type: string
+        description: >
+          Pointer to the canonical source, e.g.
+          "requirements_tasks/SKETCHES_README.md#what-a-scribble-commits-to".
+  design_decisions:
+    type: array
+    description: >
+      Design decisions propagated from metadata.yaml design_decisions[] by
+      ui-scribble-handoff-emitter so the implementer sees them without opening the scribble.
+      Absent on legacy handoff files.
+    items:
+      type: object
+      required_keys: [decision]
+      optional_keys: [reason]
+      keys:
+        decision:
+          type: string
+          description: The design choice (e.g. "mood input uses a slider, not discrete buttons").
+        reason:
+          type: string
+          description: Rationale behind the decision.
+  verification_seeds:
+    type: array
+    description: >
+      Per-screen, per-LOCKED-IN-item visual verification seeds emitted by
+      ui-scribble-handoff-emitter. Each seed is a visually-checkable expectation derived
+      from a LOCKED-IN commitment (L1–L15), phrased so a vision model can confirm it against
+      an integration-test screenshot. Consumed by ui-visual-validate (advisory, non-blocking).
+      The R3-collapse: seeds live INSIDE flutter_handoff.yaml, not a separate file.
+      Absent on legacy handoff files produced before TASK-PROC-032-19.
+    items:
+      type: object
+      required_keys: [screen, seeds]
+      keys:
+        screen:
+          type: string
+          description: Screen identifier matching a screens[].screen entry (the NN_<name> file).
+        seeds:
+          type: array
+          min_items: 1
+          description: One verification seed per visually-checkable LOCKED-IN item on this screen.
+          items:
+            type: object
+            required_keys: [locked_item, expectation, check]
+            optional_keys: [selector]
+            keys:
+              locked_item:
+                type: string
+                description: LOCKED-IN key (L1–L15) the seed verifies, from SKETCHES_README.
+              expectation:
+                type: string
+                description: Visually-checkable expectation phrased for a vision model.
+              check:
+                type: string
+                description: >
+                  Check category hint for the vision reviewer, one of:
+                  screen_presence, copy_text, sizing, hierarchy, component, state, accessibility_intent.
+              selector:
+                type: string
+                description: Optional CSS-style selector anchoring the seed to a specific element.
+
+required:
+  screens:
+    type: array
+    min_items: 1
+    description: One entry per approved screen file.
+    items:
+      type: object
+      required_keys: [screen, elements]
+      keys:
+        screen:
+          type: string
+          description: Screen identifier matching the NN_<name> HTML file (without .html).
+        elements:
+          type: array
+          min_items: 1
+          description: Per-element widget mapping for this screen.
+          items:
+            type: object
+            required_keys: [html_selector, flutter_widget]
+            optional_keys: [material3_variant, persona_constraints, rules_applied]
+            keys:
+              html_selector:
+                type: string
+                description: CSS-style selector identifying the element in the screen HTML.
+              flutter_widget:
+                type: string
+                description: Target Flutter/Material 3 widget name (e.g. AppBar, FilledButton).
+              material3_variant:
+                type: string
+                description: M3 variant/role note (e.g. "surface tint"). Optional.
+              persona_constraints:
+                type: array
+                items: { type: string }
+                description: Persona-scoped constraints the widget must honor.
+              rules_applied:
+                type: array
+                items: { type: string }
+                description: T1/T2 rule IDs applied to this element.

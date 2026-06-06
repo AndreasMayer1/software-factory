@@ -1,0 +1,305 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Übernehmen wir. Welche cluster repräsentiert sie noch? Findest du noch mehr Szenarien? ",
+        "role": "user",
+        "tokenCount": 23,
+        "createTime": "2026-03-01T09:06:54.734Z"
+      },
+      {
+        "text": "**Accepting Proposed Scenarios**\n\nI've accepted the four proposed scenarios for Nina, `PERSONA-013`. Now, I'm delving deeper, querying what other patient clusters Nina represents. I'm focusing on the `PERSONA-013` definition and broader clinical reality to ensure accuracy and completeness of Nina's representation.\n\n\n**Expanding Nina's Patient Representation**\n\nI'm now expanding my view of Nina's representation, focusing on clusters implicit in her core persona. Specifically, I'm analyzing the \"Autoimmune & Chronic Pain Flare\" aspect, looking for further, less obvious patient group connections. My next query is exploring whether more scenarios exist based on these related patient clusters. I'm keen to ensure the clusters, and hence the overall representation, are accurate.\n\n\n**Analyzing Flare-Up Triggers**\n\nI'm now focusing on the interplay of factors that trigger flare-ups, specifically stress, diet, weather, and overexertion. I'm exploring the \"Invisible Illness\" experience, the exhausting search for answers and validation patients often face. Also, I'm considering spoon theory to track the varying types of energy used (cognitive, physical, etc). I'm planning scenarios around the \"Flare-Up Mosaic\" focusing on multi-dimensional pain tracking, as standard trackers miss the nuanced triggers.\n\n\n**Developing Multi-faceted Trackers**\n\nI'm developing multi-faceted trackers now, focusing on the need for multivariate tracking and tagging systems, particularly for stress and pain location. I'm exploring the \"Medical Dossier\" idea and its value, a longitudinal export function aggregating data for specialists. I'm also now differentiating between mental and physical exertion, vital in representing Long-COVID and ME-CFS patients, and I'm developing a 'Micro-Budgeting' concept to address this.\n\n\n**Defining Energy Expenditure**\n\nI'm now focusing on a critical distinction: the split between cognitive and physical energy expenditure. Nina's situation highlights that standard trackers fail. They show \"rest,\" but not the critical cognitive overload leading to a crash. I'm developing Scenario 5, \"The Cognitive vs. Physical Trap,\" specifically to capture this nuance in fatigue and neuroinflammation. I'm also working on Scenario 6, \"The Rheumatology Marathon,\" which covers autoimmune disease and the specialist medical journey.\n\n\n**Refining Scenario Integration**\n\nI'm now refining the latest scenarios for Nina, focusing on their distinct angles. Specifically, I am merging aspects of the diagnostic challenge from Scenario 7 (\"The Normal Range Dismissal\") into Scenario 6 (\"The Rheumatology Marathon\"), which focuses on the autoimmune specialist journey. Scenario 7 is then replaced by \"The Variable Tax,\" which covers the burden of overtracking. I'm also planning to finalize the new batch for Nina.",
+        "role": "model",
+        "tokenCount": 1372,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Accepting Proposed Scenarios**\n\nI've accepted the four proposed scenarios for Nina, `PERSONA-013`. Now, I'm delving deeper, querying what other patient clusters Nina represents. I'm focusing on the `PERSONA-013` definition and broader clinical reality to ensure accuracy and completeness of Nina's representation.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Expanding Nina's Patient Representation**\n\nI'm now expanding my view of Nina's representation, focusing on clusters implicit in her core persona. Specifically, I'm analyzing the \"Autoimmune & Chronic Pain Flare\" aspect, looking for further, less obvious patient group connections. My next query is exploring whether more scenarios exist based on these related patient clusters. I'm keen to ensure the clusters, and hence the overall representation, are accurate.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Flare-Up Triggers**\n\nI'm now focusing on the interplay of factors that trigger flare-ups, specifically stress, diet, weather, and overexertion. I'm exploring the \"Invisible Illness\" experience, the exhausting search for answers and validation patients often face. Also, I'm considering spoon theory to track the varying types of energy used (cognitive, physical, etc). I'm planning scenarios around the \"Flare-Up Mosaic\" focusing on multi-dimensional pain tracking, as standard trackers miss the nuanced triggers.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Developing Multi-faceted Trackers**\n\nI'm developing multi-faceted trackers now, focusing on the need for multivariate tracking and tagging systems, particularly for stress and pain location. I'm exploring the \"Medical Dossier\" idea and its value, a longitudinal export function aggregating data for specialists. I'm also now differentiating between mental and physical exertion, vital in representing Long-COVID and ME-CFS patients, and I'm developing a 'Micro-Budgeting' concept to address this.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Defining Energy Expenditure**\n\nI'm now focusing on a critical distinction: the split between cognitive and physical energy expenditure. Nina's situation highlights that standard trackers fail. They show \"rest,\" but not the critical cognitive overload leading to a crash. I'm developing Scenario 5, \"The Cognitive vs. Physical Trap,\" specifically to capture this nuance in fatigue and neuroinflammation. I'm also working on Scenario 6, \"The Rheumatology Marathon,\" which covers autoimmune disease and the specialist medical journey.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Refining Scenario Integration**\n\nI'm now refining the latest scenarios for Nina, focusing on their distinct angles. Specifically, I am merging aspects of the diagnostic challenge from Scenario 7 (\"The Normal Range Dismissal\") into Scenario 6 (\"The Rheumatology Marathon\"), which focuses on the autoimmune specialist journey. Scenario 7 is then replaced by \"The Variable Tax,\" which covers the burden of overtracking. I'm also planning to finalize the new batch for Nina.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T09:06:54.737Z"
+      },
+      {
+        "text": "\n\n\nSehr gut, Ninas erste vier Basis-Szenarien übernehmen wir exakt so in unseren Blueprint!\n\nSchauen wir nun auf **Ninas „Implicit Clusters“**. In ihrer Persona (`PERSONA-013`) sind weitere Diagnosegruppen verankert, die ähnliche \"Management-Aufgaben\" ihres Lebens leisten müssen:\n\n1. **Autoimmunerkrankungen (Lupus, MS, Rheuma):** Schübe (Flares) sind schwer vorhersehbar und setzen sich oft mosaikartig zusammen (Wetter, Stress, Periode, Ernährung).\n2. **Chronische Schmerzpatienten (Fibromyalgie, Chronische Migräne):** Schmerz ist nicht eindimensional. Er wandert, pulsiert und ist von Triggern abhängig.\n3. **Neurologische Fatigue (z.B. auch ADHS-Burnout oder Autistischer Burnout):** Kognitive vs. physische Anstrengung.\n\nAus diesen Clustern ergeben sich noch **drei exzellente Szenarien**, die die Lücken im Design komplett schließen:\n\n### E. Out-of-the-Box: Neurologische Fatigue vs. Körperliche Fatigue\n\n*   **Szenario 5: The \"Silent Exertion\" Trap (Cognitive vs. Physical Cost)**\n    *   **Kategorie:** `capture.spontaneous` & System-Logik (Data Dimensionality)\n    *   **Worum es geht:** Nina liegt physisch seit drei Tagen im Bett (Schongang). Körperliche Anstrengung: fast null. Vom Bett aus bezahlt sie Rechnungen, streitet über WhatsApp mit ihrer Versicherung und füllt Behördenanträge aus. Am nächsten Morgen erleidet sie einen massiven Crash mit Schüttelfrost und Tinnitus. \n    *   **Das Status-Quo-Problem:** Ein klassisches Aktivitätsprotokoll für Reha/Fatigue erfasst: *Aktivitäts-Level (Niedrig, weil sie lag) / Ruhepuls (Gut, da Bett).* Alles sieht so aus, als hätte sie brav pausiert. Das Problem: Bei Neuro-Entzündungen oder Long-COVID verbraucht *kognitive* Belastung (Bildschirmzeit, Stress-Chats) exorbitant Energie (\"Spoons\"), genau wie joggen. Normale Papiertracker oder Apple Health trennen das nicht auf.\n    *   **Warum wir es brauchen:** Setzt die Anforderung, dass unsere Custom-Plans eine Differenzierung in \"Mental\" und \"Physisch\" zulassen müssen. Wenn das Tool nicht kognitive Trigger abfragt, kann es niemals den Grund für den Absturz am nächsten Tag erklären.\n\n### F. Out-of-the-Box: Die Überlastungs-Falle bei Unheilbaren (The Quantified Self Gone Wrong)\n\n*   **Szenario 6: The Variable Avalanche (Death by Tracking)**\n    *   **Kategorie:** `modification.autonomous` & `management.destruction`\n    *   **Worum es geht:** Nina, die stellvertretend auch Rheuma-, Endometriose- und Schmerz-Patienten abbildet, verzweifelt daran, den Auslöser für ihre massiven Schmerz-Schübe (Flares) zu finden. Sie baut sich ein eigenes System, weil die Standardprotokolle nicht ausreichen: Sie trackt plötzlich 25 Dinge täglich. (Wetter, Luftdruck, Histamin im Essen, genaue Uhrzeit jedes der 6 Supplements, Puls, Temperatur, jedes kleine Zwicken, Schlaf...).\n    *   **Das Status-Quo-Problem:** Der bloße Vorgang des Trackings – das endlose Einpflegen, Abwägen, Aufschreiben auf Spreadsheets oder großen karierten Blöcken – saugt die restliche Energie aus ihr heraus. Eines Tages kollabiert das ganze System. Sie hasst den \"Zwang\" zur perfekten Datenreihe so sehr, dass sie alles wegwirft (\"Es nützt eh alles nichts, ich bleibe krank\") und monatelang blind weiterfliegt. \n    *   **Warum wir es brauchen:** Eröffnet für V2/V3 der App die absolute Pflicht, eine intelligente **Symptom-Bündelung** zu schaffen (Templates dürfen nicht zu einer unhaltbaren \"Erfassungs-Arbeit\" ausufern). Es definiert das Risiko von \"Tracking Burnout\" in chronischen Krankheiten – UI muss es erlauben, Felder *spontan zu überspringen*, ohne die Matrix zu zerstören. (Parallele zu Max' und Sophies Blanko-Zeilen-Panik).\n\n### G. Out-of-the-Box: Der \"Spezialisten-Marathon\" (Ärzte-Odyssee)\n\n*   **Szenario 7: The \"Your Labs Are Normal\" Encounter**\n    *   **Kategorie:** `management.share_externally` & `analysis.therapist_solo` (bzw. Specialist Doctor)\n    *   **Worum es geht:** Nach 14 Monaten auf einer Warteliste hat Nina endlich den heißersehnten 20-Minuten-Termin beim Neurologen/Rheumatologen der Spezialambulanz (der erste, der ihr vielleicht die erlösende offizielle Diagnose bescheinigt). Der Arzt guckt ins Blutbild: \"Die Basis-Laborwerte sind gut.\" Nina weiß, sie muss beweisen, *dass* sie extreme Schübe und Ausfälle hat.\n    *   **Das Status-Quo-Problem:** (Anders als Lisa beim kurzen Hausarztbesuch, braucht sie hier tiefgreifende Korrelationen!). Nina packt ihre Kladde auf den Tisch: Ihre ausgedruckten Garmin-Reports (für Tachykardie-Zyklen) plus ihre handgemalten Symptom-Verläufe der Pacing-Aktivitäten. Der Arzt – gestresst, in Eile, auf Evidenz gepolt – wird förmlich \"zugeschüttet\" mit ungeordneter Mangelware aus fünf Systemen. Er wendet sich ab und bleibt beim: \"Ihre Werte sehen trotzdem unauffällig aus.\" Gaslighting at its best.\n    *   **Warum wir es brauchen:** Wie bei Lisa (Persona 005), doch noch komplexer: Unsere Software *muss* Subjektivität objektivieren. Es reicht hier kein Stimmungsgraph, sondern der Arzt braucht ein PDF-Dashboard auf EINER Seite (\"Tachykardie + Körperlicher Crash passierte hier x15 an Tag X nach Aktivität Y\"). Wir dokumentieren hier das stärkste Tool für Patienten-Selbstbestimmung in Diagnose-Grenzgebieten.\n\n---\n\n### Damit ist unser Master-Plan komplett!\n\nWir haben jede einzelne der Personen auf links gedreht, systematisch geprüft, was sie eigentlich nachts um 3, morgens beim Arzt, versteckt vor den Kollegen oder auf dem Therapeutenstuhl tun. Wir haben:\n\n1. **System / Infrastruktur:** MDM-Vorgaben, Privacy (Passiv vs. Aktiv), Zerstörungs-Protokolle, Datenkollisionen.\n2. **Mensch & Verhalten:** Tunnelblick bei Panik, Wall-of-Awful, Objektpermanenz-Pains, Pacing & Brain Fog.\n3. **Behandler & Medizinsystem:** Kassenzulassungs-Gezänk (Dr. Turan & Dr. Sarah), 3-Min-Visiten, PiA-Kämpfe und tiefenpsychologisches Warten auf Affekte.\n4. **Medium & Werkzeuge:** Der Unterschied, ob etwas mit Kuli geschmiert, getippt oder als Sprachmemo reingeflüstert wird. \n\n**Möchtest du Sz 5, 6 und 7 noch Ninas Portfolio hinzufügen?** \n\nWenn ja: Das Set an ausformulierten, hieb- und stichfesten **Lücken-Szenarien** ist dann final konzipiert! Wie lautet unser nächster Befehl? Wollen wir damit beginnen, all diese Lücken als standardisierte `.md` Szenarien auszugießen, oder möchtest du das gesamte Spektrum nochmal anhand des Indexes priorisieren?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1766,
+        "parts": [
+          {
+            "text": "\n\n\nSehr gut, Ninas erste vier Basis"
+          },
+          {
+            "text": "-Szenarien übernehmen wir exakt so in unseren Blueprint!\n\nSchauen wir nun auf **Ninas „Implicit Clusters“**."
+          },
+          {
+            "text": " In ihrer Persona (`PERSONA-013`) sind weitere Diagnosegruppen verankert, die ähnliche \"Management"
+          },
+          {
+            "text": "-Aufgaben\" ihres Lebens leisten müssen:\n\n1. **Autoimmunerkrankungen (Lupus, MS"
+          },
+          {
+            "text": ", Rheuma):** Schübe (Flares) sind schwer vorhersehbar und setzen sich oft mosaikartig zusammen (Wetter, Stress"
+          },
+          {
+            "text": ", Periode, Ernährung).\n2. **Chronische Schmerzpatienten (Fibromyalgie, Chronische Migräne):** Schmerz"
+          },
+          {
+            "text": " ist nicht eindimensional. Er wandert, pulsiert und ist von Triggern abhängig.\n3. **Neu"
+          },
+          {
+            "text": "rologische Fatigue (z.B. auch ADHS-Burnout oder Autistischer Burnout):** Kognitive"
+          },
+          {
+            "text": " vs. physische Anstrengung.\n\nAus diesen Clustern ergeben sich noch **drei exzellente Szenarien**,"
+          },
+          {
+            "text": " die die Lücken im Design komplett schließen:\n\n### E. Out-of-the-Box: Neurologische Fatigue vs. Körper"
+          },
+          {
+            "text": "liche Fatigue\n\n*   **Szenario 5: The \"Silent Exertion\" Trap (Cognitive vs. Physical Cost"
+          },
+          {
+            "text": ")**\n    *   **Kategorie:** `capture.spontaneous` & System-Logik (Data Dimensionality)"
+          },
+          {
+            "text": "\n    *   **Worum es geht:** Nina liegt physisch seit drei Tagen im Bett (Schongang). Körper"
+          },
+          {
+            "text": "liche Anstrengung: fast null. Vom Bett aus bezahlt sie Rechnungen, streitet über WhatsApp mit ihrer Versicherung"
+          },
+          {
+            "text": " und füllt Behördenanträge aus. Am nächsten Morgen erleidet sie einen massiven Crash mit Schüttelfrost und Tinnitus."
+          },
+          {
+            "text": " \n    *   **Das Status-Quo-Problem:** Ein klassisches Aktivitätsprotokoll für Re"
+          },
+          {
+            "text": "ha/Fatigue erfasst: *Aktivitäts-Level (Niedrig, weil sie lag) / Ruhepuls ("
+          },
+          {
+            "text": "Gut, da Bett).* Alles sieht so aus, als hätte sie brav pausiert. Das Problem: Bei Neuro-Ent"
+          },
+          {
+            "text": "zündungen oder Long-COVID verbraucht *kognitive* Belastung (Bildschirmzeit, Stress-"
+          },
+          {
+            "text": "Chats) exorbitant Energie (\"Spoons\"), genau wie joggen. Normale Papiertracker oder Apple Health trennen das"
+          },
+          {
+            "text": " nicht auf.\n    *   **Warum wir es brauchen:** Setzt die Anforderung, dass unsere Custom-Plans"
+          },
+          {
+            "text": " eine Differenzierung in \"Mental\" und \"Physisch\" zulassen müssen. Wenn das Tool nicht kognitive Trigger"
+          },
+          {
+            "text": " abfragt, kann es niemals den Grund für den Absturz am nächsten Tag erklären.\n\n### F. Out-of"
+          },
+          {
+            "text": "-the-Box: Die Überlastungs-Falle bei Unheilbaren (The Quantified Self Gone Wrong)\n\n*   **Szenario"
+          },
+          {
+            "text": " 6: The Variable Avalanche (Death by Tracking)**\n    *   **Kategorie:** `modification.autonomous"
+          },
+          {
+            "text": "` & `management.destruction`\n    *   **Worum es geht:** Nina, die stellvertretend auch Rhe"
+          },
+          {
+            "text": "uma-, Endometriose- und Schmerz-Patienten abbildet, verzweifelt daran, den Auslöser für ihre mass"
+          },
+          {
+            "text": "iven Schmerz-Schübe (Flares) zu finden. Sie baut sich ein eigenes System, weil die Standard"
+          },
+          {
+            "text": "protokolle nicht ausreichen: Sie trackt plötzlich 25 Dinge täglich. (Wetter, Luftdruck, Histamin im"
+          },
+          {
+            "text": " Essen, genaue Uhrzeit jedes der 6 Supplements, Puls, Temperatur, jedes kleine Zwicken, Schlaf...).\n    *   **Das Status-"
+          },
+          {
+            "text": "Quo-Problem:** Der bloße Vorgang des Trackings – das endlose Einpflegen, Abwägen, Aufsch"
+          },
+          {
+            "text": "reiben auf Spreadsheets oder großen karierten Blöcken – saugt die restliche Energie aus ihr heraus. Eines Tages kollabiert das ganze System"
+          },
+          {
+            "text": ". Sie hasst den \"Zwang\" zur perfekten Datenreihe so sehr, dass sie alles wegwirft (\""
+          },
+          {
+            "text": "Es nützt eh alles nichts, ich bleibe krank\") und monatelang blind weiterfliegt. \n    *"
+          },
+          {
+            "text": "   **Warum wir es brauchen:** Eröffnet für V2/V3 der App die absolute Pflicht, eine intelligente **Symptom-B"
+          },
+          {
+            "text": "ündelung** zu schaffen (Templates dürfen nicht zu einer unhaltbaren \"Erfassungs-Arbeit\" ausu"
+          },
+          {
+            "text": "fern). Es definiert das Risiko von \"Tracking Burnout\" in chronischen Krankheiten – UI muss es erlauben, Felder"
+          },
+          {
+            "text": " *spontan zu überspringen*, ohne die Matrix zu zerstören. (Parallele zu Max' und Sophies Blank"
+          },
+          {
+            "text": "o-Zeilen-Panik).\n\n### G. Out-of-the-Box: Der \"Spezialisten-"
+          },
+          {
+            "text": "Marathon\" (Ärzte-Odyssee)\n\n*   **Szenario 7: The \"Your"
+          },
+          {
+            "text": " Labs Are Normal\" Encounter**\n    *   **Kategorie:** `management.share_externally` & `analysis.therapist_"
+          },
+          {
+            "text": "solo` (bzw. Specialist Doctor)\n    *   **Worum es geht:** Nach 14 Monaten auf"
+          },
+          {
+            "text": " einer Warteliste hat Nina endlich den heißersehnten 20-Minuten-Termin beim Neurologen/Rhe"
+          },
+          {
+            "text": "umatologen der Spezialambulanz (der erste, der ihr vielleicht die erlösende offizielle Diagnose bescheinigt). Der Arzt gu"
+          },
+          {
+            "text": "ckt ins Blutbild: \"Die Basis-Laborwerte sind gut.\" Nina weiß, sie muss beweisen, *dass* sie extreme"
+          },
+          {
+            "text": " Schübe und Ausfälle hat.\n    *   **Das Status-Quo-Problem:** (Anders als Lisa beim kurzen"
+          },
+          {
+            "text": " Hausarztbesuch, braucht sie hier tiefgreifende Korrelationen!). Nina packt ihre Kladde auf den Tisch: Ihre aus"
+          },
+          {
+            "text": "gedruckten Garmin-Reports (für Tachykardie-Zyklen) plus ihre handgemalten Symptom"
+          },
+          {
+            "text": "-Verläufe der Pacing-Aktivitäten. Der Arzt – gestresst, in Eile, auf"
+          },
+          {
+            "text": " Evidenz gepolt – wird förmlich \"zugeschüttet\" mit ungeordneter Mangelware aus fünf System"
+          },
+          {
+            "text": "en. Er wendet sich ab und bleibt beim: \"Ihre Werte sehen trotzdem unauffällig aus.\" Gaslighting at"
+          },
+          {
+            "text": " its best.\n    *   **Warum wir es brauchen:** Wie bei Lisa (Persona 005), doch"
+          },
+          {
+            "text": " noch komplexer: Unsere Software *muss* Subjektivität objektivieren. Es reicht hier kein Stimmungsgraph, sondern der Arzt braucht"
+          },
+          {
+            "text": " ein PDF-Dashboard auf EINER Seite (\"Tachykardie + Körperlicher Crash passierte hier x15"
+          },
+          {
+            "text": " an Tag X nach Aktivität Y\"). Wir dokumentieren hier das stärkste Tool für Patienten-Selbstbestimmung in Diagnose"
+          },
+          {
+            "text": "-Grenzgebieten.\n\n---\n\n### Damit ist unser Master-Plan komplett!\n\nWir haben jede einzelne der Personen"
+          },
+          {
+            "text": " auf links gedreht, systematisch geprüft, was sie eigentlich nachts um 3, morgens beim Arzt, verste"
+          },
+          {
+            "text": "ckt vor den Kollegen oder auf dem Therapeutenstuhl tun. Wir haben:\n\n1. **System / Infrastruktur:** MD"
+          },
+          {
+            "text": "M-Vorgaben, Privacy (Passiv vs. Aktiv), Zerstörungs-Protokolle, Datenk"
+          },
+          {
+            "text": "ollisionen.\n2. **Mensch & Verhalten:** Tunnelblick bei Panik, Wall-of-Awful, Objektpermanenz"
+          },
+          {
+            "text": "-Pains, Pacing & Brain Fog.\n3. **Behandler & Medizinsystem:** Kassenzulass"
+          },
+          {
+            "text": "ungs-Gezänk (Dr. Turan & Dr. Sarah), 3-Min-Visiten, PiA-Kämp"
+          },
+          {
+            "text": "fe und tiefenpsychologisches Warten auf Affekte.\n4. **Medium & Werkzeuge:** Der Unterschied,"
+          },
+          {
+            "text": " ob etwas mit Kuli geschmiert, getippt oder als Sprachmemo reingeflüstert wird. \n\n**"
+          },
+          {
+            "text": "Möchtest du Sz 5, 6 und 7 noch Ninas Portfolio hinzufügen?** \n\nWenn ja: Das Set"
+          },
+          {
+            "text": " an ausformulierten, hieb- und stichfesten **Lücken-Szenarien** ist dann"
+          },
+          {
+            "text": " final konzipiert! Wie lautet unser nächster Befehl? Wollen wir damit beginnen, all diese Lücken als standard"
+          },
+          {
+            "text": "isierte `.md` Szenarien auszugießen, oder möchtest du das gesamte Spektrum nochmal anhand des Indexes prior"
+          },
+          {
+            "text": "isieren?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

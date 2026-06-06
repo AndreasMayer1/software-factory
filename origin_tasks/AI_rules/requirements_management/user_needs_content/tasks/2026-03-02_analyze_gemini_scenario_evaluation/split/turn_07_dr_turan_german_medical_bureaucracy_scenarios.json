@@ -1,0 +1,217 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Nehmen wir mit auf!\nFällt die vielleicht noch etwas zu turan ein? Ich habe das gefühl, dass es noch mehr gibt. Aber können wir ja jederzeit ergänzen. Versuche was zu finden. ",
+        "role": "user",
+        "tokenCount": 46,
+        "createTime": "2026-02-22T08:37:07.941Z"
+      },
+      {
+        "text": "**Examining the Angles**\n\nI'm now diving into the \"Frankenstein Protocol\" scenario, fully embracing it. My primary focus is on Dr. Turan and identifying all missing elements. I feel there are other crucial details to consider regarding his character, the MVZ setting, and the pressures of time constraints. I'm searching for angles I might have initially overlooked.\n\n\n**Exploring Turan's Constraints**\n\nI'm now focusing on Dr. Turan's environment, deconstructing his daily world. Specifically, I'm examining the pressure of short appointment slots, the volume of patients, and the clinic's digital disconnect. I see the potential for conflicts, especially concerning \"sick notes\" and the need for objective data to satisfy the MDK (Medizinischer Dienst der Krankenkassen). The paper protocols might create some challenges to the workflow.\n\n\n**Analyzing Data Integrity**\n\nI'm now honing in on the issue of data integrity within Dr. Turan's practice. I'm focusing on how he navigates the conversion of \"messy\" patient information into \"bureaucratic defense\" data. The time constraints create a \"MDK Defense\" scenario. I'm particularly interested in exploring instances of potentially fabricated data, such as a patient submitting identical data completed hastily in the waiting room.\n\n\n**Uncovering Somatic Details**\n\nI'm now zeroing in on the importance of physical parameters, or somatic data, in psychiatry. I've realized that standard patient-tracking apps often lack crucial somatic metrics like blood pressure or weight, which are vital for psychiatrists prescribing medications. It's becoming clearer that this \"somatic blind spot\" highlights a fundamental disconnect between generic apps and the needs of medical professionals, reinforcing the necessity for dedicated medical protocol templates.\n\n\n**Pinpointing Information Access**\n\nI'm now zeroing in on data access for Dr. Turan. Specifically, I'm analyzing his ability to get patient data *before* the session. I've realized our system's \"Data Beam\" (QR code scan) necessitates a session-based data transfer, which creates a \"Data Intake Bottleneck\" for the doctor.\n\n\n",
+        "role": "model",
+        "tokenCount": 1189,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Examining the Angles**\n\nI'm now diving into the \"Frankenstein Protocol\" scenario, fully embracing it. My primary focus is on Dr. Turan and identifying all missing elements. I feel there are other crucial details to consider regarding his character, the MVZ setting, and the pressures of time constraints. I'm searching for angles I might have initially overlooked.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Exploring Turan's Constraints**\n\nI'm now focusing on Dr. Turan's environment, deconstructing his daily world. Specifically, I'm examining the pressure of short appointment slots, the volume of patients, and the clinic's digital disconnect. I see the potential for conflicts, especially concerning \"sick notes\" and the need for objective data to satisfy the MDK (Medizinischer Dienst der Krankenkassen). The paper protocols might create some challenges to the workflow.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Analyzing Data Integrity**\n\nI'm now honing in on the issue of data integrity within Dr. Turan's practice. I'm focusing on how he navigates the conversion of \"messy\" patient information into \"bureaucratic defense\" data. The time constraints create a \"MDK Defense\" scenario. I'm particularly interested in exploring instances of potentially fabricated data, such as a patient submitting identical data completed hastily in the waiting room.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Uncovering Somatic Details**\n\nI'm now zeroing in on the importance of physical parameters, or somatic data, in psychiatry. I've realized that standard patient-tracking apps often lack crucial somatic metrics like blood pressure or weight, which are vital for psychiatrists prescribing medications. It's becoming clearer that this \"somatic blind spot\" highlights a fundamental disconnect between generic apps and the needs of medical professionals, reinforcing the necessity for dedicated medical protocol templates.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Pinpointing Information Access**\n\nI'm now zeroing in on data access for Dr. Turan. Specifically, I'm analyzing his ability to get patient data *before* the session. I've realized our system's \"Data Beam\" (QR code scan) necessitates a session-based data transfer, which creates a \"Data Intake Bottleneck\" for the doctor.\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-22T08:37:07.943Z"
+      },
+      {
+        "text": "Super, das Frankenstein-Szenario nehmen wir als Nummer 5 fest auf! \n\nDass du bei Turan das Gefühl hast, es fehlt noch etwas, ist ein exzellenter Instinkt. Ich habe die \"Psycho-Brille\" nochmal abgenommen und mir den **knallharten deutschen Medizin-Apparat** angesehen, in dem Dr. Turan gefangen ist. Im Gegensatz zu Dr. Sarah (die Zeit für Seelenleben hat), ist Turan Arzt. Er ist dem medizinischen System, den Kassen und der Somatik (Körper) verpflichtet.\n\nWenn wir *wirklich* \"Out-of-the-Box\" denken, gibt es hier noch zwei hochrelevante, psychiatrie-spezifische Szenarien, die bei reinen Psychotherapeuten gar nicht existieren:\n\n#### D. Out-of-the-Box (Medizinsystem & Somatik)\n\n*   **Szenario 6: The Somatic Blind Spot (Generic App Failure)**\n    *   **Kategorie:** `analysis.review_collaboratively` (Fehlschlag mit fremden Tools)\n    *   **Worum es geht:** Ein junger Patient kommt stolz in die Sprechstunde und hat eine bunte Consumer-Mood-App (wie \"Daylio\" oder \"Apple Health\") auf dem Handy, die er selbst gefunden hat. Er zeigt Dr. Turan ein schönes Tortendiagramm seiner Stimmungen. Turan verschreibt aber *Elontril (Bupropion)* oder *Venlafaxin* – Medikamente, die extrem auf das Herz-Kreislauf-System gehen. Turan fragt: \"Schöne Grafik, aber wo ist Ihr Blutdruck und Puls für die letzten 14 Tage?\" Der Patient zuckt mit den Schultern. \"Sowas trackt die App nicht.\"\n    *   **Warum wir es brauchen:** Es definiert glasklar, warum allgemeine \"Wellness-Tracking-Apps\" für Psychiater wertlos sind. Turan braucht die Kombination aus Psychologie (Mood) UND Somatik (Blutdruck, Puls, Gewicht, Tremor). Unser Tool muss **Multi-Type-Eingaben** beherrschen, sonst fällt es für Ärzte durchs Raster.\n\n*   **Szenario 7: The MDK Audit (Der Krankenkassen-Schutzschild)**\n    *   **Kategorie:** `management.share_externally` / `analysis.therapist_solo`\n    *   **Worum es geht:** Ein Patient von Dr. Turan ist seit 5 Monaten krankgeschrieben (Arbeitsunfähigkeitsbescheinigung - AU). Der MDK (Medizinische Dienst der Krankenkassen) schreibt Turan an und fordert einen Nachweis, dass der Patient wirklich \"weiterhin nicht arbeitsfähig\" ist und Therapiemaßnahmen greifen (Aussteuerungskontrolle). Turan hat 5 Minuten Zeit, um zwischen zwei Patienten eine Antwort ans Amt zu faxen. Das zerknitterte Papier-Protokoll von vor 4 Wochen nützt ihm dafür absolut nichts, weil es nicht zitierfähig/als medizinischer Report anhängbar ist.\n    *   **Warum wir es brauchen:** Turan sammelt Daten nicht nur zur Behandlung, sondern als **rechtlich-bürokratische Schutzbehauptung gegenüber dem Kassensystem**. Ein digitaler, ärztlich wirkender PDF-Ausdruck der Tracking-Verläufe löst bei Ärzten in MVZs sofort ein massives Pain-Point-Problem (\"Diesen Zettel kann ich als Anlage 3 direkt ans Amt faxen\"). \n\n---\n\nMit der **Somatik (Sz 6)** und der **Kassenbürokratie (Sz 7)** haben wir die Persona des \"medizinischen Psychiaters\" nun restlos und brutal realistisch ausgereizt. Er ist eine Daten-Durchlaufstation unter maximalem Druck. \n\n**Turan Komplett-Set (Die Neuen):**\n*   Sz 1: The Unused Emergency Plan (Krisen/Intervention)\n*   Sz 2/3: *Verweis auf Arztbriefe/Löschpflicht*\n*   Sz 4: The Blind Colleague Handover (MVZ Praxisalltag)\n*   Sz 5: The Frankenstein Protocol (Konflikt mit Psychotherapeuten)\n*   Sz 6: The Somatic Blind Spot (Warum fremde Apps scheitern)\n*   Sz 7: The MDK Audit (Die bürokratische Front)\n\nFühlt sich Dr. Turan für dich nun wasserdicht an? \n\nWenn ja, wäre die nächste Station **Dr. Sarah (PERSONA-001 / The Structured VT Professional)**. Sie hat schon das \"Gutachten\"-Szenario (aus unserem Vorab-Ideen-Pool). Ich schaue mal, was bei ihr sonst noch an Lücken im Lifecycle existiert! Soll ich mit ihr weitermachen?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1058,
+        "parts": [
+          {
+            "text": "Super, das Frankenstein-Szenario nehmen wir als Nummer 5 fest auf! \n\nD"
+          },
+          {
+            "text": "ass du bei Turan das Gefühl hast, es fehlt noch etwas, ist ein exzellenter Instinkt. Ich"
+          },
+          {
+            "text": " habe die \"Psycho-Brille\" nochmal abgenommen und mir den **knallharten deutschen Medizin-App"
+          },
+          {
+            "text": "arat** angesehen, in dem Dr. Turan gefangen ist. Im Gegensatz zu Dr. Sarah (die Zeit für Se"
+          },
+          {
+            "text": "elenleben hat), ist Turan Arzt. Er ist dem medizinischen System, den Kassen und der Somatik ("
+          },
+          {
+            "text": "Körper) verpflichtet.\n\nWenn wir *wirklich* \"Out-of-the-Box\" denken, gibt"
+          },
+          {
+            "text": " es hier noch zwei hochrelevante, psychiatrie-spezifische Szenarien, die bei reinen Psychotherapeuten gar"
+          },
+          {
+            "text": " nicht existieren:\n\n#### D. Out-of-the-Box (Medizinsystem & Somatik)"
+          },
+          {
+            "text": "\n\n*   **Szenario 6: The Somatic Blind Spot (Generic App Failure)**\n    *   **Kategorie:**"
+          },
+          {
+            "text": " `analysis.review_collaboratively` (Fehlschlag mit fremden Tools)\n    *   **Worum es geht:** Ein"
+          },
+          {
+            "text": " junger Patient kommt stolz in die Sprechstunde und hat eine bunte Consumer-Mood-App (wie \""
+          },
+          {
+            "text": "Daylio\" oder \"Apple Health\") auf dem Handy, die er selbst gefunden hat. Er zeigt Dr. Turan ein schönes Tort"
+          },
+          {
+            "text": "endiagramm seiner Stimmungen. Turan verschreibt aber *Elontril (Bupropion)* oder *Venlafax"
+          },
+          {
+            "text": "in* – Medikamente, die extrem auf das Herz-Kreislauf-System gehen. Turan fragt: \"Sch"
+          },
+          {
+            "text": "öne Grafik, aber wo ist Ihr Blutdruck und Puls für die letzten 14 Tage?\" Der Patient zuckt mit"
+          },
+          {
+            "text": " den Schultern. \"Sowas trackt die App nicht.\"\n    *   **Warum wir es brauchen:** Es"
+          },
+          {
+            "text": " definiert glasklar, warum allgemeine \"Wellness-Tracking-Apps\" für Psychiater wertlos sind. Tur"
+          },
+          {
+            "text": "an braucht die Kombination aus Psychologie (Mood) UND Somatik (Blutdruck, Puls, Gewicht, Tremor)."
+          },
+          {
+            "text": " Unser Tool muss **Multi-Type-Eingaben** beherrschen, sonst fällt es für Ärzte durchs Raster.\n\n*   **Szen"
+          },
+          {
+            "text": "ario 7: The MDK Audit (Der Krankenkassen-Schutzschild)**\n    *   **Kategorie"
+          },
+          {
+            "text": ":** `management.share_externally` / `analysis.therapist_solo`\n    *   **"
+          },
+          {
+            "text": "Worum es geht:** Ein Patient von Dr. Turan ist seit 5 Monaten krankgeschrieben (Arbeitsunfähigkeitsbescheinigung"
+          },
+          {
+            "text": " - AU). Der MDK (Medizinische Dienst der Krankenkassen) schreibt Turan an und fordert einen"
+          },
+          {
+            "text": " Nachweis, dass der Patient wirklich \"weiterhin nicht arbeitsfähig\" ist und Therapiemaßnahmen greifen (Aussteuerungsk"
+          },
+          {
+            "text": "ontrolle). Turan hat 5 Minuten Zeit, um zwischen zwei Patienten eine Antwort ans Amt zu faxen. Das zerknitterte Papier"
+          },
+          {
+            "text": "-Protokoll von vor 4 Wochen nützt ihm dafür absolut nichts, weil es nicht zitierfähig/als"
+          },
+          {
+            "text": " medizinischer Report anhängbar ist.\n    *   **Warum wir es brauchen:** Turan sammelt Daten nicht nur zur Behandlung"
+          },
+          {
+            "text": ", sondern als **rechtlich-bürokratische Schutzbehauptung gegenüber dem Kassensystem**. Ein digitaler,"
+          },
+          {
+            "text": " ärztlich wirkender PDF-Ausdruck der Tracking-Verläufe löst bei Ärzten in MVZs sofort ein massives Pain-Point"
+          },
+          {
+            "text": "-Problem (\"Diesen Zettel kann ich als Anlage 3 direkt ans Amt faxen\"). \n\n---\n\nMit der"
+          },
+          {
+            "text": " **Somatik (Sz 6)** und der **Kassenbürokratie (Sz 7)** haben wir die"
+          },
+          {
+            "text": " Persona des \"medizinischen Psychiaters\" nun restlos und brutal realistisch ausgereizt. Er ist eine Daten"
+          },
+          {
+            "text": "-Durchlaufstation unter maximalem Druck. \n\n**Turan Komplett-Set (Die Neuen):**\n*   Sz 1:"
+          },
+          {
+            "text": " The Unused Emergency Plan (Krisen/Intervention)\n*   Sz 2/3: *Verweis auf"
+          },
+          {
+            "text": " Arztbriefe/Löschpflicht*\n*   Sz 4: The Blind Colleague Handover (MV"
+          },
+          {
+            "text": "Z Praxisalltag)\n*   Sz 5: The Frankenstein Protocol (Konflikt mit Psychotherapeuten)"
+          },
+          {
+            "text": "\n*   Sz 6: The Somatic Blind Spot (Warum fremde Apps scheitern)\n*   Sz 7: The MDK"
+          },
+          {
+            "text": " Audit (Die bürokratische Front)\n\nFühlt sich Dr. Turan für dich nun wasserdicht an? "
+          },
+          {
+            "text": "\n\nWenn ja, wäre die nächste Station **Dr. Sarah (PERSONA-001 / The Structured VT Professional)**. Sie hat"
+          },
+          {
+            "text": " schon das \"Gutachten\"-Szenario (aus unserem Vorab-Ideen-Pool). Ich schaue mal, was bei ihr sonst noch an"
+          },
+          {
+            "text": " Lücken im Lifecycle existiert! Soll ich mit ihr weitermachen?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

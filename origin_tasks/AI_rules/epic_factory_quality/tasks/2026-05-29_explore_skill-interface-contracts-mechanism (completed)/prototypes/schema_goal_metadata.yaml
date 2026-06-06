@@ -1,0 +1,245 @@
+# Schema: goal_metadata.yaml
+#
+# This schema is the source of truth for the YAML frontmatter in every goal.md file
+# produced by task-create. It is the most widely consumed shared artifact in the factory:
+# every skill that executes work reads goal.md before starting.
+#
+# Consumed by: code-simple, code-complex, code-test, code-bugfix, task-complete,
+#              task-derive-from-requ, verify-quality, release-begin-impl, next_tasks.py,
+#              generate_status_overview.py, coverage_report.py, and the commit-time lint.
+
+schema_version: 1
+artifact: goal.md (YAML frontmatter)
+description: >
+  Frontmatter block at the top of every goal.md file. Carries task identity, lifecycle
+  state, priority, coverage mapping, and optional operational metadata. The task_id
+  field is the primary key used by all cross-referencing scripts and skills.
+
+required:
+  task_id:
+    type: string
+    pattern: "TASK-[A-Z]+-[0-9]+-[0-9]+"
+    example: TASK-FUNC-007-03
+    description: >
+      Globally unique task identifier allocated by allocate_task_id.py.
+      Derived from parent requirement ID. Never manually assigned.
+
+  type:
+    type: string
+    enum: [explore, impl, define, review, analyze, bugfix]
+    description: >
+      Task type determines which workflow skill runs and whether verify-quality
+      applies. 'impl' is the broadest — covers code, docs, and design artifacts.
+
+  parent_requirement:
+    type: string
+    pattern: "REQ-[A-Z]+-[0-9]+"
+    example: REQ-FUNC-007
+    description: >
+      ID of the requirements.md that grounds this task. Must resolve to an existing
+      requirements.md file. For explore tasks on pre-existing requirements the ID
+      is pre-allocated by allocate_req_id.py.
+
+  status:
+    type: string
+    enum: [pending, in_progress, completed, blocked]
+    description: >
+      Lifecycle state. Managed by task-complete (sets 'completed') and the
+      orchestrator. 'blocked' signals a hard dependency failure — set manually.
+      next_tasks.py reads this to filter the work queue.
+
+  created:
+    type: string
+    format: date  # YYYY-MM-DD
+    description: Task creation date. Set once by task-create; never updated.
+
+optional:
+  effort:
+    type: string
+    enum: [XS, S, M, L, XL]
+    description: >
+      Estimated effort. XS < 1h; S 1-4h; M 1-2d; L 3-5d; XL > 1 week.
+      Tasks max at XL — XXL is for epic requirements only.
+      Used by doc-lookup-dependencies budget calculation (REQ-PROC-053 §8).
+
+  urgency:
+    type: integer
+    minimum: 0
+    maximum: 5
+    description: >
+      0 = no urgency; 5 = blocking critical path. Inherited from parent requirement
+      unless task has genuinely different urgency. Used by next_tasks.py prioritization.
+
+  urgency_reason:
+    type: string
+    pattern: "U[0-5]-[A-Z_]+"
+    example: U4-BLOCKING
+    description: Coded urgency reason for audit trail. Companion to urgency field.
+
+  impact:
+    type: integer
+    minimum: 0
+    maximum: 5
+    description: >
+      0 = no impact; 5 = enables major value. Inherited from parent requirement.
+
+  impact_reason:
+    type: string
+    pattern: "I[0-5]-[A-Z_]+"
+    example: I5-ENAB
+    description: Coded impact reason for audit trail. Companion to impact field.
+
+  after:
+    type: array
+    items:
+      type: string
+      pattern: "TASK-[A-Z]+-[0-9]+-[0-9]+"
+    description: >
+      Task IDs this task must wait for. next_tasks.py checks these dynamically
+      against completed status. MUST contain only TASK-IDs — never external-blocker
+      descriptions (those go in awaiting[]).
+
+  awaiting:
+    type: array
+    items:
+      type: string
+    description: >
+      External blockers ONLY (e.g. "waiting for design decision"). next_tasks.py
+      treats any non-empty awaiting as a permanent block regardless of after[] status.
+      Never put TASK-IDs here.
+
+  awaiting_note:
+    type: string
+    description: >
+      Plain-text explanation of the external blocker. Required when awaiting is
+      non-empty. Provides context for the developer when reviewing blocked tasks.
+
+  covers:
+    type: object
+    description: Coverage mapping back to parent requirement trackable items.
+    keys:
+      acceptance_criteria:
+        type: array
+        items:
+          type: string
+          pattern: "AC-[0-9]+"
+        description: >
+          AC IDs from parent requirements.md trackable_items that this task implements.
+          Must contain only IDs that exist in the parent's trackable_items block.
+      sections:
+        type: array
+        items:
+          type: string
+          pattern: "SEC-[0-9]+"
+        description: >
+          Section IDs from parent requirements.md this task addresses.
+
+  scope_description:
+    type: string
+    max_length: 200
+    description: >
+      Brief summary of what this task implements. One or two sentences; no markdown.
+      Shown in generate_status_overview.py output.
+
+  release_description:
+    type: string
+    max_length: 25  # words, not characters
+    description: >
+      User-benefit description for release notes. Max 25 words, English, user
+      perspective. Required for impl tasks; left blank for explore/bugfix.
+      Example: "Allows users to track mood trends over time."
+
+  opus_recommended:
+    type: boolean
+    default: false
+    description: >
+      When true, orchestrator launches claude --model opus for this task.
+      Set by task-create per the Opus Recommendation Check rubric:
+      define tasks, cross-cutting explore, security/privacy, explicit trade-offs,
+      or urgency >= 4 AND impact >= 4.
+
+  writes_requirements:
+    type: boolean
+    default: false
+    description: >
+      When true, next_tasks.py keeps this task on the critical path even without
+      target_package. Set for explore tasks that produce or update requirements.md.
+      Set automatically by requ-derive-from-flow.
+
+  target_package:
+    type: string
+    pattern: "PKG-[0-9]+\\.[0-9]+\\.[0-9]+-[a-z]+"
+    example: PKG-0.0.1-core
+    description: >
+      Release package this task targets. Inherited from parent requirement's
+      covered AC package assignments. Absent for process/ tasks and explore tasks
+      created by requ-derive-from-flow (source_gap present).
+
+  requirements_version:
+    type: object
+    description: Snapshot of requirements.md at task creation — enables git show for historical view.
+    keys:
+      commit:
+        type: string
+        pattern: "[0-9a-f]{7}"
+        description: 7-char git commit hash of requirements.md at task creation.
+      file:
+        type: string
+        description: Relative path to requirements.md from goal.md location (always ../requirements.md).
+
+  session_id:
+    type: string
+    description: >
+      UUID of the automation session that created this task. Set when task-create
+      runs in automated mode. Enables looking up the creation session log at
+      /home/vscode/.ccs/shared/context-groups/default/projects/.../<uuid>.jsonl.
+
+  session_account:
+    type: string
+    description: Account identifier for the session that created this task. Companion to session_id.
+
+  release_chunk:
+    type: string
+    description: >
+      Release chunk identifier when task is part of a chunked release plan
+      (e.g. release-begin-impl output). Informational; not used by next_tasks.py.
+
+  verification_task:
+    type: boolean
+    default: false
+    description: >
+      When true, this task verifies a prior explore task. next_tasks.py keeps
+      verification tasks unpackaged so they rank alongside the explore tasks they verify.
+
+  verification_bundle:
+    type: string
+    description: >
+      ID of the explore task this verification task validates.
+      Present only when verification_task == true.
+
+  source_gap:
+    type: string
+    description: >
+      Set by requ-derive-from-flow when task fills a coverage gap.
+      Value is the gap description from the coverage analysis.
+      Presence causes task-create to skip target_package lookup.
+
+  worktree_path:
+    type: string
+    description: >
+      Absolute path to the git worktree created for this bugfix task.
+      Set by code-bugfix on first run. Present only for bugfix tasks.
+
+  cascade_type:
+    type: string
+    enum: [user_needs]
+    description: >
+      Set when task is a multi-pass cascade task. Presence causes task-create to
+      add the Cascade Passes section and create cascade_log.md.
+
+  cascade_status:
+    type: string
+    enum: [pass-1-pending, pass-1-done, pass-2-pending, pass-2-done, pass-3-pending, pass-3-done, pass-4-pending, pass-4-done, complete]
+    description: >
+      Current pass in a cascade task. Updated by each cascade pass agent.
+      Companion to cascade_type.

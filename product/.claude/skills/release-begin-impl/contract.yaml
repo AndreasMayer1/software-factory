@@ -1,0 +1,96 @@
+contract_version: 1
+skill: release-begin-impl
+purpose: >
+  Begin implementation of a release: verify scope coverage, create a holistic
+  task creation plan via per-requirement task-derive-from-requ agents, activate
+  the release in RELEASES.md/RELEASE_BACKLOG.md, and create the first
+  orchestration task. User gates at Phases 2 and 5.
+
+derived_from:
+  required:
+    - path: release-log
+      source: external
+      reason: Release scope boundaries, package list, and includes — primary planning input.
+    - path: release-backlog
+      source: external
+      reason: Package definitions and active/planned status; alternative scope source.
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: The release preparation explore task — provides explore_task_id for the orchestration chain.
+
+produces:
+  required:
+    - path: plan
+      reason: Assembled release plan with coverage matrix, layer rules, and execution order.
+    - path: plan
+      reason: Per-requirement decomposition plan produced by task-derive-from-requ agents.
+  conditional:
+    - path: plans-dir
+      condition: created each planning iteration; contains phase findings and user Q&A.
+      reason: Structured user-review artifacts for Phase 2 and Phase 5 gates.
+    - path: release-log
+      condition: updated in Phase 6 — status changed from planned to active.
+      reason: Marks the release as active so the orchestration chain can start.
+    - path: release-backlog
+      condition: updated in Phase 6 when release is by-package — status changed to active.
+      reason: Package status activated for orchestration.
+
+quality_criteria:
+  - No feature requirements.md files are read in the main orchestrator context (agents only).
+  - Per-requirement decomposition is delegated to one task-derive-from-requ agent per feature.
+  - Phase 2 user gate must be acknowledged before Phase 2b remediation proceeds.
+  - Phase 5 user gate requires explicit "approved" before Phase 6 mutations run.
+  - Dry-run (create_orchestration_task.py --dry-run) succeeds before any Phase 6 mutation.
+  - All Phase 6 mutations committed atomically by task-complete.
+
+user_input_gates:
+  - phase: "Phase 0 — Bootstrap (package vs release question)"
+    description: "Developer specifies whether they are preparing by package ID or by release version."
+    decision_kind: selection
+    required: always
+  - phase: "Phase 0 — Prior session check"
+    description: "Developer chooses to resume a prior in-progress release-begin-impl session or abandon it and start fresh."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires when a prior release-begin-impl session with matching target_release and status: in_progress is found."
+  - phase: "Phase 2 — USER APPROVAL GATE (epic findings review)"
+    description: "Developer reads the Phase 2 findings files and answers the open questions in them before Phase 2b remediation begins."
+    decision_kind: approval
+    required: always
+  - phase: "Phase 2b — Step 4 (unanswered blocker questions)"
+    description: "Developer answers open questions surfaced by remediation agents that blocked them before Phase 2c can proceed."
+    decision_kind: free-text
+    required: conditional
+    condition: "Only fires when one or more phase_2b question files exist with unanswered blocker content."
+  - phase: "Phase 2c — Step 3 (FAILED.md exists)"
+    description: "Developer is notified of per-requirement decomposition failures and must address them before Phase 2c Step 4 can proceed."
+    decision_kind: free-text
+    required: conditional
+    condition: "Only fires when any per-requirement agent wrote FAILED.md instead of plan.md."
+  - phase: "Phase 5 — User Gate (plan approval)"
+    description: "Developer reads and explicitly approves the full release plan before release activation and orchestration task creation."
+    decision_kind: approval
+    required: always
+
+may_invoke:
+  - task-derive-from-requ
+  - task-complete
+  - requ-explore
+
+side_effects:
+  - target: requirements_tasks/RELEASES.md
+    action: write
+    note: status changed from planned to active in Phase 6.
+  - target: requirements_tasks/RELEASE_BACKLOG.md
+    action: write
+    note: Package status changed from planned to active in Phase 6 (by-package mode).
+
+preconditions:
+  - A release-preparation explore task with a goal.md exists.
+  - The target release or package exists in RELEASES.md or RELEASE_BACKLOG.md.
+
+postconditions:
+  - task_creation_plan.md and per-requirement plans exist.
+  - Release/package is active in RELEASES.md/RELEASE_BACKLOG.md.
+  - First orchestration task is created and committed.

@@ -1,0 +1,60 @@
+contract_version: 1
+skill: requ-verify-flow-coverage
+purpose: >
+  Verify that completed exploration tasks produced requirements that actually
+  address their flow gaps. Extracts expected behaviors from flows, compares
+  them to requirements, synthesizes a coverage report, and offers user-gated
+  remediation for confirmed gaps.
+
+derived_from:
+  required:
+    - path: flow-matrix
+      source: skill:requ-derive-from-flow
+      reason: Source of truth for gap list, pipeline status, and gap-to-requirement mapping.
+  optional:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Verification task goal.md — provides verification_bundle, verification_gaps, source_matrix when invoked in bundle mode.
+    - path: requirements
+      source: skill:requ-explore
+      reason: Target requirements read by per-gap extraction agents to check behavior coverage.
+
+produces:
+  required:
+    - path: protocol
+      reason: Full coverage report with per-gap results, intentional deviations, and remediation plan.
+  conditional:
+    - path: protocol
+      condition: one per gap batch agent, written during Phase 1 extraction.
+      reason: Structured behavior extraction used by synthesis phase.
+    - path: protocol
+      condition: written by the synthesis agent in Phase 2.
+      reason: Confirms gaps, intentional deviations, and cross-cutting patterns.
+    - path: requirements
+      condition: updated in Phase 4 when user approves remediation of confirmed gaps.
+      reason: Missing behaviors added to the requirement after user confirmation.
+
+quality_criteria:
+  - Per-gap agents read only the specific flow sections referenced (never the full flow file).
+  - Remediation is always user-gated — no requirement changes without explicit approval.
+  - Coverage report is always written, even when all gaps are fully covered.
+  - Matrix Pipeline Status updated to exists_complete for fully-verified gaps.
+
+may_invoke:
+  - task-create
+
+side_effects:
+  - target: requirements_user_needs/user_flows/<flow>/requirements_matrix.md
+    action: write
+    note: Pipeline Status column updated to exists_complete for fully verified gaps.
+  - target: requirements_tasks/<feature>/requirements.md
+    action: write
+    note: Missing behaviors added in Phase 4 after user-gated remediation approval.
+
+preconditions:
+  - requirements_matrix.md exists with at least one gap in done pipeline status.
+
+postconditions:
+  - coverage_report_<date>.md exists with full per-gap assessment.
+  - Matrix Pipeline Status reflects verification outcomes.

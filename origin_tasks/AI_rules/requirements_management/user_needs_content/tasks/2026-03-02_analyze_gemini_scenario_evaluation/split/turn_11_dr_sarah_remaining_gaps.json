@@ -1,0 +1,225 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Ich bin einverstanden. Überlege nochmal was Sarah noch abdeckt und ob wir noch etwas übersehen haben",
+        "role": "user",
+        "tokenCount": 24,
+        "createTime": "2026-02-22T08:56:54.105Z"
+      },
+      {
+        "text": "**Reviewing Coverage Scope**\n\nI'm now diving deeper into Dr. Sarah's areas of focus to ensure comprehensive coverage. I'm focusing on \"Implicit Clusters\" and meticulously checking for any overlooked aspects. The goal is to solidify a complete understanding of her work before proceeding.\n\n\n**Analyzing Implicit Clusters**\n\nI've just finished a detailed review of Dr. Sarah's profile, specifically her implicit clusters. I've now identified and categorized key aspects, including specific protocols and homework utilized. I am concentrating on the connections between these and my previous blind spot analysis, aiming to solidify a complete understanding of her work.\n\n\n**Identifying Therapist Pain**\n\nI'm now focusing on pain points for therapists using Dr. Sarah's methods, specifically related to relapse prevention and addiction. I see issues with reviewing consumption diaries and spotting early warning signs, which seem like time-consuming tasks. Also, the structured protocols, especially the complex ones, may bring issues for therapists. I am looking for ways to streamline those.\n\n\n**Exploring SORKC Workflow**\n\nI'm now contemplating how Dr. Sarah leverages the SORKC framework, considering potential complexities within the app. I suspect paper might be involved due to its flowchart nature, and I see how patient-filled protocols could be used to generate it. This adds an analysis step. I'm also now analyzing *The Educators* to see if there's any efficiency we can introduce there.\n\n\n**Defining Therapy Completion**\n\nI'm now focusing on the end-of-therapy process, specifically a client \"blueprint\" summarizing progress. I'm exploring digital solutions for lasting data access, aiming to empower clients and reinforce self-help. I'm imagining a transition from chaotic paper folders to a digital record that Anna can use to see how far she has come. Also, I have a few scenarios involving non-compliance to work through.\n\n\n**Addressing Resistance Tactics**\n\nI'm now zeroing in on therapist challenges when clients exhibit systematic resistance to tracking homework. This hits on the behavioral analysis specific to Dr. Sarah's approach to VT, which includes how to deal with the resistance itself. I am actively working through how to handle the resistance in a therapy session.\n\n**Refining Unaddressed Gaps**\n\nI've just refined the areas of improvement for Dr. Sarah's techniques, especially in handling relapse triggers. I am now prioritizing the *Relapse/Crisis Autopsy*, focusing on the precise trigger analysis within the \"Addiction/Trainer\" cluster, specifically using daily ratings. Additionally, I am now focused on the *Discharge Handover*, and how to arm clients for \"Hilfe zur Selbsthilfe\".\n\n\n**Defining Therapy Completion**\n\nI'm now zeroing in on defining a crucial missing piece: the end-of-therapy process and termination. I recognize the existing comprehensive coverage of various workflows. I am creating a scenario outlining the complete process from Dr. Sarah's perspective. I'm focusing on the final sharing stage and what to expect there, and integrating this with a process-improvement analysis to provide an end-of-therapy \"blueprint\" or summary, addressing paper-based burdens and client empowerment.\n\n\n",
+        "role": "model",
+        "tokenCount": 1818,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Reviewing Coverage Scope**\n\nI'm now diving deeper into Dr. Sarah's areas of focus to ensure comprehensive coverage. I'm focusing on \"Implicit Clusters\" and meticulously checking for any overlooked aspects. The goal is to solidify a complete understanding of her work before proceeding.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Analyzing Implicit Clusters**\n\nI've just finished a detailed review of Dr. Sarah's profile, specifically her implicit clusters. I've now identified and categorized key aspects, including specific protocols and homework utilized. I am concentrating on the connections between these and my previous blind spot analysis, aiming to solidify a complete understanding of her work.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Identifying Therapist Pain**\n\nI'm now focusing on pain points for therapists using Dr. Sarah's methods, specifically related to relapse prevention and addiction. I see issues with reviewing consumption diaries and spotting early warning signs, which seem like time-consuming tasks. Also, the structured protocols, especially the complex ones, may bring issues for therapists. I am looking for ways to streamline those.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Exploring SORKC Workflow**\n\nI'm now contemplating how Dr. Sarah leverages the SORKC framework, considering potential complexities within the app. I suspect paper might be involved due to its flowchart nature, and I see how patient-filled protocols could be used to generate it. This adds an analysis step. I'm also now analyzing *The Educators* to see if there's any efficiency we can introduce there.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Defining Therapy Completion**\n\nI'm now focusing on the end-of-therapy process, specifically a client \"blueprint\" summarizing progress. I'm exploring digital solutions for lasting data access, aiming to empower clients and reinforce self-help. I'm imagining a transition from chaotic paper folders to a digital record that Anna can use to see how far she has come. Also, I have a few scenarios involving non-compliance to work through.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Addressing Resistance Tactics**\n\nI'm now zeroing in on therapist challenges when clients exhibit systematic resistance to tracking homework. This hits on the behavioral analysis specific to Dr. Sarah's approach to VT, which includes how to deal with the resistance itself. I am actively working through how to handle the resistance in a therapy session.\n\n**Refining Unaddressed Gaps**\n\nI've just refined the areas of improvement for Dr. Sarah's techniques, especially in handling relapse triggers. I am now prioritizing the *Relapse/Crisis Autopsy*, focusing on the precise trigger analysis within the \"Addiction/Trainer\" cluster, specifically using daily ratings. Additionally, I am now focused on the *Discharge Handover*, and how to arm clients for \"Hilfe zur Selbsthilfe\".\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Defining Therapy Completion**\n\nI'm now zeroing in on defining a crucial missing piece: the end-of-therapy process and termination. I recognize the existing comprehensive coverage of various workflows. I am creating a scenario outlining the complete process from Dr. Sarah's perspective. I'm focusing on the final sharing stage and what to expect there, and integrating this with a process-improvement analysis to provide an end-of-therapy \"blueprint\" or summary, addressing paper-based burdens and client empowerment.\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-22T08:56:54.107Z"
+      },
+      {
+        "text": "Wir sind jetzt auf einem Detailgrad, der wirklich exzellent ist. Wenn wir in Dr. Sarahs Persona (`PERSONA-001`) schauen, gibt es unter *Implicit Clusters Represented* noch einen Bereich, den wir fast gestreift, aber noch nicht in letzter Konsequenz zu Ende gedacht haben:\n\nSie repräsentiert auch:\n*   **\"The Trainers\"**: Sucht-Therapeuten (Rückfall-Protokolle), DBT (Skill-Ketten)\n*   **VT-Kernphilosophie**: Hilfe zur Selbsthilfe (Die Therapie *soll* irgendwann enden).\n\nWenn wir das durch den Status-Quo-Filter (Wie machen die das heute mit Papier?) pressen, stoßen wir auf zwei extrem spannende Momente im VT-Lifecycle, die wir noch übersehen haben:\n\n### 1. Das \"CSI-Szenario\" (Verhaltensanalyse nach einem Rückfall)\n*   **Kategorie:** `analysis.review_collaboratively` (Deep Dive / Forensic)\n*   **Worum es geht:** Annas Therapie lief gut, aber am Wochenende gab es einen massiven Rückschlag (z.B. einen Binge-Eating-Anfall, Panikattacke oder Sucht-Rückfall). In der Sitzung fragt Dr. Sarah: *\"Wann fing das an zu kippen?\"* Anna weiß es nicht; sie erinnert sich nur an das Wochenende.\n*   **Das Status-Quo-Problem:** Dr. Sarah blättert rückwärts durch vier Wochen handschriftliche Papier-Protokolle und sucht wie eine Forensikerin den \"Point of no Return\". Auf dem Papier übersieht sie fast, dass an den 3 Tagen *vor* dem Rückfall der Schlaf drastisch abnahm und das allgemeine Stresslevel schon auf 7 geklettert war. Die eigentliche Ursache liegt Tage vor dem Symptom.\n*   **Warum wir es brauchen:** Wir haben bisher nur den Standard-\"Wir gucken uns mal die Woche an\"-Review. Für komplexe Fälle (Sucht, Borderline, schwere Phobien) muss ein Tool zeigen können, wie sich ein Spannungszustand über mehrere Wochen unsichtbar aufgebaut hat. Eine App, die historische Trendlinien (Lag) visuell aufbereitet, ist für verhaltensanalytische Diagnostik Gold wert.\n\n### 2. Das Entlassungs-Szenario (\"Hilfe zur Selbsthilfe\")\n*   **Kategorie:** Lifecycle-Ende (Management / Empowering)\n*   **Worum es geht:** Nach 60 Stunden VT endet Annas Therapie offiziell (\"Discharge\"). In der Verhaltenstherapie gibt Dr. Sarah ihr in der letzten Stunde einen sogenannten \"Rückfallpräventionsplan\" mit. Bisher heißt das: Anna kriegt einen dicken Leitz-Ordner mit 60 vollgeschriebenen Zetteln, kopierten Manualen und ihrem Notfallplan mit nach Hause.\n*   **Das Status-Quo-Problem:** Der Ordner ist stigmatisierend, schwer und wird sofort auf den Schrank verbannt. Wenn Anna in 2 Jahren eine neue Krise hat, fängt sie mental wieder bei Null an, weil der Zettel-Ordner emotional negativ behaftet und nicht mehr aktuell ist. \n*   **Warum wir es brauchen:** Dieses Szenario definiert den finalen \"Sieg\" einer Privacy-First Self-Hosting-App. Nach Therapieende *kappt* die Therapeutin ihre Verbindung, aber Anna behält ihr lokales, perfektes Daten- und Methoden-Universum in der Hosentasche und kann jederzeit selbständig als Self-Userin (*Lisa/Nina-Persona*) weiter tracken, weil ihr die Struktur jetzt in Fleisch und Blut übergegangen ist. Der digitale Werkzeugkoffer geht nahtlos an den Patienten über.\n\n---\n\n**Fazit zu Dr. Sarah:**\nDie Alltagsbürokratie ist mit den vorherigen Ideen (PVS-Copy-Paste, Gutachten, Excel-Albtraum der PiAs, Modifikations-Wirrwarr) perfekt abgedeckt. \n\nMit diesen beiden Zusätzen...\n*   **Sz 7: Forensic Pattern Hunting** (Die unsichtbare Eskalation im Vorfeld eines Rückfalls suchen)\n*   **Sz 8: The Discharge Folder** (Vom Patienten zum autonomen Self-User werden)\n\n...ist die Persona aus verhaltenstherapeutischer Sicht in jeglicher Hinsicht, vom Anfänger (PiA) bis zum Profi und vom ersten Kennenlernen bis zur Entlassung, extrem holistisch und praxisnah gezeichnet. \n\nWollen wir die noch \"eintüten\"? Und falls ja, soll ich dir gleich ein Recap der nächsten und sehr anderen Persona – **Elias (The Skeptical Guardian)** – geben?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1030,
+        "parts": [
+          {
+            "text": "Wir sind jetzt auf einem Detail"
+          },
+          {
+            "text": "grad, der wirklich exzellent ist. Wenn wir in Dr. Sarahs Persona (`PERSONA-001`) schauen, gibt"
+          },
+          {
+            "text": " es unter *Implicit Clusters Represented* noch einen Bereich, den wir fast gestreift, aber noch nicht in letz"
+          },
+          {
+            "text": "ter Konsequenz zu Ende gedacht haben:\n\nSie repräsentiert auch:\n*   **\"The Trainers\""
+          },
+          {
+            "text": "**: Sucht-Therapeuten (Rückfall-Protokolle), DBT (Skill-Ketten)\n"
+          },
+          {
+            "text": "*   **VT-Kernphilosophie**: Hilfe zur Selbsthilfe (Die Therapie *soll* irgendwann enden)."
+          },
+          {
+            "text": "\n\nWenn wir das durch den Status-Quo-Filter (Wie machen die das heute mit Papier?) pressen, sto"
+          },
+          {
+            "text": "ßen wir auf zwei extrem spannende Momente im VT-Lifecycle, die wir noch übersehen haben:\n\n### 1."
+          },
+          {
+            "text": " Das \"CSI-Szenario\" (Verhaltensanalyse nach einem Rückfall)\n*   **Kategorie:** `analysis."
+          },
+          {
+            "text": "review_collaboratively` (Deep Dive / Forensic)\n*   **Worum es geht:** Annas Therapie lief"
+          },
+          {
+            "text": " gut, aber am Wochenende gab es einen massiven Rückschlag (z.B. einen Binge-Eating-An"
+          },
+          {
+            "text": "fall, Panikattacke oder Sucht-Rückfall). In der Sitzung fragt Dr. Sarah:"
+          },
+          {
+            "text": " *\"Wann fing das an zu kippen?\"* Anna weiß es nicht; sie erinnert sich nur an das Wochenende.\n*"
+          },
+          {
+            "text": "   **Das Status-Quo-Problem:** Dr. Sarah blättert rückwärts durch vier Wochen handschriftliche Papier"
+          },
+          {
+            "text": "-Protokolle und sucht wie eine Forensikerin den \"Point of no Return\". Auf dem Papier übersieht sie fast"
+          },
+          {
+            "text": ", dass an den 3 Tagen *vor* dem Rückfall der Schlaf drastisch abnahm und das allgemeine Stresslevel schon auf 7"
+          },
+          {
+            "text": " geklettert war. Die eigentliche Ursache liegt Tage vor dem Symptom.\n*   **Warum wir es brauchen:** Wir haben"
+          },
+          {
+            "text": " bisher nur den Standard-\"Wir gucken uns mal die Woche an\"-Review. Für komplexe Fälle (Sucht, Border"
+          },
+          {
+            "text": "line, schwere Phobien) muss ein Tool zeigen können, wie sich ein Spannungszustand über mehrere Wochen"
+          },
+          {
+            "text": " unsichtbar aufgebaut hat. Eine App, die historische Trendlinien (Lag) visuell aufbereitet, ist für ver"
+          },
+          {
+            "text": "haltensanalytische Diagnostik Gold wert.\n\n### 2. Das Entlassungs-Szenario (\""
+          },
+          {
+            "text": "Hilfe zur Selbsthilfe\")\n*   **Kategorie:** Lifecycle-Ende (Management / Empowering)\n*   **Worum"
+          },
+          {
+            "text": " es geht:** Nach 60 Stunden VT endet Annas Therapie offiziell (\"Discharge\"). In der Verhaltenstherapie gibt"
+          },
+          {
+            "text": " Dr. Sarah ihr in der letzten Stunde einen sogenannten \"Rückfallpräventionsplan\" mit. Bisher heißt das: Anna kriegt einen d"
+          },
+          {
+            "text": "icken Leitz-Ordner mit 60 vollgeschriebenen Zetteln, kopierten Manualen und ihrem Not"
+          },
+          {
+            "text": "fallplan mit nach Hause.\n*   **Das Status-Quo-Problem:** Der Ordner ist stigmatisierend, schwer"
+          },
+          {
+            "text": " und wird sofort auf den Schrank verbannt. Wenn Anna in 2 Jahren eine neue Krise hat, f"
+          },
+          {
+            "text": "ängt sie mental wieder bei Null an, weil der Zettel-Ordner emotional negativ behaftet und nicht mehr aktuell ist."
+          },
+          {
+            "text": " \n*   **Warum wir es brauchen:** Dieses Szenario definiert den finalen \"Sieg\" einer Privacy-First"
+          },
+          {
+            "text": " Self-Hosting-App. Nach Therapieende *kappt* die Therapeutin ihre Verbindung, aber Anna behält ihr"
+          },
+          {
+            "text": " lokales, perfektes Daten- und Methoden-Universum in der Hosentasche und kann jederzeit selbständig als Self-Userin"
+          },
+          {
+            "text": " (*Lisa/Nina-Persona*) weiter tracken, weil ihr die Struktur jetzt in Fleisch und Blut übergegangen ist. Der digitale"
+          },
+          {
+            "text": " Werkzeugkoffer geht nahtlos an den Patienten über.\n\n---\n\n**Fazit zu Dr. Sarah:**\nDie All"
+          },
+          {
+            "text": "tagsbürokratie ist mit den vorherigen Ideen (PVS-Copy-Paste, Gutachten, Excel-Al"
+          },
+          {
+            "text": "btraum der PiAs, Modifikations-Wirrwarr) perfekt abgedeckt. \n\nMit diesen beiden Zus"
+          },
+          {
+            "text": "ätzen...\n*   **Sz 7: Forensic Pattern Hunting** (Die unsichtbare Eskalation im Vorfeld eines Rückfalls suchen)\n"
+          },
+          {
+            "text": "*   **Sz 8: The Discharge Folder** (Vom Patienten zum autonomen Self-User werden)\n\n...ist"
+          },
+          {
+            "text": " die Persona aus verhaltenstherapeutischer Sicht in jeglicher Hinsicht, vom Anfänger (PiA) bis zum Prof"
+          },
+          {
+            "text": "i und vom ersten Kennenlernen bis zur Entlassung, extrem holistisch und praxisnah gezeichnet. \n\nWollen wir die"
+          },
+          {
+            "text": " noch \"eintüten\"? Und falls ja, soll ich dir gleich ein Recap der nächsten und sehr anderen Persona – **Elias (The Skeptical"
+          },
+          {
+            "text": " Guardian)** – geben?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "5 und 6 bitte übernehmen. Das siebte brauchen wir nicht unbedingt, da wir schon genügend Privatsphäre Anforderungen in den Szenarien haben. Außer es würde einen neuen Aspekt hinzufügen, das kann geprüft werden.\n\nDann weiter mit max. ",
+        "role": "user",
+        "tokenCount": 55,
+        "createTime": "2026-02-28T16:37:23.749Z"
+      },
+      {
+        "text": "**Accepting Lisa's Dilemmas**\n\nI've accepted scenarios five and six for Lisa. My analysis led me to embrace the challenges of her hormonal blind spot and the \"faking it\" dilemma. However, scenario seven was rejected.\n\n\n**Analyzing Max's Data**\n\nI've determined Lisa's Scenario 7 isn't necessary, as it reiterates existing concepts. I'm now proceeding to analyze Max, examining his role as a therapy client and his archetype of major depression and burnout. I am moving alphabetically to check for gaps systematically.\n\n\n**Assessing Max's Exhaustion**\n\nI'm now examining Max's case through the lens of severe executive dysfunction, the \"Wall of Awful,\" and persistent guilt loops. The existing scenarios adequately cover data capture and session preparation. Now I'm focusing on evaluating the completeness of lifecycle stages within these scenarios, specifically focusing on the impact of his exhaustion on each.\n\n\n**Identifying Max's Interventions**\n\nI'm focusing now on identifying intervention gaps for Max. Specifically, I'm developing scenarios where Max actually utilizes coping mechanisms, as this wasn't covered in the existing data. I'm considering scenarios for how his burnout manifests, like paralysis, apathy, or dark thoughts, and am trying to determine what coping techniques would actually look like for him.\n\n\n**Developing Max's Successes**\n\nI'm developing a scenario where Max employs a \"Success Diary\" to combat rumination. This represents a tangible coping mechanism. The scenario explores Max trying to remember a single positive thing during a low point, referencing his written notes. I'm focusing on the implementation details, making it clear this requires access and routine. I'm distinguishing it from routine entry and considering a related Emergency Safety Plan for suicidal ideation.\n\n\n**Addressing Max's Apathy**\n\nI'm now focusing on Max's apathy, the \"numbness extreme,\" and how it manifests as the \"Positivity Black Hole.\" I'm developing a scenario where Max is literally glued to the bed, unable to engage with routine tracking, and consider how he'd be unable to track the data at all. This highlights the limitations of his current systems and focuses on Max's ability to cope in this scenario. I am also considering how to track data externally using the BDI, for his psychiatrist.\n\n\n**Evaluating Max's Activation**\n\nI'm now developing a scenario focusing on the \"activation energy\" required for Max's coping mechanisms. I'm imagining Max in bed, overwhelmed by his depression, and unable to access his physical \"Success Diary.\" I'm realizing that requiring any physical movement or mental effort renders the tools useless, and that integration with his tracking app may be vital for his therapy. I'm focusing on the need for zero-activation energy coping strategies. I am proceeding to the next scenario, the Assessment Overload.\n\n\n**Mapping Max's BDI**\n\nI'm developing a scenario where Max faces a BDI-II questionnaire in a medical waiting room. His memory is impaired by depression, making it impossible to accurately assess his feelings over the past two weeks. The paper-based mood tracker is useless and messy, and he ends up answering the questions randomly. This highlights the disconnect between raw tracking and standardized clinical assessments, similar to Lisa's Hausarzt need. This emphasizes the need to move data.",
+        "role": "model",
+        "tokenCount": 2083,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Accepting Lisa's Dilemmas**\n\nI've accepted scenarios five and six for Lisa. My analysis led me to embrace the challenges of her hormonal blind spot and the \"faking it\" dilemma. However, scenario seven was rejected.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Max's Data**\n\nI've determined Lisa's Scenario 7 isn't necessary, as it reiterates existing concepts. I'm now proceeding to analyze Max, examining his role as a therapy client and his archetype of major depression and burnout. I am moving alphabetically to check for gaps systematically.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Assessing Max's Exhaustion**\n\nI'm now examining Max's case through the lens of severe executive dysfunction, the \"Wall of Awful,\" and persistent guilt loops. The existing scenarios adequately cover data capture and session preparation. Now I'm focusing on evaluating the completeness of lifecycle stages within these scenarios, specifically focusing on the impact of his exhaustion on each.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Identifying Max's Interventions**\n\nI'm focusing now on identifying intervention gaps for Max. Specifically, I'm developing scenarios where Max actually utilizes coping mechanisms, as this wasn't covered in the existing data. I'm considering scenarios for how his burnout manifests, like paralysis, apathy, or dark thoughts, and am trying to determine what coping techniques would actually look like for him.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Developing Max's Successes**\n\nI'm developing a scenario where Max employs a \"Success Diary\" to combat rumination. This represents a tangible coping mechanism. The scenario explores Max trying to remember a single positive thing during a low point, referencing his written notes. I'm focusing on the implementation details, making it clear this requires access and routine. I'm distinguishing it from routine entry and considering a related Emergency Safety Plan for suicidal ideation.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Addressing Max's Apathy**\n\nI'm now focusing on Max's apathy, the \"numbness extreme,\" and how it manifests as the \"Positivity Black Hole.\" I'm developing a scenario where Max is literally glued to the bed, unable to engage with routine tracking, and consider how he'd be unable to track the data at all. This highlights the limitations of his current systems and focuses on Max's ability to cope in this scenario. I am also considering how to track data externally using the BDI, for his psychiatrist.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Evaluating Max's Activation**\n\nI'm now developing a scenario focusing on the \"activation energy\" required for Max's coping mechanisms. I'm imagining Max in bed, overwhelmed by his depression, and unable to access his physical \"Success Diary.\" I'm realizing that requiring any physical movement or mental effort renders the tools useless, and that integration with his tracking app may be vital for his therapy. I'm focusing on the need for zero-activation energy coping strategies. I am proceeding to the next scenario, the Assessment Overload.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Mapping Max's BDI**\n\nI'm developing a scenario where Max faces a BDI-II questionnaire in a medical waiting room. His memory is impaired by depression, making it impossible to accurately assess his feelings over the past two weeks. The paper-based mood tracker is useless and messy, and he ends up answering the questions randomly. This highlights the disconnect between raw tracking and standardized clinical assessments, similar to Lisa's Hausarzt need. This emphasizes the need to move data.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-28T16:37:23.751Z"
+      },
+      {
+        "text": "\n\n\nHervorragend. Lisa bekommt Nummer 5 (PMDS/Hormone) und 6 (Masking) auf ihre Liste. Sz 7 (WG Privatsphäre) lassen wir draußen, weil der Aspekt des \"physischen Störfaktors durch Mitbewohner/Partner\", wie du absolut richtig bemerkt hast, bei Jana und Elias bereits grandios bespielt wird. Sehr effizientes Aussieben!\n\nDann richten wir den Scheinwerfer auf unsere absolute \"Gold-Standard-Baseline\": **Max (The Overwhelmed / PERSONA-002)**.\n\n**Rolle:** Therapie-Klient (Schwere Depression, Erschöpfungsdepression, Burnout)\n**Archetyp:** Der Überwältigte. Kämpft mit \"White Sheet Syndrome\", extremem Exekutiv-Dysfunktions-Sog (Antriebslosigkeit), starkem Memory Fog (depressive Gedächtnisstörung) und großen Schamgefühlen, wenn er Anforderungen nicht erfüllt.\n**Aktuelle Szenarien (unsere Pionier-Batch):**\n*   `distribution` (SCEN-002-04): Erhält das leere Formular; blanker Overwhelm (Gold Standard).\n*   `capture.spontaneous` (SCEN-002-01): Der Nighttime-Brain-Dump. Das dunkle Zimmer, Partnerin wacht auf, nicht lesbar.\n*   `capture.routine` (SCEN-002-05): Am Küchentisch. Erschöpft, \"Nothing happened\"-Paralyse, er erfindet rückwirkend Daten aus Scham.\n*   `analysis/prepare` (SCEN-002-03): Der Sonntagabend vor der Sitzung. Er versteht sein eigenes Gekritzel nicht, kein Kontext zu Zahlen.\n*   `transfer` (SCEN-002-02): Er hat den Plan vergessen (Schuhschrank), versucht Panik-Ausfüllen auf dem Weg, vergeudet halbe Sitzung mit \"Erinnerst du dich an Mittwoch?\" (Gold Standard Failure).\n\nMan könnte meinen, wir hätten Max \"leergeschrieben\". Er ist der besterforschte Patient in unserem Repository.\nAber es gibt zwei ganz wesentliche Bereiche, die außerhalb der \"ich fülle einen Bogen für meine Therapeutin aus\"-Schleife liegen, die das Bild der **Schweren Depression** vervollständigen.\n\nHier sind die beiden fehlenden Puzzleteile für Max:\n\n### A. Intervention / Coping (Die positive Notfall-Intervention)\n\nWir haben Max bisher nur beim Tracken *negativer* Gedanken beobachtet. Eines der stärksten VT-Mittel bei schwerer Depression ist jedoch das Erfolgstagebuch (\"Small Wins\") und der Blick auf eigene Ressourcen. \n\n*   **Szenario 6: The \"Bed-Gravity\" Paradox (Accessing Small Wins)**\n    *   **Kategorie:** `intervention.coping` (bzw. eine Art positives Self-Reflection-Gegenstück)\n    *   **Worum es geht:** Es ist Samstag, 14:00 Uhr. Max liegt im Bett. Er war noch nicht duschen. Die typische depressive Schwere (\"Bed Gravity\") hat ihn erfasst. Eine toxische, leise innere Stimme erzählt ihm unablässig: *\"Du kriegst gar nichts mehr auf die Reihe. Du hast diese Woche absolut gar nichts geleistet. Du bist eine Enttäuschung.\"* Seine Hausaufgabe für genau solche Momente ist es, in sein (papierbasiertes) \"Ressourcen- und Erfolgstagebuch\" zu schauen – das Buch, in dem er \"winzige Erfolge\" sammelt (Aufstehen, Zähneputzen, Mails gecheckt). \n    *   **Das Status-Quo-Problem:** Dieses positive kleine Notizheft (oder ein von der Therapeutin mitgegebenes Ressourcen-Kärtchen) liegt in der Schublade am Schreibtisch. Die Aktivierungsenergie, sich die Decke vom Kopf zu ziehen, ins kalte Arbeitszimmer zu schlurfen und das physische Ding rauszukramen, ist höher als Max' Akku. Es bleibt unangetastet. Max verbringt das Wochenende im abwärts drehenden Grübelkarussell.\n    *   **Warum wir es brauchen:** Es beweist unsere eiserne Notwendigkeit, dass eine Anti-Depressions-App extrem niederstelligen Zugang zum `Interventions-Layer` braucht. \"Hope-Boxes\", \"Small Wins\" und Coping-Texte müssen *wortwörtlich auf der Bettdecke im Darkmode erreichbar* sein, andernfalls versagt jedes Selbsthilfetool aus dem Handbuch im Angesicht der physischen Paralyse der Depression. \n\n### B. Standardisierte Metriken (Das Krankensystem abseits der Therapeutin)\n\nWie verhält sich das tägliche, detaillierte Tracker-Chaos (von dem auch Max nicht weiß, ob es 100% stimmt) zur kassenärztlichen Realität der Psychiater und Behörden?\n\n*   **Szenario 7: The BDI-2 Fog (Clinical Questionnaire Guesswork)**\n    *   **Kategorie:** `management.share_externally` / Bürokratie \n    *   **Worum es geht:** Max hat vierteljährlich einen Termin beim reinen Psychiater wegen seines Anti-Depressivums, oder beim Medizinischen Dienst. Bevor er reingeht, kriegt er im Wartezimmer einen klassischen Multiple-Choice-Bogen (z. B. Beck Depressions-Inventar) aufs Klemmbrett geklatscht. Frage 1: *\"Haben Sie in den **letzten 14 Tagen** deutlich weniger Interesse oder Freude an Ihren Aktivitäten gehabt? [Gar nicht] [Mittel] [Stark].\"* \n    *   **Das Status-Quo-Problem:** Der Memory-Fog schlägt zu. Zwei Wochen? Er weiß nicht mal mehr vorgestern. Er holt aus purer Not sein Papier-Protokoll aus der Tasche (sofern er es überhaupt dabei hat), in dem viele Tage nicht eingetragen oder verschlüsselt dokumentiert sind. Er starrt von Klemmbrett zu Papiertagebuch und sieht *keinen messbaren Link* zwischen seinen hingekritzelten Einzelzahlen und diesen hochtrabenden, aggregierten medizinischen Fragenbögen. Da er unter Menschen im Wartezimmer keine Auswertung basteln kann, kreuzt er resigniert alles \"irgendwie in der Mitte\" (Medium-Scale-Bias) an. Das Medikament wird fälschlicherweise nicht angepasst.\n    *   **Warum wir es brauchen:** Erweitert unsere \"Der Apparat vs. Die Einzeldaten\"-Reihe von Dr. Turan / Dr. Sarah um den leidenden Patienten in the middle. Unsere Tracker-Daten (Routine Capture) müssen perspektivisch als Basis fungieren, um klinisch harte Standard-Score-Reporte visuell mit Leben zu füllen (bzw. für den Hausarzt-/Psychiaterbesuch einen druckfertigen und \"glaublichen\" PDF-Export rauszulassen, der auf einen Blick verrät: Ja, die letzten 14 Tage war Max stark gehemmt). Es untermauert das PDF/Bridge-Export Feature!\n\n---\n\n**Fazit zu Max (The Overwhelmed):**\nWir haben mit ihm im Standardrepertoire die VT/Psychoedukation fantastisch verinnerlicht.\nMit:\n1. Dem Coping auf der Bettkante (**Sz 6 - Bed Gravity**)\n2. Der Übersetzung in das medizinische Befragungssystem (**Sz 7 - Clinical Questionnaire**)\nist Max als Benchmark endgültig dicht. Sein Problem mit der exekutiven Dysfunktion und Scham spiegelt sich auf der vollen Reise. \n\n**Dein Ok dafür?** Dann können wir uns direkt an die sechste (oder fünfte?) Persona machen. Im Alphabet steht **Michael (The High-Performer)** als nächster Kandidat! Ihn haben wir im System-Context nämlich fast vergessen und der macht Tracking KOMPLETT anders, eher quantifiziert statt psychologisiert. Bereit für Michael?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1780,
+        "parts": [
+          {
+            "text": "\n\n\nHervorragend. Lisa bekommt Nummer 5 (PMDS/"
+          },
+          {
+            "text": "Hormone) und 6 (Masking) auf ihre Liste. Sz 7 (WG Privatsphäre) lassen"
+          },
+          {
+            "text": " wir draußen, weil der Aspekt des \"physischen Störfaktors durch Mitbewohner/Partner\","
+          },
+          {
+            "text": " wie du absolut richtig bemerkt hast, bei Jana und Elias bereits grandios bespielt wird. Sehr effizientes Aussie"
+          },
+          {
+            "text": "ben!\n\nDann richten wir den Scheinwerfer auf unsere absolute \"Gold-Standard-Baseline\": **Max (The"
+          },
+          {
+            "text": " Overwhelmed / PERSONA-002)**.\n\n**Rolle:** Therapie-Klient (Schwere Depression,"
+          },
+          {
+            "text": " Erschöpfungsdepression, Burnout)\n**Archetyp:** Der Überwältigte. Kämpft mit \"White"
+          },
+          {
+            "text": " Sheet Syndrome\", extremem Exekutiv-Dysfunktions-Sog (Antriebslosigkeit), stark"
+          },
+          {
+            "text": "em Memory Fog (depressive Gedächtnisstörung) und großen Schamgefühlen, wenn er Anforderungen nicht erfüllt.\n**Aktuelle Szen"
+          },
+          {
+            "text": "arien (unsere Pionier-Batch):**\n*   `distribution` (SCEN-002-04): Erhält"
+          },
+          {
+            "text": " das leere Formular; blanker Overwhelm (Gold Standard).\n*   `capture.spontaneous` (SCEN-0"
+          },
+          {
+            "text": "02-01): Der Nighttime-Brain-Dump. Das dunkle Zimmer, Partnerin wacht auf, nicht"
+          },
+          {
+            "text": " lesbar.\n*   `capture.routine` (SCEN-002-05): Am Küchentisch"
+          },
+          {
+            "text": ". Erschöpft, \"Nothing happened\"-Paralyse, er erfindet rückwirkend Daten aus Scham."
+          },
+          {
+            "text": "\n*   `analysis/prepare` (SCEN-002-03): Der Sonntagabend vor der"
+          },
+          {
+            "text": " Sitzung. Er versteht sein eigenes Gekritzel nicht, kein Kontext zu Zahlen.\n*   `transfer"
+          },
+          {
+            "text": "` (SCEN-002-02): Er hat den Plan vergessen (Schuhschrank), versucht Panik-Ausfüll"
+          },
+          {
+            "text": "en auf dem Weg, vergeudet halbe Sitzung mit \"Erinnerst du dich an Mittwoch?\" (Gold Standard Failure"
+          },
+          {
+            "text": ").\n\nMan könnte meinen, wir hätten Max \"leergeschrieben\". Er ist der besterforschte Patient in unserem Repository.\nAber es gibt zwei"
+          },
+          {
+            "text": " ganz wesentliche Bereiche, die außerhalb der \"ich fülle einen Bogen für meine Therapeutin aus\"-Schleife liegen, die das"
+          },
+          {
+            "text": " Bild der **Schweren Depression** vervollständigen.\n\nHier sind die beiden fehlenden Puzzleteile für Max:\n\n###"
+          },
+          {
+            "text": " A. Intervention / Coping (Die positive Notfall-Intervention)\n\nWir haben Max bisher nur beim Tracken *neg"
+          },
+          {
+            "text": "ativer* Gedanken beobachtet. Eines der stärksten VT-Mittel bei schwerer Depression ist jedoch das Erfolg"
+          },
+          {
+            "text": "stagebuch (\"Small Wins\") und der Blick auf eigene Ressourcen. \n\n*   **Szenario 6: The \"Bed-Gravity\""
+          },
+          {
+            "text": " Paradox (Accessing Small Wins)**\n    *   **Kategorie:** `intervention.coping` (bzw. eine Art positives Self"
+          },
+          {
+            "text": "-Reflection-Gegenstück)\n    *   **Worum es geht:** Es ist Samstag, 14"
+          },
+          {
+            "text": ":00 Uhr. Max liegt im Bett. Er war noch nicht duschen. Die typische depressive Schwere (\""
+          },
+          {
+            "text": "Bed Gravity\") hat ihn erfasst. Eine toxische, leise innere Stimme erzählt ihm unablässig: *\""
+          },
+          {
+            "text": "Du kriegst gar nichts mehr auf die Reihe. Du hast diese Woche absolut gar nichts geleistet. Du bist eine Ent"
+          },
+          {
+            "text": "täuschung.\"* Seine Hausaufgabe für genau solche Momente ist es, in sein (papierbasiertes) \"R"
+          },
+          {
+            "text": "essourcen- und Erfolgstagebuch\" zu schauen – das Buch, in dem er \"winzige Erfolge\" sam"
+          },
+          {
+            "text": "melt (Aufstehen, Zähneputzen, Mails gecheckt). \n    *   **Das Status-Quo-Problem"
+          },
+          {
+            "text": ":** Dieses positive kleine Notizheft (oder ein von der Therapeutin mitgegebenes Ressourcen-Kärtchen)"
+          },
+          {
+            "text": " liegt in der Schublade am Schreibtisch. Die Aktivierungsenergie, sich die Decke vom Kopf zu ziehen, ins"
+          },
+          {
+            "text": " kalte Arbeitszimmer zu schlurfen und das physische Ding rauszukramen, ist höher als Max"
+          },
+          {
+            "text": "' Akku. Es bleibt unangetastet. Max verbringt das Wochenende im abwärts drehenden Grübel"
+          },
+          {
+            "text": "karussell.\n    *   **Warum wir es brauchen:** Es beweist unsere eiserne Notwendigkeit, dass eine"
+          },
+          {
+            "text": " Anti-Depressions-App extrem niederstelligen Zugang zum `Interventions-Layer` braucht. \"Hope-Boxes"
+          },
+          {
+            "text": "\", \"Small Wins\" und Coping-Texte müssen *wortwörtlich auf der Bettdecke im Dark"
+          },
+          {
+            "text": "mode erreichbar* sein, andernfalls versagt jedes Selbsthilfetool aus dem Handbuch im Angesicht der physischen Par"
+          },
+          {
+            "text": "alyse der Depression. \n\n### B. Standardisierte Metriken (Das Krankensystem abseits der Therapeutin)\n\nWie"
+          },
+          {
+            "text": " verhält sich das tägliche, detaillierte Tracker-Chaos (von dem auch Max nicht weiß, ob es"
+          },
+          {
+            "text": " 100% stimmt) zur kassenärztlichen Realität der Psychiater und Behörden?\n\n*   **Szenario"
+          },
+          {
+            "text": " 7: The BDI-2 Fog (Clinical Questionnaire Guesswork)**\n    *   **Kategorie:** `management.share_externally"
+          },
+          {
+            "text": "` / Bürokratie \n    *   **Worum es geht:** Max hat vierteljährlich einen Termin"
+          },
+          {
+            "text": " beim reinen Psychiater wegen seines Anti-Depressivums, oder beim Medizinischen Dienst. Bevor er"
+          },
+          {
+            "text": " reingeht, kriegt er im Wartezimmer einen klassischen Multiple-Choice-Bogen (z. B. Beck Dep"
+          },
+          {
+            "text": "ressions-Inventar) aufs Klemmbrett geklatscht. Frage 1: *\"Haben Sie in den **"
+          },
+          {
+            "text": "letzten 14 Tagen** deutlich weniger Interesse oder Freude an Ihren Aktivitäten gehabt? [Gar nicht] [Mittel]"
+          },
+          {
+            "text": " [Stark].\"* \n    *   **Das Status-Quo-Problem:** Der Memory-Fog schlägt zu"
+          },
+          {
+            "text": ". Zwei Wochen? Er weiß nicht mal mehr vorgestern. Er holt aus purer Not sein Papier-Protokoll aus der"
+          },
+          {
+            "text": " Tasche (sofern er es überhaupt dabei hat), in dem viele Tage nicht eingetragen oder verschlüsselt dokument"
+          },
+          {
+            "text": "iert sind. Er starrt von Klemmbrett zu Papiertagebuch und sieht *keinen messbaren Link"
+          },
+          {
+            "text": "* zwischen seinen hingekritzelten Einzelzahlen und diesen hochtrabenden, aggregierten medizinischen Fragenbögen. Da er unter Menschen"
+          },
+          {
+            "text": " im Wartezimmer keine Auswertung basteln kann, kreuzt er resigniert alles \"irgendwie in der Mitte\" ("
+          },
+          {
+            "text": "Medium-Scale-Bias) an. Das Medikament wird fälschlicherweise nicht angepasst.\n    *   **Warum wir es brauchen"
+          },
+          {
+            "text": ":** Erweitert unsere \"Der Apparat vs. Die Einzeldaten\"-Reihe von Dr. Turan / Dr. Sarah um"
+          },
+          {
+            "text": " den leidenden Patienten in the middle. Unsere Tracker-Daten (Routine Capture) müssen perspektivisch als Basis fungieren, um klinisch harte"
+          },
+          {
+            "text": " Standard-Score-Reporte visuell mit Leben zu füllen (bzw. für den Hausarzt-/Psychiaterbes"
+          },
+          {
+            "text": "uch einen druckfertigen und \"glaublichen\" PDF-Export rauszulassen, der auf einen Blick verr"
+          },
+          {
+            "text": "ät: Ja, die letzten 14 Tage war Max stark gehemmt). Es untermauert das PDF"
+          },
+          {
+            "text": "/Bridge-Export Feature!\n\n---\n\n**Fazit zu Max (The Overwhelmed):**\nWir haben mit ihm im"
+          },
+          {
+            "text": " Standardrepertoire die VT/Psychoedukation fantastisch verinnerlicht.\nMit:\n1. Dem"
+          },
+          {
+            "text": " Coping auf der Bettkante (**Sz 6 - Bed Gravity**)\n2. Der Übersetzung in das medizinische Be"
+          },
+          {
+            "text": "fragungssystem (**Sz 7 - Clinical Questionnaire**)\nist Max als Benchmark endgültig dicht. Sein Problem mit der ex"
+          },
+          {
+            "text": "ekutiven Dysfunktion und Scham spiegelt sich auf der vollen Reise. \n\n**Dein Ok dafür?** Dann"
+          },
+          {
+            "text": " können wir uns direkt an die sechste (oder fünfte?) Persona machen. Im Alphabet steht **Michael (The High-"
+          },
+          {
+            "text": "Performer)** als nächster Kandidat! Ihn haben wir im System-Context nämlich fast vergessen und der macht Tracking"
+          },
+          {
+            "text": " KOMPLETT anders, eher quantifiziert statt psychologisiert. Bereit für Michael?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

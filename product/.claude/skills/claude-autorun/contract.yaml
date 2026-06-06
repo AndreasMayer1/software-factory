@@ -1,0 +1,60 @@
+contract_version: 1
+skill: claude-autorun
+purpose: >
+  Control the autonomous task-execution orchestrator (scripts/automation/orchestrate.py).
+  Supports start, stop, status, send, and resume-interactive actions.
+
+derived_from:
+  optional:
+    - path: automation-state
+      source: external
+      reason: Orchestrator state — read for status queries and stop requests.
+    - path: automation-log
+      source: external
+      reason: Log file tailed for status summaries.
+    - path: pending-question
+      source: external
+      reason: Pending human-input questions shown in status output.
+    - path: automation-sentinel
+      source: external
+      reason: PID file for the running orchestrator process.
+    - path: automation-criteria
+      source: external
+      reason: Criteria for anomaly detection in the scheduled monitor cron job.
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Read during resume-interactive to find session_id and opus_recommended flag.
+
+produces:
+  conditional:
+    - path: automation-state
+      condition: written on stop request to set stop_requested flag.
+      reason: Signals the orchestrator to exit after the current session.
+    - path: automation-cron
+      condition: written after start to persist the monitoring cron job ID.
+      reason: Enables the monitor to cancel itself when the orchestrator stops.
+
+quality_criteria:
+  - Start action verifies no orchestrator is already running before launching.
+  - Stop action sends SIGINT after setting stop_requested to wake sleeping process.
+  - Resume-interactive verifies orchestrator is stopped before launching new session.
+
+may_invoke: []
+# Note: start action schedules a monitoring cron and the built-in 'loop' skill for heartbeat (not project skills)
+
+side_effects:
+  - target: automation/state.json
+    action: write
+    note: stop_requested flag set during stop action.
+  - target: automation/.monitoring_cron_id
+    action: write
+    note: Cron job ID persisted after orchestrator start.
+
+preconditions:
+  - User has specified an action (start / stop / status / send / resume-interactive).
+
+postconditions:
+  - For start — orchestrator process is running and monitor cron is active.
+  - For stop — stop_requested is true in state.json and SIGINT has been sent.
+  - For status — current orchestrator state is reported to the user.

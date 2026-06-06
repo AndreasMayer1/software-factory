@@ -1,0 +1,280 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Bei 1. müssen wir darauf achten besonders realistische auswertungen zu beschreiben, denn die konkrete Umsetzung in einer App kann sehr komplex werden.\nDann Tüten wir das ein! Weiter bitte ",
+        "role": "user",
+        "tokenCount": 43,
+        "createTime": "2026-02-22T09:01:54.815Z"
+      },
+      {
+        "text": "**Adding New Elements**\n\nI've successfully added the \"CSI-Scenario\" (forensic pattern hunting) and \"Discharge Folder\" (patient empowerment) features to Dr. Sarah's backlog, as requested. I've also implemented the constraint requirement that was specified.\n\n\n**Refining Realism Focus**\n\nI've shifted focus to enhancing the \"CSI-Scenario.\" Instead of AI promises, I'm emphasizing the current, manual workload Dr. Sarah endures. It’s about building a realistic evaluation process. I'm preparing to shift to \"Elias (The Skeptical Guardian)\" and understand his needs, focusing on the crucial privacy concerns.\n\n\n**Identifying Missing Stages**\n\nI'm now identifying the missing lifecycle stages within the \"SCEN-009-02\" scenario. I've pinpointed that \"Capture,\" \"Management,\" and \"Modification\" stages are absent. This analysis highlights crucial gaps in Elias's potential workflow, especially around data handling and security concerns. The absence of these stages suggests potential areas of significant stress and vulnerability for Elias, specifically related to the \"Panic Delete\" scenario.\n\n\n**Analyzing Data Collisions**\n\nI'm now diving into the potential conflicts between therapy and private data systems, and analyzing what happens when they collide. I'm building out scenarios for Elias (The Skeptical Guardian). I'm focusing on the \"Commute Capture Under Social Pressure\" to show the need for camouflaged data entry. The \"Panic Delete\" scenario helps me to highlight the crucial need for irreversible data destruction. I'm also examining the crucial privacy concerns of \"Boundary Breach\" - private versus therapy data collisions.\n\n\n**Clarifying Data Separation**\n\nI'm now focusing on the notebook scenario – blue (therapy) versus black (private). I'm examining the emotional fallout from accidental data mingling, like Elias taking the wrong notebook. The value highlights the need for strict data separation. This underscores the need for \"silos\" for shared vs. private data to prevent emotional distress and potential breach of confidentiality.\n\n\n",
+        "role": "model",
+        "tokenCount": 1276,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Adding New Elements**\n\nI've successfully added the \"CSI-Scenario\" (forensic pattern hunting) and \"Discharge Folder\" (patient empowerment) features to Dr. Sarah's backlog, as requested. I've also implemented the constraint requirement that was specified.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Refining Realism Focus**\n\nI've shifted focus to enhancing the \"CSI-Scenario.\" Instead of AI promises, I'm emphasizing the current, manual workload Dr. Sarah endures. It’s about building a realistic evaluation process. I'm preparing to shift to \"Elias (The Skeptical Guardian)\" and understand his needs, focusing on the crucial privacy concerns.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Identifying Missing Stages**\n\nI'm now identifying the missing lifecycle stages within the \"SCEN-009-02\" scenario. I've pinpointed that \"Capture,\" \"Management,\" and \"Modification\" stages are absent. This analysis highlights crucial gaps in Elias's potential workflow, especially around data handling and security concerns. The absence of these stages suggests potential areas of significant stress and vulnerability for Elias, specifically related to the \"Panic Delete\" scenario.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Analyzing Data Collisions**\n\nI'm now diving into the potential conflicts between therapy and private data systems, and analyzing what happens when they collide. I'm building out scenarios for Elias (The Skeptical Guardian). I'm focusing on the \"Commute Capture Under Social Pressure\" to show the need for camouflaged data entry. The \"Panic Delete\" scenario helps me to highlight the crucial need for irreversible data destruction. I'm also examining the crucial privacy concerns of \"Boundary Breach\" - private versus therapy data collisions.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Clarifying Data Separation**\n\nI'm now focusing on the notebook scenario – blue (therapy) versus black (private). I'm examining the emotional fallout from accidental data mingling, like Elias taking the wrong notebook. The value highlights the need for strict data separation. This underscores the need for \"silos\" for shared vs. private data to prevent emotional distress and potential breach of confidentiality.\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-22T12:02:01.445Z"
+      },
+      {
+        "text": "Perfekt, Dr. Sarah ist hiermit eingetütet. Und dein Hinweis zu Sz 1 (Realismus bei Auswertungen) ist absolut richtig und wichtig! Wenn wir im *Status Quo* beschreiben, wie sie blättert, schwitzt und mühsam zwei Variablen (z. B. Schlaf und Angst-Spitze) über vier Zettel hinweg im Kopf vergleicht, bewahren wir uns davor, der App später unrealistische KI-Graphen aufzubürden. Die App muss ihr eigentlich nur diese zwei Datenreihen auf einem simplen Graphen visuell übereinanderlegen – das ist technisch extrem aufwendig, aber klinisch realistisch. Wird genau so beachtet!\n\nMachen wir den Cut und wechseln das Universum komplett. \n\nVon der strukturierten Kassentherapeutin hin zum absoluten Gegenpol auf Patientenseite:\n\n---\n\n### 3. Elias (The Skeptical Guardian / PERSONA-009)\n\n**Rolle:** Therapie-Klient (Soziale Phobie, Generalisierte Angst)\n**Archetyp:** Der extrem datenschutzkritische User (\"Die App darf niemals wie eine Therapie-App aussehen\", Angst vor Entdeckung durch Arbeitgeber/Partner, Schatten-Buchführung).\n**Aktuelle Szenarien (bereits als Gold Standard/Approved):**\n*   `distribution` (SCEN-009-01): Erhält das \"Angst-Protokoll\", scannt sofort nach Bedrohungen (wo steht mein Name?), weigert sich, es öffentlich zu nutzen, versteckt den Zettel paranoid in seiner Winterjacke.\n*   `analysis/transfer` (SCEN-009-02): Donnerstagnacht \"Schatten-Buchführung\". Da er in der Bahn keine Daten erfassen konnte (Zettel ist zu peinlich), erfindet/rekonstruiert er am Abend vor der Sitzung die Werte und belügt die Therapeutin über den Grund der Lücken, um nicht offenbaren zu müssen, dass er eigentlich das Protokoll-Format an sich fürchtet.\n\nSein Handover mit der Therapeutin ist sehr stark. Aber der eigentliche Kampf in seinem Alltag – die Kollision von Therapie mit \"normalem\" Leben – fehlt. \n\nHier sind die drei zwingenden Status-Quo-Szenarien, die das Profil des Paranoikers/Geheimhalters (Elias) abschließen:\n\n#### A. Datenerfassung (Die Peinlichkeit der Sichtbarkeit)\n\n*   **Szenario 1: The Shoulder-Surfer Paralysis (Commute Capture)**\n    *   **Kategorie:** `capture.spontaneous` (bisher nur auf Max' nachts bezogen, aber extrem wichtig für den Tag!)\n    *   **Worum es geht:** Elias hat auf der S-Bahn gerade eine super erfolgreiche Expositionsübung gemacht (er hat nach dem Weg gefragt!). Er MUSS laut Therapeutin *jetzt sofort* sein Stresslevel dokumentieren (die Baseline sinkt sonst ab). Das Papiertagebuch in der Jacke zieht er sowieso nicht raus. Er versucht einen Workaround: Apple Notizen. Aber der Mann neben ihm steht fast auf Tuchfühlung. Ein kurzer Blick zur Seite – und Elias sperrt panisch den Bildschirm, bevor er \"Angstniveau\" getippt hat. \n    *   **Warum wir es brauchen:** Beweist die harte Design-Anforderung für **\"Camouflage UI\"** (Sichthilfeschutz / Diskreter Modus). Wenn die App auf den ersten Blick aussieht wie \"Depressions-Hilfe\" (Blümchen, Pastell, \"Wie fühlst du dich heute?\"), wird dieser Nutzer-Cluster sie im öffentlichen Raum in der entscheidenden Millisekunde niemals öffnen.\n\n#### B. Daten-Kollision (Zwei getrennte Welten)\n\n*   **Szenario 2: The Notebook Breach (When boundaries fail)**\n    *   **Kategorie:** `capture` / `management` (Oder neues Tag: Systemgrenzen)\n    *   **Worum es geht:** Elias betreibt bewusst ein Zwei-Klassen-System (blaues \"Therapie\"-Papierbuch für die harmlose Therapeutin, schwarzes \"Todesangst\"-Buch für die ungefilterten Panikgedanken). Eines Nachts greift er im Dunkeln auf dem Couchtisch zum falschen Buch. Er schreibt die extrem ungefilterten, abgründigen Gedanken auf eine Seite im blauen Therapiebuch. Am nächsten Tag realisiert er den Fehler in nackter Panik – er muss dieses Buch morgen der Therapeutin geben! Er reißt die Seite rabiat aus dem Ringbuch.\n    *   **Warum wir es brauchen:** Erklärt die absolut eiserne Regel: Die App muss klar zwischen **\"Sharable mit Therapeuten\" (Patient Silo)** und **\"100% nur für mich\" (Black Book Silo)** trennen. Ein versehentlicher Over-Share ist das schlimmste denkbare Ereignis für diesen Patienten.\n\n#### C. Vernichtung (Der atomare Notausstieg)\n\n*   **Szenario 3: The Panic Delete (management.destruction)**\n    *   *Steht schon als Idee im Index!*\n    *   **Kategorie:** `management.destroy_data_intentionally`\n    *   **Worum es geht:** Elias liegt auf der Couch, sein Partner nutzt kurz Elias' Handy/iPad, um den Code für einen Streaming-Dienst im Postfach zu suchen. Der Partner öffnet den App-Switcher. Dort ist noch als Karteikarte im Hintergrund Elias' Dokumentationsoberfläche für seine Soziale Phobie zu sehen (z.B. Word oder Notizen-App). Elias gefriert das Blut in den Adern. Er reißt dem Partner mit einer dummen Ausrede das Tablet aus der Hand und **löscht blitzartig den kompletten Ordner**. Dann fällt ihm ein, dass es den \"Kürzlich gelöscht\"-Papierkorb gibt. Er wütet im System, bis jede Spur seiner Therapie zerstört ist. Wochenlange Arbeit für den Müll.\n    *   **Warum wir es brauchen:** Legt die Foundation für (1) Blurred Screens im App-Switcher und (2) die harte Forderung: Nutzer wie Elias brauchen eine \"Alles lokal ohne Recovery endgültig schreddern\"-Funktion. Das trügerische Sicherheitsgefühl von OS-Cloud-Backups ist für Elias ein Albtraum.\n\n---\n\n**Vollständigkeits-Check für Elias:**\n*   [x] Planerstellung (Betrifft ihn nicht)\n*   [x] Planübergabe (Erledigt: SCEN-009-01)\n*   [x] Die Paranoia im Wartezimmer / Session (Erledigt: SCEN-009-02)\n*   [x] Öffentliche Datenerfassung bei Sichtkontakt (Neu -> Sz 1)\n*   [x] Systemgrenzen (Was der Therapeuten sehen darf vs. Ich) (Neu -> Sz 2)\n*   [x] Kompromittierung des Systems & radikales Löschen (Neu -> Sz 3)\n\nFühlt sich Elias (Persona des paranoiden OpSec-Experten in der Therapie) für dich mit diesen drei Zusätzen komplett erfasst an? Wenn ja, können wir zur nächsten persona wechseln: **Hanna (The Sleepless / PERSONA-007)**!",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1621,
+        "parts": [
+          {
+            "text": "Perfekt, Dr. Sarah ist hiermit eingetütet. Und"
+          },
+          {
+            "text": " dein Hinweis zu Sz 1 (Realismus bei Auswertungen) ist absolut richtig und wichtig! Wenn wir im *"
+          },
+          {
+            "text": "Status Quo* beschreiben, wie sie blättert, schwitzt und mühsam zwei Variablen (z. B"
+          },
+          {
+            "text": ". Schlaf und Angst-Spitze) über vier Zettel hinweg im Kopf vergleicht, bewahren wir uns d"
+          },
+          {
+            "text": "avor, der App später unrealistische KI-Graphen aufzubürden. Die App muss ihr eigentlich nur diese"
+          },
+          {
+            "text": " zwei Datenreihen auf einem simplen Graphen visuell übereinanderlegen – das ist technisch extrem aufwendig, aber klin"
+          },
+          {
+            "text": "isch realistisch. Wird genau so beachtet!\n\nMachen wir den Cut und wechseln das Universum komplett. \n\nVon"
+          },
+          {
+            "text": " der strukturierten Kassentherapeutin hin zum absoluten Gegenpol auf Patientenseite:\n\n---\n\n### "
+          },
+          {
+            "text": "3. Elias (The Skeptical Guardian / PERSONA-009)\n\n**Rolle:** Therapie-Klient (Soziale Phobie"
+          },
+          {
+            "text": ", Generalisierte Angst)\n**Archetyp:** Der extrem datenschutzkritische User (\"Die App darf niemals"
+          },
+          {
+            "text": " wie eine Therapie-App aussehen\", Angst vor Entdeckung durch Arbeitgeber/Partner, Schatten-Buchführung).\n"
+          },
+          {
+            "text": "**Aktuelle Szenarien (bereits als Gold Standard/Approved):**\n*   `distribution` (SCEN-009-01"
+          },
+          {
+            "text": "): Erhält das \"Angst-Protokoll\", scannt sofort nach Bedrohungen (wo steht mein Name?), weigert sich, es"
+          },
+          {
+            "text": " öffentlich zu nutzen, versteckt den Zettel paranoid in seiner Winterjacke.\n*   `analysis/transfer` (SCEN-00"
+          },
+          {
+            "text": "9-02): Donnerstagnacht \"Schatten-Buchführung\". Da er in der Bahn keine Daten erf"
+          },
+          {
+            "text": "assen konnte (Zettel ist zu peinlich), erfindet/rekonstruiert er am Abend vor der Sitzung die Werte und bel"
+          },
+          {
+            "text": "ügt die Therapeutin über den Grund der Lücken, um nicht offenbaren zu müssen, dass er eigentlich das Protokoll-"
+          },
+          {
+            "text": "Format an sich fürchtet.\n\nSein Handover mit der Therapeutin ist sehr stark. Aber der eigentliche Kampf"
+          },
+          {
+            "text": " in seinem Alltag – die Kollision von Therapie mit \"normalem\" Leben – fehlt. \n\nHier sind die drei zwingenden"
+          },
+          {
+            "text": " Status-Quo-Szenarien, die das Profil des Paranoikers/Geheimhalters (E"
+          },
+          {
+            "text": "lias) abschließen:\n\n#### A. Datenerfassung (Die Peinlichkeit der Sichtbarkeit)\n\n*   **Szen"
+          },
+          {
+            "text": "ario 1: The Shoulder-Surfer Paralysis (Commute Capture)**\n    *   **Kategorie:** `capture.spontaneous"
+          },
+          {
+            "text": "` (bisher nur auf Max' nachts bezogen, aber extrem wichtig für den Tag!)\n    *   **Worum es"
+          },
+          {
+            "text": " geht:** Elias hat auf der S-Bahn gerade eine super erfolgreiche Expositionsübung gemacht (er hat nach dem"
+          },
+          {
+            "text": " Weg gefragt!). Er MUSS laut Therapeutin *jetzt sofort* sein Stresslevel dokumentieren (die Baseline sinkt sonst"
+          },
+          {
+            "text": " ab). Das Papiertagebuch in der Jacke zieht er sowieso nicht raus. Er versucht einen Workaround: Apple Not"
+          },
+          {
+            "text": "izen. Aber der Mann neben ihm steht fast auf Tuchfühlung. Ein kurzer Blick zur Seite – und Elias sperrt panisch"
+          },
+          {
+            "text": " den Bildschirm, bevor er \"Angstniveau\" getippt hat. \n    *   **Warum wir es"
+          },
+          {
+            "text": " brauchen:** Beweist die harte Design-Anforderung für **\"Camouflage UI\"** (Sichthil"
+          },
+          {
+            "text": "feschutz / Diskreter Modus). Wenn die App auf den ersten Blick aussieht wie \"Depressions-Hilfe\" (Bl"
+          },
+          {
+            "text": "ümchen, Pastell, \"Wie fühlst du dich heute?\"), wird dieser Nutzer-Cluster sie im öffentlichen Raum in"
+          },
+          {
+            "text": " der entscheidenden Millisekunde niemals öffnen.\n\n#### B. Daten-Kollision (Zwei getrennte Welten)\n\n*   "
+          },
+          {
+            "text": "**Szenario 2: The Notebook Breach (When boundaries fail)**\n    *   **Kategorie:** `capture"
+          },
+          {
+            "text": "` / `management` (Oder neues Tag: Systemgrenzen)\n    *   **Worum es geht:** Elias bet"
+          },
+          {
+            "text": "reibt bewusst ein Zwei-Klassen-System (blaues \"Therapie\"-Papierbuch für die harmlose Therapeutin,"
+          },
+          {
+            "text": " schwarzes \"Todesangst\"-Buch für die ungefilterten Panikgedanken). Eines Nachts gre"
+          },
+          {
+            "text": "ift er im Dunkeln auf dem Couchtisch zum falschen Buch. Er schreibt die extrem ungefilterten, abgr"
+          },
+          {
+            "text": "ündigen Gedanken auf eine Seite im blauen Therapiebuch. Am nächsten Tag realisiert er den Fehler in nackter Panik – er muss dieses"
+          },
+          {
+            "text": " Buch morgen der Therapeutin geben! Er reißt die Seite rabiat aus dem Ringbuch.\n    *   **Warum"
+          },
+          {
+            "text": " wir es brauchen:** Erklärt die absolut eiserne Regel: Die App muss klar zwischen **\"Sharable mit"
+          },
+          {
+            "text": " Therapeuten\" (Patient Silo)** und **\"100% nur für mich\" (Black Book"
+          },
+          {
+            "text": " Silo)** trennen. Ein versehentlicher Over-Share ist das schlimmste denkbare Ereignis für diesen Patienten.\n\n#### C"
+          },
+          {
+            "text": ". Vernichtung (Der atomare Notausstieg)\n\n*   **Szenario 3: The Panic Delete (management"
+          },
+          {
+            "text": ".destruction)**\n    *   *Steht schon als Idee im Index!*\n    *   **Kategorie:** `management.destroy"
+          },
+          {
+            "text": "_data_intentionally`\n    *   **Worum es geht:** Elias liegt auf der Couch, sein Partner nutzt kurz Elias"
+          },
+          {
+            "text": "' Handy/iPad, um den Code für einen Streaming-Dienst im Postfach zu suchen. Der Partner öffnet den App-Switcher."
+          },
+          {
+            "text": " Dort ist noch als Karteikarte im Hintergrund Elias' Dokumentationsoberfläche für seine Soziale Phobie zu sehen (z"
+          },
+          {
+            "text": ".B. Word oder Notizen-App). Elias gefriert das Blut in den Adern. Er reißt dem Partner mit"
+          },
+          {
+            "text": " einer dummen Ausrede das Tablet aus der Hand und **löscht blitzartig den kompletten Ordner**. Dann fällt"
+          },
+          {
+            "text": " ihm ein, dass es den \"Kürzlich gelöscht\"-Papierkorb gibt. Er wütet im System"
+          },
+          {
+            "text": ", bis jede Spur seiner Therapie zerstört ist. Wochenlange Arbeit für den Müll.\n    *   **Warum"
+          },
+          {
+            "text": " wir es brauchen:** Legt die Foundation für (1) Blurred Screens im App-Switcher und (2) die harte"
+          },
+          {
+            "text": " Forderung: Nutzer wie Elias brauchen eine \"Alles lokal ohne Recovery endgültig schreddern\"-Funktion. Das tr"
+          },
+          {
+            "text": "ügerische Sicherheitsgefühl von OS-Cloud-Backups ist für Elias ein Albtraum.\n\n---\n\n**V"
+          },
+          {
+            "text": "ollständigkeits-Check für Elias:**\n*   [x] Planerstellung (Betrifft ihn nicht)\n*   ["
+          },
+          {
+            "text": "x] Planübergabe (Erledigt: SCEN-009-01)\n*   "
+          },
+          {
+            "text": "[x] Die Paranoia im Wartezimmer / Session (Erledigt: SCEN-009-02)"
+          },
+          {
+            "text": "\n*   [x] Öffentliche Datenerfassung bei Sichtkontakt (Neu -> Sz 1)\n*   [x] Systemgrenzen"
+          },
+          {
+            "text": " (Was der Therapeuten sehen darf vs. Ich) (Neu -> Sz 2)\n*   [x] Kom"
+          },
+          {
+            "text": "promittierung des Systems & radikales Löschen (Neu -> Sz 3)\n\nFühlt sich Elias ("
+          },
+          {
+            "text": "Persona des paranoiden OpSec-Experten in der Therapie) für dich mit diesen drei Zusätzen komplett erfasst an?"
+          },
+          {
+            "text": " Wenn ja, können wir zur nächsten persona wechseln: **Hanna (The Sleepless / PERSONA-007)**!"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

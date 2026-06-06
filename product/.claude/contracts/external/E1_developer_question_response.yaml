@@ -1,0 +1,39 @@
+contract_version: 1
+kind: external-interface
+interface: E1
+title: Developer-question response
+direction: dev -> factory (pull)
+purpose: >
+  A skill that cannot proceed without a human decision writes a question and pauses;
+  on resume it reads the developer's answer. Formalizes the pending_feedback channel.
+
+derived_from:
+  required:
+    - path: automation/pending_feedback/<TASK_ID>/answer.md
+      source: external            # the developer is the producer
+      input_modality: file
+      schema: null                # free-form markdown
+      reason: The developer's decision; consumed by the resuming skill.
+  optional:
+    - path: automation/pending_feedback/TEMPLATE_answer.md
+      source: external
+      input_modality: file
+      reason: Baseline used to detect "still unanswered" (answer == template).
+
+produces:
+  required:
+    - path: automation/pending_feedback/<TASK_ID>/question.md
+      input_modality: file
+      schema: .claude/schemas/pending_question.yaml
+      reason: The question + full context; produced by the pausing skill.
+
+quality_criteria:
+  - check: developer_responded
+    target: automation/pending_feedback/<TASK_ID>/answer.md
+    args: [--template, automation/pending_feedback/TEMPLATE_answer.md]
+    note: PASS only when answer.md exists, is non-empty, and differs from the template.
+
+preconditions:
+  - The task is in_progress with session_id set in goal.md (claude-automated-mode rule).
+postconditions:
+  - On PASS the orchestrator resumes the session; on FAIL the session stays paused.

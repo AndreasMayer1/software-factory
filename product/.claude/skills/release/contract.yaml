@@ -1,0 +1,58 @@
+contract_version: 1
+skill: release
+purpose: >
+  Orchestrate the full release workflow: pre-flight check, Windows smoke test
+  gate, git merge/tag/push, technical and marketing release notes, mark release
+  as released in RELEASE_BACKLOG.md and RELEASES.md, and commit artifacts.
+
+derived_from:
+  required:
+    - path: release-log
+      source: external
+      reason: Active release metadata — version, name, description, scope boundaries, packages.
+  optional:
+    - path: release-backlog
+      source: external
+      reason: Active package metadata; preferred source over RELEASES.md when present.
+
+produces:
+  required:
+    - path: release-notes-tech
+      reason: Auto-generated technical release notes from git log and requirement coverage.
+    - path: release-notes-marketing
+      reason: Human-reviewed German marketing release notes written after user approval.
+    - path: release-notes-marketing
+      reason: Human-reviewed English marketing release notes written after user approval.
+  conditional:
+    - path: release-backlog
+      condition: updated when active package was found in RELEASE_BACKLOG.md; status set to released.
+      reason: Marks the shipped package as released.
+    - path: release-log
+      condition: updated to released status (always, or as fallback when RELEASE_BACKLOG.md has no active package).
+      reason: Release record kept accurate.
+
+quality_criteria:
+  - Pre-flight script exits 0 before any release action proceeds.
+  - Windows smoke test (smoke_test_windows.ps1) must pass before git operations.
+  - Marketing notes follow all tone rules (no urgency, no shame, no hype, no superlatives).
+  - User must explicitly type "approve" before marketing notes are written to disk.
+  - Donation prompt included only for significant new-feature releases.
+
+may_invoke:
+  - claude-commit
+
+side_effects:
+  - target: git history
+    action: write
+    note: Release commit, merge to master, and git tag created by execute_release.py.
+  - target: requirements_tasks/RELEASE_BACKLOG.md
+    action: write
+    note: Active package status updated to released.
+
+preconditions:
+  - release-begin-impl has been run and the release is in active status.
+  - Windows smoke test has been run by the developer on the Windows host.
+
+postconditions:
+  - Release is tagged, merged, pushed, and marked released in backlog/RELEASES.md.
+  - Technical and marketing release notes exist under releases/<version>/.

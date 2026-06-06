@@ -1,0 +1,58 @@
+contract_version: 1
+skill: ui-scribble-auto-review
+purpose: >
+  Auto-review an odd-numbered scribble version by fanning out to three reviewer agents
+  (rule, heuristics, persona), merge their gaps under the YAGNI evidence gate, and spawn
+  ui-scribble-generator to produce the next even version. Internal Phase-2 step of the
+  ui-scribble-iterate pipeline.
+
+derived_from:
+  required:
+    - path: scribble-metadata
+      source: skill:ui-scribble-iterate
+      schema: .claude/schemas/scribble_metadata.yaml
+      reason: The odd version to review (personas/rules applied, screen list, flow positions).
+    - path: requirements
+      source: skill:requ-explore
+      schema: .claude/schemas/requirements_frontmatter.yaml
+      reason: ACs, personas, T1/T2 rule references the reviewers check against.
+    - path: guideline
+      source: external
+      reason: UX-heuristics corpus the heuristics reviewer applies.
+    - path: guideline
+      source: external
+      reason: T1/T2 rule files the rule reviewer checks against.
+  conditional:
+    - path: flow
+      condition: metadata.yaml has flow_positions
+      source: skill:ux-create-flow
+      reason: Source of each participating flow's step intents for per-flow walk validation (AC-39).
+
+produces:
+  required:
+    - path: scribble-metadata
+      schema: .claude/schemas/scribble_metadata.yaml
+      reason: Regenerated even version fixing the merged gap set.
+  conditional:
+    - path: scribble-component
+      condition: a component-candidate appears in >=3 screens with identical usage.
+      reason: Provisional component entry from auto-promotion.
+
+quality_criteria:
+  - All three reviewer agents run before regeneration; their gaps are merged and deduplicated.
+  - If metadata.yaml has flow_positions, ui-scribble-cross-feature-checker runs in parallel with the reviewers; its divergences are included in the gap summary flagged "human resolution needed".
+  - If metadata.yaml has flow_positions, each flow's steps are walked in step_number order; scribble-level gaps are included in the merged gap list; flow-flaw steps are routed upstream as revision tasks targeting ux-create-flow with responder_required: human.
+  - If metadata.yaml has flow_positions, auto_review_brief.md carries one-line human walk instructions per participating flow.
+  - No state is silently dropped — deferred states carry a state-deferred annotation.
+  - v{n+1} exists with index.html, >=1 screen HTML, metadata.yaml.
+
+side_effects:
+  - target: requirements_tasks/_scribble_components/<c_name>/metadata.yaml
+    action: write
+    note: New provisional component entries on auto-promotion.
+
+preconditions:
+  - An odd-numbered scribbles/v{n}/ exists with a parseable metadata.yaml.
+postconditions:
+  - A scribbles/v{n+1}/ exists with all gaps from the merged review addressed or annotated.
+  - If flow_positions was present, auto_review_brief.md carries per-flow one-line walk instructions and any flow-flaw steps have revision tasks created.

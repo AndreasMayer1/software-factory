@@ -1,0 +1,68 @@
+contract_version: 1
+skill: release-begin-impl-finalize
+purpose: >
+  Post-creation review for an active release: coverage audit (script-driven),
+  after-chain reconciliation (reconcile_after_chains.py), semantic AC validation
+  (one agent per feature), user review gate, and final commit. Run after autorun
+  reports all packages covered.
+
+derived_from:
+  required:
+    - path: release-log
+      source: external
+      reason: Active release metadata — identifies release_version and in-scope features.
+    - path: plan
+      source: skill:release-begin-impl
+      reason: Approved plan used for conformance audit and after-chain reconciliation.
+  optional:
+    - path: protocol
+      source: external
+      reason: Pre-computed detection output from the chain-end validation orchestration task.
+
+produces:
+  required:
+    - path: plan
+      reason: Per-feature semantic validation report (AC coverage, mismatches).
+  conditional:
+    - path: release-log
+      condition: updated with tasks_complete_date when user approves in Phase 5.
+      reason: Release record reflects implementation completion date.
+
+quality_criteria:
+  - Phase 1 and Phase 2 are script-driven only — no feature requirements.md reads in orchestrator.
+  - Phase 3 always uses agents (one per feature) — orchestrator never reads feature requirements.md.
+  - User must explicitly approve in Phase 4 before Phase 5 finalization proceeds.
+  - reconcile_after_chains.py --apply is run only after detection mode shows issues.
+
+user_input_gates:
+  - phase: "Phase 2 — After-Chain Reconciliation (show and apply fixes)"
+    description: "Developer reviews the detected missing/incorrect after-chain entries and confirms before the --apply run is executed."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires when reconcile_after_chains.py reports missing entries."
+  - phase: "Phase 4 — User Review Gate"
+    description: "Developer reviews the consolidated semantic validation summary and either approves or requests fixes before the release is finalized."
+    decision_kind: approval
+    required: always
+  - phase: "Phase 5 — Finalize (update tasks_complete_date)"
+    description: "Developer confirms whether to add tasks_complete_date to the active release entry in RELEASES.md."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires if the task has a release-assigned package."
+
+may_invoke:
+  - claude-commit
+
+side_effects:
+  - target: requirements_tasks/<task>/goal.md
+    action: write
+    note: tasks_complete_date optionally added to active release entry in RELEASES.md.
+
+preconditions:
+  - The target release is active in RELEASES.md and has a completed explore task with task_creation_plan.md.
+  - All packages in the release have at least one non-terminal impl task.
+
+postconditions:
+  - Semantic validation reports exist for all in-scope features.
+  - After-chains are reconciled.
+  - User has approved and changes are committed.

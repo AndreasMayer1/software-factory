@@ -1,0 +1,20 @@
+contract_version: 1
+purpose: >
+  Senior architect that plans multi-file, multi-layer Flutter Clean Architecture
+  changes. Reads the task and applicable doc/ guidelines, analyzes the codebase
+  (CodeGraph-guided), and persists a high-level plan — scope, pattern strategy,
+  WHY-comment locations, testing strategy, risks — for human approval before
+  implementation.
+derived_from:
+  - claude-md  # §4 Plan step; orchestrator delegates planning to this agent
+  - guideline  # Clean Architecture layer rules this plan must honor
+  - guideline  # determines which doc folders apply to the task
+consumes:
+  - goal  # the task objective being planned
+  - guideline
+  - guideline  # mandatory + task-relevant layer guidelines
+  - source  # current codebase, guided by codegraph context output
+produces:
+  # high-level plan: scope of work (<=4 files), architecture strategy,
+  # WHY-comment requirements, testing strategy, risks
+  - plan

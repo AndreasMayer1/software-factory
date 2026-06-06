@@ -30,5 +30,16 @@ the licensed software. Everything else in this repository is the software.
 
   - README.md
 
+-------------------------------------------------------------------------------
+Third-party components
+-------------------------------------------------------------------------------
+
+The repository also contains third-party components that are owned by their
+respective authors and licensed under their own terms (NOT the Elastic License
+2.0). These are listed, with their licenses and attribution, in
+THIRD_PARTY_NOTICES.md, and include:
+
+  - product/.claude/agents/han-adversarial-validator.md (MIT, Test Double, Inc.)
+
 Ownership of generated output: the licensor claims no ownership of, and asserts
 no rights in, the products, code, or content you create using the software.

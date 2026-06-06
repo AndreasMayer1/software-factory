@@ -1,0 +1,65 @@
+contract_version: 1
+skill: code-bugfix
+purpose: >
+  Bugfix workflow in slim mode (scripts / non-Flutter, edits the main tree) or worktree mode
+  (Dart/Flutter, isolated git worktree). CONSUMER of a type:bugfix goal.md: reads the bug
+  report + prior protocols, applies the fix under CLAUDE.md bugfix conventions, and hands off
+  to task-complete-bugfix.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: >
+        The bug report (steps to reproduce, expected/actual) + fix_mode / worktree_path
+        persistence fields. Produced by task-create (type: bugfix).
+  optional:
+    - path: plans-dir
+      source: external
+      reason: Prior-session hypotheses, changes, and outcomes — read on resume runs.
+
+produces:
+  conditional:
+    - path: protocol
+      condition: slim mode — brief fix summary.
+      reason: Slim-mode fix record.
+    - path: plan
+      condition: worktree resume mode — updated fix plan from prior attempts + new logs.
+      reason: Worktree-mode plan.
+
+quality_criteria:
+  - Mode selection is correct — slim for non-Dart, worktree for lib/test/integration_test.
+  - Diagnostic prints use a [DIAG-*] prefix; temporary scaffolding opens with // TEMPORARY:.
+  - Worktree path is persisted to goal.md (worktree_path) so the fix survives session restarts.
+
+user_input_gates:
+  - phase: "Mode Detection — unclear target files"
+    description: "Developer clarifies whether the changed files are Dart/Flutter or non-Dart so the correct mode (slim vs worktree) can be selected."
+    decision_kind: free-text
+    required: conditional
+    condition: "Only fires when goal.md does not make clear whether changed files are Dart or not."
+  - phase: "Worktree Mode Resume — Step 4 (collect new information)"
+    description: "Developer provides new logs, observations, or instructions to guide the next investigation session after the prior attempt history is summarised."
+    decision_kind: free-text
+    required: conditional
+    condition: "Only fires during Worktree Mode Resume Run (worktree_path already set in goal.md)."
+
+may_invoke:
+  - doc-lookup-dependencies # API surfaces being changed, before editing code
+  - task-complete-bugfix    # close-out + worktree cleanup
+
+side_effects:
+  - target: requirements_tasks/<category>/<req>/<feature>/tasks/<task>/goal.md
+    action: write
+    note: worktree_path is written on the first worktree-mode run.
+  - target: ../bugfix-<task-id>
+    action: write
+    note: Git worktree + branch created in worktree mode (outside the main tree).
+
+preconditions:
+  - A type:bugfix goal.md exists and conforms to goal_metadata.yaml (entry pre-check).
+
+postconditions:
+  - The fix is applied in the correct location (main tree or worktree) and confirmed;
+    task-complete-bugfix performs the final close-out.

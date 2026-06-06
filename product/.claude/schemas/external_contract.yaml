@@ -1,0 +1,173 @@
+# Schema: external_contract.yaml
+#
+# Canonical shape of every external-interface boundary contract under
+# .claude/contracts/external/*.yaml.
+#
+# artifact: .claude/contracts/external/E<n>_<slug>.yaml
+# produced_by: (human-authored during rollout tasks; thereafter maintained per REQ-PROC-044)
+# consumed_by: check_boundary_contracts.py (verify-quality gate §3.3c)
+#
+# Dialect: flat YAML with required:/optional: blocks (REQ-PROC-044 D-2). NOT full JSON Schema.
+#
+# Relation to internal skill contracts (.claude/skills/*/contract.yaml):
+#   External-interface contracts share the derived_from/produces/quality_criteria skeleton
+#   with internal skill contracts but carry three additive fields that are ONLY meaningful
+#   for boundary contracts: `kind: external-interface`, `interface: E<n>`, and
+#   `input_modality:` on derived_from/produces items (see below).
+#   An internal skill contract that omits these fields remains valid — the additive fields
+#   extend, not replace, the shared dialect.
+
+schema_version: 1
+artifact: .claude/contracts/external/E<n>_<slug>.yaml
+description: >
+  Contract declaring the shape, direction, and quality criteria of one external
+  factory-boundary interface. Each contract maps to a named interface in the factory
+  boundary catalogue (REQ-PROC-044 AC-08).
+
+required:
+  contract_version:
+    type: integer
+    value: 1
+    description: >
+      Always 1. The only valid post-sunset value (mirrors skill contract dialect).
+      check_boundary_contracts.py treats any other value as a violation.
+
+  kind:
+    type: string
+    value: external-interface
+    description: >
+      Discriminator that distinguishes boundary contracts from skill contracts.
+      check_boundary_contracts.py rejects files where kind != 'external-interface'.
+
+  interface:
+    type: string
+    pattern: "E[0-9]+"
+    example: E1
+    description: >
+      The interface identifier from the factory boundary catalogue. Must match
+      the filename prefix (e.g. E1_developer_question_response.yaml → interface: E1).
+
+  title:
+    type: string
+    example: Developer-question response
+    description: Human-readable name for the interface.
+
+  direction:
+    type: string
+    example: "dev -> factory (pull)"
+    description: >
+      Arrow notation describing which side initiates and which side receives.
+      Canonical forms: 'dev -> factory (<mode>)', 'factory -> <target> -> factory',
+      'factory -> <target> -> <consumer>'.
+
+  purpose:
+    type: string
+    description: >
+      One-paragraph explanation of what this interface does, why it exists, and
+      what invariant it enforces. Should be sufficient to understand the contract
+      without reading external documents.
+
+optional:
+  derived_from:
+    type: object
+    description: >
+      Artifacts that the interface CONSUMES from outside the factory. Mirrors the
+      internal skill contract derived_from block. Sub-keys: required, optional,
+      conditional (each a list of items).
+    item_fields:
+      path:
+        type: string
+        description: Path to the artifact, URL pattern, or CLI invocation coordinate.
+      source:
+        type: string
+        description: >
+          'external' for artifacts produced outside the factory (developer files,
+          network responses, OS outputs). Omit or use 'skill:<name>' for factory-internal.
+      input_modality:
+        type: string
+        enum: [file, frontmatter, conversation, invocation_arg, command_output, url_response]
+        default: file
+        description: >
+          How the artifact enters the factory. Absent defaults to 'file' — existing
+          internal contracts that predate this field are unaffected. Valid values:
+            file            — a filesystem artifact read by path
+            frontmatter     — YAML frontmatter block within a markdown file
+            conversation    — typed directly into the Claude conversation turn
+            invocation_arg  — passed as a CLI argument or function parameter
+            command_output  — printed to stdout/stderr by an external command
+            url_response    — HTTP response body from an external URL
+      schema:
+        type: string
+        description: >
+          Path (relative to repo root) to the schema file that validates this artifact's
+          structure. Null for free-form artifacts. check_boundary_contracts.py requires
+          the referenced file to exist.
+      reason:
+        type: string
+        description: Why this artifact is consumed by the interface.
+
+  produces:
+    type: object
+    description: >
+      Artifacts that the interface EMITS into the factory. Same sub-key structure as
+      derived_from (required, optional, conditional). Conditional items carry a `condition:`
+      field describing when the artifact is produced.
+    item_fields:
+      path:
+        type: string
+        description: Path to the produced artifact.
+      input_modality:
+        type: string
+        enum: [file, frontmatter, conversation, invocation_arg, command_output, url_response]
+        default: file
+        description: Same as derived_from.input_modality — see above.
+      schema:
+        type: string
+        description: Same as derived_from.schema — path to validating schema; must exist.
+      condition:
+        type: string
+        description: (conditional items only) When this artifact is produced.
+      reason:
+        type: string
+        description: Why this artifact is produced.
+
+  quality_criteria:
+    type: array
+    description: >
+      List of automated checks that verify the interface's postconditions. Each item
+      has a `check:` key referencing a vocabulary term in scripts/factory/external_state/.
+      check_boundary_contracts.py resolves check:<term> to
+      scripts/factory/external_state/check_<term>.py and fails if the script does not exist.
+      An empty list ([]) is valid for governance-only interfaces (e.g. E2) where no
+      automated external-state check is applicable.
+    item_fields:
+      check:
+        type: string
+        description: >
+          Vocabulary term. Must resolve to scripts/factory/external_state/check_<term>.py.
+          Valid terms (as of TASK-PROC-044-12):
+            developer_responded, file_exists_at_path, command_exited_zero,
+            url_returned_2xx, package_installed_at_version, command_output_nonempty,
+            network_host_allowlisted, json_event_wellformed
+      target:
+        type: string
+        description: Primary path or URL the check evaluates.
+      target_command:
+        type: array
+        description: Command array (alternative to target for command-based checks).
+      args:
+        type: array
+        description: Additional arguments passed to the check script.
+      note:
+        type: string
+        description: Human-readable annotation on when/why this check applies.
+
+  preconditions:
+    type: array
+    items: { type: string }
+    description: Conditions that must hold before the interface is invoked.
+
+  postconditions:
+    type: array
+    items: { type: string }
+    description: Conditions guaranteed after a successful interface interaction.

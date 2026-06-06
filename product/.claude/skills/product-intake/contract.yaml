@@ -1,0 +1,97 @@
+contract_version: 1
+skill: product-intake
+purpose: >
+  Route new information or change requests top-down through the product
+  structure: Persona → Scenario → User Flow → Requirements → Tasks.
+  Stops and warns at any level where alignment fails or a No-Go Rule is violated.
+
+derived_from:
+  required:
+    - path: persona
+      source: external
+      reason: All personas read during the mandatory Persona Gate (Step 2).
+  optional:
+    - path: scenario
+      source: external
+      reason: Affected scenarios assessed in Step 3.
+    - path: flow-index
+      source: external
+      reason: Flow index read during Step 4 to identify affected flows.
+    - path: requirements
+      source: skill:requ-explore
+      reason: Existing requirements grepped and assessed in Step 5.
+
+produces: {}
+
+quality_criteria:
+  - No-Go Rules in the app_provider persona are a hard block — cannot be overridden.
+  - User approval required before advancing to each downstream level.
+  - bug_fix and technical_change types skip persona/scenario cascade.
+  - Pure aesthetic design changes (no UX justification) route directly to doc-update-tokens or code-simple.
+
+user_input_gates:
+  - phase: "Step 1 — Classify (type unclear)"
+    description: "Developer provides the change type and source when not clear from context."
+    decision_kind: selection
+    required: conditional
+    condition: "Only fires when the change type or source is not already clear from the user's message."
+  - phase: "Step 1 — Design change ambiguity check"
+    description: "Developer clarifies whether a design change is backed by user research or is a pure aesthetic preference, to determine routing path."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires when the routing table entry for a design_change is ambiguous."
+  - phase: "UX Writing — Step 3 (user needs update question)"
+    description: "Developer confirms whether user needs documents should be updated to reflect the renamed UX term."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires for ux_writing type changes."
+  - phase: "Scope Removal — Motivations Gate (vulnerable group removal)"
+    description: "Developer provides the reason for removing a feature targeting a vulnerable user group, checked against the App Provider persona's No-Go Rules."
+    decision_kind: free-text
+    required: conditional
+    condition: "Only fires when the scope removal targets a vulnerable user group."
+  - phase: "Scope Removal — Cascade Step (confirm at each level)"
+    description: "Developer confirms before proceeding to deprecate artifacts at each cascade level (persona, scenario, flow, requirement, tasks)."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires for scope_removal type changes, once at each cascade level."
+  - phase: "Step 2 — Persona Gate (contradicts personas)"
+    description: "Developer decides whether conflicting input represents new research that should update a persona, or should be rejected."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires when the change contradicts existing personas (excluding HARD_BLOCK cases)."
+  - phase: "Step 3 — Scenarios (confirm before Step 4)"
+    description: "Developer confirms scenario updates are correct before intake proceeds to the user flows level."
+    decision_kind: approval
+    required: always
+  - phase: "Step 4 — User Flows (confirm before Step 4a)"
+    description: "Developer confirms flow updates are correct before intake proceeds to canon impact and requirements."
+    decision_kind: approval
+    required: always
+  - phase: "Step 5 — Requirements (confirm before Step 6)"
+    description: "Developer confirms requirement updates are correct before intake proceeds to task creation."
+    decision_kind: approval
+    required: always
+  - phase: "Step 6 — Tasks (create now?)"
+    description: "Developer decides whether to create implementation tasks immediately or defer them."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires when requirements changed or were added."
+
+may_invoke:
+  - ux-write-persona
+  - ux-write-scenario
+  - ux-create-flow
+  - ux-write-canon-concept
+  - requ-explore
+  - task-create-code
+  - doc-update-tokens
+
+side_effects: []
+
+preconditions:
+  - User has provided a new input (research finding, feature request, design change, etc.).
+
+postconditions:
+  - Input has been routed and validated through every relevant product level.
+  - Progress report is shown after each level.

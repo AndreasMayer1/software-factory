@@ -1,0 +1,72 @@
+contract_version: 1
+skill: claude-modify-skill
+purpose: >
+  Modify an existing skill's SKILL.md and keep INDEX.md and factory_flows.md in
+  sync. Runs the artifact-establishment gate before emitting any new token into
+  contract.yaml; escalates via pending_feedback in automated mode.
+
+derived_from:
+  required:
+    - path: skill
+      source: external
+      reason: The skill file to be modified — read in full before any changes.
+  optional:
+    - path: skill-index
+      source: external
+      reason: Updated when the skill's description or category changes.
+    - path: factory-flows
+      source: external
+      reason: Updated when the skill's artifact connections or input types change.
+
+produces:
+  required:
+    - path: skill
+      reason: Skill file with the requested modifications applied.
+  conditional:
+    - path: skill-index
+      condition: updated when description or category changed.
+      reason: Registry kept in sync with the modified skill.
+    - path: factory-flows
+      condition: updated when artifact connections or input types change.
+      reason: Factory flow diagram kept accurate.
+    - path: pending-question
+      condition: automated mode — artifact-establishment gate encounters an unregistered token.
+      reason: Escalation checkpoint; developer must ratify the proposed registry entry before authoring proceeds.
+    - path: pending-answer
+      condition: automated mode — written alongside pending-question as the answer template.
+      reason: Template copied so the developer has a ready-to-fill answer file.
+
+quality_criteria:
+  - Skill description remains under 10 words after modification.
+  - Token efficiency rules are preserved (no prose where a table suffices).
+  - Phase-split rubric (S1–S4) is re-evaluated when a new phase is added.
+  - All changed files are reported to the user.
+
+user_input_gates:
+  - phase: "Step 3 — Clarify changes"
+    description: "Developer specifies exactly what should change in the skill before any edits are applied."
+    decision_kind: free-text
+    required: always
+  - phase: "Step 4b — Artifact-Establishment Gate (new token)"
+    description: "Developer ratifies, renames to an existing token, or rejects each proposed new artifact token before it is appended to artifacts.yaml."
+    decision_kind: revision
+    required: conditional
+    condition: "Only fires when the modification introduces a new produces: or derived_from: token not yet registered in .factory/registry/artifacts.yaml."
+
+may_invoke: []
+
+side_effects:
+  - target: .claude/skills/<name>/SKILL.md
+    action: write
+    note: Modified skill file.
+  - target: .claude/skills/INDEX.md
+    action: write
+    note: Updated entry when description or category changed.
+
+preconditions:
+  - User has identified the skill and described the desired changes.
+  - The skill exists in .claude/skills/.
+
+postconditions:
+  - SKILL.md reflects the requested changes.
+  - INDEX.md and factory_flows.md are consistent with the modified skill.

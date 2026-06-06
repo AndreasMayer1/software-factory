@@ -1,0 +1,113 @@
+# Schema: revision_target.yaml
+#
+# Canonical shape for the artifact a skill places inside a revision task's
+# plans_and_protocols/ when it needs a peer skill to asynchronously revise
+# an upstream artifact.
+#
+# LOCATION (per REQ-PROC-044 A-1): inside the auto-created revision task at
+#   requirements_tasks/<category>/<req>/<parent-task>/tasks/<revision-task>/plans_and_protocols/revision_target.yaml
+# NOT in automation/pending_feedback/ — that channel is for developer-blocking questions only.
+#
+# LIFECYCLE: the revision task's status field IS the lifecycle. No separate scanner.
+# When the task reaches 'completed', this file becomes read-only audit trail.
+#
+# ESCALATION: if cycle_count reaches 5 without resolution, the receiving skill
+# MUST convert to a developer question via automation/pending_feedback/{TASK_ID}/question.md
+# (same 5-cycle protocol as verify-quality; see CLAUDE.md §7).
+#
+# Produced by: any skill that detects a structural or semantic problem in an
+#              upstream artifact it did not produce (e.g. ui-verify-flutter).
+# Consumed by: the target_skill when the revision task is executed (e.g. ui-scribble-iterate).
+#
+# Dialect: flat YAML with required:/optional: blocks (REQ-PROC-044 D-2). NOT full JSON Schema.
+
+schema_version: 1
+artifact: plans_and_protocols/revision_target.yaml
+description: >
+  Structured skill-to-skill async revision request. Lives inside the auto-created
+  revision task's plans_and_protocols/. The task lifecycle gates visibility;
+  no separate channel or scanner is needed.
+
+required:
+  originator:
+    type: string
+    description: >
+      Name of the skill that detected the problem and created this revision request.
+      Must match a .claude/skills/<name>/SKILL.md entry.
+    example: ui-verify-flutter
+
+  target_skill:
+    type: string
+    description: >
+      Name of the skill responsible for the upstream artifact and expected to
+      execute the revision. Must match a .claude/skills/<name>/SKILL.md entry.
+    example: ui-scribble-iterate
+
+  artifact:
+    type: string
+    description: >
+      Path to the upstream artifact (file or folder) that needs revision.
+      Relative to the project root.
+    example: requirements_tasks/functional/client/mood_capture/tasks/2026-05-20_impl_mood-capture-screen/scribbles/v3/
+
+  reason:
+    type: string
+    enum: [structural, rule_conflict, infeasible, flow_flaw, drift, other]
+    description: >
+      Category of the problem found.
+        structural    — component or layout does not match the implementation structure
+        rule_conflict — artifact violates a documented rule (SKILL.md, doc/, guidelines)
+        infeasible    — proposed design cannot be implemented with available components
+        flow_flaw     — artifact misrepresents or contradicts a user flow step
+        drift         — artifact was correct at creation but has since diverged from a changed spec
+        other         — none of the above; must explain in detail field
+
+  responder_required:
+    type: string
+    enum: [human, skill, either]
+    description: >
+      Who must handle this request.
+        skill  — the target_skill can resolve autonomously; orchestrator dispatches directly.
+        human  — developer decision required; escalate to pending_feedback/question.md instead.
+        either — skill tries first; escalates to human if cycle_count reaches 5.
+
+  detail:
+    type: string
+    description: >
+      Full prose explanation of the problem. Include: which specific element is wrong,
+      what the rule/spec says it should be, and what was found instead.
+      The receiving skill has no session history — be complete and self-contained.
+
+  blocks_completion_of:
+    type: string
+    description: >
+      Task ID of the task whose completion is blocked until this revision is done.
+    example: TASK-FUNC-007-15
+
+  cycle_count:
+    type: integer
+    minimum: 1
+    description: >
+      Number of revision attempts so far (starts at 1 on creation).
+      Incremented each time the revision task is re-executed without final resolution.
+      At 5: must escalate to developer via pending_feedback/question.md.
+
+  created:
+    type: string
+    format: date  # YYYY-MM-DD
+    description: Date this revision_target.yaml was written. Set once; never updated.
+
+optional:
+  target_phase:
+    type: string
+    description: >
+      Phase identifier inside the target_skill that handles revision requests.
+      Omit if the skill does not expose named phases.
+    example: phase4_feedback_classify
+
+  suggested_action:
+    type: string
+    description: >
+      One-line proposal for what the target skill should do. Helps the receiving
+      skill understand the expected resolution without reading full detail prose.
+    example: regenerate_v4_corrected_component

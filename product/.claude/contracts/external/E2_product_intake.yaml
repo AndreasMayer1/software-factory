@@ -1,0 +1,51 @@
+contract_version: 1
+kind: external-interface
+interface: E2
+title: Product intake
+direction: dev -> factory (push)
+purpose: >
+  The developer types product ideas, persona insights, feature requests, scope changes,
+  or design decisions into the conversation. The factory routes these through the
+  persona chain (product-intake skill) top-down: Persona -> Scenario -> Flow ->
+  Requirement -> Task -> Code. This is a governance channel — no external-state
+  automated check is possible because the input is conversational, not a file artifact.
+
+derived_from:
+  required:
+    - path: (conversation turn)
+      source: external
+      input_modality: conversation
+      schema: null
+      reason: The developer's product idea or change request; typed directly into the conversation.
+
+produces:
+  conditional:
+    - path: requirements_user_needs/personas/<persona>/scenarios/<scenario>.md
+      input_modality: file
+      schema: null
+      condition: when intake touches persona or scenario layer
+      reason: New or updated persona/scenario artifact routed from the intake.
+    - path: requirements_user_needs/user_flows/<flow>.md
+      input_modality: file
+      schema: null
+      condition: when intake touches flow layer
+      reason: New or updated user flow artifact routed from the intake.
+    - path: requirements_tasks/<category>/<requirement>/requirements.md
+      input_modality: file
+      schema: .claude/schemas/requirements_frontmatter.yaml
+      condition: when intake results in a new or updated requirement
+      reason: Requirement artifact produced by the intake routing chain.
+
+quality_criteria: []
+# No external-state automated check applies here. E2 is governance-only:
+# the product-intake skill enforces the persona-chain routing rule
+# (never edit requirements directly on conversational request). The
+# postconditions describe the governance invariant instead.
+
+preconditions:
+  - The developer initiates the intake by invoking the product-intake skill
+    or by providing a product idea without a direct code-change request.
+postconditions:
+  - Every change that alters user-visible app behavior is justified by the
+    Persona -> Scenario -> Flow -> Requirement chain (CLAUDE.md §1 Prime Directives).
+  - No requirement or code is modified without tracing back to an intake event.

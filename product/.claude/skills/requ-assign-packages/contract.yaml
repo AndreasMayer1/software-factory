@@ -1,0 +1,64 @@
+contract_version: 1
+skill: requ-assign-packages
+purpose: >
+  Bulk-assign target_package to unassigned requirement ACs using 4-signal
+  heuristics (release_chunk field, flow matrix, semantic analysis, sibling ACs).
+  Propagates assignments to covering tasks via sync_task_packages.py.
+
+derived_from:
+  required:
+    - path: release-backlog
+      source: external
+      reason: Package list used as the target pool for all assignment proposals.
+    - path: requirements
+      source: skill:requ-explore
+      reason: Requirement files with unassigned ACs — read per requirement in Step 3a.
+  optional:
+    - path: flow
+      source: external
+      reason: release_scope chunks (Signal 1) and requirements_matrix (Signal 2) read from flow files.
+    - path: package-rules
+      source: external
+      reason: Naming rules, 5 stakeholder tests, and size guidelines applied during assignment.
+
+produces:
+  required:
+    - path: requirements
+      reason: target_package fields added to unassigned ACs and top-level field recomputed.
+
+quality_criteria:
+  - Signals applied in strict priority order (1=release_chunk, 2=matrix, 3=semantic, 4=sibling).
+  - One AC → exactly one package; never split an AC across packages.
+  - Package load displayed before user confirmation (proxy count; warn above 15).
+  - User must confirm (Accept all / Review individually / Skip) per requirement.
+  - sync_task_packages.py --apply run after all requirements are updated.
+
+user_input_gates:
+  - phase: "Step 2 — Prerequisite Guard (unformalized chunks found)"
+    description: "Developer decides whether to continue with available packages anyway or stop when unformalized flow chunks are detected."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires when unformalized chunk labels are found in flow files that do not match RELEASE_BACKLOG.md package names."
+  - phase: "Step 3d — User confirmation (per requirement)"
+    description: "Developer accepts all proposed package assignments for a requirement, reviews them individually, or skips the requirement entirely."
+    decision_kind: path-selection
+    required: always
+
+may_invoke:
+  - task-create
+
+side_effects:
+  - target: requirements_tasks/<feature>/requirements.md
+    action: write
+    note: target_package fields added/updated per accepted assignment.
+  - target: requirements_tasks/<task>/goal.md
+    action: write
+    note: target_package synced to covering tasks by sync_task_packages.py.
+
+preconditions:
+  - sync_requirement_packages.py reports at least one unassigned item.
+  - RELEASE_BACKLOG.md contains the target packages.
+
+postconditions:
+  - All confirmed requirements have target_package set on each AC.
+  - Covering task goal.md files have matching target_package values.

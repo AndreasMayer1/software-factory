@@ -1,0 +1,673 @@
+# User Input Gates Audit Report
+# Generated: 2026-06-02
+# Task: TASK-PROC-044-02-07
+
+skills:
+  claude-automated-mode:
+    has_gates: false
+    gates: []
+    notes: >
+      This skill explicitly forbids user questions ("Never ask the user a question"). It
+      provides a procedure (pending_feedback/question.md) for replacing every interactive
+      checkpoint in other skills, but it has no gates of its own — it is a ruleset loader,
+      not an interactive workflow.
+
+  claude-autorun:
+    has_gates: false
+    gates: []
+    notes: >
+      All actions (start, stop, status, send, resume-interactive) execute deterministically
+      without halting for user input. The resume-interactive action confirms to the user
+      before handing off, but the confirmation is informational output ("Type /exit now")
+      — not a wait-for-response gate. The skill does not call AskUserQuestion or HALT for
+      developer decisions.
+
+  claude-modify-ordering-rules:
+    has_gates: true
+    gates:
+      - phase: "Step 5 — Approve or reject diff"
+        description: "Developer reviews the simulation output and approves applying the proposed rules change, discards it, or restarts the proposal from step 2."
+        decision_kind: path-selection
+        required: always
+      - phase: "INIT workflow Step 2 — Review proposed starter rules"
+        description: "Developer reviews the opus-advisor's proposed starter task_ordering_rules.yaml and approves it before it is applied."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires during INIT workflow (rule file absent)."
+    notes: >
+      MODIFY workflow: step 3 proposes a diff and step 5 explicitly asks [Apply / Discard /
+      Restart]. INIT workflow: step 2 presents the proposed YAML and asks for approval. Both
+      are hard halts; no mutation is applied until the developer responds.
+
+  claude-route:
+    has_gates: true
+    gates:
+      - phase: "Mode B — Interactive routing"
+        description: "Developer selects which skill to use when invoked directly without a clear task path."
+        decision_kind: selection
+        required: conditional
+        condition: "Only fires in Mode B (direct /claude-route invocation or user is unsure which skill to use)."
+      - phase: "Mode C — Next task, step 3 (UNCOVERED ACs)"
+        description: "Developer chooses between creating an exploration task to produce missing implementation tasks first, or starting implementation anyway despite an incomplete dependency graph."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires when next_tasks.py output contains 'WARNING: UNCOVERED ACs' AND the top candidate has Type: impl."
+      - phase: "Mode C — Next task, step 4b (in_progress task resume)"
+        description: "Developer confirms whether to resume an already in_progress or active task."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires in interactive mode when an in_progress/active task is the top candidate (skipped in automated mode)."
+      - phase: "Mode A — Step 5 (Opus session check)"
+        description: "Developer is instructed to switch to the Opus model before the task begins; execution halts until the developer resumes in the correct model."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when goal.md has opus_recommended: true and the current session is not running Opus, in non-automated mode."
+    notes: >
+      Mode A is mostly automatic but has one hard HALT on Opus model mismatch. Mode B has
+      an explicit AskUserQuestion call for skill selection. Mode C has two conditional
+      AskUserQuestion calls: one for uncovered ACs, one for in_progress task resume.
+
+  claude-watch-tool-reliability:
+    has_gates: false
+    gates: []
+    notes: >
+      Purely informational: briefs the session on a bug, conditionally spawns a background
+      agent to check for upstream fix, and updates a date field. No interactive decision
+      points — the agent reports findings but execution does not halt for developer input.
+
+  code-bugfix:
+    has_gates: true
+    gates:
+      - phase: "Mode Detection — unclear target files"
+        description: "Developer clarifies whether the changed files are Dart/Flutter or non-Dart so the correct mode (slim vs worktree) can be selected."
+        decision_kind: free-text
+        required: conditional
+        condition: "Only fires when goal.md does not make clear whether changed files are Dart or not."
+      - phase: "Worktree Mode Resume — Step 4 (collect new information)"
+        description: "Developer provides new logs, observations, or instructions to guide the next investigation session after the prior attempt history is summarised."
+        decision_kind: free-text
+        required: conditional
+        condition: "Only fires during Worktree Mode Resume Run (worktree_path already set)."
+    notes: >
+      Slim mode and first-run worktree mode have no explicit user-facing decision gates beyond
+      reminders. Resume run explicitly asks "What new logs, observations, or instructions do
+      you have?" before planning the next fix attempt. The mode-detection ambiguity check
+      also halts for user input.
+
+  code-complex:
+    has_gates: true
+    gates:
+      - phase: "Step 3 — Plan Size Check (split decision)"
+        description: "Developer decides whether to split an oversized plan into smaller tasks before implementation begins."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when the plan exceeds size thresholds (>10 files, all 3 layers with significant changes, >1 focused session estimated, or high complexity)."
+      - phase: "Step 4 — User Approval"
+        description: "Developer approves the (possibly reduced) implementation plan before any code is written."
+        decision_kind: approval
+        required: always
+    notes: >
+      The skill has one unconditional plan approval gate (Step 4) and one conditional gate
+      for plan-splitting decisions (Step 3). The adversarial plan review (Step 2b) is
+      explicitly opt-in and not a standard gate.
+
+  code-simple:
+    has_gates: true
+    gates:
+      - phase: "Step 2 — Read & Assess (Sketch Gate, no approved scribble)"
+        description: "Developer reviews and approves the generated scribble before implementation begins, when no approved scribble exists for a Presentation Layer task."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when the task modifies Presentation Layer AND no approved scribble exists AND skip_scribble is not set."
+      - phase: "Step 2 — VCD Guard (value conflict)"
+        description: "Developer resolves a detected value conflict before implementation proceeds, when the change degrades a primary persona value."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires when the change affects features used by personas with conflicting values AND the change degrades a persona's primary value."
+    notes: >
+      code-simple has no unconditional plan-approval gate (unlike code-complex). The two
+      conditional gates cover the Sketch Gate and the VCD Guard. The complexity check
+      ("If not simple") results in informing the user and suggesting code-complex but is
+      output, not a halt-and-wait.
+
+  code-test:
+    has_gates: false
+    gates: []
+    notes: >
+      The skill delegates to test-engineer agents. The agent prompt says "Optional: Wait
+      for user plan approval" but this is a parenthetical suggestion inside the agent's
+      instructions, not a mandatory gate in the skill itself. The orchestrating skill has
+      no explicit HALT, AskUserQuestion, or mandatory checkpoint.
+
+  doc-split:
+    has_gates: true
+    gates:
+      - phase: "Step 2 — Decide topology (depth-2 source needing ≥3 outputs)"
+        description: "Developer approves the level-1 folder redesign required when a depth-2 source file would need ≥3 output files, creating a forbidden level-3 path."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when the source file is already at depth 2 (doc/X/Y/file.md) AND content truly requires ≥3 output files."
+    notes: >
+      For the common case (depth 0 or 1, or only 2 output files), the skill proceeds
+      immediately after stating the plan — no gate. Only the depth-2/≥3-output edge case
+      halts for user approval because it requires a folder-restructuring decision.
+
+  product-intake:
+    has_gates: true
+    gates:
+      - phase: "Step 1 — Classify (type unclear)"
+        description: "Developer provides the change type (research_finding, feature_request, design_change, etc.) and source when not clear from context."
+        decision_kind: selection
+        required: conditional
+        condition: "Only fires when the change type or source is not already clear from the user's message."
+      - phase: "Step 1 — Design change ambiguity check"
+        description: "Developer clarifies whether a design change is backed by user research or is a pure aesthetic preference, to determine routing path."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires when the routing table entry for a design_change is ambiguous."
+      - phase: "UX Writing — Step 3 (user needs update question)"
+        description: "Developer confirms whether user needs documents should be updated to reflect the renamed UX term."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires for ux_writing type changes."
+      - phase: "Scope Removal — Motivations Gate (vulnerable group removal)"
+        description: "Developer provides the reason for removing a feature targeting a vulnerable user group, which is checked against the App Provider persona's No-Go Rules."
+        decision_kind: free-text
+        required: conditional
+        condition: "Only fires when the scope removal targets a vulnerable user group (mental illness, disability, age, ethnicity, religion, or other protected characteristic)."
+      - phase: "Scope Removal — Cascade Step (confirm at each level)"
+        description: "Developer confirms before proceeding to deprecate artifacts at each cascade level (persona, scenario, flow, requirement, tasks)."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires for scope_removal type changes, once at each cascade level."
+      - phase: "Step 2 — Persona Gate (contradicts personas)"
+        description: "Developer decides whether conflicting input represents new research that should update a persona, or should be rejected."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires when the change contradicts existing personas (excluding HARD_BLOCK cases where execution stops unconditionally)."
+      - phase: "Step 3 — Scenarios (confirm before Step 4)"
+        description: "Developer confirms scenario updates are correct before intake proceeds to the user flows level."
+        decision_kind: approval
+        required: always
+      - phase: "Step 4 — User Flows (confirm before Step 4a)"
+        description: "Developer confirms flow updates are correct before intake proceeds to canon impact and requirements."
+        decision_kind: approval
+        required: always
+      - phase: "Step 5 — Requirements (confirm before Step 6)"
+        description: "Developer confirms requirement updates are correct before intake proceeds to task creation."
+        decision_kind: approval
+        required: always
+      - phase: "Step 6 — Tasks (create now?)"
+        description: "Developer decides whether to create implementation tasks immediately or defer them."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when requirements changed or were added."
+    notes: >
+      product-intake is heavily gated by design: its job is to cascade changes top-down
+      through the product structure and it explicitly confirms with the user at each level
+      before advancing. The skill also states "Always confirm with user before advancing to
+      next level" as an explicit rule.
+
+  release-begin-impl:
+    has_gates: true
+    gates:
+      - phase: "Phase 0 — Bootstrap (package vs release question)"
+        description: "Developer specifies whether they are preparing by package ID or by release version."
+        decision_kind: selection
+        required: always
+      - phase: "Phase 0 — Prior session check"
+        description: "Developer chooses to resume a prior in-progress release-begin-impl session or abandon it and start fresh."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires when a prior release-begin-impl session with matching target_release and status: in_progress is found."
+      - phase: "Phase 2 — USER APPROVAL GATE (epic findings review)"
+        description: "Developer reads the Phase 2 findings files and answers the open questions in them before Phase 2b remediation begins; execution halts until the user signals they have answered."
+        decision_kind: approval
+        required: always
+      - phase: "Phase 2b — Step 4 (unanswered blocker questions)"
+        description: "Developer answers open questions surfaced by remediation agents that blocked them before Phase 2c can proceed."
+        decision_kind: free-text
+        required: conditional
+        condition: "Only fires when one or more phase_2b question files exist with unanswered blocker content."
+      - phase: "Phase 2c — Step 3 (FAILED.md exists)"
+        description: "Developer is notified of per-requirement decomposition failures and must address them before Phase 2c Step 4 can proceed."
+        decision_kind: free-text
+        required: conditional
+        condition: "Only fires when any per-requirement agent wrote FAILED.md instead of plan.md."
+      - phase: "Phase 5 — User Gate (plan approval)"
+        description: "Developer reads and explicitly approves the full release plan (summarised view + per-requirement plan paths) before release activation and orchestration task creation."
+        decision_kind: approval
+        required: always
+    notes: >
+      release-begin-impl has two unconditional approval gates (Phase 2 epic findings, Phase 5
+      plan approval) and several conditional gates for prior-session handling and blockers.
+      Phase 6 runs only after "approved" in Phase 5 — it is gated downstream.
+
+  release-begin-impl-finalize:
+    has_gates: true
+    gates:
+      - phase: "Phase 2 — After-Chain Reconciliation (show and apply fixes)"
+        description: "Developer reviews the detected missing/incorrect after-chain entries and confirms before the --apply run is executed."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when reconcile_after_chains.py reports missing entries."
+      - phase: "Phase 4 — User Review Gate"
+        description: "Developer reviews the consolidated semantic validation summary and either approves or requests fixes before the release is finalized."
+        decision_kind: approval
+        required: always
+      - phase: "Phase 5 — Finalize (update tasks_complete_date)"
+        description: "Developer confirms whether to add tasks_complete_date to the active release entry in RELEASES.md."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires if the task has a release-assigned package (the skill asks 'ask user; default yes')."
+    notes: >
+      The Phase 4 review gate is unconditional. The Phase 2 fix confirmation and Phase 5
+      date update are conditional. Phase 1 coverage gap check halts with a STOP but that
+      is an error-exit, not a developer decision gate.
+
+  requ-assign-packages:
+    has_gates: true
+    gates:
+      - phase: "Step 2 — Prerequisite Guard (unformalized chunks found)"
+        description: "Developer decides whether to continue with available packages anyway or stop when unformalized flow chunks are detected."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires when unformalized chunk labels are found in flow files that do not match RELEASE_BACKLOG.md package names."
+      - phase: "Step 3d — User confirmation (per requirement)"
+        description: "Developer accepts all proposed package assignments for a requirement, reviews them individually, or skips the requirement entirely."
+        decision_kind: path-selection
+        required: always
+    notes: >
+      Step 3d fires for every requirement with unassigned items, making it effectively
+      always-required across the skill's execution. Step 2's prerequisite guard is
+      conditional on finding unformalized chunks. The "Review individually" path in Step 3d
+      triggers per-AC confirmation (free-text entry of alternative package ID), but the
+      top-level gate is path-selection.
+
+  requ-derive-from-flow:
+    has_gates: true
+    gates:
+      - phase: "Phase 0 — Related Flow Discovery (include as context / solo / wait)"
+        description: "Developer chooses to include related flows as analysis context, proceed with only the primary flow, or wait for a non-approved related flow to be finalized."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires when related flows are found (candidate overlap detected in FLOW_INDEX); skipped when no overlap is found."
+      - phase: "Phase 0 — Cluster name confirmation"
+        description: "Developer confirms or adjusts the suggested cluster name when choosing to include related flows as a cluster analysis."
+        decision_kind: revision
+        required: conditional
+        condition: "Only fires when developer chose 'Include as context' in the related flow discovery gate."
+      - phase: "Phase 0.5 — Matrix State Check (draft exists: resume or restart)"
+        description: "Developer chooses to resume analysis from an existing draft matrix or restart fresh (deleting the draft)."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires when requirements_matrix_draft.md already exists."
+      - phase: "Phase 0.5 — Matrix State Check (finalized matrix exists, no flow changes)"
+        description: "Developer chooses to exit (matrix is current) or force a full re-run, discarding existing decisions."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires when requirements_matrix.md exists AND no flow changes since matrix date are detected."
+      - phase: "Phase 3 — Review & Prioritize (select gaps for goal.md creation)"
+        description: "Developer selects which discovered gaps should have goal.md exploration task files created, and decides the status of decision_needed items."
+        decision_kind: selection
+        required: always
+      - phase: "Phase 3.5 — Urgency/Impact Inheritance (confirm mapping)"
+        description: "Developer confirms or adjusts the proposed urgency/impact-to-release-chunk mapping before goal.md files are created."
+        decision_kind: revision
+        required: conditional
+        condition: "Only fires when the primary flow has a release_scope field with chunk priorities defined."
+    notes: >
+      Phase 3's gap selection gate is unconditional — it fires every run. The related-flow
+      discovery gates and the matrix-state gates are conditional on what is found. Phase 3.5
+      confirmation is conditional on release_scope presence.
+
+  requ-explore:
+    has_gates: true
+    gates:
+      - phase: "Phase 1.7 — Background Elicitation"
+        description: "Developer confirms or corrects the AI-drafted motivation statement for the requirement's Purpose section."
+        decision_kind: revision
+        required: conditional
+        condition: "Only fires when goal.md lacks a clear background or motivation section."
+      - phase: "Phase 2.1a — Location Approval Gate"
+        description: "Developer approves the planned requirement location (folder path and Epic/Feature structure) before any files are written."
+        decision_kind: approval
+        required: conditional
+        condition: "Skipped when the user's original prompt named the target folder/file path explicitly, or asked to modify a specific requirement by REQ-ID or path."
+      - phase: "Phase 2.1 — Scenario E Upstream Impact Check"
+        description: "Developer decides whether to run ux-create-flow or product-intake before updating a requirement that affects implements_flows references."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires when extending an existing requirement and the change affects implements_flows references."
+      - phase: "Phase 2.3 — Show diff before applying (existing content changes)"
+        description: "Developer approves changes to existing content in a requirement being extended, before the conflicting content is overwritten."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires in Scenario E (extending existing requirement) when existing content must change because the update contradicts it."
+      - phase: "Phase 2.4 — Package Assignment (UI element items)"
+        description: "Developer selects the target release package for each trackable item that involves a UI element, because the Shared UI Surface Constraint requires human judgment."
+        decision_kind: selection
+        required: conditional
+        condition: "Only fires for individual trackable items (ACs or sections) that involve UI elements."
+      - phase: "Phase 3.1 — Present to User (requirement review)"
+        description: "Developer reviews the generated requirement and provides specific feedback on WHEN/WHEN-NOT logic, missing use cases, Epic/Feature structure, or split/merge decisions."
+        decision_kind: revision
+        required: always
+      - phase: "Phase 4.1 — Verify and Tick Acceptance Criteria (unchecked ACs)"
+        description: "Developer resolves any AC that the AI cannot verify as genuinely met before task-complete is invoked."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when an AC in goal.md's Acceptance Criteria section cannot be verified as met by the AI."
+    notes: >
+      requ-explore has one unconditional gate (Phase 3.1 review) and multiple conditional
+      gates for location approval, upstream impact, content diff approval, package assignment
+      (UI items), background elicitation, and unverifiable ACs.
+
+  task-complete:
+    has_gates: true
+    gates:
+      - phase: "Step 3.2 — Requirement Status (Case B, no acceptance criteria)"
+        description: "Developer manually confirms that all work for the requirement is done, so status can be set to implemented when there are no trackable acceptance criteria."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when the parent requirement has status in_progress (or other transitional status) AND has no trackable_items.acceptance_criteria."
+      - phase: "Step 3.2b — Package Description Freshness"
+        description: "Developer confirms whether the release package description is still accurate after this work, or provides corrected text."
+        decision_kind: revision
+        required: conditional
+        condition: "Only fires when goal.md has a target_package and the package has an assigned_release (not null)."
+    notes: >
+      task-complete is mostly automated (script-driven). Two conditional gates exist:
+      one for requirements without acceptance criteria, and one for package description
+      freshness. All other steps (quality gates, status updates, commit) are automatic.
+
+  task-complete-bugfix:
+    has_gates: true
+    gates:
+      - phase: "Step 4 — Present findings and ask for removal approval"
+        description: "Developer approves the list of DIAG-* prints and TEMPORARY: blocks to be removed before the cleanup is applied."
+        decision_kind: approval
+        required: always
+    notes: >
+      Step 4 explicitly presents every REMOVE item and waits: "Proceed with these removals?"
+      before step 6 applies them. This is an unconditional gate — it fires every time
+      task-complete-bugfix is invoked.
+
+  task-create:
+    has_gates: true
+    gates:
+      - phase: "Step 1 — Understand the Requirement (if not provided)"
+        description: "Developer provides the high-level objective, feature type (feature, technical guideline, or process definition) when not already clear."
+        decision_kind: free-text
+        required: conditional
+        condition: "Only fires in standalone mode when the requirement or goal is not already provided by the caller."
+      - phase: "Step 3d — Existing Task Overlap Check"
+        description: "Developer clarifies whether a potentially overlapping task found in the repo is a duplicate, an extension, or genuinely independent."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires in standalone mode when Sub-check 1 or Sub-check 2 returns at least one overlap hit."
+      - phase: "Step 4 — Reason and Propose Location"
+        description: "Developer approves the proposed task folder location before the workspace is created."
+        decision_kind: approval
+        required: conditional
+        condition: "Skipped in plan-driven mode. Required in standalone mode."
+      - phase: "Coverage Tracking — Ask which items this task implements"
+        description: "Developer selects which acceptance criteria and sections from the parent requirement this task covers."
+        decision_kind: selection
+        required: conditional
+        condition: "Only fires in standalone mode when the parent requirements.md has trackable_items; skipped in plan-driven mode."
+      - phase: "Package Inheritance — mixed/no package assignment"
+        description: "Developer selects which release package this task targets when covered ACs have mixed or no package assignments."
+        decision_kind: selection
+        required: conditional
+        condition: "Only fires in standalone mode when covered items have mixed packages or no assignments; skipped in plan-driven mode."
+      - phase: "Step b.5 — Dependency proposal (propose_after.py, interactive mode)"
+        description: "Developer accepts or drops proposed after: dependency entries and optionally adds others."
+        decision_kind: revision
+        required: conditional
+        condition: "Only fires in interactive mode when propose_after.py returns at least one proposal."
+      - phase: "Step c — impl task release_description"
+        description: "Developer confirms or adjusts the AI-drafted release description (max 25 words, user-benefit perspective)."
+        decision_kind: revision
+        required: conditional
+        condition: "Only fires for impl task type in standalone mode."
+      - phase: "Cascade Task Detection — multi-pass structure question"
+        description: "Developer confirms whether the task should be structured as a multi-pass cascade task (persona → scenario → flow → requirements)."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when cascade task keywords or patterns are detected."
+      - phase: "Priority Determination — urgency/impact questions (no parent priority)"
+        description: "Developer answers guiding questions to set urgency (why now?) and impact (what value?) when the parent requirement has no existing priority."
+        decision_kind: free-text
+        required: conditional
+        condition: "Only fires when the parent requirement has no urgency/impact values (pre-migration)."
+      - phase: "Step 3 — Non-approved flow warning"
+        description: "Developer explicitly confirms to proceed when a referenced user flow is not approved, accepting the rework risk."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when creating tasks that implement user flows AND the referenced flow is not approved."
+    notes: >
+      task-create is one of the most gate-heavy skills. Standalone mode has many interactive
+      confirmation steps; plan-driven mode skips most of them. The location confirmation
+      (Step 4) is the most structurally significant gate, gating all file creation.
+
+  task-create-code:
+    has_gates: true
+    gates:
+      - phase: "Phase 0B — RELEASE_BACKLOG Discovery (confirm candidate)"
+        description: "Developer confirms the proposed next implementation task candidate (package, requirement path) before Phase 1 begins."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires in Phase 0B (no plan_path set); skipped when plan-driven discovery (Phase 0A) succeeds."
+      - phase: "Phase 1.2 — Gather Additional Details"
+        description: "Developer provides supplementary information (visual design specs, business rules, edge cases) not documented in the requirement."
+        decision_kind: free-text
+        required: conditional
+        condition: "Skipped in automated mode; fires in interactive mode."
+      - phase: "Phase 2.3 — Plan-driven size mismatch (estimate larger than plan)"
+        description: "Developer decides whether to split the task, promote to Opus model, or override when file analysis reveals the task is significantly larger than the plan estimated."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires in interactive mode when plan entry is active and file analysis estimates the task as Large (8+ files) while the plan estimated S or M effort."
+      - phase: "Phase 3.2.5 — Dependency proposal (propose_after.py)"
+        description: "Developer accepts or drops proposed after: dependency entries and optionally adds others."
+        decision_kind: revision
+        required: conditional
+        condition: "Only fires in interactive mode when propose_after.py returns at least one proposal."
+      - phase: "Phase 3.3e — release_description confirmation"
+        description: "Developer confirms or adjusts the AI-drafted release description (max 25 words)."
+        decision_kind: revision
+        required: conditional
+        condition: "Skipped in automated mode; fires in interactive mode."
+      - phase: "Phase 4.1 — Present goal.md for review"
+        description: "Developer reviews the complete goal.md and confirms correctness, scope estimate, and whether splitting is required."
+        decision_kind: approval
+        required: conditional
+        condition: "Skipped in plan-driven mode; required in standalone interactive mode."
+      - phase: "Phase 6 — Plan conformance exit 1"
+        description: "Developer reviews a plan conformance mismatch diff and decides whether to proceed or fix the task."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires in interactive mode when check_task_against_plan.py exits 1 (mismatch detected)."
+      - phase: "Phase 0A — Stale plan check"
+        description: "Developer decides whether to proceed, abort, or re-plan when the requirements.md commit hash differs from the plan's recorded hash."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires in interactive mode when plan's requirements_version.commit != current requirements.md hash."
+    notes: >
+      task-create-code mirrors task-create's gate structure but tailored for code tasks.
+      Plan-driven mode bypasses most gates. The Phase 4.1 review is the most significant
+      unconditional gate in standalone interactive mode.
+
+  task-derive-from-requ:
+    has_gates: true
+    gates:
+      - phase: "Phase 1 — Covers-field repair (ambiguous inference)"
+        description: "Developer confirms the AI's inference of which ACs an existing task covers, when confidence is below the high threshold."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires in interactive mode when existing tasks have empty covers: fields AND the AI's coverage inference confidence is below high."
+      - phase: "Phase 1.5.2 — Cross-Reference Completeness Gate (classification)"
+        description: "Developer classifies each detected cross-reference candidate as hard (add to after:), semantic (add to Related Requirements), or ignore, for each REQ-ID found by the keyword grep."
+        decision_kind: selection
+        required: conditional
+        condition: "Only fires in interactive mode when check_cross_refs.py (or the fallback grep) returns a non-empty candidate list."
+      - phase: "Phase 1.5.4 — Resume verify (residual gaps after Apply)"
+        description: "Developer decides whether to re-spawn the cross-reference fix agent or abort the decomposition when residual gaps remain after the apply step."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires in interactive mode when the gate re-run after Apply still returns a non-empty residual set."
+      - phase: "Phase 4 — Review (plan + coverage matrix)"
+        description: "Developer approves, modifies, or rejects the decomposition plan and coverage matrix before any tasks are created."
+        decision_kind: approval
+        required: conditional
+        condition: "Required in interactive mode. In automated mode, auto-accept — coverage matrix is the gate."
+    notes: >
+      Phase 1.5.2 classification is the most significant gate: it halts for each cross-
+      reference candidate found. Phase 4 review is unconditional in interactive mode.
+      All automated mode equivalents route to question.md instead of halting interactively.
+
+  task-resolve:
+    has_gates: true
+    gates:
+      - phase: "Step 2 — Assess & Plan (plan approval)"
+        description: "Developer approves the proposed execution plan (approach: inline or agent-assisted; phases; agents; user review points) before execution begins."
+        decision_kind: approval
+        required: always
+    notes: >
+      Step 2 explicitly states "Wait for user approval before proceeding." This is an
+      unconditional gate — every task-resolve invocation halts for plan approval before
+      any work is done.
+
+  task-unblock-check:
+    has_gates: true
+    gates:
+      - phase: "Step 3 — Present and ask (per task)"
+        description: "Developer confirms whether each blocked task is still blocked, or signals it is unblocked (yes / no / update-note / stop)."
+        decision_kind: path-selection
+        required: always
+    notes: >
+      The skill iterates all blocked tasks and pauses at each one for developer input.
+      The gate fires for every task in the list, making it unconditional across the
+      skill's execution as a whole.
+
+  ui-scribble-auto-review:
+    has_gates: false
+    gates: []
+    notes: >
+      This is a fully automated sub-skill invoked by ui-scribble-iterate. It fans out
+      reviewer agents, merges gaps, applies the YAGNI gate, regenerates the next version,
+      and returns results to the caller — all without halting for developer input.
+      The YAGNI gate annotations are written inline to HTML (not human decisions).
+
+  ui-scribble-iterate:
+    has_gates: true
+    gates:
+      - phase: "Phase 0.5 — Pre-Brief Gate"
+        description: "Developer approves, adjusts, or rejects the ≤300-word pre-brief covering screens, personas, rules, scope exclusions, and open assumptions before the first scribble version is generated."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires on first generation (v1 does not yet exist); skipped on resumption."
+      - phase: "Phase 3 — Await User Review (even versions)"
+        description: "Developer reviews the auto-reviewed scribble version and provides feedback or approval before the next iteration begins."
+        decision_kind: revision
+        required: always
+      - phase: "Phase 3 — Fatigue check (v≥6 with unresolved gaps)"
+        description: "Developer decides whether to continue iterating, pause to run requ-explore on the underlying requirement, or approve the current version with open gaps acknowledged."
+        decision_kind: path-selection
+        required: conditional
+        condition: "Only fires in interactive mode when iteration count reaches v6 or higher AND the gap summary still contains unresolved gaps."
+    notes: >
+      Phase 3's await-user-review gate is unconditional — every even version halts for
+      developer review. The pre-brief gate fires only on first generation. The fatigue
+      check is conditional on iteration count and unresolved gaps.
+
+  ui-verify-flutter:
+    has_gates: false
+    gates: []
+    notes: >
+      The skill is read-only and report-generating. It writes a comparison.md report and
+      outputs a handoff message classifying findings (coder_defect, out_of_contract, match,
+      acceptable) — but it does not halt execution for developer decisions. Findings are
+      informational output; the developer acts on them separately.
+
+  ux-flow-complete:
+    has_gates: true
+    gates:
+      - phase: "CC-E — Approved sibling rollback question"
+        description: "Developer confirms whether to roll back an already-approved sibling flow to pending_alignment because it is affected by the current flow's content-complete changes."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires when a sibling flow's impact is detected AND that sibling's review_status is approved (already finalized)."
+    notes: >
+      Most of ux-flow-complete is automated (agent-based impact analysis, status transitions,
+      task creation). The one interactive gate is the approved-sibling rollback, which
+      requires explicit developer confirmation before reverting a previously finalized flow.
+
+  ux-flow-draft:
+    has_gates: true
+    gates:
+      - phase: "NEW MODE Step 1 — Gather Flow Information"
+        description: "Developer provides the flow name, approach description, and which scenario(s) it serves (with relationship and coverage for each)."
+        decision_kind: free-text
+        required: conditional
+        condition: "Only fires in NEW mode (no existing flow.md)."
+      - phase: "NEW MODE Step 1 — Non-approved scenario warning"
+        description: "Developer explicitly confirms to proceed when one or more scenarios are not yet approved, accepting the rework risk."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires in NEW mode when at least one referenced scenario is not approved."
+      - phase: "NEW MODE Step 1b — Related flows design context"
+        description: "Developer selects which related flows (if any) should be read for design context before the new flow is created."
+        decision_kind: selection
+        required: conditional
+        condition: "Only fires in NEW mode when overlapping flows are found in FLOW_INDEX that share the same personas or scenarios."
+      - phase: "NEW MODE Step 2 — Gather Additional Metadata (release scope)"
+        description: "Developer confirms or adjusts the AI-proposed release scope chunks (labels, covers, priorities) for the new flow."
+        decision_kind: revision
+        required: conditional
+        condition: "Only fires in NEW mode when the user has not already set release scope; the AI proposes chunks for confirmation."
+      - phase: "NEW MODE Step 3a — Analysis Phase User Review Checkpoint"
+        description: "Developer approves the structured analysis (requirement gaps, tensions, missing user needs, value conflicts) before flow creation proceeds."
+        decision_kind: approval
+        required: conditional
+        condition: "Only fires in NEW mode for complex flows (multiple personas, dual-perspective, or existing requirements to reconcile)."
+      - phase: "CONTINUE MODE Step 2.0 — Discover Feedback Source (no feedback found)"
+        description: "Developer provides feedback or instructions for the current iteration when no feedback file is found in any of the expected locations."
+        decision_kind: free-text
+        required: conditional
+        condition: "Only fires in CONTINUE mode when no content is found in pending_feedback, feedback-checkpoint, or user_feedback/ locations."
+      - phase: "CONTINUE MODE — Release scope check"
+        description: "Developer confirms whether the existing release scope still reflects the current flow structure, and approves any proposed changes."
+        decision_kind: revision
+        required: conditional
+        condition: "Only fires in CONTINUE mode when release_scope is absent (propose new) or present and iteration added/removed steps affecting chunking."
+      - phase: "NEW and CONTINUE MODE Step 12 — Content complete prompt"
+        description: "Developer signals whether they are satisfied with the flow, triggering ux-flow-complete if yes."
+        decision_kind: approval
+        required: always
+    notes: >
+      The final content-complete prompt (Step 12) is unconditional in interactive mode —
+      every ux-flow-draft execution ends by asking the developer if they are satisfied.
+      In automated mode, this is replaced by writing a question.md. Many other gates are
+      conditional on mode (NEW vs CONTINUE) or on what is found during the skill's discovery
+      phases.
+
+agents:
+  opus-advisor:
+    has_gates: false
+    gates: []
+    notes: >
+      opus-advisor is a investigation-and-reporting agent. It gathers context, analyzes it,
+      and writes a report file (or answers directly in direct mode). It does not halt for
+      developer decisions — it produces output and exits. Any decisions the developer makes
+      based on the report happen outside this agent's execution.
+
+  setup-optimizer:
+    has_gates: false
+    gates: []
+    notes: >
+      setup-optimizer reviews protocol.md files, identifies patterns, and writes an
+      optimization report with findings and recommendations. It does not halt for developer
+      decisions — it produces the report and exits. The developer reviews the report and
+      decides which recommendations to act on outside this agent's execution.

@@ -1,0 +1,20 @@
+contract_version: 1
+purpose: >
+  Blocking quality-assurance reviewer. Reviews changed files against doc/ guidelines
+  (layer rules, WHY comments, persona alignment, meta/cross-reference validity) and
+  runs the scripted per-change or release-cadence gates, then emits a RED/YELLOW/GREEN
+  status the caller (verify-quality, task-complete, pre-commit hook) must honor.
+derived_from:
+  - claude-md  # §7 Quality Gates and Back-Pressure Protocol
+  - guideline  # routes each changed file to its guideline folder
+  - guideline  # SP1-SP6 policy
+  - guideline  # TQ1-TQ4 policy
+  - guideline  # tier model + anti-patterns for scripts/**/*.py review
+consumes:
+  - goal  # meta-information and covers validation
+  - protocol  # implementation context
+  - source  # Dart sources reviewed
+  - script  # Python sources reviewed
+  - script  # gate runners invoked for the scripted signal
+produces:
+  - protocol  # violation report

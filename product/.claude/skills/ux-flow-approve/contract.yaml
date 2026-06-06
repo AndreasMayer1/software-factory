@@ -1,0 +1,50 @@
+contract_version: 1
+skill: ux-flow-approve
+purpose: >
+  Internal skill (entry point: ux-create-flow). Run joint approval for a cluster
+  of aligned user flows. Sets all flows to approved, runs external impact analysis,
+  handles any impacted sibling flows, and commits.
+
+derived_from:
+  required:
+    - path: flow
+      source: external
+      reason: Each cluster flow read in full to check review_status (must be aligned) and Pending Impacts.
+    - path: flow-index
+      source: external
+      reason: External flows identified for impact analysis (excluding cluster members).
+
+produces:
+  required:
+    - path: flow
+      reason: review_status set to approved; review_history entry added for each cluster flow.
+  conditional:
+    - path: flow
+      condition: updated when an external flow is impacted — Pending Impacts section added or status changed.
+      reason: External impact propagation per CC-E/CC-F logic.
+    - path: goal
+      condition: created when an impacted external flow needs a CONTINUE task.
+      reason: Task created so the impacted sibling can be aligned.
+
+quality_criteria:
+  - All cluster flows must be aligned (not draft/in_review/approved) before joint approval runs.
+  - No cluster flow may have a Pending Impacts section at approval time.
+  - approval_cluster field is set consistently across all cluster members.
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_user_needs/user_flows/<flow>/flow.md
+    action: write
+    note: review_status set to approved for all cluster flows.
+  - target: git history
+    action: write
+    note: "Committed with ux(FLOW-A,FLOW-B): joint approval message."
+
+preconditions:
+  - All named cluster flows have review_status: aligned.
+  - No cluster flow contains a ## Pending Impacts section.
+
+postconditions:
+  - All cluster flows have review_status: approved and a new review_history entry.
+  - External impacts identified and Pending Impacts sections added to affected sibling flows.

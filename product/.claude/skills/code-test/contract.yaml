@@ -1,0 +1,50 @@
+contract_version: 1
+skill: code-test
+purpose: >
+  End-to-end TDD workflow for implementing tests. CONSUMER of goal.md: spawns test-engineer
+  to read doc/testing/ guidelines, plan, then write-and-run tests (red→green), runs the
+  per-change quality gates, and closes the task.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: The test objective. Read by test-engineer to build the test plan.
+  optional:
+    - path: guideline
+      source: external
+      reason: MANDATORY guidelines read first by test-engineer before any test work.
+    - path: source
+      source: external
+      reason: The source under test (produced by a prior code-simple/code-complex run).
+
+produces:
+  required:
+    - path: test
+      reason: The TDD test file(s) — written, run, and made green before completion.
+    - path: test-plan
+      reason: The test plan and final test report from test-engineer.
+
+quality_criteria:
+  - doc/testing/ guidelines are read before any test is written.
+  - Order respected — Unit → Widget → Integration (integration only on explicit request).
+  - Every test passes (flutter test green); verify-quality returns GREEN before completion.
+
+may_invoke:
+  - task-create
+  - doc-lookup-dependencies # test-framework API surfaces + gate-failure edges
+  - doc-update-guidelines
+  - claude-log
+  - task-complete
+
+side_effects:
+  - target: requirements_tasks/<category>/<req>/<feature>/tasks/<task>/plans_and_protocols/
+    action: append
+    note: Test plan, per-run logs, and the final test report.
+
+preconditions:
+  - A goal.md exists for the task and conforms to goal_metadata.yaml (entry pre-check).
+
+postconditions:
+  - The test file(s) exist and pass, gates GREEN, and task-complete has committed.

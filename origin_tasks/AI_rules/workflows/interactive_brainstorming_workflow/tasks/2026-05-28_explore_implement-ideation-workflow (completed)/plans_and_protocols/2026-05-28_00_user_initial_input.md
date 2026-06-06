@@ -1,0 +1,20 @@
+# User Initial Input — 2026-05-28
+
+Verbatim message that triggered this task (typos and formatting preserved):
+
+---
+
+we have a mechanism that creates exploration tasks based on a template: goal.md Template — Explore Tasks in task-create skill. it works, but the ideation could be better. think of the double diamond, the design thinking ideation phase, brainstorming methods. i want you to start the requ-explore skill with the goal to update/write requirements for the exploration mode. i want this requirement to be abstract and not attached to the task-create or other places it is used. instead i want to have a general mechanism (inspired by design thinking, but as general process): information gathering, analyze (incl. scope and goal exploration), ideate (open the exploration space and collect even crazy ideas), synthesize (evaluate ideas, cluster them, merge them, combine them, rate them, weight them, ...), write report for the user so he can also add his perspective. 
+the user must also be able to participate in the ideation phase, because that's how brainstorming works: ideas that seem unrealistic and/or not a good fit top the problem are not useless. they can inspire new ideas, they can be combined with other ideas and in the end lead to a better outcome. our process currently does not show the user much of the crazy ideas the llm droped. we need to change that. the ideation phase must produce a report document as well. the user must be asked to iterate on that and only when the user approves the iteration, the next phase synthesis starts. 
+we might not be the first ones to create an ideation agent/skill. a web search would be great.
+I'm also thinking if this new ideation process we're creating with this new rtequirement should be an agent. i said it must be generic and reusable in any places: e.g. when executing an exploration task, maybe also when searching for a good softare architecture or solving any coding problem, or when creating user flows, ... the poblem and the benefit of an agent is thatr it starts with 0 context and the calling session only gets the files created. the next iteration would hgave to gather all context again: huge token waste. but we already have a mechanism to pause an agent if it needs feedback. the agent watches a file where the user can write his feedback to. maybe that would be a solution?
+another thought: we want creativity and unusual ideas during brainstorming. that's something i would set a high llm temperature. a web search how to do that with claude code and if it actually provides a benefit would be good.
+another thing regarding ideation: the instructions for the model must contain a process how to actuallyy do brainstorming. something like: apply randomness in your thought, think of unrelated things and try to find things in those that help with the current problems, follow association chains and see where they lead and if anything of those things have any value to the current problems. i think it's difficult to describe how to be creative, but in essence it's about applying knowledge of any domain to the current problem. the llm has a lot of domain knowledge we need to defin a mechanism to do this cross domain matching and bridging. it's also true that often other domain solutions do not match on the first sight: they must be combined with solutions from other domains or tweaked a littlebit (or a lot). as said above, maybe a web search reveals a ready solution or maybe more information about how human creativity work wherewe can learn from.
+
+Another thought on that. Some explorations or some ideations don't actually need a very uh deep iteration or very long exploration. Sometimes we can do it quickly. So it depends on the task. Therefore we need some kind of mechanism to determine how much effort we want to spend. So there need to be criteria, rules, uh heuristic, and then depending on the result, we need different procedures.
+
+the requirement we write won't be enough. you might need to also create an exploartion task directly for it as well - also to protocoll this request in its original form.
+
+---
+
+Read this as a seed bed, not a spec.

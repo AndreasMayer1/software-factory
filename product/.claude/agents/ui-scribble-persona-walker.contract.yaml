@@ -1,0 +1,18 @@
+contract_version: 1
+purpose: >
+  Walks all scribble screens as each applied persona, verifying PRIMARY constraints are
+  enforced in the rendered HTML. Also performs a cross-persona conflict check and flags
+  screen-level incompatibilities for DDR creation or upstream routing.
+derived_from:
+  - requirements
+  - guideline  # T1/T2 rules referenced but not re-checked
+consumes:
+  - scribble  # rendered screens
+  - scribble-metadata  # personas_applied list
+  - persona
+  - requirements  # passed by caller
+produces:
+  - structured finding list (in-memory, returned to ui-scribble-auto-review):
+    - gap_findings: [{persona_id, constraint_type, screen_file, element, what_is_missing}]
+    - walk_verdicts: one-line per persona
+    - conflict_points: [{persona_a, persona_b, screen_file, element, constraint_a, constraint_b, resolution}]

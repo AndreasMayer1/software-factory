@@ -1,0 +1,73 @@
+# Schema: user_input_gate.yaml
+#
+# Canonical shape of a single entry in the `user_input_gates:` list field
+# of any skill or agent contract (.claude/skills/*/contract.yaml,
+# .claude/agents/*.contract.yaml).
+#
+# Produced by: (human-authored when adding user_input_gates: to a contract)
+# Consumed by: check_skill_contracts.py (contract lint gate),
+#              scripts/factory/render_user_input_gates.py (index generator)
+#
+# Governance: REQ-PROC-044-02 AC-07
+#
+# Dialect: flat YAML with required:/optional: blocks (REQ-PROC-044 D-2).
+# NOT full JSON Schema — human-readable documentation + lint-augmented
+# declaration consumed by check_skill_contracts.py.
+
+schema_version: 1
+artifact: user_input_gates entry in a skill or agent contract
+description: >
+  One developer-decision checkpoint declared inside a skill or agent contract.
+  Each entry names the skill execution phase where the gate occurs, describes
+  what the developer decides, classifies the decision kind, and states whether
+  the gate is unconditional or conditional.
+
+required:
+  phase:
+    type: string
+    description: >
+      The named skill step or phase where the gate occurs (e.g.
+      "Step 6.5 — User Approval Gate"). Must be a non-empty string that
+      identifies a specific step in the skill's execution sequence.
+
+  description:
+    type: string
+    description: >
+      One sentence describing what the developer decides at this gate
+      (e.g. "Developer approves the generated persona or provides revision
+      feedback before cascade scan runs.").
+
+  decision_kind:
+    type: string
+    enum: [approval, revision, selection, path-selection, free-text]
+    description: >
+      Classification of the decision type:
+        approval      — binary yes/proceed or no/revise; developer either
+                        approves the artifact or sends it back for changes
+        revision      — developer supplies specific corrective content;
+                        the gate is not a yes/no but a directive rewrite
+        selection     — developer picks one item from an enumerated list
+                        of options the skill presents
+        path-selection — developer chooses between two or more execution
+                        branches that lead to meaningfully different outputs
+        free-text     — developer enters open-ended input that the skill
+                        cannot anticipate (e.g. naming a new persona)
+
+  required:
+    type: string
+    enum: [always, conditional]
+    description: >
+      'always'      — the gate runs on every invocation of this skill,
+                      regardless of input or mode.
+      'conditional' — the gate only runs under conditions described in the
+                      skill's SKILL.md (e.g. only in CREATE mode, or only
+                      when a conflict is detected). When 'conditional',
+                      authors SHOULD add a `condition:` field (optional below).
+
+optional:
+  condition:
+    type: string
+    description: >
+      Present only when required: conditional. A brief statement of when
+      the gate fires (e.g. "Only in UPDATE mode when existing artifact is
+      already approved.").

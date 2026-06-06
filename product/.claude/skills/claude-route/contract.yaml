@@ -1,0 +1,51 @@
+contract_version: 1
+skill: claude-route
+purpose: >
+  Internal router: given a validated, in_progress goal.md path (guaranteed by
+  task-start), detect task type and dispatch to the correct execution skill.
+  Pre-flight work (schema validation, pre-condition gates, in_progress marking)
+  is NOT done here — task-start owns that.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-start
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Task objective — already validated and in_progress. Read to determine type, scope, and which skill to invoke.
+    - path: skill-index
+      source: external
+      reason: Skill registry used to match the task to the best skill.
+
+produces: {}
+
+quality_criteria:
+  - Input goal.md is already validated and in_progress (guaranteed by task-start).
+  - Opus check halts the session when opus_recommended is true and model is not Opus.
+  - Exactly one skill is invoked per routing decision.
+
+user_input_gates:
+  - phase: "Step 5 — Opus session check"
+    description: "Developer is instructed to switch to the Opus model before the task begins; execution halts until the developer resumes in the correct model."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires when goal.md has opus_recommended: true and the current session is not running Opus, in non-automated mode."
+
+may_invoke:
+  - requ-explore
+  - code-simple
+  - code-complex
+  - code-test
+  - task-derive-from-requ
+  - task-resolve
+  - requ-verify-flow-coverage
+  - doc-update-tokens
+  - requ-apply-market
+  - claude-optimize
+
+side_effects: []
+
+preconditions:
+  - goal.md path is provided (validated, status is in_progress — guaranteed by task-start).
+
+postconditions:
+  - The matched skill has been invoked with the task context.

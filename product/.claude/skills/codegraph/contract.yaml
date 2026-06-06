@@ -1,0 +1,30 @@
+contract_version: 1
+skill: codegraph
+purpose: >
+  Semantic code intelligence for any codebase — build context for a task,
+  search for symbols, check index status, and sync after changes. Use before
+  Glob/Grep when exploring code or building context for implementation.
+
+derived_from:
+  optional:
+    - path: source
+      source: external
+      reason: Source files indexed by CodeGraph for semantic search and context building.
+
+produces: {}
+
+quality_criteria:
+  - codegraph context is preferred over codegraph query when understanding code for a task.
+  - codegraph sync is run when results seem stale after file edits.
+
+may_invoke: []
+
+side_effects:
+  - target: .codegraph/ (SQLite index)
+    action: write
+    note: Local SQLite index updated when codegraph sync or index is run.
+
+preconditions: []
+
+postconditions:
+  - Semantic search results or task context is available to the calling session.

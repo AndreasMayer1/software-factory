@@ -1,0 +1,20 @@
+contract_version: 1
+purpose: >
+  QA automation expert that owns the full Flutter TDD workflow — plan, write tests
+  before implementation, run them, and fix failures before proceeding. Reads
+  doc/testing/ guidelines first, covers unit/widget/integration per the pyramid, and
+  reports tests written and coverage achieved.
+derived_from:
+  - claude-md  # §6 Testing Workflow
+  - guideline  # MANDATORY first read; references the rest of doc/testing
+  - guideline  # doc-lookup risk table (AC-07 / REQ-PROC-053)
+consumes:
+  - goal  # what to test
+  - source  # code under test
+  - guideline  # testing guidelines (read first)
+produces:
+  - test  # unit and widget tests
+  - integration-test  # integration tests (only on explicit request)
+  - test-plan  # coverage strategy, mocks, edge cases
+  - protocol  # tests written, coverage, fixes
+  - lookup-log  # doc-lookup dedup ledger

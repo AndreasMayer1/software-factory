@@ -1,0 +1,24 @@
+# Artifact-token resolve-lint baseline (scripts/quality/check_artifact_token_resolve.py)
+#
+# Only AGENT-NAME violations (REQ-PROC-044-02 AC-03) are baselined here. They are
+# resolved by the REQ-PROC-044-01 agent-rename work, not by this lint's contract-side
+# remediation. The {expertise}-{role} renames will remove these entries one by one.
+#
+# Contract-side violations (produces:/derived_from:/consumes:) are NOT baselined:
+# TASK-PROC-044-02-03 drove them to zero (AC-02), so the contract side of the gate
+# is green on develop without suppression. Do NOT re-add contract-side entries here —
+# fix the contract or ratify a registry token via the establishment gate instead.
+architecture-advisor.md: agent name 'architecture-advisor' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+han-adversarial-validator.md: agent name 'han-adversarial-validator' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+implementation-engineer.md: agent name 'implementation-engineer' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+opus-advisor.md: agent name 'opus-advisor' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+quality-checker.md: agent name 'quality-checker' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+setup-optimizer.md: agent name 'setup-optimizer' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+test-engineer.md: agent name 'test-engineer' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+ui-scribble-cross-feature-checker.md: agent name 'ui-scribble-cross-feature-checker' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+ui-scribble-feedback-classifier.md: agent expertise 'ui-scribble-feedback' does not resolve to a registry token.
+ui-scribble-generator.md: agent name 'ui-scribble-generator' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+ui-scribble-handoff-emitter.md: agent name 'ui-scribble-handoff-emitter' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+ui-scribble-heuristics-reviewer.md: agent expertise 'ui-scribble-heuristics' does not resolve to a registry token.
+ui-scribble-persona-walker.md: agent name 'ui-scribble-persona-walker' does not follow {expertise}-{role} (role must be one of: classifier, reviewer, transformer, writer).
+ui-scribble-rule-reviewer.md: agent expertise 'ui-scribble-rule' does not resolve to a registry token.

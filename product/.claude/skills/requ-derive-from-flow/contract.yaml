@@ -1,0 +1,91 @@
+contract_version: 1
+skill: requ-derive-from-flow
+purpose: >
+  Bridge user flows to requirements by analyzing gaps, building a requirements
+  matrix, and creating requ-explore task goal.md files for each approved gap.
+  Also creates verification tasks and wires inter-gap dependencies.
+
+derived_from:
+  required:
+    - path: flow
+      source: external
+      reason: Primary flow — read in full to extract gaps, open questions, scope boundaries, and release_scope.
+    - path: flow-index
+      source: external
+      reason: Related flow discovery (Phase 0) and approval guard for all flows.
+  optional:
+    - path: flow
+      source: external
+      reason: Context flows included when related flows are approved and the user confirms inclusion.
+    - path: requirements
+      source: skill:requ-explore
+      reason: Existing requirements scanned to classify gaps (exists_complete vs. new_needed, etc.).
+    - path: guideline
+      source: external
+      reason: Developer implementation intent notes matched to gaps for goal.md Developer Intent sections.
+
+produces:
+  required:
+    - path: flow-matrix
+      reason: Finalized requirements matrix with gap status, foundations, packages, and pipeline status.
+  conditional:
+    - path: flow-matrix
+      condition: produced in cluster mode when multiple related flows are analyzed together.
+      reason: Single shared matrix for the flow cluster.
+    - path: goal
+      condition: one per approved gap (created via task-create agents in Phase 4.2 batches).
+      reason: requ-explore task workspace for each gap requiring a new or updated requirement.
+
+quality_criteria:
+  - Flow must be approved in FLOW_INDEX before derivation proceeds.
+  - gap status new_needed only after keyword-grep pass returns no relevant hits.
+  - Exactly one integration_test_needed row emitted per flow processed.
+  - goal.md files use task-create (never created directly by the main session).
+  - Verification tasks capped at 6; bundled by Suggested Package column.
+
+user_input_gates:
+  - phase: "Phase 0 — Related Flow Discovery (include as context / solo / wait)"
+    description: "Developer chooses to include related flows as analysis context, proceed with only the primary flow, or wait for a non-approved related flow to be finalized."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires when related flows are found (candidate overlap detected in FLOW_INDEX)."
+  - phase: "Phase 0 — Cluster name confirmation"
+    description: "Developer confirms or adjusts the suggested cluster name when choosing to include related flows as a cluster analysis."
+    decision_kind: revision
+    required: conditional
+    condition: "Only fires when developer chose 'Include as context' in the related flow discovery gate."
+  - phase: "Phase 0.5 — Matrix State Check (draft exists: resume or restart)"
+    description: "Developer chooses to resume analysis from an existing draft matrix or restart fresh."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires when requirements_matrix_draft.md already exists."
+  - phase: "Phase 0.5 — Matrix State Check (finalized matrix exists, no flow changes)"
+    description: "Developer chooses to exit (matrix is current) or force a full re-run, discarding existing decisions."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires when requirements_matrix.md exists AND no flow changes since matrix date are detected."
+  - phase: "Phase 3 — Review & Prioritize (select gaps for goal.md creation)"
+    description: "Developer selects which discovered gaps should have goal.md exploration task files created, and decides the status of decision_needed items."
+    decision_kind: selection
+    required: always
+  - phase: "Phase 3.5 — Urgency/Impact Inheritance (confirm mapping)"
+    description: "Developer confirms or adjusts the proposed urgency/impact-to-release-chunk mapping before goal.md files are created."
+    decision_kind: revision
+    required: conditional
+    condition: "Only fires when the primary flow has a release_scope field with chunk priorities defined."
+
+may_invoke:
+  - task-create
+
+side_effects:
+  - target: requirements_user_needs/user_flows/<flow>/requirements_matrix.md
+    action: write
+    note: Matrix created (FRESH) or merged (INCREMENTAL).
+
+preconditions:
+  - All primary flows are approved in FLOW_INDEX.md.
+
+postconditions:
+  - requirements_matrix.md exists with a complete Pipeline Status table.
+  - goal.md files exist for each approved gap (via task-create agents).
+  - Verification tasks created and wired to their exploration tasks.

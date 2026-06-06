@@ -1,0 +1,130 @@
+# Schema: scribble_metadata.yaml
+#
+# This schema is the source of truth for the metadata.yaml file produced by
+# ui-create-scribble inside every scribbles/v{n}/ folder.
+#
+# MIGRATION NOTE — sections this schema REPLACES in requirements_tasks/SKETCHES_README.md:
+#   - "metadata.yaml fields" (prose description of status, version, personas_applied,
+#     rules_applied, component_mapping, flow_positions, screen_versions)
+#   - "Stale scribble markers" (stale_since, pending_rules fields)
+#   - "Phase 2 review notes" (phase_2_review_notes field)
+#
+# DO NOT delete the SKETCHES_README.md sections yet — this schema is a prototype.
+# The rollout task (Round 3 follow-up) will perform the actual README section deletion
+# and add a cross-reference "See .claude/schemas/scribble_metadata.yaml" in their place.
+# Rule: a schema section and its prose duplicate must NOT coexist permanently.
+
+schema_version: 1
+artifact: scribble_metadata.yaml
+description: >
+  Metadata file emitted alongside every scribble version folder. Tracks approval
+  status, persona/rule application, component mapping, and flow positioning.
+  Consumed by: ui-verify-flutter, ui-improve-flutter, code-simple (Sketch Gate),
+  code-complex (Sketch Gate), and the commit-time lint (check_skill_contracts.py).
+
+required:
+  status:
+    type: string
+    enum: [draft, reviewed, approved, superseded, stale]
+    description: >
+      Lifecycle state. Transitions: draft → reviewed (after Phase 2 auto-review) →
+      approved (on developer approval, Phase 5) → superseded (set on prior version
+      when newer version is approved) → stale (set by Phase 4 impact-check when a
+      T1/T2 rule that this scribble applied is subsequently changed).
+
+  version:
+    type: integer
+    minimum: 1
+    description: >
+      Monotonically increasing version number matching the scribbles/v{N}/ folder name.
+      Set once at creation; never mutated.
+
+  feature_path:
+    type: string
+    description: >
+      Relative path to the feature's requirements.md folder (e.g.
+      requirements_tasks/functional/client/mood_capture/).
+      Used by flow-index generation (Phase 5a) and stale-scribble detection.
+
+  contributing_requirements:
+    type: array
+    items:
+      type: string
+    min_items: 1
+    description: >
+      List of requirement IDs (e.g. [REQ-FUNC-007]) whose ACs and scope drove this
+      scribble. Usually one entry; multi-entry for cross-requirement scribbles.
+
+optional:
+  personas_applied:
+    type: array
+    items:
+      type: string
+    description: >
+      Persona IDs (e.g. [PERSONA-007, PERSONA-012]) whose constraints were applied
+      during generation. Empty array if no personas were applicable.
+
+  rules_applied:
+    type: array
+    items:
+      type: string
+    description: >
+      T1/T2 rule IDs applied (e.g. [t1_touch_targets, t2_dialog_cancel_first]).
+      Empty array if no rules applied. Used by Phase 4 impact-check to detect stale
+      scribbles when a rule is subsequently modified.
+
+  flutter_component_mapping:
+    type: object
+    description: >
+      Map of component candidate tags to _scribble_components/ entries
+      (e.g. {c_navigation_bar: _scribble_components/c_navigation_bar/}).
+      Populated by Phase 2 auto-promotion step.
+
+  flow_positions:
+    type: array
+    description: >
+      List of {screen_file, flow_id, step_number, requirement_id} objects.
+      Present only when requirement references a user flow. Canonical screen order
+      comes from this list, not from numeric filename prefix.
+    items:
+      type: object
+      required_keys: [screen_file, flow_id, step_number, requirement_id]
+      optional_keys: [exception_id]
+
+  screen_versions:
+    type: object
+    description: >
+      Map of screen filename → version number (e.g. {01_home.html: 3, 02_detail.html: 2}).
+      Updated by Phase 1/2 partial-regeneration to track which screens changed per version.
+
+  phase_2_review_notes:
+    type: string
+    description: >
+      Free-text notes added by the auto-reviewer agent (Phase 2) when promoting
+      scribble from v{odd} to v{even}. Optional — absent if Phase 2 found no issues.
+
+  stale_since:
+    type: string
+    format: date  # YYYY-MM-DD
+    description: >
+      Date set by Phase 4 impact-check when a T1/T2 rule this scribble applied
+      was subsequently changed. Cleared when scribble is regenerated to apply new rule.
+      Presence signals the scribble needs regeneration before use in implementation.
+
+  pending_rules:
+    type: array
+    items:
+      type: string
+    description: >
+      List of rule IDs that have been updated since this scribble was generated.
+      Populated alongside stale_since by Phase 4 impact-check.
+      Cleared when the scribble is regenerated to incorporate the updated rules.
+
+  draft_generator:
+    type: string
+    enum: [none, claude_design, stitch]
+    default: none
+    description: >
+      Records which Phase 1 generator was used. Informational; used for audit trail.
+      'none' = generated from scratch; 'claude_design' = seeded by Claude Design;
+      'stitch' = converted from Stitch MCP output.

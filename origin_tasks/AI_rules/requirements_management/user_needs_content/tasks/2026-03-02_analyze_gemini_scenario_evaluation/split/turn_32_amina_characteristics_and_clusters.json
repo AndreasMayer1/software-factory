@@ -1,0 +1,285 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Hat amina noch mehr Charakteristiken? Was macht Sinn? Gibt es hier auch cluster die sie noch repräsentiert? ",
+        "role": "user",
+        "tokenCount": 28,
+        "createTime": "2026-03-01T10:23:28.080Z"
+      },
+      {
+        "text": "**Defining Amina's Profile**\n\nI'm currently dissecting the prompt. My focus is now on fleshing out Amina's persona. I need to go beyond the initial attributes to construct a more comprehensive profile. What additional, meaningful characteristics would resonate with the specified clusters? I'm searching for the implicit intersections and nuances to build a believable and impactful character.\n\n\n**Constructing Amina's Persona**\n\nI've been working to bring Amina to life with the goal of creating a comprehensive and realistic profile. My objective is to make her functional and representative of the specified demographics. I am currently deconstructing her into her demographic and psychological cores, and her system interaction. I'm focusing on \"the dual-world navigator\" and identifying the clusters she represents. This is to consider UX implications and consider things like symptom tracking.\n\n\n**Analyzing Amina's Stressors**\n\nI'm now identifying the sources of Amina's stress within the specified clusters, especially relating to language and caregiving. UX implications like iconography, micro-moment tracking, and voice-to-text are emerging. I am considering translation fatigue and how her depression can manifest somatically. My aim is to make her a rich character and map her psychological and physical symptoms realistically.\n\n\n**Mapping Amina's Symptoms**\n\nI'm now identifying how Amina expresses her emotional distress somatically, and am finding a strong correlation with physical sensations rather than explicit emotional labeling. I have identified guilt as a central component of her negative affect, and that this often manifests physically. The scenarios are now focusing on how this physical presentation of emotional distress can be incorporated and identified.",
+        "role": "model",
+        "tokenCount": 922,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Defining Amina's Profile**\n\nI'm currently dissecting the prompt. My focus is now on fleshing out Amina's persona. I need to go beyond the initial attributes to construct a more comprehensive profile. What additional, meaningful characteristics would resonate with the specified clusters? I'm searching for the implicit intersections and nuances to build a believable and impactful character.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Constructing Amina's Persona**\n\nI've been working to bring Amina to life with the goal of creating a comprehensive and realistic profile. My objective is to make her functional and representative of the specified demographics. I am currently deconstructing her into her demographic and psychological cores, and her system interaction. I'm focusing on \"the dual-world navigator\" and identifying the clusters she represents. This is to consider UX implications and consider things like symptom tracking.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Amina's Stressors**\n\nI'm now identifying the sources of Amina's stress within the specified clusters, especially relating to language and caregiving. UX implications like iconography, micro-moment tracking, and voice-to-text are emerging. I am considering translation fatigue and how her depression can manifest somatically. My aim is to make her a rich character and map her psychological and physical symptoms realistically.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Mapping Amina's Symptoms**\n\nI'm now identifying how Amina expresses her emotional distress somatically, and am finding a strong correlation with physical sensations rather than explicit emotional labeling. I have identified guilt as a central component of her negative affect, and that this often manifests physically. The scenarios are now focusing on how this physical presentation of emotional distress can be incorporated and identified.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T10:23:28.082Z"
+      },
+      {
+        "text": "\n\n\nDas ist eine exzellente Frage. Wenn wir eine neue Persona aufbauen, muss sie in der Matrix ein echtes strukturelles Gewicht haben und nicht nur ein Klischee abbilden. \n\nWenn wir Amina tiefer durchleuchten, stellen wir fest, dass ihr kultureller Hintergrund eine ganz bestimmte Art von Krankheitserleben mit sich bringt, die das deutsche (oft sehr westlich/akademisch geprägte) Therapiesystem systematisch ignoriert.\n\nHier sind die tiefen Charakteristiken von Amina und die riesigen **Implicit Clusters**, die sie dadurch stellvertretend für das Design-System abdeckt:\n\n### 1. Das Somatisierungs-Cluster (Der Schmerz des Körpers)\n*   **Charakteristik:** In vielen Kulturen (und auch in vielen nicht-akademischen Milieus) existiert ein \"psychologisches Vokabular\" schlichtweg nicht. Wenn Aminas Seele weint, tut ihr Körper weh. Sie spürt einen abgrundtiefen Druck auf der Brust, Migräne oder rasendes Herzklopfen. \n*   **Wen sie repräsentiert:** Alle Menschen, die an **psychosomatischen Beschwerden** leiden und vom Hausarzt weggeschickt werden (\"Körperlich sind Sie gesund!\"). \n*   **App-Relevanz:** Eine App, die stur fragt *\"Welcher negative automatische Gedanke ging Ihnen durch den Kopf?\"*, scheitert bei ihr völlig. Amina braucht einen Ansatzpunkt über den Körper (\"Wo tut es weh? Zeig es auf der Body-Map\"). Aus dem physischen Schmerz muss das Tool sanft die Brücke zur Emotion schlagen.\n\n### 2. Das Low-Literacy & Bürokratie-Fatigue-Cluster\n*   **Charakteristik:** Amina ist in ihrer Familie vermutlich die \"Übersetzerin\". Sie füllt seit sie 12 ist die Ämter-Formulare und Arztbriefe für ihre Eltern aus. Sie hat eine absolute \"Bürokratie-Allergie\". Ein deutsches, trockenes Klinik-PDF auszufüllen, fühlt sich für sie nicht nach Hilfe an, sondern nach der nächsten Amtspflicht.\n*   **Wen sie repräsentiert:** Menschen mit **Leseschwäche**, geringerem Bildungsgrad, kognitiver Erschöpfung oder alle, die deutsches Beamtendeutsch hassen. \n*   **App-Relevanz:** Wenn wir Amina UX-technisch gewinnen wollen, muss die App extrem **ikonografisch** funktionieren (starke, kulturell verständliche Emojis, Symbole, Slider) und Fachsprache restlos vermeiden. \n\n### 3. Das \"High-Obligation / Caregiver\" Cluster\n*   **Charakteristik:** Eine westliche VT (wie bei Max oder Lisa) empfiehlt oft: \"Grenzen setzen! Zeit für mich einräumen! Mal 'Nein' sagen!\" Für eine Frau in engen familiären/kulturellen Verpflichtungsnetzen ist ein \"Nein\" zur Pflege der Mutter keine therapeutische Übung, sondern sozialer Selbstmord. Ihr größtes Leid ist nicht \"Einsamkeit\" (wie bei vielen westlichen Singles), sondern eine fast erdrückende, grenzenlose Überverantwortung und toxische Schuldgefühle.\n*   **Wen sie repräsentiert:** Pflegende Angehörige (Sandwich-Generation), junge Mütter, Familienväter mit extremem Versorgungsdruck.\n*   **App-Relevanz:** Coping-Skills wie \"Ein langes Bad nehmen\" existieren in ihrer Welt nicht. Das Tracking und die Ressourcen müssen extrem kurze Mikro-Regulationen unter Höchstdruck zulassen.\n\n---\n\n### Die 3 Kern-Szenarien für Amina\n\nAus diesen Charakteristiken ergeben sich diese wunderschönen und zugleich tragischen Lücken im Status Quo (Wie macht sie es heute?):\n\n**Szenario 1: The Translation Tax (Das verlorene Wort)**\n*   **Kategorie:** `capture.routine`\n*   **Worum es geht:** Amina sitzt weinend auf ihrem Bett. Sie versucht, ihr Papiertagebuch für den deutschen Arzt auszufüllen (\"Schweregefühl 1-10\"). Das Problem: Es gibt in ihrer Muttersprache ein ganz spezifisches, kulturelles Wort für ihren tiefen, generationellen Seelenschmerz (z.B. \"Hüzün\" im Türkischen, was eine fast schöne, kollektive Melancholie beschreibt, oder Begriffe für \"der böse Blick\", der ihr Pech bringt). Auf dem deutschen Zettel gibt es dafür keinen Platz. Sie kreuzt gefrustet \"Gedrückte Stimmung: 7\" an, aber es ist eine glatte inhaltliche Amputation ihrer Kultur. Das deutsche Kassensystem verfehlt ihre Realität komplett.\n\n**Szenario 2: The Physical Disguise (Symptom-Shifting)**\n*   **Kategorie:** `capture.spontaneous` & `intervention.coping`\n*   **Worum es geht:** Im Familien-Wohnzimmer kommt es zum Konflikt. Amina rast der Puls. Um den Raum verlassen zu können, ohne das Stigma \"psychische Probleme\" heraufzubeschwören, hält sie sich den Kopf und sagt: \"Ich habe Migräne, ich brauche Ruhe.\" Im Schlafzimmer nutzt sie ihr Handy. Sie trackt im Symptom-Tagebuch *tatsächlich* Migräne, weil es selbst im stillen Kämmerlein leichter (und ehrenhafter) ist, an Kopfweh zu leiden als zuzugeben, dass die eigene Familie sie psychisch zermalmt. Die Somatisierung wird durch ihr analoges Tooling nicht durchbrochen.\n\n**Szenario 3: The Danger of the Analog Record (Intimate Intrusion)**\n*   **Kategorie:** `management.preservation` & `management.destroy_data_intentionally`\n*   **Worum es geht:** Die Mutter putzt und findet Aminas auf Deutsch geführtes Therapie-Heft. Obwohl die Mutter schlecht Deutsch liest, fragt ein Bruder, was da steht. Die familiäre Implosion droht. \"Gehst du zu den Verrückten-Ärzten? Schande!\" Amina muss blitzschnell behaupten, es handele sich um Studien-Hausaufgaben für Soziologie, nimmt das Buch, verlässt das Haus und zerreißt es später in tausend Stücke in einem Mülleimer im Park. \n\n---\n\n### Was diese Persona uns bringt:\nAmina zementiert drei neue Säulen unserer App-Infrastruktur:\n1. **Übersetzung & UI-Individualisierung:** \"Trenne die UI-Sprache des Patienten vom Datenexport für den deutschen Arzt.\"\n2. **Körpersprache:** Das Tracking muss einen somatischen Startpunkt (Visualisierung eines schmerzenden Körpers) anbieten, um Kultur- & Sprachbarrieren zu überwinden.\n3. **Lebensbedrohliche Privacy:** App-Icons (z. B. auf \"Kalender\" umstellen), Code-Wörter für App-Launch und der bewährte \"Tarnkappen-Modus\" als absolute Notwendigkeit.\n\nWollen wir Amina (\"The Dual-World Navigator\") mit diesen Spezifikationen und den 3 Szenarien offiziell als **PERSONA-016** ins Set aufnehmen und somit \"Blinden Fleck 1\" (Multi-Kulti) offiziell abhaken?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1635,
+        "parts": [
+          {
+            "text": "\n\n\nDas ist eine exzellente Frage. Wenn wir eine neue"
+          },
+          {
+            "text": " Persona aufbauen, muss sie in der Matrix ein echtes strukturelles Gewicht haben und nicht nur ein Klischee abb"
+          },
+          {
+            "text": "ilden. \n\nWenn wir Amina tiefer durchleuchten, stellen wir fest, dass ihr kultureller Hintergrund eine"
+          },
+          {
+            "text": " ganz bestimmte Art von Krankheitserleben mit sich bringt, die das deutsche (oft sehr westlich/akademisch geprägte) Therap"
+          },
+          {
+            "text": "iesystem systematisch ignoriert.\n\nHier sind die tiefen Charakteristiken von Amina und die riesigen **Implicit"
+          },
+          {
+            "text": " Clusters**, die sie dadurch stellvertretend für das Design-System abdeckt:\n\n### 1. Das Som"
+          },
+          {
+            "text": "atisierungs-Cluster (Der Schmerz des Körpers)\n*   **Charakteristik:** In vielen Kulturen ("
+          },
+          {
+            "text": "und auch in vielen nicht-akademischen Milieus) existiert ein \"psychologisches Vokabular\" sch"
+          },
+          {
+            "text": "lichtweg nicht. Wenn Aminas Seele weint, tut ihr Körper weh. Sie spürt einen abgrundtiefen Druck auf"
+          },
+          {
+            "text": " der Brust, Migräne oder rasendes Herzklopfen. \n*   **Wen sie repräsentiert:** Alle"
+          },
+          {
+            "text": " Menschen, die an **psychosomatischen Beschwerden** leiden und vom Hausarzt weggeschickt werden (\"K"
+          },
+          {
+            "text": "örperlich sind Sie gesund!\"). \n*   **App-Relevanz:** Eine App, die stur fragt *\"Wel"
+          },
+          {
+            "text": "cher negative automatische Gedanke ging Ihnen durch den Kopf?\"*, scheitert bei ihr völlig. Amina braucht einen Ansatzpunkt über den Körper (\""
+          },
+          {
+            "text": "Wo tut es weh? Zeig es auf der Body-Map\"). Aus dem physischen Schmerz muss das Tool"
+          },
+          {
+            "text": " sanft die Brücke zur Emotion schlagen.\n\n### 2. Das Low-Literacy & Bürokratie-Fat"
+          },
+          {
+            "text": "igue-Cluster\n*   **Charakteristik:** Amina ist in ihrer Familie vermutlich die \"Übersetzerin\"."
+          },
+          {
+            "text": " Sie füllt seit sie 12 ist die Ämter-Formulare und Arztbriefe für ihre Eltern aus."
+          },
+          {
+            "text": " Sie hat eine absolute \"Bürokratie-Allergie\". Ein deutsches, trockenes Klinik-PDF aus"
+          },
+          {
+            "text": "zufüllen, fühlt sich für sie nicht nach Hilfe an, sondern nach der nächsten Amtspflicht.\n*   **Wen sie"
+          },
+          {
+            "text": " repräsentiert:** Menschen mit **Leseschwäche**, geringerem Bildungsgrad, kognitiver Er"
+          },
+          {
+            "text": "schöpfung oder alle, die deutsches Beamtendeutsch hassen. \n*   **App-Re"
+          },
+          {
+            "text": "levanz:** Wenn wir Amina UX-technisch gewinnen wollen, muss die App extrem **ikonografisch** funktionieren (st"
+          },
+          {
+            "text": "arke, kulturell verständliche Emojis, Symbole, Slider) und Fachsprache restlos vermeiden."
+          },
+          {
+            "text": " \n\n### 3. Das \"High-Obligation / Caregiver\" Cluster\n*   **Charakteristik:** Eine"
+          },
+          {
+            "text": " westliche VT (wie bei Max oder Lisa) empfiehlt oft: \"Grenzen setzen! Zeit für mich ein"
+          },
+          {
+            "text": "räumen! Mal 'Nein' sagen!\" Für eine Frau in engen familiären/kulturellen Verpflichtungs"
+          },
+          {
+            "text": "netzen ist ein \"Nein\" zur Pflege der Mutter keine therapeutische Übung, sondern sozialer Selbstmord. Ihr"
+          },
+          {
+            "text": " größtes Leid ist nicht \"Einsamkeit\" (wie bei vielen westlichen Singles), sondern eine fast erdr"
+          },
+          {
+            "text": "ückende, grenzenlose Überverantwortung und toxische Schuldgefühle.\n*   **Wen sie repräsent"
+          },
+          {
+            "text": "iert:** Pflegende Angehörige (Sandwich-Generation), junge Mütter, Familienväter mit extremem"
+          },
+          {
+            "text": " Versorgungsdruck.\n*   **App-Relevanz:** Coping-Skills wie \"Ein langes Bad"
+          },
+          {
+            "text": " nehmen\" existieren in ihrer Welt nicht. Das Tracking und die Ressourcen müssen extrem kurze Mikro-Regulationen unter Höch"
+          },
+          {
+            "text": "stdruck zulassen.\n\n---\n\n### Die 3 Kern-Szenarien für Amina\n\nAus diesen Charakteristiken"
+          },
+          {
+            "text": " ergeben sich diese wunderschönen und zugleich tragischen Lücken im Status Quo (Wie macht sie es heute?):\n\n**S"
+          },
+          {
+            "text": "zenario 1: The Translation Tax (Das verlorene Wort)**\n*   **Kategorie:** `capture.routine`"
+          },
+          {
+            "text": "\n*   **Worum es geht:** Amina sitzt weinend auf ihrem Bett. Sie versucht, ihr Papiertagebuch für den deutschen"
+          },
+          {
+            "text": " Arzt auszufüllen (\"Schweregefühl 1-10\"). Das Problem: Es gibt in ihrer Muttersprache ein ganz"
+          },
+          {
+            "text": " spezifisches, kulturelles Wort für ihren tiefen, generationellen Seelenschmerz (z.B. \"Hüz"
+          },
+          {
+            "text": "ün\" im Türkischen, was eine fast schöne, kollektive Melancholie beschreibt, oder Begriffe für \""
+          },
+          {
+            "text": "der böse Blick\", der ihr Pech bringt). Auf dem deutschen Zettel gibt es dafür keinen Platz. Sie kre"
+          },
+          {
+            "text": "uzt gefrustet \"Gedrückte Stimmung: 7\" an, aber es ist eine glatte in"
+          },
+          {
+            "text": "haltliche Amputation ihrer Kultur. Das deutsche Kassensystem verfehlt ihre Realität komplett.\n\n**Szenario 2"
+          },
+          {
+            "text": ": The Physical Disguise (Symptom-Shifting)**\n*   **Kategorie:** `capture.spontaneous` &"
+          },
+          {
+            "text": " `intervention.coping`\n*   **Worum es geht:** Im Familien-Wohnzimmer kommt es zum"
+          },
+          {
+            "text": " Konflikt. Amina rast der Puls. Um den Raum verlassen zu können, ohne das Stigma \"psychische Probleme"
+          },
+          {
+            "text": "\" heraufzubeschwören, hält sie sich den Kopf und sagt: \"Ich habe Migräne, ich bra"
+          },
+          {
+            "text": "uche Ruhe.\" Im Schlafzimmer nutzt sie ihr Handy. Sie trackt im Symptom-Tagebuch *tatsächlich* Migräne,"
+          },
+          {
+            "text": " weil es selbst im stillen Kämmerlein leichter (und ehrenhafter) ist, an Kopfweh zu leiden"
+          },
+          {
+            "text": " als zuzugeben, dass die eigene Familie sie psychisch zermalmt. Die Somatisierung wird durch ihr analoges Tool"
+          },
+          {
+            "text": "ing nicht durchbrochen.\n\n**Szenario 3: The Danger of the Analog Record (Intimate Intrusion"
+          },
+          {
+            "text": ")**\n*   **Kategorie:** `management.preservation` & `management.destroy_data_intentionally`\n*   **"
+          },
+          {
+            "text": "Worum es geht:** Die Mutter putzt und findet Aminas auf Deutsch geführtes Therapie-Heft. Obwohl die"
+          },
+          {
+            "text": " Mutter schlecht Deutsch liest, fragt ein Bruder, was da steht. Die familiäre Implosion droht. \"Ge"
+          },
+          {
+            "text": "hst du zu den Verrückten-Ärzten? Schande!\" Amina muss blitzschnell behaupt"
+          },
+          {
+            "text": "en, es handele sich um Studien-Hausaufgaben für Soziologie, nimmt das Buch, verlässt das Haus und zerreiß"
+          },
+          {
+            "text": "t es später in tausend Stücke in einem Mülleimer im Park. \n\n---\n\n### Was diese Persona"
+          },
+          {
+            "text": " uns bringt:\nAmina zementiert drei neue Säulen unserer App-Infrastruktur:\n1. **Ü"
+          },
+          {
+            "text": "bersetzung & UI-Individualisierung:** \"Trenne die UI-Sprache des Patienten vom Datenexport für den deutschen"
+          },
+          {
+            "text": " Arzt.\"\n2. **Körpersprache:** Das Tracking muss einen somatischen Startpunkt (Visualisierung eines sch"
+          },
+          {
+            "text": "merzenden Körpers) anbieten, um Kultur- & Sprachbarrieren zu überwinden.\n3. **Leb"
+          },
+          {
+            "text": "ensbedrohliche Privacy:** App-Icons (z. B. auf \"Kalender\" umstellen), Code-W"
+          },
+          {
+            "text": "örter für App-Launch und der bewährte \"Tarnkappen-Modus\" als absolute Notwendigkeit.\n\nWollen"
+          },
+          {
+            "text": " wir Amina (\"The Dual-World Navigator\") mit diesen Spezifikationen und den 3 Szenarien offiziell als **PERSON"
+          },
+          {
+            "text": "A-016** ins Set aufnehmen und somit \"Blinden Fleck 1\" (Multi-Kulti)"
+          },
+          {
+            "text": " offiziell abhaken?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

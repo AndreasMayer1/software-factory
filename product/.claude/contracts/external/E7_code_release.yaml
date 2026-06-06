@@ -1,0 +1,48 @@
+contract_version: 1
+kind: external-interface
+interface: E7
+title: Code release
+direction: factory -> store/registry -> user
+purpose: >
+  The factory builds and publishes a release artifact (APK, IPA, web bundle, pub package).
+  Mirrors the E5 OS-install pattern but the "install" is a build-and-publish pipeline
+  that produces a deployable artifact. "Built" is insufficient — a minimum-byte-size
+  check guards against empty/corrupt outputs.
+
+derived_from:
+  required:
+    - path: releases/<version>/release_notes_technical.md
+      source: external
+      input_modality: file
+      schema: null
+      reason: Human-authored release notes and version metadata consumed by the release pipeline.
+  optional:
+    - path: releases/<version>/size_analysis/<timestamp>/
+      source: external
+      input_modality: file
+      schema: null
+      reason: Prior size-analysis data used to detect regressions.
+
+produces:
+  conditional:
+    - path: releases/<version>/build/<artifact>
+      input_modality: file
+      schema: null                 # binary artifact (APK, IPA, web bundle)
+      condition: build command exited 0
+      reason: The deployable release artifact.
+
+quality_criteria:
+  - check: command_exited_zero
+    target_command: [flutter, build, <platform>]
+    note: The build action succeeded without errors.
+  - check: file_exists_at_path
+    target: releases/<version>/build/<artifact>
+    args: [--min-bytes, "10000"]
+    note: The artifact is non-empty (guards against silent empty-output failures).
+
+preconditions:
+  - All tasks for the target release package are in terminal status (completed/skipped).
+  - Release quality gates (bundle-size, test-determinism) passed in verify-quality --release.
+postconditions:
+  - The artifact is available at the expected path and meets the minimum-size threshold.
+  - Release notes and changelog are committed alongside the build artifact reference.

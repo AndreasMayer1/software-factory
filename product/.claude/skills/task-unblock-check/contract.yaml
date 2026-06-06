@@ -1,0 +1,59 @@
+contract_version: 1
+skill: task-unblock-check
+purpose: >
+  Investigate whether a blocked task's external blockers are still valid and
+  clear them when resolved. Iterates blocked tasks highest-priority first or
+  checks a single specified task.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Blocked task goal.md — provides awaiting, awaiting_note, and status fields.
+  optional:
+    - path: flow
+      source: external
+      reason: FLOW-NNN blockers resolved by reading review_status from the flow file.
+    - path: requirements
+      source: skill:requ-explore
+      reason: REQ-* blockers resolved by reading status from the requirement file.
+
+produces:
+  conditional:
+    - path: goal
+      condition: updated when the blocker is confirmed resolved — awaiting cleared, status set to pending.
+      reason: Task unblocked so it can appear in the ready queue.
+    - path: status-overview
+      condition: regenerated once after all tasks are processed.
+      reason: STATUS.md reflects the updated blocker states.
+
+quality_criteria:
+  - Free-text blockers (awaiting_note) are presented to the user verbatim for resolution decision.
+  - Artifact blockers (FLOW-*, REQ-*, TASK-*) are resolved by reading the actual artifact status.
+  - User explicitly confirms unblocking before goal.md is modified.
+  - STATUS.md is regenerated exactly once at the end (not per task).
+
+user_input_gates:
+  - phase: "Step 3 — Present and ask (per task)"
+    description: "Developer confirms whether each blocked task is still blocked, or signals it is unblocked (yes / no / update-note / stop)."
+    decision_kind: path-selection
+    required: always
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_tasks/<task>/goal.md
+    action: write
+    note: awaiting cleared and status set to pending when unblocked.
+  - target: requirements_tasks/STATUS.md
+    action: regenerate
+    note: Regenerated via generate_status_overview.py after all tasks are processed.
+
+preconditions:
+  - At least one task has status: blocked in requirements_tasks/.
+
+postconditions:
+  - "Unblocked tasks have awaiting: [] and status: pending."
+  - STATUS.md is regenerated.
+  - Summary reported: X unblocked, Y still blocked, Z skipped.

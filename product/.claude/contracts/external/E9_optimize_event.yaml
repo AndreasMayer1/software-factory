@@ -1,0 +1,35 @@
+contract_version: 1
+kind: external-interface
+interface: E9
+title: Optimize-event channel
+direction: factory -> factory (structured file)
+purpose: >
+  The claude-optimize skill logs structured JSON events about factory inefficiencies,
+  repeated patterns, and improvement candidates. The optimize-event channel formalizes
+  the structured-file produce: the event must be well-formed JSON so downstream tooling
+  (render_factory_map.py, manual review) can parse it without bespoke parsers.
+
+derived_from:
+  optional:
+    - path: requirements_tasks/<task>/plans_and_protocols/protocol*.md
+      source: external
+      input_modality: file
+      schema: null
+      reason: Protocol logs are the raw input claude-optimize reads to identify patterns.
+
+produces:
+  required:
+    - path: automation/optimize_events/<timestamp>_<slug>.json
+      input_modality: file
+      schema: null                 # JSON; validated by json_event_wellformed check
+      reason: Structured optimization event; consumed by factory-map rendering and manual review.
+
+quality_criteria:
+  - check: json_event_wellformed
+    target: automation/optimize_events/<timestamp>_<slug>.json
+    note: The event file must be valid JSON with at least the required top-level keys.
+
+preconditions:
+  - The claude-optimize skill has identified a repeating pattern or inefficiency.
+postconditions:
+  - The event file is parseable JSON and visible to downstream factory-map tooling.

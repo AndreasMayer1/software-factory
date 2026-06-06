@@ -1,0 +1,1 @@
+verify-quality updated: "claude-route" → "task-start" at line 232.

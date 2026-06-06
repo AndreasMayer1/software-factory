@@ -1,0 +1,188 @@
+# Schema: scribble_metadata.yaml
+#
+# Canonical source of truth for the metadata.yaml file produced by
+# ui-scribble-iterate inside every scribbles/v{n}/ folder.
+#
+# Produced by: ui-scribble-iterate
+# Consumed by: ui-verify-flutter, ui-improve-flutter, code-simple (Sketch Gate),
+#              code-complex (Sketch Gate), check_skill_contracts.py
+#
+# REPLACES (deleted in the same commit that introduced this schema — REQ-PROC-044 D-5):
+#   requirements_tasks/SKETCHES_README.md sections —
+#     - "metadata.yaml Format" (status/version/personas_applied/rules_applied/
+#       flutter_component_mapping/new_rules_anchored/design_decisions shape)
+#     - "flow_positions Field" (shape block)
+#     - "screen_versions Map" (shape block)
+#     - "Stale Scribble Lifecycle" field table (stale_since / pending_rules shape)
+#   Non-shape prose in those sections (lifecycle narrative, "only one approved at a
+#   time", how-to guidance) is PRESERVED in SKETCHES_README.md — only the field-shape
+#   duplication is removed and replaced with a pointer to this schema.
+#
+# Dialect: flat YAML with required:/optional:/enums: blocks (REQ-PROC-044 D-2). NOT full
+# JSON Schema — human-readable documentation + lint-augmented declaration, not a runtime
+# validator (the Wave-2 validate_against_schema.py consumes this dialect).
+
+schema_version: 1
+artifact: scribble_metadata.yaml
+description: >
+  Metadata file emitted alongside every scribble version folder. Tracks approval
+  status, persona/rule application, component mapping, and flow positioning.
+
+required:
+  status:
+    type: string
+    enum: [draft, reviewed, approved, superseded, stale]
+    description: >
+      Lifecycle state. Transitions: draft -> reviewed (after Phase 2 auto-review) ->
+      approved (developer approval, Phase 5) -> superseded (set on prior version when
+      a newer version is approved) -> stale (set by Phase 4 impact-check when a T1/T2
+      rule this scribble applied is later changed). Only one version may be 'approved'.
+
+  version:
+    type: [integer, string]
+    description: >
+      Version matching the scribbles/v{N}/ folder name. Set once at creation; never
+      mutated. Accepts an integer (1) or the legacy "v{N}" string form ("v2").
+
+  feature_path:
+    type: string
+    description: >
+      Path mirroring the lib/features/ hierarchy (e.g. `therapist/data_transfer` for
+      `lib/features/therapist/data_transfer/`; `lib/core/` maps to `_core/`). Determines
+      the scribble's storage location: `requirements_tasks/scribbles/<feature_path>/`.
+      Used by flow-index generation (Phase 5a), stale-scribble detection, and parity lint.
+
+  contributing_requirements:
+    type: array
+    items: { type: string }
+    min_items: 1
+    description: >
+      Requirement IDs (e.g. [REQ-FUNC-007]) whose ACs and scope drove this scribble.
+      Usually one entry; multi-entry for cross-requirement scribbles. The legacy single
+      `requirement: REQ-...` scalar form is accepted as an equivalent one-entry value.
+
+optional:
+  date:
+    type: string
+    format: date  # YYYY-MM-DD
+    description: Generation date of this scribble version. Informational.
+
+  screens_covered:
+    type: array
+    description: >
+      Ordered list of {screen_file: "one-line description"} entries documenting which
+      screens this version contains. Mirrors index.html for machine reading.
+    items: { type: object }
+
+  personas_applied:
+    type: array
+    items: { type: string }
+    description: >
+      Persona IDs whose constraints were applied during generation. Empty array if
+      no personas were applicable.
+
+  rules_applied:
+    type: array
+    items: { type: string }
+    description: >
+      T1/T2 rule IDs applied (e.g. [t1_touch_targets]). Used by Phase 4 impact-check
+      to detect stale scribbles when a rule is later modified.
+
+  flutter_component_mapping:
+    type: object
+    description: >
+      Map of HTML component tag -> Flutter/M3 widget (or _scribble_components/ entry).
+      Populated by Phase 2 auto-promotion.
+
+  new_rules_anchored:
+    type: array
+    description: T1/T2 rules first anchored during THIS scribble cycle.
+    items:
+      type: object
+      required_keys: [id, description, anchored_in]
+
+  design_decisions:
+    type: array
+    description: Decisions NOT derivable from requirements or rules.
+    items:
+      type: object
+      required_keys: [decision, reason]
+      optional_keys: [applies_to]
+
+  flow_positions:
+    type: array
+    description: >
+      Present only when the requirement is part of a user flow. Canonical screen
+      order for composite indexes comes from this list, not from numeric filename
+      prefixes (which are local sort helpers only).
+    items:
+      type: object
+      required_keys: [screen_file, flow_id, step_number, requirement_id]
+      optional_keys: [exception_id]
+
+  screen_versions:
+    type: object
+    description: >
+      Map of screen filename -> per-screen version number. Used by diff-based
+      partial regeneration; only feedback-affected screens increment.
+
+  phase_2_review_notes:
+    type: string
+    description: Free-text notes from the auto-reviewer agent (Phase 2). Absent if none.
+
+  stale_since:
+    type: string
+    format: date  # YYYY-MM-DD
+    description: >
+      Date this scribble became stale. Set when (a) a T1/T2 rule this scribble applied is
+      later changed, or (b) a LOCKED-IN requirement edit invalidates the scribble (the
+      requirement→scribble staleness edge, AC-03 edge 1, set by requ-explore at requirement-edit
+      time). Presence makes every dependent coding task non-runnable under the Scribble-Currency
+      Invariant (REQ-PROC-032-05) until a refreshed approved scribble exists. Detected by the
+      standing SCI audit (scripts/quality/check_scribble_currency.py). Cleared on regeneration.
+
+  pending_rules:
+    type: array
+    items: { type: string }
+    description: >
+      Rule IDs updated since this scribble was generated. Set alongside stale_since;
+      cleared on regeneration.
+
+  requirements_commit:
+    type: string
+    description: >
+      Git commit (short SHA) of the requirement's requirements.md that this scribble version
+      was generated against. Enables the SCI audit's commit-currency comparison (REQ-PROC-032-05
+      AC-02): a scribble is "behind" when the requirement's requirements.md has a newer committed
+      version than this. Optional; when absent the SCI audit falls back to the stale_since signal
+      and emits an advisory note rather than a hard violation.
+
+  data_bound:
+    type: boolean
+    description: >
+      True when this scribble's presentation/both-facet criteria reference a domain value-object
+      that itself has behaviour-facet criteria in the same design-unit (REQ-PROC-032-05 AC-03
+      edge 3 / AC-11). Marks the scribble as subject to the domain-code→data-bound-scribble
+      staleness edge. Optional; absent ⇒ treated as not data-bound.
+
+  domain_commit:
+    type: string
+    description: >
+      Git commit (short SHA) of the domain value-object definition this data-bound scribble was
+      generated against. Used by the edge-3 detector (domain-commit comparison) in the SCI audit.
+      Optional; meaningful only when data_bound is true.
+
+  draft_generator:
+    type: string
+    enum: [none, claude_design, stitch]
+    default: none
+    description: Which Phase 1 generator was used. Informational; audit trail.
+
+  participating_flows:
+    type: array
+    items: { type: string }
+    description: >
+      Flow IDs (e.g. [FLOW-002, FLOW-003]) that this scribble's screens participate in.
+      Derived automatically from the primary contributing requirement's implements_flows list
+      by scripts/scribbles/discover_scribble_requirements.py. Absent when no flows are
+      linked. Written alongside contributing_requirements during scribble generation.

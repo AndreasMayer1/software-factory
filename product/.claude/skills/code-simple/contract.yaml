@@ -1,0 +1,81 @@
+contract_version: 1
+skill: code-simple
+purpose: >
+  End-to-end workflow for a simple, single-file (1–3 file, single-layer) Dart change.
+  CONSUMER of goal.md: reads the task objective, implements lib/ source + test/ files,
+  runs the per-change quality gates, and closes the task. The lightweight sibling of
+  code-complex.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: >
+        THE task objective. Read in step 2 to identify scope, layer, and the relevant
+        doc/ guidelines. Produced by task-create (or task-create-code for code tasks).
+  optional:
+    - path: guideline
+      source: external
+      reason: Architecture/domain/presentation/testing guidelines — LAW for how code is built.
+    - path: scribble-metadata
+      source: skill:ui-scribble-iterate
+      schema: .claude/schemas/scribble_metadata.yaml
+      condition: read when the task modifies the Presentation Layer (Sketch Gate).
+      reason: "Approved scribble (status: approved) drives element choices for UI work."
+    - path: concept-canon
+      source: skill:ux-write-canon-concept
+      schema: .claude/schemas/concept_canon_entry.yaml
+      condition: read when naming classes/events/states or introducing user-facing concepts.
+      reason: Canonical names for code symbols and user-facing strings.
+
+produces:
+  required:
+    - path: source
+      reason: The 1–3 implemented Dart source file(s) for the task.
+    - path: test
+      reason: Initial test file(s) for the implemented source (written, then run by test-engineer).
+  conditional:
+    - path: lookup-log
+      condition: created on entry to record doc-lookup-dependencies calls (REQ-PROC-053 AC-07).
+      reason: Per-task doc-lookup dedup/budget ledger.
+
+quality_criteria:
+  - Implemented files compile and dart analyze is clean (G1).
+  - Every written test file passes flutter test before completion.
+  - verify-quality returns GREEN (all per-change gates) before task-complete runs.
+  - Non-obvious code carries a WHY comment per CLAUDE.md Section 5.
+
+user_input_gates:
+  - phase: "Step 2 — Read & Assess (Sketch Gate, no approved scribble)"
+    description: "Developer reviews and approves the generated scribble before implementation begins, when no approved scribble exists for a Presentation Layer task."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires when the task modifies Presentation Layer AND no approved scribble exists AND skip_scribble is not set."
+  - phase: "Step 2 — VCD Guard (value conflict)"
+    description: "Developer resolves a detected value conflict before implementation proceeds, when the change degrades a primary persona value."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires when the change affects features used by personas with conflicting values AND degrades a persona's primary value."
+
+may_invoke:
+  - task-create            # Setup — initialize workspace if not already done
+  - ui-scribble-iterate     # Sketch Gate — Presentation Layer with no approved scribble
+  - doc-update-tokens      # missing design token discovered during implementation
+  - ux-write-canon-concept # new user-facing concept introduced
+  - doc-lookup-dependencies # API lookup before/around implementation and on gate-failure edges
+  - doc-update-guidelines  # mandatory post-step (exits early if nothing to update)
+  - claude-log             # persist work
+  - task-complete          # close + commit the task
+
+side_effects:
+  - target: requirements_tasks/<category>/<req>/<feature>/tasks/<task>/plans_and_protocols/
+    action: append
+    note: Protocol/log files written by claude-log and the doc-lookup ledger.
+
+preconditions:
+  - A goal.md exists for the task and conforms to goal_metadata.yaml (validated by the entry pre-check).
+  - The change is genuinely simple (≤ 3 files, single layer); otherwise redirect to code-complex.
+
+postconditions:
+  - The implemented source + tests exist, all gates are GREEN, and task-complete has committed.

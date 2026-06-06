@@ -1,0 +1,313 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Ich stimme zu. Nehmen wir die 5 neuen für Lena. Dann weiter mit Lisa. ",
+        "role": "user",
+        "tokenCount": 22,
+        "createTime": "2026-02-28T16:25:05.406Z"
+      },
+      {
+        "text": "**Shifting Focus: Lisa**\n\nI've successfully wrapped up the Lena (`PERSONA-015`) scenarios. Now, I'm fully immersing myself in Lisa (`PERSONA-005`), the \"Waitlist Bridger\" persona. I'm deep-diving into the user's instructions and requirements to get a solid grasp of her needs, and the optimal path forward. I'm ready to proceed to analysis and strategy after this.\n\n\n**Defining Lisa's Challenges**\n\nI'm now zeroing in on Lisa's (PERSONA-005) core challenges. I've broken down her role as the \"Waitlist Bridger\" and identified her key needs: to build a data package, gain psychoeducation, and feel productive. I'm focusing on two initial scenarios: \"The Proof of Illness GP Visit\" and \"Discovering Template from Self-Help Book\". The gaps in her lifecycle, especially in setup, discovery, and capture, are coming into focus. I need to understand how to guide her efficiently.\n\n\n**Analyzing Lisa's Limitations**\n\nI am now focusing on the nuances of Lisa's situation. I'm seeing that, unlike Max, she doesn't have external accountability, which makes her depression even more challenging. I am now working on scenarios, like \"The Ratgeber Template Trap,\" where Lisa attempts to use a self-help book but gets stuck on reframing negative thoughts. I'm focusing on the mental load of the waiting period and the need for external validation.\n\n\n**Unpacking Lisa's Needs**\n\nI'm deep in the scenarios now, focusing on the GP visit and the need for translation from subjective journaling to an exportable medical summary. The scenario \"The Proof of Suffering\" highlights the critical need for a structured way to articulate her experiences within the limited time with her doctor. The app's value here is clear: it can translate subjective journaling into an objective medical summary.\n\n\n**Exploring Lisa's Motivation**\n\nI'm now diving into the fourth scenario, focusing on Lisa's 116117 Hustle. I'm seeing a critical need for an intrinsic motivation loop, as there's no external accountability. I'm exploring how the system can provide direct reflection and insight. The new \"bureaucratic tracking\" idea is crucial here. I'm also now analyzing the frustration Lisa experiences when tracking the German health system itself, which significantly impacts her mood.",
+        "role": "model",
+        "tokenCount": 1270,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Shifting Focus: Lisa**\n\nI've successfully wrapped up the Lena (`PERSONA-015`) scenarios. Now, I'm fully immersing myself in Lisa (`PERSONA-005`), the \"Waitlist Bridger\" persona. I'm deep-diving into the user's instructions and requirements to get a solid grasp of her needs, and the optimal path forward. I'm ready to proceed to analysis and strategy after this.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Defining Lisa's Challenges**\n\nI'm now zeroing in on Lisa's (PERSONA-005) core challenges. I've broken down her role as the \"Waitlist Bridger\" and identified her key needs: to build a data package, gain psychoeducation, and feel productive. I'm focusing on two initial scenarios: \"The Proof of Illness GP Visit\" and \"Discovering Template from Self-Help Book\". The gaps in her lifecycle, especially in setup, discovery, and capture, are coming into focus. I need to understand how to guide her efficiently.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Lisa's Limitations**\n\nI am now focusing on the nuances of Lisa's situation. I'm seeing that, unlike Max, she doesn't have external accountability, which makes her depression even more challenging. I am now working on scenarios, like \"The Ratgeber Template Trap,\" where Lisa attempts to use a self-help book but gets stuck on reframing negative thoughts. I'm focusing on the mental load of the waiting period and the need for external validation.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Unpacking Lisa's Needs**\n\nI'm deep in the scenarios now, focusing on the GP visit and the need for translation from subjective journaling to an exportable medical summary. The scenario \"The Proof of Suffering\" highlights the critical need for a structured way to articulate her experiences within the limited time with her doctor. The app's value here is clear: it can translate subjective journaling into an objective medical summary.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Exploring Lisa's Motivation**\n\nI'm now diving into the fourth scenario, focusing on Lisa's 116117 Hustle. I'm seeing a critical need for an intrinsic motivation loop, as there's no external accountability. I'm exploring how the system can provide direct reflection and insight. The new \"bureaucratic tracking\" idea is crucial here. I'm also now analyzing the frustration Lisa experiences when tracking the German health system itself, which significantly impacts her mood.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-28T16:25:05.408Z"
+      },
+      {
+        "text": "\n\n\nAusgezeichnet, die fünf tiefenpsychologischen und trauma-assoziierten Szenarien für Lena sind fest im Projekt-Scope verankert. \n\nKommen wir zu **Lisa (The Waitlist Bridger / PERSONA-005)**. \n\nDas ist vielleicht unsere politisch und systemisch relevanteste Persona. Wir betreten hiermit die **absolute Wüste des deutschen Gesundheitssystems**: Die Lücke zwischen Erstdiagnose durch den Hausarzt (z.B. mit Vermittlungscode) und dem tatsächlichen Beginn der Therapie, oft 6 bis 9 Monate später. \n\nLisa ist völlig auf sich allein gestellt. Ihr größter Feind ist neben der Depression das *\"Imposter-Syndrom\"* (\"Bin ich überhaupt krank genug? Warum reiche ich niemandem als Patientin?\") und der Kampf mit Ämtern und Arztpraxen.\n\nHier sind 4 zwingende Out-of-the-Box Status-Quo-Szenarien, die Lisa und die unversorgte Lücke präzise dokumentieren:\n\n### A. Setup ohne Ausbildung (Planerstellung durch Laien)\n\n*   **Szenario 1: The Ratgeber Template Trap** \n    *   **Kategorie:** `sharing.independent_discovery` & `creation.prepare_protocol`\n    *   **Worum es geht:** Lisa hat nach 10 Therapeuten-Absagen den starken Drang, *wenigstens irgendwas* zu tun (\"Aktives Warten\"). Sie kauft ein VT-Selbsthilfebuch (Ratgeber) für Depressionen. Sie kopiert motiviert das darin enthaltene Spalten-Muster auf einen Zettel. \n    *   **Das Status-Quo-Problem:** Der Buch-Plan fordert sie abends auf: \"Re-framen Sie jetzt Ihren negativen automatischen Gedanken!\" Lisa starrt das Feld an. Ihr wurde das nie von einer Therapeutin erklärt. Das leere Feld verlangt therapeutische Arbeit, für die sie noch kein Rüstzeug hat. Sie fühlt sich dumm, scheitert am Konzept und schmeißt das System frustriert weg.\n    *   **Warum wir es brauchen:** Für App-Templates für Self-User reicht ein blankes Datenfeld niemals aus. Wenn ein System von Patienten genutzt wird, die (noch) keine Therapeuten haben, MUSS es dichte **Psychoedukation** (Tutorials/Hilfe-Icons \"Was ist überhaupt ein rationaler Alternativgedanke?\") in der UI verbaut haben, sonst ist es ein Werkzeug ohne Anleitung.\n\n### B. Legitimation gegenüber dem Apparat (Transfer extern)\n\n*   **Szenario 2: The Proof of Suffering (The 3-Minute GP Visit)**\n    *   *(Hatte ich bereits kurz skizziert, hier voll ausgearbeitet)*\n    *   **Kategorie:** `management.share_externally` / `analysis.self_reflect`\n    *   **Worum es geht:** Lisa sitzt beim Hausarzt (oder MDK-Prüfer). Sie braucht eine Verlängerung der Krankschreibung (AU) oder einen neuen Dringlichkeitscode (für die 116117). Sie muss dem System **beweisen**, dass ihre Depression manifest ist und nicht \"nur ne Verstimmung\".\n    *   **Das Status-Quo-Problem:** Sie blättert zittrig im Wartezimmer durch ihr persönliches Notizheft, um Argumente zu sammeln. Dort stehen sehr subjektive Dinge (\"Mittags Gewürgt im Bad\", \"Abgrundtiefes Loch\"). Dem Hausarzt (Zeitbudget: 3 Minuten) kann sie das Heftchen unmöglich hinlegen, es wirkt nicht \"medizinisch/klinisch\", sondern zu nah und formlos. Sie scheitert an der Kommunikation und bekommt ihre Überweisung/AU nur knapp und mit ungläubigem Blick des Arztes, was ihr \"Imposter-Syndrom\" extrem triggert (\"Ich wirke gar nicht depressiv!\").\n    *   **Warum wir es brauchen:** Erschafft den absolut kritischen Flow: **Der Clinical PDF Export (\"The Paper Bridge\")**. Lisa muss aus subjektiven und fließenden Tagebucheinträgen für Ärzte einen objektiven, arztkonformen Kurz-Bericht (Zeiträume, Schweregrade der Peaks) pressen können. Daten-Verteidigung ist für Patienten genauso wichtig wie Therapiearbeit.\n\n### C. Die Realität der Bürokratie-Achterbahn (Capture out of Context)\n\n*   **Szenario 3: The 116 117 Hustle (Tracking the System, not the Self)**\n    *   **Kategorie:** `capture.spontaneous` (Sonderfall)\n    *   **Worum es geht:** Lisas Dienstag-Vormittage sind geprägt von einem Ritual: Der telefonischen Sprechstunde. Sie arbeitet eine Liste von Therapeuten ab. Rufzeichen. \"Leider erst 2027 wieder Kapazitäten.\" Rufzeichen. \"Wir nehmen niemand auf.\" Sie schreibt neben ihre Liste hektisch Anmerkungen auf die Rückseite von Kassenbons. Nach drei Anrufen sackt ihre Stimmung komplett zusammen und sie weint.\n    *   **Das Status-Quo-Problem:** Ihr eigentliches Stimmungstagebuch ist völlig nutzlos, um diesen extrem speziellen Teil des deutschen Versorgungssystems abzubilden. Der massive Reaktivitäts-Abfall an diesem Vormittag wirkt unerklärlich, bis man versteht: *Das Organisieren von mentaler Hilfe ist ein eigenständiges Trauma in diesem System.* Die Trennung zwischen Orga-Wahnsinn (Therapeutensuche) und echtem Lebens-Wohlbefinden verwäscht völlig.\n    *   **Warum wir es brauchen:** Ein sehr authentisches \"Mental-Load\"-Szenario für den Kontext in Deutschland. Wenn User den Grund für Stimmungsabfälle notieren, müssen Kategorien wie \"Kampf mit Gesundheitssystem\" prominent abbildbar sein.\n\n### D. Die Verwahrlosung des eigenen Vorhabens (Motivation ohne Therapeut)\n\n*   **Szenario 4: The Accountability Void**\n    *   **Kategorie:** `capture.routine` (Failure)\n    *   **Worum es geht:** Bei Max (Depression mit Therapie) passiert das Routine-Eintragen zumindest als Performanz gegenüber seiner Therapeutin Dr. Sarah – ein externer Druck hält ihn ein paar Tage am Leben. **Lisa ist bei Woche 4 der Warteliste.** Niemand hat ihr Hausaufgaben gegeben. Niemand guckt in den Tracker. \n    *   **Das Status-Quo-Problem:** Wenn es keinen externen Begutachter (Therapeuten) gibt, stirbt die Motivation (\"Wer interessiert sich überhaupt für meine Stimmung?\") noch radikaler ab als bei Therapie-Klienten. Das Papier starrt zurück in absoluter Gleichgültigkeit. Wenn Lisa die Lücken an den leeren Tagen sieht, stürzen sie nicht (wie bei David) als \"Streak Break\" ein, sondern produzieren Leere. Nach vier Wochen löst sich ihre Bemühung sang- und klanglos auf. Als sie sechs Monate später im Erstgespräch sitzt, sind fünf von sechs Monaten reine Gedächtnis-Lücke.\n    *   **Warum wir es brauchen:** Verpflichtet das UI/UX-System dazu, intrinsisch lohnende Rückkopplungen (\"Hier siehst du, du hattest diese Woche immerhin eine winzige gute Phase am Freitag\") sofort zu spielen, und nicht auf den Therapeuten zu warten, um Sinn in die Aufzeichnung zu bringen. Das Interface selbst muss der Coach/Verfechter der Daten sein.\n\n---\n\n**Vollständigkeits-Check für Lisa (Self-User im Medizin-Nirvana):**\n*   [x] Vorlagenerstellung aus Büchern / Das Ratgeber-Template (Neu -> Sz 1)\n*   [x] Legitimation im Medizinsystem (\"Der 3-Minuten Hausarzt\", Export) (Neu -> Sz 2)\n*   [x] Kontextuelles Tracking (\"Ich organisiere mir einen Ast und ruiniere mir dabei mein Befinden\") (Neu -> Sz 3)\n*   [x] Der komplette Verlust jeglichen Routine-Zwangs (Accountability Void) (Neu -> Sz 4)\n\nSpiegeln diese 4 Szenarien die Wut, Einsamkeit und das Dokumentationsleid einer Wartelisten-Brückenpatientin für dich passgenau und abschließend wider?\n\nDer nächste \"Kandidat\" im Set, bei dem es vermutlich auch schnell gehen könnte, wäre danach direkt: **Max, The Overwhelmed (PERSONA-002)** – obwohl wir für Max als *Gold Standard* im Rahmen der Pipeline bereits alles haben! Sollen wir ihn trotzdem checken, um methodisch sicher zu sein?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1907,
+        "parts": [
+          {
+            "text": "\n\n\nAusgezeichnet, die fünf tief"
+          },
+          {
+            "text": "enpsychologischen und trauma-assoziierten Szenarien für Lena sind fest im Projekt-Scope verankert. \n\nKommen"
+          },
+          {
+            "text": " wir zu **Lisa (The Waitlist Bridger / PERSONA-005)**. \n\nDas ist vielleicht"
+          },
+          {
+            "text": " unsere politisch und systemisch relevanteste Persona. Wir betreten hiermit die **absolute Wüste des deutschen Gesundheitssystems**:"
+          },
+          {
+            "text": " Die Lücke zwischen Erstdiagnose durch den Hausarzt (z.B. mit Vermittlungscode) und dem tatsächlichen Beginn der"
+          },
+          {
+            "text": " Therapie, oft 6 bis 9 Monate später. \n\nLisa ist völlig auf sich allein gestellt. Ihr größter Feind ist neben"
+          },
+          {
+            "text": " der Depression das *\"Imposter-Syndrom\"* (\"Bin ich überhaupt krank genug? Warum reiche ich niemandem als Patientin?\") und der Kampf"
+          },
+          {
+            "text": " mit Ämtern und Arztpraxen.\n\nHier sind 4 zwingende Out-of-the-Box Status"
+          },
+          {
+            "text": "-Quo-Szenarien, die Lisa und die unversorgte Lücke präzise dokumentieren:\n\n### A. Setup"
+          },
+          {
+            "text": " ohne Ausbildung (Planerstellung durch Laien)\n\n*   **Szenario 1: The Ratgeber Template Trap**"
+          },
+          {
+            "text": " \n    *   **Kategorie:** `sharing.independent_discovery` & `creation.prepare_protocol`"
+          },
+          {
+            "text": "\n    *   **Worum es geht:** Lisa hat nach 10 Therapeuten-Absagen den starken"
+          },
+          {
+            "text": " Drang, *wenigstens irgendwas* zu tun (\"Aktives Warten\"). Sie kauft ein VT-Sel"
+          },
+          {
+            "text": "bsthilfebuch (Ratgeber) für Depressionen. Sie kopiert motiviert das darin enthaltene Spalten-M"
+          },
+          {
+            "text": "uster auf einen Zettel. \n    *   **Das Status-Quo-Problem:** Der Buch-Plan fordert sie"
+          },
+          {
+            "text": " abends auf: \"Re-framen Sie jetzt Ihren negativen automatischen Gedanken!\" Lisa starrt das Feld an. Ihr"
+          },
+          {
+            "text": " wurde das nie von einer Therapeutin erklärt. Das leere Feld verlangt therapeutische Arbeit, für die sie noch kein"
+          },
+          {
+            "text": " Rüstzeug hat. Sie fühlt sich dumm, scheitert am Konzept und schmeißt das System frust"
+          },
+          {
+            "text": "riert weg.\n    *   **Warum wir es brauchen:** Für App-Templates für Self-User reicht ein blankes Daten"
+          },
+          {
+            "text": "feld niemals aus. Wenn ein System von Patienten genutzt wird, die (noch) keine Therapeuten haben, MUSS es d"
+          },
+          {
+            "text": "ichte **Psychoedukation** (Tutorials/Hilfe-Icons \"Was ist überhaupt ein rationaler Altern"
+          },
+          {
+            "text": "ativgedanke?\") in der UI verbaut haben, sonst ist es ein Werkzeug ohne Anleitung.\n\n### B. Legit"
+          },
+          {
+            "text": "imation gegenüber dem Apparat (Transfer extern)\n\n*   **Szenario 2: The Proof of Suffering (The"
+          },
+          {
+            "text": " 3-Minute GP Visit)**\n    *   *(Hatte ich bereits kurz skizziert, hier voll ausgearbeitet"
+          },
+          {
+            "text": ")*\n    *   **Kategorie:** `management.share_externally` / `analysis.self_reflect"
+          },
+          {
+            "text": "`\n    *   **Worum es geht:** Lisa sitzt beim Hausarzt (oder MDK-Prüfer). Sie braucht eine Verl"
+          },
+          {
+            "text": "ängerung der Krankschreibung (AU) oder einen neuen Dringlichkeitscode (für die 116117)."
+          },
+          {
+            "text": " Sie muss dem System **beweisen**, dass ihre Depression manifest ist und nicht \"nur ne Verstimmung\".\n    *   **Das"
+          },
+          {
+            "text": " Status-Quo-Problem:** Sie blättert zittrig im Wartezimmer durch ihr persönliches Notizheft, um"
+          },
+          {
+            "text": " Argumente zu sammeln. Dort stehen sehr subjektive Dinge (\"Mittags Gewürgt im Bad\", \"Abgrundt"
+          },
+          {
+            "text": "iefes Loch\"). Dem Hausarzt (Zeitbudget: 3 Minuten) kann sie das Heftchen unmöglich hinlegen, es wirkt"
+          },
+          {
+            "text": " nicht \"medizinisch/klinisch\", sondern zu nah und formlos. Sie scheitert an der Kommunikation und bekommt"
+          },
+          {
+            "text": " ihre Überweisung/AU nur knapp und mit ungläubigem Blick des Arztes, was ihr \"Imposter-Syndrom\" extrem trig"
+          },
+          {
+            "text": "gert (\"Ich wirke gar nicht depressiv!\").\n    *   **Warum wir es brauchen:** Erschafft"
+          },
+          {
+            "text": " den absolut kritischen Flow: **Der Clinical PDF Export (\"The Paper Bridge\")**. Lisa muss aus subjektiven und fließenden Tagebucheinträgen"
+          },
+          {
+            "text": " für Ärzte einen objektiven, arztkonformen Kurz-Bericht (Zeiträume, Schweregrade der Peaks) pressen können. Daten"
+          },
+          {
+            "text": "-Verteidigung ist für Patienten genauso wichtig wie Therapiearbeit.\n\n### C. Die Realität der Bürokratie-A"
+          },
+          {
+            "text": "chterbahn (Capture out of Context)\n\n*   **Szenario 3: The 116 117 Hustle"
+          },
+          {
+            "text": " (Tracking the System, not the Self)**\n    *   **Kategorie:** `capture.spontaneous` (Sonder"
+          },
+          {
+            "text": "fall)\n    *   **Worum es geht:** Lisas Dienstag-Vormittage sind geprägt von einem"
+          },
+          {
+            "text": " Ritual: Der telefonischen Sprechstunde. Sie arbeitet eine Liste von Therapeuten ab. Rufzeichen. \""
+          },
+          {
+            "text": "Leider erst 2027 wieder Kapazitäten.\" Rufzeichen. \"Wir nehmen niemand auf.\" Sie schreibt neben ihre Liste"
+          },
+          {
+            "text": " hektisch Anmerkungen auf die Rückseite von Kassenbons. Nach drei Anrufen sackt ihre Stimmung komplett zusammen und sie we"
+          },
+          {
+            "text": "int.\n    *   **Das Status-Quo-Problem:** Ihr eigentliches Stimmungstagebuch ist völlig nut"
+          },
+          {
+            "text": "zlos, um diesen extrem speziellen Teil des deutschen Versorgungssystems abzubilden. Der massive Reaktivitäts-Abfall an diesem Vorm"
+          },
+          {
+            "text": "ittag wirkt unerklärlich, bis man versteht: *Das Organisieren von mentaler Hilfe ist ein eigenständiges Trauma"
+          },
+          {
+            "text": " in diesem System.* Die Trennung zwischen Orga-Wahnsinn (Therapeutensuche) und echtem Lebens-Wohlbefinden verw"
+          },
+          {
+            "text": "äscht völlig.\n    *   **Warum wir es brauchen:** Ein sehr authentisches \"Mental-Load\"-Szenario für den"
+          },
+          {
+            "text": " Kontext in Deutschland. Wenn User den Grund für Stimmungsabfälle notieren, müssen Kategorien wie \"Kampf mit"
+          },
+          {
+            "text": " Gesundheitssystem\" prominent abbildbar sein.\n\n### D. Die Verwahrlosung des eigenen Vorhabens (Motivation ohne Therapeut)"
+          },
+          {
+            "text": "\n\n*   **Szenario 4: The Accountability Void**\n    *   **Kategorie:** `capture."
+          },
+          {
+            "text": "routine` (Failure)\n    *   **Worum es geht:** Bei Max (Depression mit Therapie) passiert"
+          },
+          {
+            "text": " das Routine-Eintragen zumindest als Performanz gegenüber seiner Therapeutin Dr. Sarah – ein externer Druck hält ihn ein"
+          },
+          {
+            "text": " paar Tage am Leben. **Lisa ist bei Woche 4 der Warteliste.** Niemand hat ihr Hausaufgaben gegeben. Niemand gu"
+          },
+          {
+            "text": "ckt in den Tracker. \n    *   **Das Status-Quo-Problem:** Wenn es keinen externen Beg"
+          },
+          {
+            "text": "utachter (Therapeuten) gibt, stirbt die Motivation (\"Wer interessiert sich überhaupt für meine Stimmung?\") noch rad"
+          },
+          {
+            "text": "ikaler ab als bei Therapie-Klienten. Das Papier starrt zurück in absoluter Gleichgültigkeit. Wenn Lisa die"
+          },
+          {
+            "text": " Lücken an den leeren Tagen sieht, stürzen sie nicht (wie bei David) als \"Streak Break\" ein, sondern produz"
+          },
+          {
+            "text": "ieren Leere. Nach vier Wochen löst sich ihre Bemühung sang- und klanglos auf. Als sie sechs"
+          },
+          {
+            "text": " Monate später im Erstgespräch sitzt, sind fünf von sechs Monaten reine Gedächtnis-Lücke.\n    *"
+          },
+          {
+            "text": "   **Warum wir es brauchen:** Verpflichtet das UI/UX-System dazu, intrinsisch lohnende Rückkopp"
+          },
+          {
+            "text": "lungen (\"Hier siehst du, du hattest diese Woche immerhin eine winzige gute Phase am Freitag\") sofort"
+          },
+          {
+            "text": " zu spielen, und nicht auf den Therapeuten zu warten, um Sinn in die Aufzeichnung zu bringen. Das Interface"
+          },
+          {
+            "text": " selbst muss der Coach/Verfechter der Daten sein.\n\n---\n\n**Vollständigkeits-Check für Lisa ("
+          },
+          {
+            "text": "Self-User im Medizin-Nirvana):**\n*   [x] Vorlagenerstellung aus Büchern / Das Ratgeber-Template"
+          },
+          {
+            "text": " (Neu -> Sz 1)\n*   [x] Legitimation im Medizinsystem (\"Der 3-Minuten Haus"
+          },
+          {
+            "text": "arzt\", Export) (Neu -> Sz 2)\n*   [x] Kontextuelles Tracking (\"Ich organisiere mir"
+          },
+          {
+            "text": " einen Ast und ruiniere mir dabei mein Befinden\") (Neu -> Sz 3)\n*   [x]"
+          },
+          {
+            "text": " Der komplette Verlust jeglichen Routine-Zwangs (Accountability Void) (Neu -> Sz 4)\n\nSpiegeln diese 4 Szenarien die"
+          },
+          {
+            "text": " Wut, Einsamkeit und das Dokumentationsleid einer Wartelisten-Brückenpatientin für dich passgenau und absch"
+          },
+          {
+            "text": "ließend wider?\n\nDer nächste \"Kandidat\" im Set, bei dem es vermutlich auch schnell gehen könnte, wäre danach"
+          },
+          {
+            "text": " direkt: **Max, The Overwhelmed (PERSONA-002)** – obwohl wir für Max als *"
+          },
+          {
+            "text": "Gold Standard* im Rahmen der Pipeline bereits alles haben! Sollen wir ihn trotzdem checken, um methodisch sicher zu sein?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

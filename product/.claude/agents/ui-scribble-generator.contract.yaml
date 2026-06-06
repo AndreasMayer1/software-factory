@@ -1,0 +1,22 @@
+contract_version: 1
+purpose: >
+  Generates one versioned HTML wireframe scribble (scribbles/v{n}/) for a requirement's
+  Presentation scope — screens, component mapping, CONTRACT BLOCK, accessibility intent,
+  and rule-application audit trace.
+derived_from:
+  - requirements
+  - guideline
+  - guideline
+  - persona
+consumes:
+  - requirements
+  - persona
+  - design-rule  # T1/T2 rules
+  - concept-canon
+  - scribble  # prior version (regeneration mode only)
+  - scribble-inspiration-input  # structured inspiration inputs (AC-33, optional)
+produces:
+  - scribble
+  - scribble  # one per screen
+  - scribble-metadata
+  - scribble-feedback

@@ -1,0 +1,96 @@
+{
+    "autoCompactEnabled": false,
+    "permissions": {
+        "allow": [
+            "Edit(.claude/skills/**)",
+            "Write(.claude/skills/**)",
+            "Bash(scripts/quality/check_quality_gates.sh:*)",
+            "Bash(scripts/quality/check_no_network_io.sh:*)",
+            "Bash(scripts/quality/check_no_telemetry_sdks.py:*)",
+            "Bash(scripts/quality/check_no_hardcoded_secrets.sh:*)",
+            "Bash(scripts/quality/check_weak_crypto.sh:*)",
+            "Bash(scripts/quality/check_suppression_justification.sh:*)",
+            "Bash(scripts/quality/check_no_debug_artifacts.sh:*)",
+            "Bash(bash scripts/quality/check_quality_gates.sh:*)",
+            "Bash(python3 scripts/quality/check_no_telemetry_sdks.py:*)"
+        ]
+    },
+    "hooks": {
+        "SessionStart": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "count=$(python3 /workspaces/private_mood_tracker/flutter_app/scripts/top_blocked_task.py --count-older-than 7 2>/dev/null); [ \"$count\" -gt 0 ] 2>/dev/null && echo \"[$count blocked task(s) waiting 7+ days] Run /task-unblock-check to investigate.\" || true"
+                    }
+                ]
+            }
+        ],
+        "PostToolUse": [
+            {
+                "matcher": "Edit|Write",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bash /workspaces/private_mood_tracker/flutter_app/.claude/hooks/post_edit_dart_fix.sh 2>/dev/null || true",
+                        "statusMessage": "dart fix --apply..."
+                    },
+                    {
+                        "type": "command",
+                        "command": "bash /workspaces/private_mood_tracker/flutter_app/.claude/hooks/post_edit_dart_analyze.sh 2>/dev/null || true",
+                        "statusMessage": "dart analyze..."
+                    }
+                ]
+            },
+            {
+                "matcher": "Read",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bash /workspaces/private_mood_tracker/flutter_app/.claude/hooks/post_read_log_bytes.sh 2>/dev/null || true",
+                        "statusMessage": "logging read bytes..."
+                    }
+                ]
+            },
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bash /workspaces/private_mood_tracker/flutter_app/.claude/hooks/post_tool_use_inbox.sh 2>/dev/null || true"
+                    }
+                ]
+            }
+        ],
+        "PreToolUse": [
+            {
+                "matcher": "Edit|Write",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bash /workspaces/private_mood_tracker/flutter_app/.claude/hooks/pre_edit_scripts_reminder.sh"
+                    }
+                ]
+            },
+            {
+                "matcher": "Bash",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bash /workspaces/private_mood_tracker/flutter_app/.claude/hooks/pre_bash_commit_gate.sh",
+                        "statusMessage": "verify-quality (pre-commit)..."
+                    }
+                ]
+            },
+            {
+                "matcher": "Read",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bash /workspaces/private_mood_tracker/flutter_app/.claude/hooks/pre_read_log_event.sh 2>/dev/null || true",
+                        "statusMessage": "logging read event..."
+                    }
+                ]
+            }
+        ]
+    }
+}

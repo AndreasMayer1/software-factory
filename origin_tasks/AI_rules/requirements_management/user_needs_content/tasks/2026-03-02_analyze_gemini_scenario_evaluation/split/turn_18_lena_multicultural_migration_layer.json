@@ -1,0 +1,259 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Deutschland ist Multi kulti. Außerdem kann es längerfristig Sinn machen auch andere sprachen anzubieten. Bleiben wir vorerst trotzdem bei den deutschen Herausforderungen. Denkst du wir müssen für Migranten zusätzliches beachten? Dann müssen wir die personas entsprechend erweitern. Aber das würde ich gerne dann in Nachgang tun, wenn wir mit den zusätzlichen Szenarien einmal durch sind. \n\nDeine Ergänzungen zu Lena gefallen mir. Welche Gruppen repräsentiert sie noch? Fallen dir noch Szenarien ein? ",
+        "role": "user",
+        "tokenCount": 107,
+        "createTime": "2026-02-28T16:20:21.188Z"
+      },
+      {
+        "text": "**Focusing on German Challenges**\n\nI'm zeroing in on the request, which clearly centers on the complexities of the German context, particularly its multicultural aspects. I'm noting the need to understand the specifics of Germany and set aside potential future language expansions for the moment, concentrating on the pertinent challenges within the German sphere.\n\n\n**Identifying Lena's Representation**\n\nI'm now identifying additional groups that Lena might represent. I've approved Lena's additions and considered her perspective. I'm taking a moment to identify which additional groups Lena's persona might represent and brainstorming more specific scenarios based on those groups. I've also briefly addressed the question of migrants and the cultural context in Germany, and will set aside a more thorough pass at a later time.\n\n\n**Exploring Lena's Additional Clusters**\n\nI'm now diving into potential clusters Lena might embody. I'm focusing on \"Meaning-makers\" experiencing significant life transitions, like divorce or medical diagnoses. I'm also considering the anti-quantified-self users, older adults, and those grappling with chronic illness or terminal diagnoses. These groups add more depth, beyond initial representations, for exploration.\n\n\n**Analyzing Lena's Metaphors**\n\nI'm now deeply engaged with Lena's journey, especially her use of metaphors, and considering how she might connect seemingly disparate journal entries months later. I'm exploring scenarios where symbols evolve or change meaning. I'm also examining the idea of a co-authored journal, which connects closely with a caregiver cluster in Lena's world. I'm also working through unstructured symptoms and the challenge of integrating metrics for a qualitative user, and I'm fleshing out ideas about dream recall triggers.\n\n\n**Formulating Strong Scenarios**\n\nI'm now formulating two strong scenarios. Scenario A, \"The Fragmented Flashback,\" involves appending data to existing records, triggered by sensory input. I'm focusing on connecting this with spontaneous capture. Scenario B, \"The Accidental Symptom,\" explores the clash between qualitative and clinical data, particularly when Lena, in existential crisis, confronts a concrete symptom like insomnia tracked alongside her dream analysis.",
+        "role": "model",
+        "tokenCount": 1196,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Focusing on German Challenges**\n\nI'm zeroing in on the request, which clearly centers on the complexities of the German context, particularly its multicultural aspects. I'm noting the need to understand the specifics of Germany and set aside potential future language expansions for the moment, concentrating on the pertinent challenges within the German sphere.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Identifying Lena's Representation**\n\nI'm now identifying additional groups that Lena might represent. I've approved Lena's additions and considered her perspective. I'm taking a moment to identify which additional groups Lena's persona might represent and brainstorming more specific scenarios based on those groups. I've also briefly addressed the question of migrants and the cultural context in Germany, and will set aside a more thorough pass at a later time.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Exploring Lena's Additional Clusters**\n\nI'm now diving into potential clusters Lena might embody. I'm focusing on \"Meaning-makers\" experiencing significant life transitions, like divorce or medical diagnoses. I'm also considering the anti-quantified-self users, older adults, and those grappling with chronic illness or terminal diagnoses. These groups add more depth, beyond initial representations, for exploration.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Lena's Metaphors**\n\nI'm now deeply engaged with Lena's journey, especially her use of metaphors, and considering how she might connect seemingly disparate journal entries months later. I'm exploring scenarios where symbols evolve or change meaning. I'm also examining the idea of a co-authored journal, which connects closely with a caregiver cluster in Lena's world. I'm also working through unstructured symptoms and the challenge of integrating metrics for a qualitative user, and I'm fleshing out ideas about dream recall triggers.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Formulating Strong Scenarios**\n\nI'm now formulating two strong scenarios. Scenario A, \"The Fragmented Flashback,\" involves appending data to existing records, triggered by sensory input. I'm focusing on connecting this with spontaneous capture. Scenario B, \"The Accidental Symptom,\" explores the clash between qualitative and clinical data, particularly when Lena, in existential crisis, confronts a concrete symptom like insomnia tracked alongside her dream analysis.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-28T16:20:44.062Z"
+      },
+      {
+        "text": "\n\n\nDeine Vorgehensweise ist hervorragend. Das Thema **\"Multikulti / Migranten im deutschen Gesundheitssystem\"** als eigenen Layer am Ende darüberzulegen, ist die einzig richtige strategische Entscheidung. Wir werden dabei Dinge diskutieren müssen wie *doppeltes Stigma in patriarchalen Familienstrukturen* (absolut extreme Privacy-Requirements), *Übersetzungs-Barrieren bei komplexen Psycho-Begriffen* und die Überforderung durch deutsche Antrags-Bürokratie, wenn man die Sprache nicht als Muttersprache spricht. Das wird ein sehr starker Feinschliff für V2/V3 der App. Ich lege das geistig auf den \"Zu Erledigen\"-Stapel für unsere Abschlussrunde!\n\nKommen wir zurück zu **Lena** und betrachten ihre Persona (`PERSONA-015`) noch einmal wie ein Prisma. Wen repräsentiert diese 34-jährige tiefenpsychologische Trauer-Patientin eigentlich noch?\n\n### Lenas \"Implicit Clusters\" (Wen sie noch vertritt)\n\nNeben Trauer vertritt Lena die ganz große Gruppe der **\"Anti-Metrics-Nutzer\" und Menschen in existenziellen Übergängen (Meaning-Makers):**\n1.  **Der Scheidungs-/Trennungs-Verarbeiter:** Der totale Identitätsverlust (\"Wer bin ich ohne diese Beziehung/diese Familie?\"). Das erfordert Narrative, keine Stimmungsskalen.\n2.  **Lebensverändernde Diagnosen (Krebs, MS etc.):** Menschen, die den \"Tod\" ihres alten, gesunden Selbst betrauern. Das ist etwas völlig anderes als Ninas Fatigue-Tracking (Energie einteilen). Es ist tiefe existenzielle Krise.\n3.  **Sinn-Sucher & Spirituelle Nutzer:** Menschen in Übergangskrisen (Midlife, Rente, Burnout-Sinnkrise), für die eine \"Woche 1 zu Woche 2\"-Skala absurd wirkt, weil ihre Prozesse in Monaten und Bildern (Metaphern, Symbolen) ablaufen.\n\nWas bedeutet das für ihren Alltag? Hier sind **zwei finale Out-of-the-Box-Szenarien**, die wir bei Lena und diesen Gruppen bisher komplett übersehen haben:\n\n---\n\n### C. Out-of-the-Box: Die Natur von Traum- und Trauma-Gedächtnis\n\n*   **Szenario 4: The Daylight Flashback (Appending the Missing Puzzle Piece)**\n    *   **Kategorie:** `capture.spontaneous` & `modification.autonomous`\n    *   **Worum es geht:** Wie funktioniert Traum-Gedächtnis wirklich? Oft erinnert man sich um 3 Uhr nachts nur an ein Fragment. Lena hat das aufgeschrieben. Um 14:30 Uhr steht sie an der Kasse im Supermarkt, riecht Weichspüler, und pling – *wie ein Blitzbesuch kommt die emotionale Erinnerung an den fehlenden Traum-Teil zurück*. \n    *   **Das Status-Quo-Problem:** Sie holt schnell das Notizbuch (oder die Notizen-App) raus. Aber wie verbindet sie diese plötzliche 14:30-Uhr-Erkenntnis logisch mit dem unvollständigen 3-Uhr-Nachts-Eintrag? Im analogen Notizbuch quetscht sie Worte mit kleinen Sternchen (**) und Pfeilen an den Seitenrand oder über die Zeilen. Das Blatt wird unleserlich. In einer typischen Tagebuch-App rutscht die Erkenntnis von 14:30 Uhr an das *Ende* der Zeitleiste und verliert den inhaltlichen Bezug zur Nacht. \n    *   **Warum wir es brauchen:** Repräsentiert das Konzept der \"zeitverzögerten Fragment-Verknüpfung\". Für Psychoanalyse und Traumaprozesse ist lineares Timestamp-Tracking falsch. Nutzer müssen in der Lage sein, spontane Flashbacks einem *vergangenen* Erlebnis nahtlos als Layer zuzuordnen (\"Ah, DAS habe ich im Traum gerochen\"), ohne dass es den Textkörper wie ein Frankenstein-Monster aussehen lässt.\n\n### D. Die Kollision von tiefgründig und klinisch\n\n*   **Szenario 5: The Poisoned Metaphor (When qualitative meets quantitative)**\n    *   **Kategorie:** `modification.autonomous` / `analysis.self_reflect`\n    *   **Worum es geht:** Lena rutscht tiefer in eine depressive Phase und verliert radikal an Gewicht. Prof. Weber, eigentlich der absolute Feind von Metriken, wird als Mediziner/Psychologe besorgt und sagt: *\"Lena, bitte wiegen Sie sich ab jetzt morgens, wir müssen das Körperliche im Blick behalten.\"*\n    *   **Das Status-Quo-Problem:** Lena hat nun einen rohen, harten, medizinischen Datenwert (z.B. \"58 kg\"). Sie öffnet ihr liebgewonnenes, weiches, assoziatives Traumtagebuch und schreibt \"58 kg\" neben einen tiefgreifenden Text über den Tod von Tobias. Es fühlt sich an wie ein Verbrechen gegen die Poesie ihrer Trauer. Der medizinische Wert vergiftet den sicheren Hafen ihres Assoziationsraumes. \n    *   **Warum wir es brauchen:** Setzt die Anforderung, dass wir *Hybrid-Tracker* extrem sensibel designen müssen. Ein nackter medizinischer Datenpunkt (Symptom-Tracking) muss bei diesen Anti-Metrik-Usern irgendwie ins System können, ohne das Interface und den emotionalen \"Vibe\" der erzählerischen Textbereiche (Story-Mode) klinisch, steril oder krankhaft wirken zu lassen.\n\n---\n\n**Damit wäre Lena (\"The Depth Seeker\") in allen Facetten – vom Audio-Pain über Horror-Archive bis zum Puzzleteil-Sammeln – absolut meisterhaft skizziert.**\n\nStimmst du den 5 neuen Lena-Szenarien (Transkriptions-Leiden, Briefe an den Toten, Langzeit-Archiv, Fragment-Flashback, Toxische Metriken) zu?\n\nFalls ja, steht unser großer Sprung zu den vergessenen System-Verlassenen an: \n**Lisa (The Waitlist Bridger / PERSONA-005) ... gefolgt von Max (The Overwhelmed), Michael, und Sophie.**\n\nSollen wir Lisa als nächstes in Angriff nehmen?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1402,
+        "parts": [
+          {
+            "text": "\n\n\nDeine Vorgehensweise ist hervorragend. Das"
+          },
+          {
+            "text": " Thema **\"Multikulti / Migranten im deutschen Gesundheitssystem\"** als eigenen Layer am Ende darüberzulegen,"
+          },
+          {
+            "text": " ist die einzig richtige strategische Entscheidung. Wir werden dabei Dinge diskutieren müssen wie *doppeltes Stigma in"
+          },
+          {
+            "text": " patriarchalen Familienstrukturen* (absolut extreme Privacy-Requirements), *Übersetzungs-Barrieren bei komplex"
+          },
+          {
+            "text": "en Psycho-Begriffen* und die Überforderung durch deutsche Antrags-Bürokratie, wenn man die Sprache nicht als Muttersprache spricht"
+          },
+          {
+            "text": ". Das wird ein sehr starker Feinschliff für V2/V3 der App. Ich lege das geist"
+          },
+          {
+            "text": "ig auf den \"Zu Erledigen\"-Stapel für unsere Abschlussrunde!\n\nKommen wir zurück zu **Lena** und bet"
+          },
+          {
+            "text": "rachten ihre Persona (`PERSONA-015`) noch einmal wie ein Prisma. Wen repräsentiert diese"
+          },
+          {
+            "text": " 34-jährige tiefenpsychologische Trauer-Patientin eigentlich noch?\n\n### Lenas \"Implicit Clusters\" ("
+          },
+          {
+            "text": "Wen sie noch vertritt)\n\nNeben Trauer vertritt Lena die ganz große Gruppe der **\"Anti-Metrics-Nutzer\" und Menschen"
+          },
+          {
+            "text": " in existenziellen Übergängen (Meaning-Makers):**\n1.  **Der Scheidungs-/T"
+          },
+          {
+            "text": "rennungs-Verarbeiter:** Der totale Identitätsverlust (\"Wer bin ich ohne diese Beziehung/diese Familie?\")."
+          },
+          {
+            "text": " Das erfordert Narrative, keine Stimmungsskalen.\n2.  **Lebensverändernde Diagnosen (Kre"
+          },
+          {
+            "text": "bs, MS etc.):** Menschen, die den \"Tod\" ihres alten, gesunden Selbst betrauern. Das ist etwas"
+          },
+          {
+            "text": " völlig anderes als Ninas Fatigue-Tracking (Energie einteilen). Es ist tiefe existenzielle Krise.\n3.  **S"
+          },
+          {
+            "text": "inn-Sucher & Spirituelle Nutzer:** Menschen in Übergangskrisen (Midlife, Rente, Burn"
+          },
+          {
+            "text": "out-Sinnkrise), für die eine \"Woche 1 zu Woche 2\"-Skala absurd wirkt"
+          },
+          {
+            "text": ", weil ihre Prozesse in Monaten und Bildern (Metaphern, Symbolen) ablaufen.\n\nWas bedeutet das für ihren"
+          },
+          {
+            "text": " Alltag? Hier sind **zwei finale Out-of-the-Box-Szenarien**, die wir bei Lena und"
+          },
+          {
+            "text": " diesen Gruppen bisher komplett übersehen haben:\n\n---\n\n### C. Out-of-the-Box: Die Natur"
+          },
+          {
+            "text": " von Traum- und Trauma-Gedächtnis\n\n*   **Szenario 4: The Daylight Flashback (Appending"
+          },
+          {
+            "text": " the Missing Puzzle Piece)**\n    *   **Kategorie:** `capture.spontaneous` & `modification.autonomous`"
+          },
+          {
+            "text": "\n    *   **Worum es geht:** Wie funktioniert Traum-Gedächtnis wirklich? Oft erinnert man sich um 3 Uhr nachts"
+          },
+          {
+            "text": " nur an ein Fragment. Lena hat das aufgeschrieben. Um 14:30 Uhr steht sie an der Kasse"
+          },
+          {
+            "text": " im Supermarkt, riecht Weichspüler, und pling – *wie ein Blitzbesuch kommt die"
+          },
+          {
+            "text": " emotionale Erinnerung an den fehlenden Traum-Teil zurück*. \n    *   **Das Status-Quo-Problem:** Sie hol"
+          },
+          {
+            "text": "t schnell das Notizbuch (oder die Notizen-App) raus. Aber wie verbindet sie diese plötzliche"
+          },
+          {
+            "text": " 14:30-Uhr-Erkenntnis logisch mit dem unvollständigen 3-Uhr-Nachts"
+          },
+          {
+            "text": "-Eintrag? Im analogen Notizbuch quetscht sie Worte mit kleinen Sternchen (**) und Pfeilen an den Seiten"
+          },
+          {
+            "text": "rand oder über die Zeilen. Das Blatt wird unleserlich. In einer typischen Tagebuch-App rut"
+          },
+          {
+            "text": "scht die Erkenntnis von 14:30 Uhr an das *Ende* der Zeitleiste und ver"
+          },
+          {
+            "text": "liert den inhaltlichen Bezug zur Nacht. \n    *   **Warum wir es brauchen:** Repräsentiert das Konzept"
+          },
+          {
+            "text": " der \"zeitverzögerten Fragment-Verknüpfung\". Für Psychoanalyse und Traumaprozesse ist line"
+          },
+          {
+            "text": "ares Timestamp-Tracking falsch. Nutzer müssen in der Lage sein, spontane Flashbacks einem *vergangenen* Erlebnis nahtlos als"
+          },
+          {
+            "text": " Layer zuzuordnen (\"Ah, DAS habe ich im Traum gerochen\"), ohne dass es den Textkörper wie ein Frankenstein"
+          },
+          {
+            "text": "-Monster aussehen lässt.\n\n### D. Die Kollision von tiefgründig und klinisch\n\n*"
+          },
+          {
+            "text": "   **Szenario 5: The Poisoned Metaphor (When qualitative meets quantitative)**\n    *   **Kategorie"
+          },
+          {
+            "text": ":** `modification.autonomous` / `analysis.self_reflect`\n    *   **Worum es geht:**"
+          },
+          {
+            "text": " Lena rutscht tiefer in eine depressive Phase und verliert radikal an Gewicht. Prof. Weber, eigentlich der absolute"
+          },
+          {
+            "text": " Feind von Metriken, wird als Mediziner/Psychologe besorgt und sagt: *\"Lena, bitte wie"
+          },
+          {
+            "text": "gen Sie sich ab jetzt morgens, wir müssen das Körperliche im Blick behalten.\"*\n    *   **Das Status-Qu"
+          },
+          {
+            "text": "o-Problem:** Lena hat nun einen rohen, harten, medizinischen Datenwert (z.B. \"5"
+          },
+          {
+            "text": "8 kg\"). Sie öffnet ihr liebgewonnenes, weiches, assoziatives Traumtagebuch und schreibt"
+          },
+          {
+            "text": " \"58 kg\" neben einen tiefgreifenden Text über den Tod von Tobias. Es fühlt sich an wie ein Verbrechen"
+          },
+          {
+            "text": " gegen die Poesie ihrer Trauer. Der medizinische Wert vergiftet den sicheren Hafen ihres Assoziationsraumes"
+          },
+          {
+            "text": ". \n    *   **Warum wir es brauchen:** Setzt die Anforderung, dass wir *Hybrid-Tracker* extrem"
+          },
+          {
+            "text": " sensibel designen müssen. Ein nackter medizinischer Datenpunkt (Symptom-Tracking) muss bei diesen"
+          },
+          {
+            "text": " Anti-Metrik-Usern irgendwie ins System können, ohne das Interface und den emotionalen \"Vibe\" der erz"
+          },
+          {
+            "text": "ählerischen Textbereiche (Story-Mode) klinisch, steril oder krankhaft wirken zu lassen.\n\n---\n\n**"
+          },
+          {
+            "text": "Damit wäre Lena (\"The Depth Seeker\") in allen Facetten – vom Audio-Pain über Horror-Archive bis zum"
+          },
+          {
+            "text": " Puzzleteil-Sammeln – absolut meisterhaft skizziert.**\n\nStimmst du den 5 neuen Lena"
+          },
+          {
+            "text": "-Szenarien (Transkriptions-Leiden, Briefe an den Toten, Langzeit-Archiv, Fragment-Flash"
+          },
+          {
+            "text": "back, Toxische Metriken) zu?\n\nFalls ja, steht unser großer Sprung zu den vergessenen System-Verlassenen an"
+          },
+          {
+            "text": ": \n**Lisa (The Waitlist Bridger / PERSONA-005) ... gefolgt von Max (The Overwhel"
+          },
+          {
+            "text": "med), Michael, und Sophie.**\n\nSollen wir Lisa als nächstes in Angriff nehmen?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "EskuCsYuAb4+9vsn//SMD0oUyVkyBK8ic3mNUJhOC4zuQmVn2ZcHTaUntoT70D5RlhgN05n25XeEJAvES3GBJFZQznmexMm+wXJVlO370suW4duuQCF5K63HYbhpGrJzdOk+5HMGg4wOoMMocYPHpfT4m6fagDBvVXx5wtXg3lvQkM1L9XlZcAM4AZutOcsgY0qa54uspoiaAAvHOSY2cIDpqIawASu7MaI00O+DIVhJ6mOX1wiM+tK04Z9Zl6soSNvzPXY3XAirBnrsWqWWhPE7NU+Gpm18FN4bIwJUUx+j31wSCNw+008ly0bOqWVOMJWhwA1zjsO4qc5FwG/TBJuXietNS0k+ufCv2i+3Fn5yzXYNbcBe+7Zfjy0XT6dMgEXvTQr39ydacoTZeE95t1gzg/1waCrwm6kgPA6P/bRuBW9NOqZj1dfjGPmXNtqfsPvSwvEwPpM2QvpjqXc6O0r+IihXd63/hlez6RIm5zcwoo1XoXCB2O4fn907lWBFe7CxOp80iWiOOLTjQQM9XI9HCuOtJdh0daF4fA5KCHB+ma0H8q8xd/IqghX1iGVzePyQSPXnEyjnXM1otFsn1oCLh7N+mR7Ynb929jyAT0c/6LDRtITL0Ogytq3oxgvAplnZ8sm3ZbCUZ8jZXMrOVDs0yQ+kdb8d0H27X7wHFQyA80/mGdZO73JXd0B5knSLp8qBQt0w/nCgC6bH4ggzspZDJZcPh/B26bNJzoUf8wJZIcP5+TU5TEv1Zfs1P3ed1sE4euPlBxVpxEoDlreTkXuCwZ0eZUoLZ2Dz7iEuFVQ3yg3G9/Xfdl+nOl4ll6ZefrEjUOgKxGF7ie9RrXMaB4JiIDi6JZ+Nxre7DBX8wMeel2nUbuqhIZ6V940hNrx+N1lZwZsR9rU+mbPdFjX8txx67VO08nO5i4YLVzC6VYy7X/Ln9CZA5EO6KA2WJ1hbDnlx8Iw4YyVO8THYgYzp2kicUWOAytDer2RtdNsMnLfBJAV/smmgZvD+W9Ec8Ws26MlWUuQBdzJQK6cGBS7o9EOrrqQJ4BBHsgcXQ+MklkkjExGfYxxf2mAdKD98FZxH327u0gXIkffFxiyWBsb/IaH0nxg4t4BkjDZCmelFPDZJDO5IICdi4yoATWPoBuzND5mfMsJBm3WtqPLMSAW56rKC7hZr/y16nL/8PvWiORGiEXxwD65lGViQnDkUtFyTQX9pFoVH8Nt4PLMT6HWBiPWEhKJPbvsXPHtIZye1MDraeIdoXGp3U47wExAYwLjR52P3MTw+bheb3t2SH/3vpaNFi4mtbj5Fs2Cp1sbGwzG72aUDm/m7AOfDz09oRpCOeZfr9+liGzmmDkE/v1J4lH5LD3Kkr3MN/KgkEg13z2d1I3OxaY0PUvEcqEPkqVBh1Vta+na+S1fMDSlr/7nT4RTzFpEUSpCWtH1e2I/Vn4BV6DuYb5Z+N0w5uN+qM2DkORZJtP/Ab3t9QFO2qAdDN+q0zaH5Bkcb+6NCVN2fZo9d8N2SRgD0VrhCr/k6NtTCQ+YuEmVMLRgyh5Bh1EGnihuXslEotaU9vnYoDmuR+j/HiWOVtekPmpGsvNml95hYg22cl8MsNg2qS2Udsmk2ByGLKD4CIAU2+bpFHPEvtrQ7m6o9JJNGQyuTTO23kTLatjHbWH0DmUPSy3erybS3S3+V9wjMcAG52mRAScBtli2RJMu/p+jnGFh+DTvuTq+Fxe2xoLzer5GyxcEswMzvqfFT6UwH588qAT0stL/0AXmYDb3hkuEgH0JZ08YqYnLv5mwKyfP4NS6YGQkxRtbJ4d4LR4xZQO8Q8haNaRrJFzylnolFex2fc1NPPy2EeyAZJI+yta9oaGnOIN/oGL+utZNM2ruhP47RuQfecZJvjAiQBbbVIhPnj77jpZBtJ3nu8MF/W+pAHDgIWQRqZ9qTZaZnMqCMPxFEetod90W1Fx+W0VpqqcV2FP9at5yoFSgCU3NSPkfbt1Py3q+ttch9J49q/zFAEEJTYObRHoPPo+sIfKKV0px2s5S19/W1iQOsGxZFcCLF/W7ZbwZ8CCO3+tqJ9GWI5Lxkt2nmc5ppxR8iZNCQAQoVKpLAgqWCLVP49WHNKxm5V0SYX39x2w5ZVhKYWPfI56n0FqQWcwIbOtKhdFTLn5qP3Jivoa3WXM6p9RJN7mj+EJKhWW5jaf3IptMg3fFNl/CGem4wpjmN/LEWEROhQbIMAZyj5CGU1K3hNqfcdZB587v4MZEOK+gHvZokaSAJURg1zEavfqZk1cer/zG4NkLT2U0nAuhPxXE7EAGHoHAYnIt8TJwG3U0bz5UOZ/FfJYzCDV6hcgvMtxNlCSrgYqKkqQxP0UoS/Mq2UcqFv/2L5U1o9SjQMiUA+9XfxWQJiB2wyzy5fBlB16Rac5qPK+D4pgk8bu59B/O+jjZ/gJaJjnaBRbszxgbBTuGP+2DePJq618InqaxIYgIZFi50ap6rwKp+ZmLLz3qzygD4OYHu6CC1i1pmii0zpdPxm3XfgNcjeEyMhtdUirJS+5L2QSM45EEfqSx4batZKSdp3q8bk7aq9WrA2qjMRHHnZJgTV95dRfrkGPfEGQ/pH6jgCtiO/oq1ennPK1ir1/CXN+wmojmU9L9x2TYCQ/6ty5wIGzKcPVQ591GxTB0qa7sBzWQ6ZXHoBZ7kwp1a8btrAUTXy290U1POhGmI35YPOFTToIewolE8gw45NJQay6LklSSrzD211ORyg+Y9HvtiYwbTsKgl6IgEfhjdXu6yIevp+9KDenwJCVp9+FbwrJ7SZRjLd/+lTAZYJ3mGvkTdhG0HC34cYMCpcI0moCnsycnxwu/MHobS5zf6LMrPTbOZLXxsHsn8jbRasajhpalBDHNQBYpn2EbG+zYktZ4hgc1p9z0sgi1xKNkS7SYMNawLKjtZSZE2LYCRnVCOr/Qo+trolWvC2V32NVe8LRmlW06S2pjqHDeBOOO4ZWI5Ok0vtrtcaolUceHAqx2a+nm35CrWdMjE1lvUuf9AaDcBxBBPsGh2IVW8NyMc8IcGZPjpwCMV+Zz3XLmbNx8QoBtHm0fIDCjfRwGo+9W7lem+PuZI5jsaRmK76eyH4XNvuP6io2kd89EbmPKi/GOC8mcxst/2/tPF8bRgd3cLxrhXlg4OZEf80gMzjhsBsZtFsT0PJ9ZPhXoqnLTqL9MzFBAxj9aB6cpy3vyANDUrz8GG86XVW6t6kIUajck+cStx2rcW/Q+u3vpgg556FudRrrnOt24NovWRuyged8EY9Y9qM/tHjKFrNekPUYT3NOEtuQBHymlNjoD+HNW0fk6I2hgZWSacqMO1PDWrKAA6QaKUZkyHPGKv+j9s0hlT+CJIWPi8EEIVtMHRxY18Liyv1tN48ndjsWnkSASoDu+FE8jkQ82cDS4HHBTq9OY3LAIoi2eR84Ll9EMbZUEPmu9VjLSm/NoNqDPJ9pd9qVEBpWJC89jP9q125HL4p3mYwsFokfpZGnwgQMd9OnnjTamz41N7FnTRhgbecttYmmtGh6OnLBIlCfGMnlJou2DeY5+fHf3Ck8JA65fI62mc/lcoVnkoWPV6bTGCJbxegHHrJpX2PPW+BAIndAQrW2SzFRx3BebN3RkfgEcxqeZqFxOFHSywSZuSoYPYQZxIMv9MY5+ArDLJuIW/QyFxMLqyMPBSZ31VLbpAEGfZ4TyYK5aQmjlGU0EBTWfKX9VBA/8+J9ZN/ONfFfOHBUs0JZef+TdshLwkLO1tTPKEgfoXkDRV3LdAw6Zvnr/JRPzFAzBOhcH4qDx5C1NFe4gza6wKiKH04UtQcg6hdNEQtODy6FYzeO7guGoqNEKH+bw1hyzBHzuC74qicXmFFllPwGHe+nmNerQY0mU3Mqc1EGqVHdBtfZsznCl7O1o8B+J4O4qUPe2+eMFnZwGjG+WJM3ijtS/dM1Cj4sLy5RghCQBgsHFC9a+6/I1732g79EEaxaEOW7786PPeFOqT7tn2ktjrD/KtDBoa38ZnSSLyS1h9snI9HlDmjbXvx9yMCQkSNA5uMNKSuI5w1Dg1613oQ7X8X7zt7CvYKdcMbXVQnOuc+bBDvHSGUPF3zGU6GQjpUDJvFuVDqQ5WA6bjmhRw5Ld7LW4MRiz7NXxcVxTEl+zhjNfsCYzPJ1Av1Gi31r8lFVfgtdPi0A0gxjXl/lNqovyGXixikr4qEAVbcX854D3SvU3KyzUEkxuSeKXShYgRnCmRRGY6kYsNIYSPwaRGV+7JeaOYklSQkXz3egLdDtF7wSNYa0m7NySx8N4Xabypuem02EkesZ5o1ZXTF/OrCmRqDggEEB75byVpC7gGsBd5uQEXU+tTDJHGmpfuBtYkE82Im9PiM0y6ijeiVAacz8X6Vwlx5Jiy3y2P2DGEiO7SQ321WX4BNdI2lOAGhF5xwasdlao+f88e9IN+i2A/PclD8fD51bGQBWDbi1IlzH6yGUa3ED+ncRi19Q9KGoVF3yTma52tlbO4Z6HeXwJi2c2MwQAZPrI1oVMoZRGbOJ8bM+TCzC422xrFAOJficoix/S1Jd6pZ3UP7CiK98keIOF7qEH65SK4BDTlk0nRI5KJgTjGizL4jcRxDPTNa075Wun961gRmcg6AkhCUXM/50JYsX5N4Bo8v1Ey8Q9p/h+MvGI6tygQxYecfQWGo/Su6BdRZ6jawrHoSGrYypSmrTvLYVB5F2ZlTeiyO16Efe7tN82CV9fmJJHelzG7bpOG2OmJWp/vVk0uzgIOVJFGhACQucL5FV24kB73l+oht8q1VqMbVNB7cGXhjcYIPes9ghTtXWkDYCe1wr+YRQjREhUWZ0w+VrlYNPVdcD5qbc0TlcEAGV/r893YJGFkca46HOFExbkx5qX4c9tyx46/fuv4NelFSrDnaSoFcKi5JR8J0MybOg6vMj8Kfc1XF+K2laSMIPDl5NfgJmTsr2ycxBUXUIA/NWKr4/fTWf6Dlbrs78j+qP1z5FMJYc9B5L0Zh83zxIFhIjqHvabR9yrxSOni3NbIeapfhJ2gxpQLxDZ7UJXr5rVEGvj49yf61I9OWEIhasIDse9TjdJDnqiSXG+RtpxcsBXnt2WD4eeDxNsf/9UBaHQi2AhaXI4w9Q8iN64JNTApY3KA25mhRTuk3FIrd8ub1rRj59qnD+hOm/l0jmUwvpjtJTwC+3Vzcsd1yDFTgX7SPaihtYdFjZzdlc/yvkzNQiQV72FEoX+aQMmVi2AyUYpd/N+I1aUGzhqpkJxBHIC9etXC8H1hHRiNKEphzKrfzHkr7qt9B9Yfi2/H7w7k0ROT9B1bHHMPe/AryhMY3Hye1eQ3b8U9k8MLy9LpR8xB8Z8q6nTWfPAzLFrwI2MYRNcdVlCZ14esAp/CBzNn1zZ8ezQecsm5TMrJAn7hel6k8SmLUR6/Vb1XbjIgNmKKWgg8J8UfRFH19AnTu4iC668THiOZF42K5CT2JFWdSKQQSwiGBOEnosU7X7fMkBVmgVzOHNY3et9Ye8owIfAN1apReUhPJreLxlcv7zRCbz7TRL8xwO7wOZMjPWgMUJRTVU1w+6/2ypSkgJZOm4hrFeXuPUUiyFCqG8BjSGw1c2KmiFtW8lmwXkbfOmbtFe5f3BdMtK+qKksua/s+GI2D+An3DO/esjc9uMLinOfpmPrJAS0wN6mXgegbu98TS8yoviqPtulkFtXExZotYntURpdhTtl5jlSJOXZTyWN6uAmWoLe7Gxbk8VXOq5PwSQHzF4vgldodRc0sPbQx8YYM1VtTsjRwzZghAeyEuiqdHqZX+DnTt43DZh03ZOyQtt/aWI5wmP/KYS0prvnrvxSg1wCyQIZjy7kyaJ2LLovfpGJ1yVn+GcXuJMtbNE4t3e6j3xuA1W18+rLDbHk/vdxtuWJ/MjNlbsgxZUEHqBO4sMncmk5gdVXOZxoJuTKIpTqXEVW9vmhoL8ZEjT9v6es0JudzIAMaRzcFGybWQfDREknDtiYK2SMu50NXS/N6JOCb0bocHfLAraYpIfasrYSKdwaM2MRROzq9Q84aofCR6plzz7d5KSP6SsoMRN68cMTNx/RNzPqWOPOXuSQHsTuZVixbyavDPivFPDs38UAbhJuD9WfL59x0BYhYwRsTt2AgN2oq2n1vnlqTsa9pgisji/DYEYmir0Pec2nW3+ZaBvrYkB4A4CiiKD8oXutN0jWGohvE3qI0GtsUsFeQvkJFA/ILDJz7hE5h1kaGkmpj3M410s4W5434amVQUsSmIcA3ejBKUoSWyZYt/uha9IGbnYcluBECOTg4+EIyUy3coYHAlnzYYrVuY/rIK8BJpPlkZLsRqzC5gy4aK4G7z1ODHIQF9BXgnIhsviPJBaxu4TNFtPmuaAW9/NRaLYfq5JaeY4aGgtqUX5XuOmUiT0YH1f5ir7aw3eZxpyw8M7GwaItWrlVo7k7cVpWtfHd0glntO4YbR/YlJC69+DJYQ7NxmfbqWV9mcvtLWZp45AQ9GG5QUh1oy+rJfDXz3s4jogdaFwtuhZQoMzVViUXnquCWdhy0FwSfIaaLgyD7XNGLLpb8N1DNhE85iNy0gczLTLzpaxDVCNZ74s+5AhWjc2Br4wcJFmm5rwe4sBmdxtXsKynenjbLZREjRckq6Hrbd9txGzdTqRqeWLyZ8rYXBP07Q3X7jpSIlxLUPDLJ25LBD6IoBQCv3QEj1tBzjPGVbDJ1xrTEa72sWHULB7GhgGnTF0ktbfStE5Yxx/tOCdEeUXSn8kJ33bJjylfn0FHJT/aQFweoQLjbvrWyiuujBwnz9Jyv7hu16nAxDfoScJaQ97amJS1PDbC7TglETjUEt5q18tHMiFGP5G/etkw96p1aeQZEV6GzdTzfa9J2dBmmzBoT5acZ8RkpBk36jQ7KZ0UfZECWKJw5HDAjkkR53Kj2UxiRz0ZBG6Z2IcTafhAUVGu4vze1zPYmgusJ5rFP3i9UKccw+izlb6gDIf8Mr9JTRB/jaUtUTCvWsfdjYckqGCl1GvsrotGbZ5Id+P0ucavxxtU1RESaefit4HanL9v826rwj2k9d9p0kuoBTeRxqTYBiDn9xXUVw+Q1ZkDtZBOPlB0nP8cWy+g/4dgaYt5Fkxh6WOWB9XAA3mHGSljdqTnKIFuWLpn1+os1WmH0ElhBrKe06nD4XSbZQn05uxYDsz+2rNd/EN9QYckyUKn35ktHiQYid2F4LKDhiPqt1WgybdXe8cNWaqI5JDlJ/h6Qhh3M6ylgz5iqDMeYfd+coQXL5/SmifZvAt+xFWyVPG5UMDr5UmVtWLTWtsXajx7EA2gCVv6usQ4Q8fGhhSUWBvJHZ9E9LpPNyRnQoPkoKF0isein6G0OhJMVGTxqmEuJiCMyrD9VfA3lB/H/AOiFVoI2eSj6ks/WAUL3IMq2Y44yaEoTj7SXtTYhS0GGXsQlQLpFSmAYaqV4WCCrfsfbuZJvxDcdJSQMcrBvxHD3JCna7SaVVL0Tfpe/o1dY9fF0gVWbLknKLpoqhfDA6Gb7W3vlZl2SntC1RejhmcaQGMG0Wa8soOpWbEKbInCftG3cJNDHRqo/BZjdrhFAq+eJTuBbGaodyBqvlvE+izE9nv6/SgHQqa02rh5ikB44EUp2V46thk4it4pDNAIq7BTYtTSxtfjvOzcoB5seWxI5MFaq0Q9tvJEGYPsbXy30sdtkpgQdAUqhKbq72nzl7YaeyXs5dOES8DM6pCHONwPSJ+/CauGuaQ4nzCyCUEaxIGA1Q9mGa3qarQtmfBRUYL9CMCUYvWatBdqjAEciYwWiD8VbyYgpfU+cDD/UqqCp5kXa/p9dHTKfqOUdRH4svxrpHLN93WCyMv5h8AdWpHbfK0Ii8VOs7zm5RCA3KDahqYbOXW5OaaP0JxG+hQFsYY+UeDyGGUGfiLRWJOoe5j/zDKpk77l2eq8XG8mdin2a"
+          }
+        ]
+      }
+    ]
+  }
+}

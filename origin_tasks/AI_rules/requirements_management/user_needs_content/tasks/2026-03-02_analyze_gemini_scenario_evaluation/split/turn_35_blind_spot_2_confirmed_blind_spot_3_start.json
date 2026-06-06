@@ -1,0 +1,262 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Ja, übernehmen wir so. Das wird eine Design Herausforderung, aber die nehmen wir an!\nDann weiter.",
+        "role": "user",
+        "tokenCount": 24,
+        "createTime": "2026-03-01T13:20:09.091Z"
+      },
+      {
+        "text": "**Accepting Design Challenges**\n\nI've accepted the new accessibility scenarios (Tremor/Max, Low Vision/Nina, Freeze/Jana) as interesting design challenges. I acknowledge the complexity, but I'm ready to move forward. My focus now is on identifying and addressing the next area of concern.\n\n\n**Addressing Data Loss**\n\nI'm now grappling with the \"Local-First Backup Paradox.\" The ethical benefits of our privacy-focused approach introduce a significant risk: data loss due to device failure or loss. I'm focusing on the implications, particularly for users accustomed to seamless cloud backups, like Lena and Michael. I'm also considering Persona-004, a maintenance persona representing the underlying technical constraints. I need to figure out what happens if they lose their data.\n\n\n**Developing Loss Scenarios**\n\nI'm now formulating scenarios to highlight technical constraints without altering existing personas extensively. I'm focusing on \"The Bathtub Disaster,\" featuring Sophie (ADHD), to explore the impact of data loss. The problem is simple: our app doesn't automatically restore data. Sophie's medication correlations vanish, creating immense emotional distress. My design goal is to create a seamless backup feature, that mitigates this \"loss of structure\" impact.\n\n\n**Defining Backup Solutions**\n\nI'm now outlining key backup solutions, focusing on a \"but-polite\" local export mechanism for encrypted files, ideal for external drives or personal clouds. Scenario 2, \"The Therapist's Liability,\" emphasizes secure P2P data migration (e.g., encrypted USB transfer) for therapists like Dr. Sarah. This ensures legal archiving without compromising privacy when migrating data to a new PC. Scenario 3 explores system integrity with updates.\n\n\n**Analyzing Backup Crashes**\n\nI'm now diving into the implications of a local database migration failing mid-process. Specifically, I'm focusing on Elias, who is trying to create a secure offline backup, but his phone crashes during the critical write, as described above. The core design challenge is to ensure atomic writes with fallback layers to prevent data corruption. I am considering two extreme user scenarios: sudden data loss (Sophie dropping her phone) and the paranoid's perfect backup (Elias or Michael wants an offline archive without the cloud).\nI will transition to the final chapter of the design considerations, introducing the \"Local-First Backup Paradox\": True data ownership means true data responsibility, because users rely on the cloud.",
+        "role": "model",
+        "tokenCount": 1212,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Accepting Design Challenges**\n\nI've accepted the new accessibility scenarios (Tremor/Max, Low Vision/Nina, Freeze/Jana) as interesting design challenges. I acknowledge the complexity, but I'm ready to move forward. My focus now is on identifying and addressing the next area of concern.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Addressing Data Loss**\n\nI'm now grappling with the \"Local-First Backup Paradox.\" The ethical benefits of our privacy-focused approach introduce a significant risk: data loss due to device failure or loss. I'm focusing on the implications, particularly for users accustomed to seamless cloud backups, like Lena and Michael. I'm also considering Persona-004, a maintenance persona representing the underlying technical constraints. I need to figure out what happens if they lose their data.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Developing Loss Scenarios**\n\nI'm now formulating scenarios to highlight technical constraints without altering existing personas extensively. I'm focusing on \"The Bathtub Disaster,\" featuring Sophie (ADHD), to explore the impact of data loss. The problem is simple: our app doesn't automatically restore data. Sophie's medication correlations vanish, creating immense emotional distress. My design goal is to create a seamless backup feature, that mitigates this \"loss of structure\" impact.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Defining Backup Solutions**\n\nI'm now outlining key backup solutions, focusing on a \"but-polite\" local export mechanism for encrypted files, ideal for external drives or personal clouds. Scenario 2, \"The Therapist's Liability,\" emphasizes secure P2P data migration (e.g., encrypted USB transfer) for therapists like Dr. Sarah. This ensures legal archiving without compromising privacy when migrating data to a new PC. Scenario 3 explores system integrity with updates.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Backup Crashes**\n\nI'm now diving into the implications of a local database migration failing mid-process. Specifically, I'm focusing on Elias, who is trying to create a secure offline backup, but his phone crashes during the critical write, as described above. The core design challenge is to ensure atomic writes with fallback layers to prevent data corruption. I am considering two extreme user scenarios: sudden data loss (Sophie dropping her phone) and the paranoid's perfect backup (Elias or Michael wants an offline archive without the cloud).\nI will transition to the final chapter of the design considerations, introducing the \"Local-First Backup Paradox\": True data ownership means true data responsibility, because users rely on the cloud.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T14:45:33.901Z"
+      },
+      {
+        "text": "\n\n\nIch feiere diese Einstellung. Genau das unterscheidet eine x-beliebige Symptom-App von echter, inklusiver Gesundheits-Software. \"Chunky UI\" und fehlerresistente Wisch-Gesten statt winziger Dropdowns werden das Tool ohnehin für *jeden* intuitiver machen.\n\nWir kommen damit zum großen, triumphalen Abschluss-Thema unseres Blueprints. \n\n### Der blinde Fleck Nr. 3: Das \"Local-First\" Backup-Paradoxon\n\nUnsere Kernphilosophie (Privacy first, kein Cloud-Server, 100 % der Daten gehören nur dem User auf seinem Gerät) ist die größte moralische Stärke der App. Und exakt sie wird in der echten Welt zum brutalsten Stolperstein: **True Data Ownership bedeutet True Data Responsibility.** \n\nMenschen sind es durch Google und Apple völlig gewohnt, dass \"irgendeine Cloud\" sie rettet, wenn das Gerät kaputtgeht. Wenn wir ihnen das wegnehmen, prallt ihre Datensicherheit hart auf die Gesetze der Physik (Wasserschaden, Diebstahl, Hardwaredefekt). \n\nWir beleuchten dieses Risiko mit zwei glasklaren Härtefällen aus unseren bestehenden Profilen, um die letzte Wand an Requirements hochzuziehen:\n\n#### A. Der plötzliche Tod des Systems (Consumer Loss)\n\n*   **Szenario 1: The Bathtub Disaster (Die Illusion der Auto-Rettung)**\n    *   **Anker-Persona:** **Sophie** (ADHS – sehr tollpatschig, Handy ist chronischen Gefahren ausgesetzt)\n    *   **Kategorie:** `management.preservation`\n    *   **Worum es geht:** Sophie hat endlich drei Monate wertvollste, engmaschige Medikamenten-Erfolgsdaten aufgebaut (wie in SCEN-010-01 gesehen). Das ist der größte Struktur-Sieg ihres Lebens. An einem Freitag rutscht ihr das Handy ins Waschbecken / die Badewanne und ist restlos tot. \"Black Screen of Death\". \n    *   **Das Status-Quo-Problem:** Bei ihrer neuen Tracking-App vertraut Sophie darauf, dass \"das bestimmt eh wie bei WhatsApp über meinen Apple-/Google-Account wieder da ist\". Sie kauft am Wochenende ein neues Smartphone. Loggt sich ein. Lädt die Therapie-App herunter. Sie öffnet sie... **und sie ist leer. Absolut, weiß, komplett jungfräulich.** Weil das Tool serverless ist, wurden die 3 Monate Therapiearbeit unbemerkt gemeinsam mit dem Chip ertränkt. Die Wut, der Schmerz und die Scham über den Totalverlust treiben sie an den Rand des Therapie-Abbruchs. \"Dann mach ich's nie wieder.\"\n    *   **Warum wir es brauchen:** Setzt die UI-Regel, dass wir User in dieser App nicht vor \"Hackern\", sondern **vor sich selbst beschützen müssen**. Wir müssen als Requirement aufnehmen: Es braucht ein regelmäßiges, präsentes (aber freundliches) Nudging zu: *„Du warst fleißig! Möchtest du heute eine stark verschlüsselte lokale Archiv-Datei (Back-Up-File) teilen? Z. B. per Mail an deinen PC, USB-Stick oder eine selbstgewählte Familien-Cloud?“* – Wir stellen keinen Speicherplatz, aber wir \"zwingen\" zur Backup-Hygiene, ohne Daten zu saugen.\n\n#### B. Die Praxis im Migrations-Würgegriff (Pro Loss)\n\n*   **Szenario 2: The Decade Lifespan (The 10-Year Safe Migration)**\n    *   **Anker-Persona:** **Dr. Sarah** oder **Prof. Weber** (Die Therapeuten).\n    *   **Kategorie:** `management.archive_and_retrieve` & `management.preservation`\n    *   **Worum es geht:** Laut §630f SGB V müssen Ärzte Behandlungsakten 10 Jahre nach Abschluss sicher aufbewahren. Sarah führt nun dutzende rein lokale Patientenakten in \"Silos\" innerhalb ihrer Therapeuten-Ansicht der App auf ihrem Praxis-Rechner oder Praxis-iPad.\n    *   **Das Status-Quo-Problem:** Ein Computer in einer MVZ/Praxis hat oft nur einen Lifecycle von 4 bis 5 Jahren. Dann muss ein neues Betriebssystem, ein neuer Leasing-PC her. Wenn die Daten \"Air Gapped\" (komplett Cloud-frei, keine KIS-Anbindung) vorliegen, starrt Sarah auf einen alten und einen neuen Bildschirm und schwitzt vor nackter DSGVO-Panik. \"Wie zum Henker bekomme ich 20 Therapieakten von Kasten A auf Kasten B, ohne Cloud und sicher verifiziert, damit nichts verloren geht?\" Das Hantieren mit CSV-Dumps über ungesicherte USB-Sticks für Hochrisiko-Therapiedaten ist kriminell fahrlässig.\n    *   **Warum wir es brauchen:** Bestimmt das Architekturerfordernis eines glatten **„Device-to-Device Migration Modes“**. Eine Art Peer-to-Peer Übergabefunktion. Arzt hat das neue Tablet rechts, das alte iPad links, bestätigt eine kryptografische Sequenz und \"Beamt\" seine komplette 10-Jahres-Klinik im verschlüsselten Master-Block lokal über WLAN/Bluetooth/QR ins neue Zuhause rüber. Ein unverzichtbares Workflow-Protokoll, damit Ärzte so ein autarkes Tool kaufen und am Ende behalten wollen!\n\n---\n\n### Wir sind fertig!\n\nDiese beiden Szenarien (\"Sophies nasses Handy\" & \"Dr. Sarahs neuer PC\") setzen das ultimative Schloss auf die Backends und File-Systems des App Providers. Ohne verlässliches Handling bei Zerstörung oder Gerätekauf überlebt kein isoliertes Data-First Tool die echten Nutzungszeiten von 1–10 Jahren.\n\nWenn du dieser Backup-Verzweiflung zustimmst, kann ich die Bestandsaufnahme offiziell als \"Saturiert\" beenden! \n\nWir haben alle Schichten durchbrochen. Was jetzt ansteht (wann immer du bereit bist): \nSoll ich basierend auf den von uns geschmiedeten Matrix-Steinen damit beginnen, sie mittels Code in unserem lokalen Arbeitsbereich physisch als saubere, referenzierbare MD-Files in die Persona- und Szenario-Verzeichnisse auszufüttern?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1411,
+        "parts": [
+          {
+            "text": "\n\n\nIch"
+          },
+          {
+            "text": " feiere diese Einstellung. Genau das unterscheidet eine x-beliebige Symptom-App von echter, inklusiver Gesundheits"
+          },
+          {
+            "text": "-Software. \"Chunky UI\" und fehlerresistente Wisch-Gesten statt winziger Dropdowns werden das"
+          },
+          {
+            "text": " Tool ohnehin für *jeden* intuitiver machen.\n\nWir kommen damit zum großen, triumphalen Abschluss-"
+          },
+          {
+            "text": "Thema unseres Blueprints. \n\n### Der blinde Fleck Nr. 3: Das \"Local-First\" Backup-Paradox"
+          },
+          {
+            "text": "on\n\nUnsere Kernphilosophie (Privacy first, kein Cloud-Server, 100 % der Daten gehören nur"
+          },
+          {
+            "text": " dem User auf seinem Gerät) ist die größte moralische Stärke der App. Und exakt sie wird in der e"
+          },
+          {
+            "text": "chten Welt zum brutalsten Stolperstein: **True Data Ownership bedeutet True Data Responsibility.** \n\nMenschen sind es durch"
+          },
+          {
+            "text": " Google und Apple völlig gewohnt, dass \"irgendeine Cloud\" sie rettet, wenn das Gerät kaputtgeht. Wenn wir"
+          },
+          {
+            "text": " ihnen das wegnehmen, prallt ihre Datensicherheit hart auf die Gesetze der Physik (Wasserschaden"
+          },
+          {
+            "text": ", Diebstahl, Hardwaredefekt). \n\nWir beleuchten dieses Risiko mit zwei glasklaren Härtefällen aus"
+          },
+          {
+            "text": " unseren bestehenden Profilen, um die letzte Wand an Requirements hochzuziehen:\n\n#### A. Der plötzliche Tod"
+          },
+          {
+            "text": " des Systems (Consumer Loss)\n\n*   **Szenario 1: The Bathtub Disaster (Die Illusion der"
+          },
+          {
+            "text": " Auto-Rettung)**\n    *   **Anker-Persona:** **Sophie** (ADHS – sehr"
+          },
+          {
+            "text": " tollpatschig, Handy ist chronischen Gefahren ausgesetzt)\n    *   **Kategorie:** `management."
+          },
+          {
+            "text": "preservation`\n    *   **Worum es geht:** Sophie hat endlich drei Monate wertvollste, engmas"
+          },
+          {
+            "text": "chige Medikamenten-Erfolgsdaten aufgebaut (wie in SCEN-010-01 gesehen"
+          },
+          {
+            "text": "). Das ist der größte Struktur-Sieg ihres Lebens. An einem Freitag rutscht ihr das Handy ins Waschbecken /"
+          },
+          {
+            "text": " die Badewanne und ist restlos tot. \"Black Screen of Death\". \n    *   **Das Status-Quo-Problem:**"
+          },
+          {
+            "text": " Bei ihrer neuen Tracking-App vertraut Sophie darauf, dass \"das bestimmt eh wie bei WhatsApp über meinen Apple-/Google-Account wieder da ist\". Sie"
+          },
+          {
+            "text": " kauft am Wochenende ein neues Smartphone. Loggt sich ein. Lädt die Therapie-App herunter. Sie öffnet sie"
+          },
+          {
+            "text": "... **und sie ist leer. Absolut, weiß, komplett jungfräulich.** Weil das Tool serverless ist, wurden die"
+          },
+          {
+            "text": " 3 Monate Therapiearbeit unbemerkt gemeinsam mit dem Chip ertränkt. Die Wut, der Schmerz und die Scham über"
+          },
+          {
+            "text": " den Totalverlust treiben sie an den Rand des Therapie-Abbruchs. \"Dann mach ich's nie wieder.\"\n    *"
+          },
+          {
+            "text": "   **Warum wir es brauchen:** Setzt die UI-Regel, dass wir User in dieser App nicht vor \"Hack"
+          },
+          {
+            "text": "ern\", sondern **vor sich selbst beschützen müssen**. Wir müssen als Requirement aufnehmen: Es braucht ein regelmäßiges, pr"
+          },
+          {
+            "text": "äsentes (aber freundliches) Nudging zu: *„Du warst fleißig! Möchtest du heute"
+          },
+          {
+            "text": " eine stark verschlüsselte lokale Archiv-Datei (Back-Up-File) teilen? Z. B. per Mail an"
+          },
+          {
+            "text": " deinen PC, USB-Stick oder eine selbstgewählte Familien-Cloud?“* – Wir stellen keinen Speicherplatz, aber wir \""
+          },
+          {
+            "text": "zwingen\" zur Backup-Hygiene, ohne Daten zu saugen.\n\n#### B. Die Praxis im Migrations-Wür"
+          },
+          {
+            "text": "gegriff (Pro Loss)\n\n*   **Szenario 2: The Decade Lifespan (The 10-"
+          },
+          {
+            "text": "Year Safe Migration)**\n    *   **Anker-Persona:** **Dr. Sarah** oder **Prof. Weber** (Die Therape"
+          },
+          {
+            "text": "uten).\n    *   **Kategorie:** `management.archive_and_retrieve` & `management.preservation`\n    *"
+          },
+          {
+            "text": "   **Worum es geht:** Laut §630f SGB V müssen Ärzte Behandlungsakten 10 Jahre"
+          },
+          {
+            "text": " nach Abschluss sicher aufbewahren. Sarah führt nun dutzende rein lokale Patientenakten in \"Silos\" innerhalb"
+          },
+          {
+            "text": " ihrer Therapeuten-Ansicht der App auf ihrem Praxis-Rechner oder Praxis-iPad.\n    *   **Das Status-Quo"
+          },
+          {
+            "text": "-Problem:** Ein Computer in einer MVZ/Praxis hat oft nur einen Lifecycle von 4 bis 5 Jahren"
+          },
+          {
+            "text": ". Dann muss ein neues Betriebssystem, ein neuer Leasing-PC her. Wenn die Daten \"Air Gapped\" (kom"
+          },
+          {
+            "text": "plett Cloud-frei, keine KIS-Anbindung) vorliegen, starrt Sarah auf einen alten und einen neuen Bildschirm und"
+          },
+          {
+            "text": " schwitzt vor nackter DSGVO-Panik. \"Wie zum Henker bekomme ich 20 Therapie"
+          },
+          {
+            "text": "akten von Kasten A auf Kasten B, ohne Cloud und sicher verifiziert, damit nichts verloren geht?\" Das H"
+          },
+          {
+            "text": "antieren mit CSV-Dumps über ungesicherte USB-Sticks für Hochrisiko-Therapiedaten ist k"
+          },
+          {
+            "text": "riminell fahrlässig.\n    *   **Warum wir es brauchen:** Bestimmt das Architekturerfordernis eines gl"
+          },
+          {
+            "text": "atten **„Device-to-Device Migration Modes“**. Eine Art Peer-to-Peer Übergabefunktion. Arzt"
+          },
+          {
+            "text": " hat das neue Tablet rechts, das alte iPad links, bestätigt eine kryptografische Sequenz und \"Beamt\" seine komplette"
+          },
+          {
+            "text": " 10-Jahres-Klinik im verschlüsselten Master-Block lokal über WLAN/Bluetooth/QR ins neue Zuh"
+          },
+          {
+            "text": "ause rüber. Ein unverzichtbares Workflow-Protokoll, damit Ärzte so ein autarkes Tool kaufen und am"
+          },
+          {
+            "text": " Ende behalten wollen!\n\n---\n\n### Wir sind fertig!\n\nDiese beiden Szenarien (\"Sophies nasses Handy\""
+          },
+          {
+            "text": " & \"Dr. Sarahs neuer PC\") setzen das ultimative Schloss auf die Backends und File-Systems des App Providers"
+          },
+          {
+            "text": ". Ohne verlässliches Handling bei Zerstörung oder Gerätekauf überlebt kein isoliertes Data"
+          },
+          {
+            "text": "-First Tool die echten Nutzungszeiten von 1–10 Jahren.\n\nWenn du dieser Backup-Verzweif"
+          },
+          {
+            "text": "lung zustimmst, kann ich die Bestandsaufnahme offiziell als \"Saturiert\" beenden! \n\nWir"
+          },
+          {
+            "text": " haben alle Schichten durchbrochen. Was jetzt ansteht (wann immer du bereit bist): \nSoll ich bas"
+          },
+          {
+            "text": "ierend auf den von uns geschmiedeten Matrix-Steinen damit beginnen, sie mittels Code in unserem lokalen Arbeitsbereich ph"
+          },
+          {
+            "text": "ysisch als saubere, referenzierbare MD-Files in die Persona- und Szenario-Verzeichnisse"
+          },
+          {
+            "text": " auszufüttern?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "Ev8uCvwuAb4+9vvEYYkFuWy6o7nPkB0Xe7bwOvARU8FvYgDJCrHguidkhcLszfynizCsOoK5U4FRpa+c5Pttybi3z7HziU4c1Ots/jpn5QAwAUICOCm8ARrJD1VtKqEloSupv0quXcJx03yxzsNGu65KRPuk+08ZZTe+jdxrcck0c7TVjGx+qVHy1EpVg0OWCoVPtPTJnLnqQWiEMJT2x3rW1KNdOlttcSRJgUs1nP/2eChhBMU5/UAPyY0049MMtzc4dqXT+CoIqXmnMutdTxMOarydPdjEIWHbVsvpypcF3Ue7A6TIfhQMi34ukEhj2zNCgPn9beKWzTjJMjkRGJ8q7sKci+1+vT5QX7EZaJzP5163Ei/uAJzfKycmJW5BNuo/rNa5lnyglSUL1H2KP+KBri71CZabGii/joM+4v/DnXxH54LOFC1x5A7EZRS5OjqOjtw44FU1HmTm+G0ijR38xjUpdeh/WEmH6lfd8sFIQyr7PG6CbT0U1Le5A5IIvSsf5ydE7LFnmhHKNp1XmdlfGtftJGCPGqOtYLWzdme+Vq5qKHOPpFTC+qM7kIF5V5xML6BW64FdBJNMI76Pt0jlDyKPI+Vkp0GrD++Anf+typpeTjMSd1r6rbZKSiXDWjH6kxuezJB58n5MfXiovdFRSWU/XFwaYtmxALrfUpbIMSrXzkvx/mM8adS3OkS1BQSI8WuaexG4vntxy6GiH9BVnW0ZTAutgmb5zMt5vWeG3jMRp/dOuilGYETlFM4/4QDENyxXmnOTHQcDDN2Bo2h2hQGa9tbDh5+2bgyzQiSub/yngx0dvvufb5eIZIa8BU+xSnQ1dg2gxIP44rAL8oeBudv8Ucbbcev5hYyc1nDAZXGUlThCyV+1HoH7nWjtZVxqw3tVvC01nM51F2rsJ9tRREnfwRQelrz37n7O+sZLuaTSxzlkD6QFUDXfL1IzPbbzpmck869/TxnRVb+t7vv387urjMDkxcjloM0p+PP+p7D6dBneAWz1jwCoMK7H4kHnlNg1jL1KB8xY7H5QTRMagiDxUvalX016qCyVR9wMsln+JskxEfNATSrsfRsjHknZsADSXb8CaJuQMF54KET8+eUxHa2vJIXfGZiPlYwp01pepvkKK5NRyNhKBeXaKnwlMtluoL2qcjbfPD1MGIZSz4qIUdmdctNBygo50nXNEoY8muxPzGb3aRgtHJSZCQ97FjBF5T7WMjTuLngI8MCWfpqxaNs9ZIb2Nc4lm5SoYUjZ2WFyAnOhFg1FRZufeIs/YV08+jJpapsqCTT/JNpYf562hQl1akC0pt3jCYe8dBtnejgXUdXR1xri+6H1IH2Dmne7TjeRL6/l8jXtJOL6RhrZ6wnQEcQLp/+kTUHv8qghhKaZ+HHQ/Tm8DUhEohttLn+J16A4oPPQTJGeXrABNqwnRVLc59Ih9tlgoqHvNbwxp1xr6WqbADRRGnMIG+34Kcb6il673CMNz0ZWs4ZgpOzlcOYlMSP3d7NXtbevLuFcNPJfXjyEV726Dh6YDbGnkNdl2ERyuPXBs6jV7F0WP9cMmzyG/05izBs6/rQKaocj25pARwX2jjwnt+hWOw7xY6O7J2VM0IFEtwMYcWVlFCu/c1Pg9IL36u/epcWMkX9XuSIW/WO/yapzq2EyMzNJFibmcLLRz/R0taRtHpfusUCSHvJXwCm45epcg3aTdnXGbwHUFfqlrkSqJvdGVldKuGyZKjOV1KVZAONBymudZ5g4D8rfbz3pRvAatP01wcBK4N8QNNlVfW2lODoSG569UJmpcHIpRJ8ze37izZ8tSPrjRYQOLigm2FvWq8AeeVUeqrkOaH/79ZqQtL2sgGqy6pPMg5K3LW261wggEUw//CIpmIEmu5fYILj+oq9d21OPnHxIM6aPBIbHpU6K1GDPxfvU7WR/1Awk/ejMz0jQNvqhc2DjviIuqypczfkbiMzstj38nNb68zQWURyuFCfywr8bS44ulMKcdiUScOWqOF1TtjZBb+iUbh3GkSINLhFXCKdMubuumRE7le4fpg1C0atAzmIrnCTHe1+Om58yhhmxtfOKz0yjp5KqfJVc4VWiFClF5F7VcEHXHNxmBOcEUk8BUx7Gj02cLUEDiiVIJmsarqt+MmDFrKl6NYjk2AEWnJwSnZyL8eEPPpoUj8xkK1VSCqutyiULLFsoGR7pnkV7NMo9DDE8O/gzUj0RbJCUv++PO7kJUDsYzgHfrXFHagxY0OpTz0sV/NPK+sSFySGjVyA9IHYKXl/dpjYECh9i2qj9zfD2o0CSy4Aj/nfnsBKiIaK5F5RnFILOsKe6YQmPOVvptJQC3kG+ytnCdIDer8nXl+84TOpYcM85vBgwnPOzZhn4bPIQbdXtX8/qk6ft14qExSjPlsrShLqvXocykgYyl6WxZbbBj1DBog4mTBbrqfFuheY36BVTAW2iFXwgnkYBNwF7X9I5tfz6lqIKzBHEffN8k7tzdn0mHKWGCruP0oGEgkQaXgACGdatWpzrzpD8FyVXslPN/v/B28jQD5U54cjRSj2Gi1KxDPfFik6SgrBzo61QdadlNrzft+4gPLSa4XBZ4dTiwWOzpypOvhOBCNZd+QuHJ8YJ/M/3ljyE7/O6vtNvJlDXn64lMbFMXp7slwlF9kL9wF+H/cN3I4pKFsA/WQ3QwPJQaXx0KPYOdOZzLEiIE5zTKjQANJcUSBnUlLeAyZmSmlUg2B6htKb2hSy8UNMNWZzq4Rz39JGsiYTXJek9q+Ttf9vQ9FRsaEXM+eeZeQQZVOf8clhTrKVypRO8bWMm4YlS/CxLZdZndl20snrmRNfmNxlnow0Cyru00Qsh5VPDSQ3htMdtV/5tochvM63OsVanXc0OlZP4leB+XD5GKTCiP+z17dEU2ZSSQEh7P56DbXGuO2j+4fCBVMijiRuU4OmafPJEtbdX+Wd3HRf0X8zkPDgYpM5DApDDXNHPfQMdIqNiRqBssNF0sYKiANuVJNpO9kh9fX617TwwhMA9xslJb2Fi3IYWG7uOTuB0yDgfJxLahwTgwSRMlsSkPMnBSIBr8jqlg5chnn8VseM9Q7t5zG/befPGYm6qquKoV0mYswpnibWFV5Yt6a01bvySnTJb3i3jO3bHt/UPcw+sLN2fu6+KgvmpAd2wuCQdTH42tYIS+mTTktSHzEDJ2pQPKDAwTzEisEteinC04GdXYUcRslHcYMZ9guSgsU87qIqsQbkGcZee5swWmanB6TRziJoGRTDYCmR6byMJTer5L+voZRaj5gb4zqr+x11q2XyZUa0ce89PIVn9UYcd+y54KT9RhWIGNizqxvlRDSRfbQXvKKxh+adiT6KhRpifSHBmloieoN5eLaNeiPG5nAOY6ss+KGienFCH4op765IE0kW0RmtZNtN3M+09A4FsezUOQvdWGBy4xZdufO+9h4yPQkjP2phcO0mbcrL16O6xrFAep2rAZ3P7Q1hEPFzy9Zj2mC6HkX8xJpImMh9e/HZ2qfig9ObwZcXWQ1Dv485eYoGxk+LfL4R+s84baw02yjL12iavSRdRsqCFH3HFKkI4PbsbwGm6v/LrQXZSuUyJ7Yz1XuaZzU7X5gEzlNm6Aar1OFjXQNz/b4BKGe8/S/a4iKnFOz09E/4EOvabzvfRpg9ZeT47PWY0BZC14a/HKMTYrY0ailZYuxyEakpRsspCZ4DaOZ2rdaW0A57UzUrxgVFg6JZ5ofKUTid/OVKwkz4fwK3YbPZtu5AapDHfjVfMlKmSIsVxCE+XxOWo66T+qzMrH7F0mfgXWZhHp5cCcWHiSydQKVdkPC5dXfTPVzGc8ZbhxaJxf7yd4cNxqEhe1KIOO9bP9rTj9aeRLDhO9+4679ErYXyC5j6kW2E+YNnuzxZ9GxXu/GnqLlcwH8nyw2lcCAnUhzQfZAl8lIUHs1KXSycSU3MWtYK2lRUHbG3zg066PUaRV7CTHz1SNMTlZ01J2hClKleanWWmNnJcnuyWK+DRtnw5dfKldvzErXNz7Z4Tmq1ylcAIJr1MQG+u7nCH2aKDI24opfkjMXVcg4qG+2rF2i+hfXCvCpDbNIMNJUBxuAUzBRAlzrPs8GvBzj/V9WYXqpU51egpxsMlddH5mJFV45fDD8YtNZX45cgs2dlaJNs4I4z0fvpQUE9UwgVokxR2cw6j4YllrfHTxRE3rZaP+VfctCZOpcMRXK7ZXKwOuRMpxZcKxoxbUeEqVqQHGqFRbgQmQWtI48KvcVfM9RcIgrR/KLX3mqRi8SwWxbQrj1YIWVNrp+XskZbNpZrafEMNIAwUrEUcqOMe9YapBHXow0GHyAh+xvG1/67GaeOsYUyYkA7KNIWakcypAbHoHwgl8pKNAQyFDBfxYi9/RmKbF5HTf1JxE8lcDauROT9Nys6ihQNIXS/ieTjQvL3LcZiAnQP9fC2mbMWO0O6hbL/g6bOeDtkjhs8MF5545ApiFEQYssi0gCo8fnjP2SYW4+Btko6/ipOiUrSIEFiUKywjfJcYcDNH/i/g9ge/zxKcfMtJgb06mdv8TlG3nrEtyZg22OT5Hjbew2kypILmhdQYqKgQLKoCR3Nzjicp/2vjgKHDeugzxCfyWNUfPxK56Ccxw/MvUjyxtajlUXwGZLsgpJK4qiApZUY0BtPO/AWF3+fgkCe1SkXE90uW7lo0FLF2apqZRB1v/mhSl5i7mMNWU3D1njWWn+4w6XT5/AVEbRoig5zkuxUqaBJCoVkZrqsIzt070qHgYhXgGSV/i/By++0RJWJEtlYGxcUs/UhMEDX7fHwGr6o3qTWZKptV2BIIll2PCeoyhaRnrQmS6vNQqpVaFaP85oF0qS5woy/Gl9M7Bs5gKzL67QiM02nGUrjY4HeO7mZfpOwJqRtNn6FPfQTinNGOo5o57hNF+Bnm9wyjTn6yIxby6RDPtougDU5mf7ByolXCQBabjCX6PX+p04GGELfN8dTcx7PNWFYBOY7Iib7mf2R1ePVxetC21dLZ963sCaGg9vzXHD/Dusi9sMn/psJrVNQzc9vDotbX26iCVtGMNmY7T+48NMtFgvgfikQcqqdZzGmXhq05qbfyWufJ/9ZqG6A0K8I7c3ZKd+t7F9Ig4ALAg3sowxJMzgsHqlJz1xzV3uRfkoMHhSm+UWGT0E48Dk6iHytlj6Y5Fxc/kh0K1XdhXqP1SOwCbp3mvmS3n1LUVVqvT4ZeAKxL0HR+ol+1mldEoAFFCi5T2xuI2BgbdWNid5vs0S/gjYTk+ryBz6tfC8DzF+UpYV72Wez5w3pJzfL5Q5Zg1Yjrmxc8Apu6/Og/TgGeypJ9EgVGIAVPvLrFYCUmzsk/5Q66q/Ad+XffKmyRKa/o6Z2SKotZbx0UNEpmcteaEINZ7uWoeQZmLyhPf1L/wC0lXSMdHeD2tleVnregpkFMDfTOt8J/5G5AWPaGuVO8QRSSd6KtuushtwOZi/TdLjTNQotPI2oZXYtcH9JlOK/uuIe213XBuv1uao2Qbb320YS4sEac/V1EKnHR8UMnajj0+P6oMPUhSCxOtZhRXAHZviZfzDn36afS3rqpQgr5UH1fJeXLXVScWqFyRERYN2cDlNI8wgiDBRtPVv3emxPZTVWCQQmPjfpIpuXVHSKTHpTKuUqB2u/+QoVhoh7XhojfS7oa2u8PjUKWUmvgQvflTRKjSzgRJyTyqR+xbKiLJqDFffhluZKuQgX0fE7AIJFdt6el1ZbuzdtQsIsuZ4WF3p5YdcPTyqvyNECQSp6htHDv3gGH92nI2UCIGj1wbRqQVSOXGxRUBnwewXG30v6bCpG5Bqro/Y3yORKrsDN+0hbeE2C8V5e0/aWGWTi4a96/dcBrzBAUa41E3E4cFb+1rvq4/gsAqNsl8cEwNtKYacNL9JFx+GJxNKydAwAU8MxI9rI6yJfRWgoUdtRwt8vv63dFWBDhKErMZ+MmFrTnPpbED36MZPqGtk8eM2gVyYQaWYZML+zHTwtkcKfKhnk7ZNLHfq09XU61VxX/E1keDyFrN1UMzdQ6OXMMLs5E9CGlE99Nzp8WZ8RiSC4jedGuxftXMTFMgaIHNw3dk5E/bKSZe1dZQ7NWUvCuwFdHi7YSCD+yMJbJAzu/h9KF7e72xLOqxlMOCIpcZ1Tr4J4YCC4sW40+rl8jJmwqt9qSFfuby62389qdyNUJfMRDgG+DUfsxkvmhSkMRZfEvVXULLXjBonpYjWFBN/RMnqw7qQzly1H8QXwbjs1MtV0JQMS7wk8VuVK91Mi3Ee7/BPI7Lw95R5/750CTtdfgL/BZRvQc3BlzMaiK4jFPHDnedWOqPSE9ZyBNVO1s5s8NfYe/00Nu7/Kzhlyk/YZBjF5/xzqHAlHamnAya6bHW7+EBC3STaIixEkPM2PFyyvj8m30oKzIUmczDodpcb8e5d3+vJR6VC/r//o6xLmmIVZRAppjyy+sn2FmtisKK8T03Cwv7hZUCFGw5EhdRvqnRMt4xS5WEdcWnJdgYm5XtZHQ03DaDJbiK4OQJ1r9JGZaz06uBqB/L4T73D2nKd4eVjTGfBJaROQvqwQnuuBuo6BzIqC2LkynUxNW/EJDq++Ohsl4VSLu8NA5qQDKJXpYfBLIvbypvWYl9PNzpAbsMoWasynv8RQV2UruxZ9HApGNjJC1Qqnb6gwiR2GU1KNzWMGWIwNmBM9vnh72xJ1xzSxhs9TUKTtfA8sk2fm5lpSy5BFI0pbPcrMbcXBOPQiICVnQoP5hO9doGvfJmkHLyz/hfDmUYZMvIxp+OwMirZ88Cl/N5xn9H3ex3bdAOTvb1zGYMMvtacz8H84iBl5hIX+9hrjkYO4lgI6OhDPwV1I6GEXy2Gn378tQqNTWqcoYlnLGHVhnQNklX6L6emn5k2apzQ++qGXh1Cw04nCXP6yg2A78G9UrGov6FOcJ6Lz+A6/zu2duXjbYX2iO0hfCBbqUXOcvEStDuBiBSd72ncellNljKZ67fxQ1f3TLfTbSHxLEmewygZ0Ef2NblqpuRmAF26HjDjo1VJ7W8xABC6GmMEQQLXWix9aj57KVW8n2CfA0kMe2E6bwPrgoLagXQzMzJAZt8yX2eRx+40pNdpgT66FnPzLCubTHdUM3Fp/qj/0bwPRkhl459MK4viu/IoESgE2Y+rSjj95B0jW8E3jFuBT61PEPSxjoQN72KFh/GaIweyFYAvZVbvHfUi7VfgVkVNK0XaASt3sDTLGDOE+PwHfyDq9zEqt1BfY4EIJuu7HoRqyyqiF60upG/hJDqq1wlAETQNshc1riNIy5gyJw3G//x8VuvCRgy7+3tPF8wGdmud0dT69WsHdSZgzHr9GuqYeoG4Z0DyL/lh2iN4+8V2E0NwFjctL63F3jeOYtaJpMB76GjdRZdh5Gyo5jk1FAFiUjo4SCwxpg5VAJlP5nXn5tUWKn8HvQCV0NLZLkbnRwZaPmdqsR0raFAvj2lslkvkn7/vSp6e2iy0K0H/cvOqlZgwrGGrwFhc/E8f8BRFvzQkkIiEEMSCJtjHlU3tCo01ocNuUzmwNzUzm0m51QQGkvmm3TKvSzrAgp0AaRMaRxsh01V1BIRxF/UF3NcimW2fKvRuXbi5cjEHfeGG15zvx2SBO/6fV6mVxTLzR5kEiCMP3GKNYnbtPSIQCzWWokJIl8OkvQcosmpLxuXNhyCioRm5bVX+4OL4nCecIUFbwNI8kB+Hz+XvA7vdDBzw3k0uKKlZvKvewodVlSrnJso+L/1XWamNzbnVcwiwG9BrgRsa25mp8GfFTPYP2s5zOM5O+lDprkyIYTed5WmEMkaecRaxDor4ApJ8AdOMcj2xSlNtCo9vQdkPz3za6AWVNu+mYjCpEk8fFQMPnMcZ7HdOr5dol9jo0+F7FWrgvwABj/6lER8aNpRqcNn/Go1ctwjng//t28b5FFjobLvQ1rUNN/4L5clw6d5Z04hitE7u5GEQQ6CfMwbxG3tQ+j/vjuVyBh083m4lLPi+zkC277iBmjSGXI9KI1"
+          }
+        ]
+      }
+    ]
+  }
+}

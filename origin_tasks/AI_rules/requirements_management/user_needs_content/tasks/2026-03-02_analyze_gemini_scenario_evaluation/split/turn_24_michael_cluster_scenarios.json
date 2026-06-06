@@ -1,0 +1,235 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Ich bin mit den drei für Michael einverstanden. Denkst du es gibt noch mehr für ihn, wenn man auch seine cluster berücksichtigt? ",
+        "role": "user",
+        "tokenCount": 30,
+        "createTime": "2026-03-01T08:55:51.263Z"
+      },
+      {
+        "text": "**Considering Implicit Clusters**\n\nOkay, I'm now digging into Michael's implicit clusters. I'm focusing on those specific groups you mentioned. I am aiming to generate additional scenarios. I need to ensure these scenarios resonate with Michael, the high-performer, while addressing the nuances of men avoiding therapy, biohackers, and burnout-prone individuals. I'm looking for the perfect blend.\n\n\n**Refining Pain Points**\n\nI'm now honing in on the specific pain points within Michael's persona and the implicit clusters. The focus now is on how a biohacker like Michael, with his aversion to traditional therapy and high-pressure work, would handle a sudden stress spike. I'm building out a \"Quick Capture in Meeting\" scenario, considering how he'd log the stress without revealing his vulnerabilities to colleagues.\n\n\n**Analyzing Underlying Delusions**\n\nI'm now really drilling down into this \"A/B Testing\" delusion amongst the biohackers. It's becoming clearer how they're optimizing everything *except* the actual root cause of their burnout, like a massive work overload. I'm developing a scenario where the system crashes and he's at the doctor armed with an Excel sheet, rather than emotional notes, to defend his condition.\n\n\n**Developing Stealth Scenarios**\n\nI'm now generating scenarios to capture discreet stress indicators within professional settings. The focus is on Michael, our biohacker archetype, specifically in high-pressure project planning meetings. He's struggling with physical symptoms but can't openly use wellness apps. I am developing scenarios where he uses professional tools like Slack or draft emails to log data discreetly. I need to emphasize a \"camouflage UI,\" a single tap to log a numerical variable, avoiding any overt wellness prompts.\n\n\n**Crafting Crash Scenarios**\n\nI'm now generating scenarios based around a critical \"System Crash\" event. The focus is on the burnout-prone individual, like Michael, experiencing a panic attack, but initially misinterpreting it as a cardiac event. I'm developing the scenario at the cardiologist's office, showing how Michael would defend his data with Garmin data in Excel and why his data needs to be integrated into an easy to read format that can show a historical timeline. I see the value in connecting the crash scenario to data review and ultimately, acceptance of a mental health diagnosis.",
+        "role": "model",
+        "tokenCount": 1195,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Considering Implicit Clusters**\n\nOkay, I'm now digging into Michael's implicit clusters. I'm focusing on those specific groups you mentioned. I am aiming to generate additional scenarios. I need to ensure these scenarios resonate with Michael, the high-performer, while addressing the nuances of men avoiding therapy, biohackers, and burnout-prone individuals. I'm looking for the perfect blend.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Refining Pain Points**\n\nI'm now honing in on the specific pain points within Michael's persona and the implicit clusters. The focus now is on how a biohacker like Michael, with his aversion to traditional therapy and high-pressure work, would handle a sudden stress spike. I'm building out a \"Quick Capture in Meeting\" scenario, considering how he'd log the stress without revealing his vulnerabilities to colleagues.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Underlying Delusions**\n\nI'm now really drilling down into this \"A/B Testing\" delusion amongst the biohackers. It's becoming clearer how they're optimizing everything *except* the actual root cause of their burnout, like a massive work overload. I'm developing a scenario where the system crashes and he's at the doctor armed with an Excel sheet, rather than emotional notes, to defend his condition.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Developing Stealth Scenarios**\n\nI'm now generating scenarios to capture discreet stress indicators within professional settings. The focus is on Michael, our biohacker archetype, specifically in high-pressure project planning meetings. He's struggling with physical symptoms but can't openly use wellness apps. I am developing scenarios where he uses professional tools like Slack or draft emails to log data discreetly. I need to emphasize a \"camouflage UI,\" a single tap to log a numerical variable, avoiding any overt wellness prompts.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Crafting Crash Scenarios**\n\nI'm now generating scenarios based around a critical \"System Crash\" event. The focus is on the burnout-prone individual, like Michael, experiencing a panic attack, but initially misinterpreting it as a cardiac event. I'm developing the scenario at the cardiologist's office, showing how Michael would defend his data with Garmin data in Excel and why his data needs to be integrated into an easy to read format that can show a historical timeline. I see the value in connecting the crash scenario to data review and ultimately, acceptance of a mental health diagnosis.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T08:55:51.269Z"
+      },
+      {
+        "text": "\n\n\nDas ist ein exzellenter Punkt. Wenn wir Michaels Cluster („Männlich konnotierte Therapievermeidung“, „Biohacker / Quantified Self“ und „C-Level / Executive Masking“) unter die Lupe nehmen, gibt es tatsächlich noch zwei hochspezifische Szenarien, die im bisherigen Setup fehlen. \n\nDiese Cluster zeichnen sich dadurch aus, dass sie mentale Probleme als \"technische Bugs des Körpers\" behandeln und eine enorme Fallhöhe in ihrem beruflichen Umfeld haben.\n\nHier sind noch zwei \"Out-of-the-Box\"-Szenarien für Michael und seine Cluster, die für unsere UI- und Logik-Entwicklung einen riesigen Unterschied machen:\n\n### D. Out-of-the-Box: Das Biohacker-Cluster\n\n*   **Szenario 4: A/B Testing the Wrong Variable (Der blinde Fleck der Optimierer)**\n    *   **Kategorie:** `creation.prepare_protocol` & `analysis.self_reflect`\n    *   **Worum es geht:** Michael leidet an dem täglichen \"Nachmittags-Crash\" um 14:30 Uhr (brain fog, massive Erschöpfung). Da er als \"Biohacker\" das Problem ingenieurstechnisch lösen will, entwirft er eine komplexe eigene Tracking-Struktur (z.B. in Notion oder Excel): Er trackt extrem granular seine Kohlenhydrate beim Mittagessen, seine Makros, seine Magnesium-Einnahme und die exakte Uhrzeit des zweiten Espressos.\n    *   **Das Status-Quo-Problem:** Michael optimiert drei Wochen lang seine Nahrungsergänzungsmittel und seinen Blutzucker (er nutzt z.B. einen CGM-Sensor). Der Crash um 14:30 Uhr bleibt trotzdem. Er wirft das Tracking frustriert als \"noisy data\" (rauschende Daten) hin. Was ihm völlig entgeht: Um 14:00 Uhr hat er täglich einen fixen Status-Call mit einem stark toxischen Kunden, der ihm psychisch das Nervensystem zerschießt. Da in seiner Vorlage die Spalten \"Zwischenmenschliche Interaktion\" oder \"Gefühltes Ärgernis\" völlig fehlen (zu \"weich\"), findet er den echten Trigger nie.\n    *   **Warum wir es brauchen:** Es definiert die Grenze zwischen \"Lifestyle Tracking\" und \"Mental Tracking\". Die App darf Michaels Hard-Data-Liebe bedienen, muss ihn durch schlaue Template-Designs aber unbemerkt an den Punkt führen, wo psychologische Metriken parallel zu den körperlichen erfasst werden. Das ist das einzige \"Onboarding\", das Biohacker akzeptieren.\n\n### E. Out-of-the-Box: Das Executive-Masking-Cluster\n\n*   **Szenario 5: Stealth Capture in the Boardroom**\n    *   **Kategorie:** `capture.spontaneous` (Sonderfall High-Functioning)\n    *   **Worum es geht:** Michael sitzt in einem gewaltigen Board-Meeting (Jahresplanung). Die Diskussion wird toxisch. Er spürt, wie sein Tinnitus ohrenbetäubend laut wird und sein Stresslevel auf 10/10 eskaliert (Warnsymptome für Burnout). Er *will* diesen Ausschlag dokumentieren, da er mittlerweile ahnt, dass er hier ein Daten-Muster aufdecken muss.\n    *   **Das Status-Quo-Problem:** Er kann vor den Augen des C-Levels, der Investoren oder Kollegen unmöglich eine Tagebuch-App mit Pastellfarben öffnen, bei der oben \"Wie fühlst du dich gerade?\" steht. Jedes Tippen, das nach \"Ablenkung\" oder \"Journaling\" aussieht, kostet berufliche Reputation. Also greift er zum Workaround: Er tut so, als würde er sich berufliche Notizen machen. Er öffnet den Teams-/Slack-Chat mit sich selbst oder eine Entwurfs-Email und tippt schnell Code-Wörter wie *\"14:30. T 8. S 9. C_Level\"*.\n    *   **Warum wir es brauchen:** Ergänzt das Schulter-Surfer-Problem von Elias (Soziale Phobie) um den Karriere-Aspekt. Für hochfunktionale Berufe MUSS das Tracking komplett nach **Arbeits-App** oder Taschenrechner aussehen (Dark/Clean Mode). \"Stealth Logging\" (z.B. ein blankes Num-Pad, wo er nur \"9\" eintippt) ist für diese Persona kein Nice-to-Have, sondern Bedingung für die Datenerfassung im relevanten Moment.\n\n---\n\n**Fazit Michael (The High-Performer):**\nMit dem Biohacker-A/B-Test (Sz 4) und dem Stealth-Capture im Board-Meeting (Sz 5) haben wir die extreme Leistungs-Gesellschaft (das Gegenteil der Therapierten-Couch) zu 100 % eingefangen. Es bestätigt: Das Tool muss eine \"Ingenieurs-Maske\" tragen können.\n\nNimmst du Nummer 4 und 5 für Michael an? \n\nFalls ja, steht unser großer Schlusspunkt für diesen Lauf auf dem Plan:\n**Nina (The Energy Budgeter / PERSONA-013) – Das Gesicht der unsichtbaren und chronischen Krankheiten (Long-COVID, CFS, Pacing).** Wollen wir sie aufbauen?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1181,
+        "parts": [
+          {
+            "text": "\n\n\nDas ist ein exzellenter Punkt. Wenn wir"
+          },
+          {
+            "text": " Michaels Cluster („Männlich konnotierte Therapievermeidung“, „Biohacker / Quantified Self“ und „C"
+          },
+          {
+            "text": "-Level / Executive Masking“) unter die Lupe nehmen, gibt es tatsächlich noch zwei hochspezifische Szen"
+          },
+          {
+            "text": "arien, die im bisherigen Setup fehlen. \n\nDiese Cluster zeichnen sich dadurch aus, dass sie mentale Probleme als \""
+          },
+          {
+            "text": "technische Bugs des Körpers\" behandeln und eine enorme Fallhöhe in ihrem beruflichen Umfeld haben.\n\nHier"
+          },
+          {
+            "text": " sind noch zwei \"Out-of-the-Box\"-Szenarien für Michael und seine Cluster, die für unsere UI"
+          },
+          {
+            "text": "- und Logik-Entwicklung einen riesigen Unterschied machen:\n\n### D. Out-of-the-Box:"
+          },
+          {
+            "text": " Das Biohacker-Cluster\n\n*   **Szenario 4: A/B Testing the Wrong Variable (Der"
+          },
+          {
+            "text": " blinde Fleck der Optimierer)**\n    *   **Kategorie:** `creation.prepare_protocol` &"
+          },
+          {
+            "text": " `analysis.self_reflect`\n    *   **Worum es geht:** Michael leidet an dem täglichen"
+          },
+          {
+            "text": " \"Nachmittags-Crash\" um 14:30 Uhr (brain fog, massive Erschöpfung). Da er als"
+          },
+          {
+            "text": " \"Biohacker\" das Problem ingenieurstechnisch lösen will, entwirft er eine komplexe eigene Tracking-St"
+          },
+          {
+            "text": "ruktur (z.B. in Notion oder Excel): Er trackt extrem granular seine Kohlenhydrate beim Mittagessen, seine Makros"
+          },
+          {
+            "text": ", seine Magnesium-Einnahme und die exakte Uhrzeit des zweiten Espressos.\n    *   **Das Status"
+          },
+          {
+            "text": "-Quo-Problem:** Michael optimiert drei Wochen lang seine Nahrungsergänzungsmittel und seinen Blutzucker (er"
+          },
+          {
+            "text": " nutzt z.B. einen CGM-Sensor). Der Crash um 14:30 Uhr bleibt trotzdem. Er wir"
+          },
+          {
+            "text": "ft das Tracking frustriert als \"noisy data\" (rauschende Daten) hin. Was ihm völlig entgeht: Um"
+          },
+          {
+            "text": " 14:00 Uhr hat er täglich einen fixen Status-Call mit einem stark toxischen Kunden, der ihm psychisch"
+          },
+          {
+            "text": " das Nervensystem zerschießt. Da in seiner Vorlage die Spalten \"Zwischenmenschliche Inter"
+          },
+          {
+            "text": "aktion\" oder \"Gefühltes Ärgernis\" völlig fehlen (zu \"weich\"), findet er den"
+          },
+          {
+            "text": " echten Trigger nie.\n    *   **Warum wir es brauchen:** Es definiert die Grenze zwischen \"Lifestyle Tracking\" und \"Mental Tracking"
+          },
+          {
+            "text": "\". Die App darf Michaels Hard-Data-Liebe bedienen, muss ihn durch schlaue Template-Designs aber un"
+          },
+          {
+            "text": "bemerkt an den Punkt führen, wo psychologische Metriken parallel zu den körperlichen erfasst werden. Das ist"
+          },
+          {
+            "text": " das einzige \"Onboarding\", das Biohacker akzeptieren.\n\n### E. Out-of-the-Box: Das Executive"
+          },
+          {
+            "text": "-Masking-Cluster\n\n*   **Szenario 5: Stealth Capture in the Boardroom**\n    *   **Kategorie:**"
+          },
+          {
+            "text": " `capture.spontaneous` (Sonderfall High-Functioning)\n    *   **Worum es geht:** Michael"
+          },
+          {
+            "text": " sitzt in einem gewaltigen Board-Meeting (Jahresplanung). Die Diskussion wird toxisch. Er spürt,"
+          },
+          {
+            "text": " wie sein Tinnitus ohrenbetäubend laut wird und sein Stresslevel auf 10/10 eskaliert (Warnsympt"
+          },
+          {
+            "text": "ome für Burnout). Er *will* diesen Ausschlag dokumentieren, da er mittlerweile ahnt, dass er hier"
+          },
+          {
+            "text": " ein Daten-Muster aufdecken muss.\n    *   **Das Status-Quo-Problem:** Er kann vor den"
+          },
+          {
+            "text": " Augen des C-Levels, der Investoren oder Kollegen unmöglich eine Tagebuch-App mit Pastellfarben öffnen,"
+          },
+          {
+            "text": " bei der oben \"Wie fühlst du dich gerade?\" steht. Jedes Tippen, das nach \"Abl"
+          },
+          {
+            "text": "enkung\" oder \"Journaling\" aussieht, kostet berufliche Reputation. Also greift er zum Workaround: Er tut"
+          },
+          {
+            "text": " so, als würde er sich berufliche Notizen machen. Er öffnet den Teams-/Slack-Chat mit sich selbst oder eine Ent"
+          },
+          {
+            "text": "wurfs-Email und tippt schnell Code-Wörter wie *\"14:30. T 8. S 9. C_"
+          },
+          {
+            "text": "Level\"*.\n    *   **Warum wir es brauchen:** Ergänzt das Schulter-Surfer-Problem"
+          },
+          {
+            "text": " von Elias (Soziale Phobie) um den Karriere-Aspekt. Für hochfunktionale Berufe MUSS das Tracking komplett nach"
+          },
+          {
+            "text": " **Arbeits-App** oder Taschenrechner aussehen (Dark/Clean Mode). \"Stealth Logging\" ("
+          },
+          {
+            "text": "z.B. ein blankes Num-Pad, wo er nur \"9\" eintippt) ist für diese Persona"
+          },
+          {
+            "text": " kein Nice-to-Have, sondern Bedingung für die Datenerfassung im relevanten Moment.\n\n---\n\n**"
+          },
+          {
+            "text": "Fazit Michael (The High-Performer):**\nMit dem Biohacker-A/B-Test (Sz"
+          },
+          {
+            "text": " 4) und dem Stealth-Capture im Board-Meeting (Sz 5) haben wir die extreme Leistungs-Gesellschaft (das Gegenteil der"
+          },
+          {
+            "text": " Therapierten-Couch) zu 100 % eingefangen. Es bestätigt: Das Tool muss eine \"Ing"
+          },
+          {
+            "text": "enieurs-Maske\" tragen können.\n\nNimmst du Nummer 4 und 5 für Michael an? \n\nFalls ja, steht unser"
+          },
+          {
+            "text": " großer Schlusspunkt für diesen Lauf auf dem Plan:\n**Nina (The Energy Budgeter / PERSONA-013)"
+          },
+          {
+            "text": " – Das Gesicht der unsichtbaren und chronischen Krankheiten (Long-COVID, CFS, Pacing).** W"
+          },
+          {
+            "text": "ollen wir sie aufbauen?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

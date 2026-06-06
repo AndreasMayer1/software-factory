@@ -1,0 +1,137 @@
+# Schema: flow_navigation.yaml
+#
+# Canonical source of truth for the flow_navigation.yaml artifact emitted by
+# ui-scribble-handoff-emitter into each participating user-flow folder.
+#
+# Location: requirements_user_needs/user_flows/<flow_slug>/flow_navigation.yaml
+# Produced by: ui-scribble-handoff-emitter (Phase 5, alongside flutter_handoff.yaml)
+# Consumed by: ui-verify-flutter (Phase 1b navigation check),
+#              code-simple / code-complex implementation agents (navigation implementation),
+#              check_skill_contracts.py
+#
+# One file per flow folder; updated on every handoff-emitter run for that flow.
+#
+# Dialect: flat YAML with required:/optional: blocks (REQ-PROC-044 D-2). NOT full JSON Schema.
+
+schema_version: 1
+artifact: flow_navigation.yaml
+description: >
+  Per-flow screen-to-screen navigation graph: directed edges between screens,
+  the trigger for each edge, escape paths out of the flow, and the default
+  back-stack policy. Emitted by ui-scribble-handoff-emitter; consumed by
+  ui-verify-flutter and implementation agents to verify and build navigation.
+
+required:
+  flow_id:
+    type: string
+    description: >
+      Flow identifier (e.g. FLOW-002). Must match the flow_id in the containing
+      flow folder's flow.md frontmatter.
+
+  scribble_source:
+    type: object
+    description: The scribble version that provided the screen content for this graph.
+    required_keys: [feature_path, version]
+    keys:
+      feature_path:
+        type: string
+        description: >
+          Scribble feature path (e.g. "therapist/data_transfer"), matching the
+          scribble metadata.yaml feature_path field.
+      version:
+        type: string
+        description: Scribble version folder (e.g. "v2").
+
+  edges:
+    type: array
+    min_items: 1
+    description: >
+      Directed edges in the screen-to-screen navigation graph. Each edge connects
+      a source screen to a destination screen with an explicit trigger. Derived from
+      the flow_positions step ordering and the COMPONENT MAPPING blocks in each screen.
+    items:
+      type: object
+      required_keys: [from, to, trigger]
+      optional_keys: [back_stack_action, condition]
+      keys:
+        from:
+          type: string
+          description: >
+            Source screen identifier — the NN_<name> filename without .html extension
+            (e.g. "01_dialog_structure").
+        to:
+          type: string
+          description: Destination screen identifier (same format as from).
+        trigger:
+          type: string
+          description: >
+            What causes this navigation: a user action, system event, or state change.
+            Phrased as a short declarative sentence (e.g. "User taps primary CTA",
+            "Pairing succeeds", "Transfer complete — user taps Discard or Complete").
+        back_stack_action:
+          type: string
+          enum: [push, replace, clear, pop]
+          description: >
+            How the navigator stack changes for this edge. Defaults to the flow-level
+            back_stack_policy when absent.
+            push: destination is pushed on top of source (back returns to source).
+            replace: destination replaces source (no back to source).
+            clear: destination becomes the new root (entire stack cleared).
+            pop: back navigation — destination is reached by popping the current screen.
+        condition:
+          type: string
+          description: >
+            Optional guard condition on this edge. Present when multiple edges share
+            the same from/trigger but different destinations depending on state
+            (e.g. "client has pairing key" vs. "pairing key missing").
+
+optional:
+  escape_paths:
+    type: array
+    description: >
+      Escape paths — routes that exit the flow or return to a prior entry point
+      (e.g. OS back gesture, dialog dismiss, explicit Cancel action). Distinct from
+      normal edges: escapes are defensive navigations that may bypass the forward flow.
+    items:
+      type: object
+      required_keys: [from, trigger, destination]
+      optional_keys: [back_stack_action]
+      keys:
+        from:
+          type: string
+          description: Screen from which this escape is available.
+        trigger:
+          type: string
+          description: >
+            What triggers the escape (e.g. "OS back gesture", "User taps Dismiss",
+            "User taps Cancel").
+        destination:
+          type: string
+          description: >
+            Where the user lands. Use a screen identifier (NN_<name>) for in-flow
+            destinations; use a freeform string for out-of-flow destinations
+            (e.g. "caller screen", "home", "entry point of FLOW-002").
+        back_stack_action:
+          type: string
+          enum: [pop, clear]
+          description: Stack operation for this escape.
+
+  back_stack_policy:
+    type: string
+    enum: [push, replace, modal, mixed]
+    description: >
+      Default back-stack behavior for this flow when no per-edge back_stack_action
+      is specified. push: standard push-pop navigation. replace: each screen
+      replaces the previous. modal: flow is presented as a modal sheet or dialog.
+      mixed: varies per edge (all per-edge actions must be explicit).
+
+  last_updated:
+    type: string
+    format: date
+    description: >
+      Date this file was last emitted or updated by ui-scribble-handoff-emitter.
+      Informational — updated on every emitter run.
+
+  emitted_by:
+    type: string
+    description: Agent session ID that last emitted this version. Informational / audit trail.

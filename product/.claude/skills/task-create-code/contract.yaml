@@ -1,0 +1,108 @@
+contract_version: 1
+skill: task-create-code
+purpose: >
+  Create Dart code tasks (lib/, test/, integration_test/) that bridge a functional requirement
+  to implementation. CONSUMER of the parent requirements.md and PRODUCER of code-task goal.md
+  files with computed sizing, coverage, and after-dependencies. Routes to code-simple/complex/test.
+
+derived_from:
+  required:
+    - path: requirements
+      source: skill:requ-explore
+      schema: .claude/schemas/requirements_frontmatter.yaml
+      reason: >
+        The parent requirement — ACs, sections, priority signals inherited into each goal.md.
+        Produced by requ-explore.
+    - path: id-registry
+      source: external
+      reason: REQ-ID → path mapping for task-ID allocation; regenerated just-in-time.
+  optional:
+    - path: release-backlog
+      source: external
+      reason: Phase 0 package discovery + target_package assignment.
+
+produces:
+  required:
+    - path: goal
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: The code-task goal.md (covers, after, sizing, target_package). The skill's primary output.
+    - path: plans-dir
+      reason: Empty memory home created alongside each goal.md.
+
+quality_criteria:
+  - Only used for tasks changing lib/, test/, or integration_test/ (else use task-create).
+  - Every created goal.md conforms to goal_metadata.yaml with a unique allocated task_id.
+  - after: contains only TASK-IDs; covers.acceptance_criteria are real parent ACs.
+  - Uncovered-AC standalone case redirects to task-derive-from-requ (never silently partial).
+
+user_input_gates:
+  - phase: "Phase 0B — RELEASE_BACKLOG Discovery (confirm candidate)"
+    description: "Developer confirms the proposed next implementation task candidate (package, requirement path) before Phase 1 begins."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires in Phase 0B (no plan_path set); skipped when plan-driven discovery (Phase 0A) succeeds."
+  - phase: "Phase 1.2 — Gather Additional Details"
+    description: "Developer provides supplementary information (visual design specs, business rules, edge cases) not documented in the requirement."
+    decision_kind: free-text
+    required: conditional
+    condition: "Skipped in automated mode; fires in interactive mode."
+  - phase: "Phase 2.3 — Plan-driven size mismatch (estimate larger than plan)"
+    description: "Developer decides whether to split the task, promote to Opus model, or override when file analysis reveals the task is significantly larger than estimated."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires in interactive mode when plan entry is active and file analysis estimates Large (8+ files) while plan estimated S or M effort."
+  - phase: "Phase 3.2.5 — Dependency proposal (propose_after.py)"
+    description: "Developer accepts or drops proposed after: dependency entries and optionally adds others."
+    decision_kind: revision
+    required: conditional
+    condition: "Only fires in interactive mode when propose_after.py returns at least one proposal."
+  - phase: "Phase 3.3e — release_description confirmation"
+    description: "Developer confirms or adjusts the AI-drafted release description (max 25 words)."
+    decision_kind: revision
+    required: conditional
+    condition: "Skipped in automated mode; fires in interactive mode."
+  - phase: "Phase 4.1 — Present goal.md for review"
+    description: "Developer reviews the complete goal.md and confirms correctness, scope estimate, and whether splitting is required."
+    decision_kind: approval
+    required: conditional
+    condition: "Skipped in plan-driven mode; required in standalone interactive mode."
+  - phase: "Phase 6 — Plan conformance exit 1"
+    description: "Developer reviews a plan conformance mismatch diff and decides whether to proceed or fix the task."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires in interactive mode when check_task_against_plan.py exits 1 (mismatch detected)."
+  - phase: "Phase 0A — Stale plan check"
+    description: "Developer decides whether to proceed, abort, or re-plan when the requirements.md commit hash differs from the plan's recorded hash."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires in interactive mode when plan's requirements_version.commit != current requirements.md hash."
+  - phase: "Sizing Gate (REQ-PROC-001 AC-03)"
+    description: "Developer chooses how to resolve a high-volume code task that triggers the sizing gate: recommend Opus, split into child tasks, or add a named fan-out plan."
+    decision_kind: selection
+    required: conditional
+    condition: "Only fires in interactive mode when expected_tool_calls > 60 or skill_chain_depth >= 4 and none of the three end states is already satisfied."
+  - phase: "Phase 3.3g.1 — AC-07 iterative-fix-loop escalation"
+    description: "Developer decides whether to split an iterative-fix-loop task into <=3-file child tasks (preferred) or declares the loop inherent so the task is escalated to opus_recommended: true."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires in interactive mode when the task drives a verify-quality loop on lib/ AND scope is open (globs/patterns) or names more than 3 lib/ files."
+
+may_invoke:
+  - task-derive-from-requ # redirect when uncovered ACs detected in standalone mode (AC-10)
+  - task-complete         # close the orchestration task after creating the impl task
+
+side_effects:
+  - target: requirements_tasks/_meta/id_registry.md
+    action: regenerate
+    note: Regenerated via generate_id_registry.py --requirements before ID allocation.
+  - target: requirements_tasks/<req>/tasks/.reserve-<TASK-ID>
+    action: write
+    note: Atomic reservation marker; deleted after goal.md is written.
+
+preconditions:
+  - A parent requirements.md exists and conforms to requirements_frontmatter.yaml (entry pre-check).
+  - id_registry.md is regenerated so the allocated task ID cannot collide.
+
+postconditions:
+  - One or more code-task goal.md files exist (conforming to goal_metadata.yaml) with sibling
+    plans_and_protocols/, and all reservation markers are deleted.

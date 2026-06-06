@@ -1,0 +1,301 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Fühlt sich rassistisch an amina direkt mit ungebildeten in einen Topf zu werfen, auch wenn es in Bezug auf die Aversion gegen Formulare Sinn ergibt. Möchte ich so nicht.\nAnsonsten möchte ich amina aufnehmen, inklusive der drei Szenarien. Fallen dir noch mehr Szenarien für sie ein oder für ihre cluster? ",
+        "role": "user",
+        "tokenCount": 76,
+        "createTime": "2026-03-01T10:29:34.885Z"
+      },
+      {
+        "text": "**Addressing the Stereotype**\n\nI'm now deeply concerned about the initial framing. I see now that equating the \"Amina\" persona with those negative attributes is incredibly problematic and unacceptable. I need to completely rethink this association to avoid reinforcing harmful stereotypes and ensure the design respects her background.\n\n\n**Reframing Amina's Profile**\n\nI'm now focusing on scenarios that showcase Amina's intelligence and education, emphasizing cultural incongruity over any perceived lack of understanding. The core of the issue isn't low literacy but the clash between her emotional expression and clinical language. I'm exploring how these differences create barriers, such as in the The Translation Tax scenario. I'm brainstorming additional scenarios centered on this reframing, looking at the challenges highly educated migrants face.\n\n\n**Expanding Amina's Story**\n\nI'm developing a new scenario, \"The Guilt of Resting,\" which explores Amina's struggle with self-care advice due to family obligations. I'm focusing on the clash between her collectivistic background and the Western emphasis on individualism. I'm also planning an additional scenario focused on her role as an interpreter, addressing the burden of translation and the emotional toll.\n\n\n**Exploring Therapeutic Interactions**\n\nI'm now diving into two new scenarios. The first, \"The Cultural Diagnostic Gap,\" depicts Amina's therapy session, focusing on how her data is misinterpreted through a Western lens, requiring her to educate her therapist. The second, \"Religious/Spiritual Coping,\" examines how her faith or spirituality might offer support, as well as the challenges or gaps that may arise when trying to navigate therapeutic interventions that don't consider her beliefs. I am working on the specifics now.\n\n\n**Validating Cultural Resources**\n\nI'm now integrating Amina's spiritual practices into her clinical data. I'm imagining how she'd track \"Gebet\" (Prayer) as a coping skill alongside conventional methods, which creates a hybrid system that honors her cultural coping mechanisms. It's a key part of developing Scenario 4, The Self-Care Dilemma. I'm also refining Scenario 5: Defending the Data (The Cultural Context Gap) where her cultural needs will be central.",
+        "role": "model",
+        "tokenCount": 1181,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Addressing the Stereotype**\n\nI'm now deeply concerned about the initial framing. I see now that equating the \"Amina\" persona with those negative attributes is incredibly problematic and unacceptable. I need to completely rethink this association to avoid reinforcing harmful stereotypes and ensure the design respects her background.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Reframing Amina's Profile**\n\nI'm now focusing on scenarios that showcase Amina's intelligence and education, emphasizing cultural incongruity over any perceived lack of understanding. The core of the issue isn't low literacy but the clash between her emotional expression and clinical language. I'm exploring how these differences create barriers, such as in the The Translation Tax scenario. I'm brainstorming additional scenarios centered on this reframing, looking at the challenges highly educated migrants face.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Expanding Amina's Story**\n\nI'm developing a new scenario, \"The Guilt of Resting,\" which explores Amina's struggle with self-care advice due to family obligations. I'm focusing on the clash between her collectivistic background and the Western emphasis on individualism. I'm also planning an additional scenario focused on her role as an interpreter, addressing the burden of translation and the emotional toll.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Exploring Therapeutic Interactions**\n\nI'm now diving into two new scenarios. The first, \"The Cultural Diagnostic Gap,\" depicts Amina's therapy session, focusing on how her data is misinterpreted through a Western lens, requiring her to educate her therapist. The second, \"Religious/Spiritual Coping,\" examines how her faith or spirituality might offer support, as well as the challenges or gaps that may arise when trying to navigate therapeutic interventions that don't consider her beliefs. I am working on the specifics now.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Validating Cultural Resources**\n\nI'm now integrating Amina's spiritual practices into her clinical data. I'm imagining how she'd track \"Gebet\" (Prayer) as a coping skill alongside conventional methods, which creates a hybrid system that honors her cultural coping mechanisms. It's a key part of developing Scenario 4, The Self-Care Dilemma. I'm also refining Scenario 5: Defending the Data (The Cultural Context Gap) where her cultural needs will be central.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T10:29:34.889Z"
+      },
+      {
+        "text": "\n\n\nDas ist eine extrem wertvolle und absolut berechtigte Korrektur! Danke, dass du da sofort reingegrätscht bist. \n\nEs ist ein klassischer und sehr gefährlicher (Bias-)Fehler, mangelnde Passung zum bürokratischen System direkt mit \"geringer Bildung\" oder \"Leseschwäche\" gleichzusetzen. Im Gegenteil: Amina kann sehr hochgebildet sein (z. B. Akademikerin, Jura- oder Medizinstudentin), perfektes Hochdeutsch sprechen und das Kassen-Vokabular kognitiv zu 100 % beherrschen – und **dennoch** scheitert das Tracking, weil \"Depressivität\" oder \"Insuffizienzgefühl\" einfach nicht die emotionale Sprache ihrer Kultur und ihrer Seele ist. Es ist eine Frage der **kulturellen Passung und der emotionalen Resonanz**, nicht der Bildung. Den \"Low-Literacy\"-Topf streichen wir komplett und rückstandslos bei ihr!\n\nMit dieser geschärften, respektvollen Brille (Amina als hochgebildete \"Dual-World Navigatorin\") betrachten wir ihre restlichen Cluster: \nDas **High-Obligation / Caregiver-Cluster (Pflegende Angehörige, Familiärer Pflichtdruck)** und die Frage, wie **Ressourcen** in anderen Kulturen aussehen.\n\nHier sind drei weitere fantastische, völlig unterbeleuchtete Szenarien für Amina, die sich genau aus diesen feinen, tiefgründigen Unterschieden ergeben:\n\n### E. Out-of-the-Box: Die westliche \"Self-Care\"-Falle\n\n*   **Szenario 4: The Self-Care Guilt (When Therapy Clashes with Culture)**\n    *   **Kategorie:** `capture.routine` & `analysis.self_reflect`\n    *   **Worum es geht:** Die deutsche VT-Therapeutin hat Amina die Standard-Hausaufgabe für Depressive gegeben: *\"Bauen Sie jeden Tag ein angenehmes Erlebnis nur für sich selbst ein ('Me-Time') und tracken Sie, wie gut Ihnen das tat.\"* Amina wohnt bei ihrer Familie. Im kollektivistischen Familiensystem gibt es den radikalen westlichen Individualismus nicht; die Pflege der Großeltern und das Kümmern um Geschwister ist nicht nur \"Stress\", sondern sinnstiftende Identität und heilige Pflicht.\n    *   **Das Status-Quo-Problem:** Amina schließt sich für eine Stunde im Zimmer ein (Self-Care), während die Mutter draußen für die große Familie kocht. Amina schlägt ihr Tagebuch auf und weint, weil sie von toxischen **Schuldgefühlen** überrollt wird (\"Ich bin egoistisch, ich lasse sie im Stich\"). Die Standard-Tracking-Logik der Therapeutin (\"Me-Time = Mood Boost\") verkehrt sich ins genaue Gegenteil. Auf dem Papier sieht das Konzept \"Me-Time\" nun aus wie ein schädlicher Trigger.\n    *   **Warum wir es brauchen:** Es warnt uns als App-Designer vor eingebauten \"Cultural Biases\" (westlicher Wertekompass). Eine Tracking-App darf nicht blind \"Ego-Zeit = Positiv\" als festes Farbschema oder Vorschlag vorgeben. Belastungs- und Ressourcenquellen müssen radikal frei benennbar und völlig wertfrei in ihren Auswirkungen analysierbar sein.\n\n### F. Out-of-the-Box: Wenn Coping-Skills auf dem Formular fehlen\n\n*   **Szenario 5: The Unlisted Resource (Tracking Faith)**\n    *   **Kategorie:** `intervention.coping` & `capture.spontaneous`\n    *   **Worum es geht:** Amina hat am Nachmittag massiven Panik-Druck. In der Standard-Verhaltenstherapie gibt man ihr Coping-Listen wie: *\"Muskelentspannung nach Jacobson, Achtsamkeitsspaziergang, Ein Stück Chili beißen\"*. Für Amina ist ihre tiefe Verankerung in Religion / Spiritualität der größte Anker. Wenn sie überfordert ist, rollt sie ihren Gebetsteppich aus. Das Ritual, die physische Handlung des Betens und die Unterwerfung (Loslassen der weltlichen Kontrolle), beruhigt ihr Nervensystem massiv von 90% auf 40%.\n    *   **Das Status-Quo-Problem:** Sie will diesen enormen Erfolg abends in ihrem Papiertracker für die Therapie festhalten. Es gibt Checkboxen für \"Entspannungsverfahren angewendet?\", aber das Gebet fühlt sich in dieses klinische Vokabular (\"Entspannungsverfahren\") hineingepresst respektlos und trivialisiert an. Da Religion im sekularisierten deutschen Kassensystem als Bewältigungsstrategie auf keinem Bogen auftaucht, trägt sie stattdessen ein allgemeines \"Atemübung\" ein und entzieht ihrer Therapeutin damit unwissentlich die Erkenntnis über ihre allergrößte mentale Ressource.\n    *   **Warum wir es brauchen:** Erschließt das Thema Spirituelles/Kulturelles Coping. Wenn Patienten tracken, müssen Custom-Tags so erfasst und visuell \"hochgehalten\" werden können, dass die App sie nicht als Randnotiz behandelt. \n\n### G. Out-of-the-Box: Die Übersetzungs-Barriere in der Praxis\n\n*   **Szenario 6: Defending the Data (The Cultural Context Gap)**\n    *   **Kategorie:** `analysis.review_collaboratively`\n    *   **Worum es geht:** Amina sitzt bei der Therapeutin. Sie reviewen gemeinsam ein auf Deutsch geführtes Stressprotokoll der letzten Woche. Eine extrem hohe Spannungsspitze (Stress: 9/10) fällt auf den Mittwoch. Amina erzählt, dass ihre Mutter unabgesprochen Verwandtschaft eingeladen hat und sie drei Stunden beim Tee bedienen musste, obwohl sie lernen wollte. \n    *   **Das Status-Quo-Problem:** Die Therapeutin bewertet dies durch eine rein westliche Brille und zieht die Daten heran: *\"Sehen Sie, die emotionale Verstrickung mit ihrer Mutter ist ungesund, sie müssen sich hier massiv abgrenzen.\"* Amina fühlt sich sofort angegriffen und komplett missverstanden, weil die Daten zwar den \"Stress\" korrekt aufzeigen, die Therapeutin diesen Stress aber **pathologisiert** (Krankhaft redet), anstatt ihn als \"normalen Preis\" in dieser Familienkultur zu validieren. Amina fängt ab sofort an, solche Stressspitzen *nicht* mehr zu loggen, um die Therapeutin und deren Missverständnis zu managen.\n    *   **Warum wir es brauchen:** Dieses Phänomen nennt sich *Self-Censorship to Manage Therapist Bias*. User beginnen, Daten aus dem Tracking-Loop zu löschen/verheimlichen, wenn die nachfolgende Daten-Auswertung (der Algorithmus oder der Mensch am anderen Ende) einen unfairen oder ungehörigen Rahmen (Framing) um die Werte legt. Es verdeutlicht extrem gut: Der Data-Owner ist immer Amina, der Behandler hat oft *nicht* den Kontext, die reine \"Messung\" erklärt gar nichts.\n\n---\n\nMit diesen **6 perfekten Szenarien für Amina** (Sz 1: Translation Tax, Sz 2: Somatisierung der Not, Sz 3: Lebensgefahr analoges Buch, Sz 4: Self-Care Dilemma, Sz 5: Faith als Coping, Sz 6: Zensur durch Therapeuten-Bias) haben wir das erste wirklich inklusive Setup aufgesetzt, und das ganz ohne billige Stereotypen, sondern an hochakademischen Systemlücken angesetzt.\n\nDein Cut bei der ersten Annäherung hat diesen Entwurf um Lichtjahre besser gemacht!\nEinverstanden mit diesem Portfolio für Persona 16 (Amina)? \n\nUnd falls ja: Soll ich mich kurz um deinen erwähnten Blinden Fleck Nummer 2 (**Die absolute motorische Barrierefreiheit — Zittern, verschwommene Sicht etc.**) kümmern und ihn logisch in bestehende Personas weben?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1773,
+        "parts": [
+          {
+            "text": "\n\n\nDas ist eine extrem wertvolle und absolut berechtigte Korrektur! Danke"
+          },
+          {
+            "text": ", dass du da sofort reingegrätscht bist. \n\nEs ist ein klassischer und sehr gefährlicher (Bias"
+          },
+          {
+            "text": "-)Fehler, mangelnde Passung zum bürokratischen System direkt mit \"geringer Bildung\" oder \"Les"
+          },
+          {
+            "text": "eschwäche\" gleichzusetzen. Im Gegenteil: Amina kann sehr hochgebildet sein (z. B. Akademikerin"
+          },
+          {
+            "text": ", Jura- oder Medizinstudentin), perfektes Hochdeutsch sprechen und das Kassen-Vokabular k"
+          },
+          {
+            "text": "ognitiv zu 100 % beherrschen – und **dennoch** scheitert das Tracking, weil \""
+          },
+          {
+            "text": "Depressivität\" oder \"Insuffizienzgefühl\" einfach nicht die emotionale Sprache ihrer Kultur und ihrer Seele ist. Es"
+          },
+          {
+            "text": " ist eine Frage der **kulturellen Passung und der emotionalen Resonanz**, nicht der Bildung. Den \""
+          },
+          {
+            "text": "Low-Literacy\"-Topf streichen wir komplett und rückstandslos bei ihr!\n\nMit dieser geschärften, respekt"
+          },
+          {
+            "text": "vollen Brille (Amina als hochgebildete \"Dual-World Navigatorin\") betrachten wir ihre restlichen Cluster:"
+          },
+          {
+            "text": " \nDas **High-Obligation / Caregiver-Cluster (Pflegende Angehörige, Familiärer Pflicht"
+          },
+          {
+            "text": "druck)** und die Frage, wie **Ressourcen** in anderen Kulturen aussehen.\n\nHier sind drei weitere fantast"
+          },
+          {
+            "text": "ische, völlig unterbeleuchtete Szenarien für Amina, die sich genau aus diesen feinen, tiefgründigen Unterschieden ergeben:\n\n###"
+          },
+          {
+            "text": " E. Out-of-the-Box: Die westliche \"Self-Care\"-Falle\n\n*   **S"
+          },
+          {
+            "text": "zenario 4: The Self-Care Guilt (When Therapy Clashes with Culture)**\n    *   **Kategorie"
+          },
+          {
+            "text": ":** `capture.routine` & `analysis.self_reflect`\n    *   **Worum es geht:**"
+          },
+          {
+            "text": " Die deutsche VT-Therapeutin hat Amina die Standard-Hausaufgabe für Depressive gegeben: *\"Bauen Sie jeden"
+          },
+          {
+            "text": " Tag ein angenehmes Erlebnis nur für sich selbst ein ('Me-Time') und tracken Sie, wie gut Ihnen das tat"
+          },
+          {
+            "text": ".\"* Amina wohnt bei ihrer Familie. Im kollektivistischen Familiensystem gibt es den radikalen west"
+          },
+          {
+            "text": "lichen Individualismus nicht; die Pflege der Großeltern und das Kümmern um Geschwister ist nicht nur \""
+          },
+          {
+            "text": "Stress\", sondern sinnstiftende Identität und heilige Pflicht.\n    *   **Das Status-Quo-Problem:**"
+          },
+          {
+            "text": " Amina schließt sich für eine Stunde im Zimmer ein (Self-Care), während die Mutter draußen für die große"
+          },
+          {
+            "text": " Familie kocht. Amina schlägt ihr Tagebuch auf und weint, weil sie von toxischen **Schuldgefühlen**"
+          },
+          {
+            "text": " überrollt wird (\"Ich bin egoistisch, ich lasse sie im Stich\"). Die Standard-Tracking-Logik der Therapeutin (\"Me"
+          },
+          {
+            "text": "-Time = Mood Boost\") verkehrt sich ins genaue Gegenteil. Auf dem Papier sieht das Konzept \"Me-Time\" nun"
+          },
+          {
+            "text": " aus wie ein schädlicher Trigger.\n    *   **Warum wir es brauchen:** Es warnt uns als App-Designer"
+          },
+          {
+            "text": " vor eingebauten \"Cultural Biases\" (westlicher Wertekompass). Eine Tracking-App darf nicht blind \"E"
+          },
+          {
+            "text": "go-Zeit = Positiv\" als festes Farbschema oder Vorschlag vorgeben. Belastungs- und"
+          },
+          {
+            "text": " Ressourcenquellen müssen radikal frei benennbar und völlig wertfrei in ihren Auswirkungen analysierbar sein.\n\n### F."
+          },
+          {
+            "text": " Out-of-the-Box: Wenn Coping-Skills auf dem Formular fehlen\n\n*   **Szenario"
+          },
+          {
+            "text": " 5: The Unlisted Resource (Tracking Faith)**\n    *   **Kategorie:** `intervention.coping` &"
+          },
+          {
+            "text": " `capture.spontaneous`\n    *   **Worum es geht:** Amina hat am Nachmittag massiven Panik-Druck. In"
+          },
+          {
+            "text": " der Standard-Verhaltenstherapie gibt man ihr Coping-Listen wie: *\"Muskelentspannung nach"
+          },
+          {
+            "text": " Jacobson, Achtsamkeitsspaziergang, Ein Stück Chili beißen\"*. Für Amina ist ihre tiefe Ver"
+          },
+          {
+            "text": "ankerung in Religion / Spiritualität der größte Anker. Wenn sie überfordert ist, rollt sie ihren Gebetsteppich aus."
+          },
+          {
+            "text": " Das Ritual, die physische Handlung des Betens und die Unterwerfung (Loslassen der weltlichen Kontrolle), beruhigt"
+          },
+          {
+            "text": " ihr Nervensystem massiv von 90% auf 40%.\n    *   **Das Status-Quo"
+          },
+          {
+            "text": "-Problem:** Sie will diesen enormen Erfolg abends in ihrem Papiertracker für die Therapie festhalten. Es"
+          },
+          {
+            "text": " gibt Checkboxen für \"Entspannungsverfahren angewendet?\", aber das Gebet fühlt sich in dieses klinische V"
+          },
+          {
+            "text": "okabular (\"Entspannungsverfahren\") hineingepresst respektlos und trivialisiert an. Da Religion im sek"
+          },
+          {
+            "text": "ularisierten deutschen Kassensystem als Bewältigungsstrategie auf keinem Bogen auftaucht, trägt sie stat"
+          },
+          {
+            "text": "tdessen ein allgemeines \"Atemübung\" ein und entzieht ihrer Therapeutin damit unwissentlich die Erkenntnis über ihre aller"
+          },
+          {
+            "text": "größte mentale Ressource.\n    *   **Warum wir es brauchen:** Erschließt das Thema Spirituelles"
+          },
+          {
+            "text": "/Kulturelles Coping. Wenn Patienten tracken, müssen Custom-Tags so erfasst und visuell \"hochge"
+          },
+          {
+            "text": "halten\" werden können, dass die App sie nicht als Randnotiz behandelt. \n\n### G. Out-of-"
+          },
+          {
+            "text": "the-Box: Die Übersetzungs-Barriere in der Praxis\n\n*   **Szenario 6: Defending the Data (The"
+          },
+          {
+            "text": " Cultural Context Gap)**\n    *   **Kategorie:** `analysis.review_collaboratively`\n    *"
+          },
+          {
+            "text": "   **Worum es geht:** Amina sitzt bei der Therapeutin. Sie reviewen gemeinsam ein auf Deutsch geführtes Stress"
+          },
+          {
+            "text": "protokoll der letzten Woche. Eine extrem hohe Spannungsspitze (Stress: 9/10) fällt auf den Mittwoch"
+          },
+          {
+            "text": ". Amina erzählt, dass ihre Mutter unabgesprochen Verwandtschaft eingeladen hat und sie drei Stunden beim Tee bed"
+          },
+          {
+            "text": "ienen musste, obwohl sie lernen wollte. \n    *   **Das Status-Quo-Problem:** Die Therapeutin bew"
+          },
+          {
+            "text": "ertet dies durch eine rein westliche Brille und zieht die Daten heran: *\"Sehen Sie, die emotionale Ver"
+          },
+          {
+            "text": "strickung mit ihrer Mutter ist ungesund, sie müssen sich hier massiv abgrenzen.\"* Amina"
+          },
+          {
+            "text": " fühlt sich sofort angegriffen und komplett missverstanden, weil die Daten zwar den \"Stress\" korrekt aufzeigen, die Therapeut"
+          },
+          {
+            "text": "in diesen Stress aber **pathologisiert** (Krankhaft redet), anstatt ihn als \"normalen Preis\" in dieser"
+          },
+          {
+            "text": " Familienkultur zu validieren. Amina fängt ab sofort an, solche Stressspitzen *nicht* mehr zu loggen,"
+          },
+          {
+            "text": " um die Therapeutin und deren Missverständnis zu managen.\n    *   **Warum wir es brauchen:** Dieses"
+          },
+          {
+            "text": " Phänomen nennt sich *Self-Censorship to Manage Therapist Bias*. User beginnen, Daten aus dem Tracking-"
+          },
+          {
+            "text": "Loop zu löschen/verheimlichen, wenn die nachfolgende Daten-Auswertung (der Algorithmus oder der Mensch am"
+          },
+          {
+            "text": " anderen Ende) einen unfairen oder ungehörigen Rahmen (Framing) um die Werte legt. Es verdeutlicht extrem gut:"
+          },
+          {
+            "text": " Der Data-Owner ist immer Amina, der Behandler hat oft *nicht* den Kontext, die reine \"Mess"
+          },
+          {
+            "text": "ung\" erklärt gar nichts.\n\n---\n\nMit diesen **6 perfekten Szenarien für Amina** (Sz 1: Translation Tax, Sz"
+          },
+          {
+            "text": " 2: Somatisierung der Not, Sz 3: Lebensgefahr analoges Buch, Sz 4: Self"
+          },
+          {
+            "text": "-Care Dilemma, Sz 5: Faith als Coping, Sz 6: Zensur durch Therapeuten-Bias) haben wir"
+          },
+          {
+            "text": " das erste wirklich inklusive Setup aufgesetzt, und das ganz ohne billige Stereotypen, sondern an hochakademischen System"
+          },
+          {
+            "text": "lücken angesetzt.\n\nDein Cut bei der ersten Annäherung hat diesen Entwurf um Lichtjahre besser gemacht!"
+          },
+          {
+            "text": "\nEinverstanden mit diesem Portfolio für Persona 16 (Amina)? \n\nUnd falls ja: Soll ich mich kurz"
+          },
+          {
+            "text": " um deinen erwähnten Blinden Fleck Nummer 2 (**Die absolute motorische Barrierefreiheit — Zittern, versch"
+          },
+          {
+            "text": "wommene Sicht etc.**) kümmern und ihn logisch in bestehende Personas weben?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "ErkvCrYvAb4+9vuv+HM2dB+OUhutQ7YFf70fR025WGIczuaCSBBsfjmqAISgjqoMKgt8kTdFJJFJ4MWLjdkSyY3VnHYKdX+GX4J1ibLXO7DUuyHWRzVvluxgSE9SHpy+UCjDWpas5x3atOVLM31t6i/u/1/fqLvC8izFt6yHHqOe8KANqGrvVBOKlQIWHmyxUIBgH6qER9qvLzTgkvG/uUpGXujJnA5R8a+VtPoN7Ml0lLQcZthZrUKtG8IgjLjFHdmG3uH6eKR9BoSbOf9/O7h/XdItMxVfabHpYH3NFMz00oDRRYhh6RHAb2XoY6lJy1zUfywecPRDnRfpizBXDICiCKhPqeHGh9iMlxDBD0YBX9cJlBFqi0P0UYtfA5qxpuIDUuTSy+3qSvn4+Ne/5dFEsw1ncHjYojCwwTDyyH/JudoQ7pZ7UWxq3Y2JeCOUu5Y09TAyWFG6QZldjUVHJORK61OhkAR+omHnH0MsZeRT8Rs20Eq19arS+74/szmA1GSJdMwxm5UGlOebMGLp0SO7opzfOB5ThX71uwfrzqvFgpYDorO8eGTlUN6mfjxFrRe0gvhqgr4l6fw1NxmYI59QSNMyNl8u0tOBs2df4d3y4eh/fgAXYztezs43HVEnFGUBTrxGt77PnIWswtzrVgZkxJzlL98Rm/6Idy5MIJCkTagQTVgf/DcwudlN/IWjC2tG9H0FtLbx+vG83uNqrnLyS4WtTHfQ2Ussh+yz6b+etr73BHuSNfgew1+ZtioHUV/oUdpXGwmImjzWlKvb0sSyatCyRsMM2HRqXFapUyR5ik2v3Qhfs//WWc+onw1dkDfwPRKoW+KCk6ghsgCvMHd+7PwFt1MN4rYqGDerQs1YuCV8sQ4yKLknXLt3vmvms3jL7/UvgHCk7iwNAEV5N1F4pMPkxq11yLDQkLdAL25VwFAvFaShfsWEzNKXmCIGHpyFrKTq3Lspp0H5XKrEa9rdUtuS69Zw2AyQWHqjMnmO3SiiENaBKaf3euiNm49o8qxpmkqC6qPix+DKUP7HJ4QeBUYbAvS5vLQWyeQiPpzszyhFKal94ioPPeWtU5fVxAXfjiIvBVP2ja29vQyFeNo4iCK9Q2/aR8g2RjAlNLp8ahvFwHlPUFGjxB8CAgW7CjTLErxf6Eo6qyiGugVFvjg8QK7GUXsfFdnjB+PjNA+5nlJrFTUxg7lHsiBN3K8Hi5SRyTa+yDW5Z+jpZmjnPZ6rQWzpDxGwbme9XMentGnCEO5I2IRSvnTo9cdzF1yO/Zxbp9ofy7lNiSz454gBoGHUkqhW45ln0ZAxNrisemEYI0iltAYq5sfFjqd1zY6LFxmG5G1GX/55CnRz9FktfK5u0VtvVPnHuxas6pj4GDnKuJ/jaT91hzCMKMHLzd8YxkD/KU27xozm+IIIsVReOVcTTIBIZwjv8ymGNOJ1k2+P40AM5OhdNPRJ3/no8XNaxAphDyAOmSlklMkU7ZiBYu+XROnViI51g6Rwj7zUTeNCvhgIf/QzanhZhH7fkM3BZlAr0yYNNFF4Cqbx9Zpx5e3FNlyg66lKnvj9xsRCHYRhu9ESecVxwJuS9/9aWe0EpMdb/UEHikUV+vN42TmgDnp5zB6o1P4Vwt8WDmTP+fdwrBIsLIDpfdodNsqOy1aHR0QDp9v+6ErDRzu+4qS+ZrhaP763UrY/M9IwGlqtP/RuJFjgMWASCO+v9KGFmLpV99MlW1CY+OErUHgBYfM8Wj1JB0p2nvwIuv+dkCMqE94NrRDxYje/sotaGiTOEL9ZoSaZ2lqWGowm0sc7JDzK7+jPFoFxVIbnBonKeG1ip097QIgrRggYOSsMMuwY7BaRO0uX5PCYo82/oKbdghQVxfFWOiZAiLvFbuk6HgIhR3uE4SBu4D4B+7eZjRo6E71eN6rIYV/THK/oM+L9R3OsAa3CXKBF0akj7Y1z0+onKPqbqmOl39Dhfr2UhAEpnT7YC3+ntXG+QCaqZvwfBi6apwdddhXuJlLgZuc0m0hnefM43K1fIDQZzNVoPq0u5Htn9174dr2s5CMaNdX5gtHx2fo/WUUQ9AWsvRuDBqOiVk+MguXOfgEos0zMuh3uKOmd/X1wTBcZjW12wgH7T5s1jyxQsfdoxUWd27ezfP3hFnm9mywYfDVCvvADaS6kflTNGLFONLo9hBd9p37m8SqBOQKwdeGRt4jHQ61SzW8rFYCjFkaG+ZOuwnuxDFLRXzt30kspwb6RmVv7uSq2bQMyao4gRNftDMzTNmrb4npPWDIYRxXBgCeVTDszKb7dbrZmYyZ1B0n05+p2syctrCzslMI3RU8Ui83kTYaPBfJxXkWwXbicmuvPccOJsMbjncAJCI93joPbBr3uEnZDvPg9TIOzyWnuvODlmzLc8PF8nRKCcyB12dCrvamlgXtRNH1iYYsbJ3WsI/Q/yVkqrGbnJzs01DH0Mo1QMDi2t8d7XHmesCUMeOu2HssOtGTsReaVV+zhEkX9ua0vmdvGRyArvvFmLLVYIr+4COvsgtD1BmAdPhb68ABShTYxDJVHRiO3iQuqP1D7QfHxNDlD4YxoziMk5UFjhrbbLqddz8pxzcnyl99PAaiACblTwmAxjMiBjWFyozFdokANdjxs94gTbBXNPDMQJGIbip5ErwYy0jwIrUToqeSDMdKdpFFhznWwIWvcUwTGvN5ymNEb4/QcgxJKNrJb17d1D/oiSKrK/eYlaKNo/edK4kDtCTnTaH8M1KUk3g1BenVdnU2EZK2iW8r5mB21vvlmM+cH4+Q8iTRY2bFtnewL4iOv7LrfjtQtihNBiqb3DK7vDG6tscaTN7G0pmsB6S61ELQ8c/Vr/3SF3F92y4Anj4DX/lZVHmfT6MFcYU1pra0vi4Lj1591xkMlcej4tcYjEXYDI2SF78EvI4EhzymYyQ/BW9kRRJAgomrzZLUAE3s0ilPbi6vRgUaKUomCmh1tuEb7crLNr5tn9hEVu5RneE79Bb1udDgv8qPFr/4u+wk/khQYLn1o3flf4oUK6RFQBzGDxTWEGAiKHQvkSwe86kdFWtdhIQXX6tLwtUDSxSEUZLGUeg5oVWTnaAlAuCBF0v0zJpM/jwnjkMWOIhiyPCWRQuB+rTbSq2Np7V7eAmD11oubeDh6y5fbAYsDaQivKlHhWPWq+eQVv8wDox5f50OWBu2KlbbNMRBJgq8dWYI+WkmHcAuSSXgQ6whVWYaSR1zIHRnsyGvRmrm0P2bKSVUVXOKaqDS1xKKHJwlGfOmMLFFmWKHwREHbkal4J01Kl/KF1+67yoAxDF/O26nqOzyxXd26WVj5ElIEi3i2yZXEhNfoOKPt8kaVPEiYGpvfctzr1ffBnl1xAhKqmWYdOyQiGJ2JlIDW3+y8fHkJlN5FWIGb0VCCtsjMi0yncHdI17or7KGkLv4kv8uRMzTXCeQ3klAoH7NpiRrssYs/kM9XBP6LjPuZdLml622P5v7I7MQ+4/514S/UzhH7y3IGVRsQS53W9Zc2uKmC8b8zkas1Byoiq0YFl8TjNhOovPpWDxQrA/+R5xyatXE86JzGPoRS5CZAgY/NLTxna5fSUrEpsGoDSgQaO2qkfUVQ+pER+fcJT1H+VhMoJxrs64QVZMhdKcAwgDmFLLSeKtPJyfoYha7dnOgR4W4hAt3aLFRfFDG13IkgSj/75OWffAnizIC840k9Loo0G8eEeH7KYFQ800hdW/saE1wULtNqrDjU6r8oLE7PIE+ajai4vJrF9iTw2eOapQyF3iB1MD8XVdpdClRMLzZD1m3gKNtlwVdarrSXXHrK9u0nugrSWNqVfJv6oykvtlE6OJWFGLwavkM/YNEaGQBPQoxiNHMP+/3B+eGir2tV5KmRT2SOvR4LUo81nCav4faiYFp22AqDzctAph6MOIhYJKjZ9wNRJXC0B491jaG3hzzmoWe7IAale0YBDIODwLEIo6PP4gngF+GZ24HjzwdzYDWfQ1EmqWlHUrcj4zgmbC57a+XqiTZOEMu7OAvp8F8kGFzLUusLmQY5OBdT0oyLTlsLz7TWZmEpYE5JyDguK16nbD58LCKyBzFWU09BX3l2eYqIws9dd1uxDe2G1u/flnULRIpMZYQe98ax9nTmV7aStnvhujH9Avd4Nxk7DztmRMqCwDp4Sm+A9nZwmbSZs+qGjiwI+o/1S+EJZQyx6JNm8T9qn9JRkex5Bu8sd5h/ojMD0j0RUPzDMxtppDlAPAHxMaG00UU5W2tunkGnFq4SLYCQv9NID4RiY6vhExTlLGjNvaCj/dzCopoIhvf2dovzgmRh6OrqzAkXXpXubGTKlSerdkPuJXBKW/FChV0D+fhxzHoZF+zzON4yBjSwaevRmrMjDQUha9tJcC1CjAvdvne7mW6Z+epA/v4mm7qT/qOuLmtRzATpIrbH8seaCbJij4dUy0PWIsQBje5cMV0M+7ngflRFFxnhQGfQshwFnUrztdLzczj0XSjHRWVwPlhlr8o0/cbqO3rWwtVclIEKBIuAyBkxv0bY67wwCdxQfaQMzav8uMCLzMSwi/DDgfcwH1tFxjuwIXT3DwJZUIPiq7XbdL/Sa8AqB5sCdXHgPPb9KZB8iD0prq7KUsNCx5iAILAewSiuRN+MZRedNv4P4GHaPLoPgWu6Cbo3ibbi9MsKqVnVn6WKhMcvzejyomEn0EN7i1qz5jqbGdJDJsa7tWnMdNMRySBXlAFxBMq75vDltAr2AUy4jHGqHny/4aJ7vJ7VdDtKNVXl4NTGFU7tz6WT37RPD6J4DnudSa35xzzoM86/thhSPtl7v8S+sNIeC5ngtQCYho20N1QJnbmJh6Wa7j3Tze60KO/qsI3R3XXAE5aHaRa5I4W2YmS3NjQCrzOtJ8G6IjCrwCGeLR1AEi6gGhLPlDfrLbm2kcwx3S+lIqhtDa8sIx8iGg2wzET0AhV12Ulmw564t5uLtJh6XeSRgRE8GdNGCF1O3Om/dSu3J+uURHPhDtXls9vI5VnB9Zr9KDJeXvrCMOU1XsNmgnnQLQNsxNpVGINO+Irmkon7i8k4xKeB2Zms0jyPP+W1Hj9OKV4yEASXdHu+CHcjzAU38IyS7bo8RXw50WlftFdDmDoOqWoCE6TFVVKBRHwjHA1d/l8sPcyjSrSKCJD3dWgWCftVCmXeIOZuKCjQcZqZP7lohHUpQKAVQ8E4PB4maaIEtznIuaehfAaQoL2mJALtbcx0xU5lholOUWENhtgJB6hFTE0BdMX3sZSZDSYFwiCEiEMOLXZH7Ifzvi4xEFQ9By0aWZcZ9Amx0VnnC+jtE3GH0Pem25XzUijzP8qCw7vGdYFpbLjdJ3dpQE8xRsBQbjJlZvH0DgUZ6k5HdpfWnmPodADbx6EYd2iFRhCMZA+R1aOWXSqeV16zpJe6lEyNGLk3TCjNTtiECnnGWK4VojYLAqjWfmwTVAfRbZdByNPlnnU8zUJ5vh+xN0zaZPF9os3PXP8dseZTps5liE/sUdYK5DJY7sx7WdYTY7X181NVT01Wi7fwhXBAmlrxdi07uHIxu09lGR4MXUwxZmUxx1WJArMRHYeWQ6R1HbPIwL+z4N3KLeRKQ2hUSsd4eCAfvcHI4CQeq37sVlhU8DnPKmlEHfvOu3Es9Sodl9FD/eyZCbFDw591watiDybDoWINCG+sUUJ1oWktNXNeK6E4t4nyhJxKMtRe4K2iHVkgTwOLHtDGFEHx/VrfFLFq+YEARbRo2dyOpzCrhEXb3eX7yo/5mZLYHZBXt9AqT2NFiRavZj4zzPr0+v9rIa9isaXxvkLe6MZHtRe2JYywp7wZ/5BKjgKuJZqYQ0m/eBe0jt2Oyou8r8Ut/Radif+AXsALG5p7KjNueb0/dBXP1ZhNKzgLIiuKj6OerSYrdOLUCAoGvWlO8u/StOlBfaWjOJTdP/hsmvIuCFefbBXmydnzOGfmQjE+dDCg3EVyBrhs8Y7Y8Kr+1vi4bU7n3FVsdC46mv9S8hBwlgCi+I8iLE0wdGEcluksXZd6Rw5L2NlaE8cdYpj0vo979epM25Mk+PFm0hBbM0EOjxTRmI7lTXF6JJkUAOxcs3x/zsvJM8v8tuifRFCNAGqjbjENFYbaqmjF78jY09l6yak6ENAHYI+bmk/MOCJwnnOgw1fcARv4SVT4YET/jArf2/BJZVABsl+IQ7SQG6raYtT4fbH/nDLubDGpH92fs1BjyIc8QNSG0q6gcqtbQ7GXlYpO9TARBcfIWQGOL13KR8v5DIg0WhbhXPSXCEyHT3G10DNCsfUP+jDM14u1WiUUEqiP2FcXuYb9X7xJ0wwFbOCPdXElknqNARwlD9+IrQVfWMnSHpngQaLiCUqUbGLTIguc0jMrqY2MmCSOStyjhvK2kx/itM76Qne2tCSdvA6laWhmuYGWeBngGl9oX4qXPr2uiIpeaf/fDA9I6CjlPs8nf2FxEtFk+khPYhh3fnK3yYcKM1dkzfCCLBWOfl6oZ2SS3B+Qlb03PPamaHzixmkUIMI5ChSvhWgeQLpwKltmQVp5QP4aicG7O0xo2GoMLaUweiKFMModDnxAxa0RAnx/f8Jm8hkuSpfznXmCVAg4WkxRjTtNZMWmaEHh/i5+RUMRkMRg7g58/glVcYruf9L+ecxH2BpnX6eiDlJqiin8ApyDViLUDw78/R2ROoNgDpoQEETUfbLVvT0eYsI4as/ruQv+V3dbiFTlMZV32ce7k0QAigrnu7qVqe3/V/Pe8QWsSibOAYyaY5hSrrx2qmlHnFHELjV+ARNp9VNHA69TPRvK/nxJSQXX+DRhlxYmxUCDGn/GBMm5tR5aW0eKOExnswA0txC270u+MVnYRfU6ODZ3kiUqjppbK47lqrZB1g4Uq9/OS4lDtwdQtHjo7NnpIy3+otCTlLdCRv5GVUMkn/siqzkJ0q/W7emYxTPXxmgXNeL71uHwoYcYW/BsIG0HXEWJ7aAF/fgk/mqP0qRqorDjoWI7EeQODywu9NMLZ7spFPC6KtO1pyxPxR7oBnjkSAeyDICH9kTQoZDpckVw2r/uuCfQiWteXtV+PE6pe0qzdrdbqB+NNunPOBLLI083FQez7/QolXXgtjDGlA7abUtCaZg86/XaYb/LzZlWG6MQHCaq+Oea+3LZrkk6t7g3ZnMDB4saystpn14aqy+My1xkmco+hWpWBekPthdpD3SAP/3ZCiWs/+n/pu3OqUAxiqEb3pNynouEJjYGx2SmnGo4PoVx2u6773wqctzOyVLuud2+WrhEKM/RAfRlmTucnqo0BOIfm8UqcsBIjND4OEs0WvSpE4jBvHlpKnJU9OwSvqeKOhW12ZZ6lmvQgIaYV7uZBes9+O52dSoue7mFECoSBHzX3wdaM9aCHY1ljL8ePzZ5OfPB7ajb3v5dofhOKrNZ6jGR+UcDkcDlYNa0Sp5Wo4yS1feOnsIP+wOiXNSONCFiB7tYA6L45j+y70+34FwjT5MEnNTe483hIYbLm9WvekITmGDEfts8yHbcYZqbS9J6eKmUJMkcX24v3oQpiIOcahwIMeBMLHkDSj0lL6luoxHn00IV7J7LpL21nbra2+XTDKaZoysIDzztVECKAaOl+QXiUMKg2MdXuM4i1AM55wojD2VZichjaH60wO/aezCwuAE3Z0dgFwasn7J65A5NjSxt7oPWBtELE3+l2BeM4yo4oTLfYdcWO1pMzolqYCaOJcgxR1ojxydnU23aXtdz1n+Hd02b0N+jbK3VbnljZCC7ZhySL7CnEXSomhmxGqUQnbXEC6qtU/ha8E6gdqXu0pX4ZaiwUxRf1rMaQkeuhoQysXYYBsI8Bt/aCEeIVlbpAm8j79tZSPtCS+dsaWtxj1/NoRuxD43UOqMq6PhT3cfM74U/aoKTNENX1+DKVjGXBER6mOu5lC1nU4RhMNKptSdf+SDUfH4vAX9GPZDlS2twy//fwEElaKChJD82alxXo2cdlLKMvlWpL1N+vmedcrKt43FpdYaS8/C7OylG8UdXJHZs1GzOWy5yogVUfALZLhU2CoZjx5t/QqzPB+4zSvYP6s+TdB7cuaQMH90k1TKW4WIzRTPv+O7Vew=="
+          }
+        ]
+      }
+    ]
+  }
+}

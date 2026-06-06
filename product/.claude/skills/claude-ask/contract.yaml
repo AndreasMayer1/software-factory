@@ -1,0 +1,25 @@
+contract_version: 1
+skill: claude-ask
+purpose: >
+  Answer research questions in the main session context (no agents).
+  Reads relevant files and codebase artifacts to give a researched answer
+  using the current session model.
+
+derived_from:
+  required:
+
+produces: {}
+
+quality_criteria:
+  - Answer is research-backed (at least one file read before responding).
+  - No agents are spawned — main context only.
+
+may_invoke: []
+
+side_effects: []
+
+preconditions:
+  - User has provided a clear question.
+
+postconditions:
+  - A researched answer is delivered in the main session context.

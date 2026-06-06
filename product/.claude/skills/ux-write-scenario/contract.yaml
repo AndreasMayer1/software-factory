@@ -1,0 +1,78 @@
+contract_version: 1
+skill: ux-write-scenario
+purpose: >
+  Create or update a scenario with built-in cascade detection. Reads guidelines,
+  validates the parent persona, generates or modifies scenario.md, updates
+  SCENARIO_INDEX.md, maintains bidirectional flow references, and runs cascade
+  scan for flow coverage.
+
+derived_from:
+  required:
+    - path: guideline
+      source: external
+      reason: Scenario template, writing checklist, and success criteria format.
+    - path: scenario-index
+      source: external
+      reason: Category registry — read to select category and check for gold standard assignment.
+    - path: guideline
+      source: external
+      reason: Review workflow and review_history format.
+    - path: persona
+      source: external
+      reason: Parent persona — read to validate approval status, scope_exclusions, and PERSONA-ID.
+  optional:
+    - path: scenario
+      source: external
+      reason: Existing scenario read in UPDATE mode.
+    - path: flow
+      source: external
+      reason: Flows referenced in implements_flows — bidirectional serves_scenarios updated.
+
+produces:
+  required:
+    - path: scenario
+      reason: The created or updated scenario file.
+    - path: scenario-index
+      reason: Updated with new instance entry (CREATE) or changed field (UPDATE).
+  conditional:
+    - path: flow
+      condition: updated when scenario is added/removed from implements_flows (bidirectional reference sync).
+      reason: serves_scenarios array kept consistent with scenario's implements_flows.
+    - path: persona
+      condition: updated in CREATE mode to add the new scenario to ## Related Scenarios.
+      reason: Bidirectional reference from persona to scenario.
+
+quality_criteria:
+  - All 9 README guideline files read simultaneously before authoring.
+  - Parent persona must be approved (or user explicitly accepts the warning).
+  - Unique SCEN-ID verified by re-running generate_id_registry.py before writing.
+  - User approval gate must be passed before SCENARIO_INDEX update and cascade run.
+  - Scope exclusion overlap checked before scenario creation proceeds.
+  - Canon check (ux-write-canon-concept) invoked only for FUTURE-state scenarios.
+
+user_input_gates:
+  - phase: "Step 8.5 — User Approval Gate"
+    description: "Developer approves the generated or updated scenario before SCENARIO_INDEX update and cascade scan run, or provides revision feedback to loop back."
+    decision_kind: approval
+    required: always
+
+may_invoke:
+  - ux-write-canon-concept
+
+side_effects:
+  - target: requirements_user_needs/personas/<name>/scenarios/<name>/scenario.md
+    action: write
+    note: Scenario created or updated.
+  - target: requirements_user_needs/SCENARIO_INDEX.md
+    action: write
+    note: Instance entry added or updated.
+  - target: requirements_user_needs/user_flows/<flow>/flow.md
+    action: write
+    note: serves_scenarios updated when implements_flows changed.
+
+preconditions:
+  - Parent persona exists and is at least in draft status.
+
+postconditions:
+  - scenario.md exists with valid frontmatter, approved review_status, and cascade results reported.
+  - SCENARIO_INDEX.md and bidirectional flow references are consistent.

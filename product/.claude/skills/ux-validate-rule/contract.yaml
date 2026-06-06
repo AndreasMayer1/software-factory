@@ -1,0 +1,55 @@
+contract_version: 1
+skill: ux-validate-rule
+purpose: >
+  Validate human-proposed UX rules against all affected personas before
+  implementation. Produces a validation report (SUPPORTS/NEUTRAL/CONFLICTS),
+  checks existing design rules for conflicts, proposes tier classification,
+  and documents the rule in doc/presentation/design/ on user approval.
+
+derived_from:
+  required:
+    - path: persona
+      source: external
+      reason: Relevant personas identified and their traits extracted to assess rule alignment.
+    - path: guideline
+      source: external
+      reason: 8-category trait lookup table — read instead of duplicating trait content.
+    - path: design-rule
+      source: external
+      reason: Existing T1 rules scanned for conflicts with the proposed rule.
+    - path: design-rule
+      source: external
+      reason: Existing T2 rules scanned for conflicts with the proposed rule.
+
+produces:
+  conditional:
+    - path: design-rule
+      condition: created when user approves the rule after validation.
+      reason: Documented design rule with WHAT/HOW/WHY and persona justification.
+    - path: guideline
+      condition: updated when the README exists and a new rule file is created.
+      reason: README table reflects the new rule file.
+
+quality_criteria:
+  - Validation report includes persona alignment table (SUPPORTS/NEUTRAL/CONFLICTS per persona).
+  - VCD check runs for CONFLICTS and affected personas — Value Trade-off Required flag added when a primary value is degraded.
+  - User must explicitly APPROVE, MODIFY, or REJECT before any rule file is written.
+  - Tier classification (T1/T2/T3) is proposed by AI and confirmed by user.
+
+may_invoke:
+  - vcd-log-tradeoff
+
+side_effects:
+  - target: doc/presentation/design/t<tier>_<rule_name>.md
+    action: write
+    note: New rule file created on user approval.
+  - target: doc/presentation/design/README.md
+    action: write
+    note: README entry added when the rule file is created.
+
+preconditions:
+  - User has provided a UX rule proposal with a description and target feature/screen.
+
+postconditions:
+  - Validation report has been presented and user has made an APPROVE/MODIFY/REJECT decision.
+  - If approved: rule file exists in doc/presentation/design/ with provenance annotation.

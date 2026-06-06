@@ -1,0 +1,59 @@
+contract_version: 1
+skill: doc-update-guidelines
+purpose: >
+  Analyze completed work for doc/ guideline improvements and apply updates
+  when a new architectural pattern, cross-cutting rule, testing insight, or
+  UI component was introduced. Syncs README files and runs doc_governance.py.
+
+derived_from:
+  required:
+    - path: plans-dir
+      source: skill:task-create
+      reason: Completed protocols read to identify new patterns and learnings from the task.
+  optional:
+    - path: guideline
+      source: external
+      reason: Updated when new architectural patterns or cross-cutting rules are discovered.
+    - path: guideline
+      source: external
+      reason: Updated when new testing patterns, mock strategies, or pitfalls are discovered.
+    - path: guideline
+      source: external
+      reason: Updated when a new reusable UI component or presentation pattern is established.
+    - path: guideline
+      source: external
+      reason: Updated when new domain patterns are established.
+    - path: guideline
+      source: external
+      reason: Updated when new cross-cutting lib/ rules apply.
+
+produces:
+  conditional:
+    - path: guideline
+      condition: updated only when at least one row in the necessity assessment is YES.
+      reason: The guideline file improved with the new pattern or insight.
+    - path: protocol
+      condition: created when at least one guideline is updated.
+      reason: Summary of which files were changed and what was added.
+
+quality_criteria:
+  - Routine implementations that follow existing patterns produce no update ("No doc update needed.").
+  - At least one necessity-assessment row must be YES before any file is modified.
+  - README files are synced for each folder that was changed (new/removed/renamed files).
+  - doc_governance.py is run after updates; any file reaching 600 lines triggers a split task.
+
+may_invoke: []
+
+side_effects:
+  - target: doc/<subfolder>/<file>.md
+    action: write
+    note: Guideline file updated with new pattern or insight.
+  - target: doc/<subfolder>/README.md
+    action: write
+    note: README synced when files were added, removed, or renamed in the folder.
+
+preconditions:
+  - A task has been completed and its plans_and_protocols/ contain protocol files to analyze.
+
+postconditions:
+  - Relevant doc/ files reflect new patterns from the completed task, or "No doc update needed." is output.

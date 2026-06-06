@@ -1,0 +1,51 @@
+contract_version: 1
+skill: task-start
+purpose: >
+  Canonical single entry point for executing any already-created task.
+  Resolves the task reference (path / TASK-ID / "next task" / free-text),
+  runs pre-condition gates (schema-valid goal.md, not completed, not awaiting
+  a developer answer, after-dependencies satisfied), marks the task in_progress
+  (+ session identity in automated mode), then delegates type-detection and
+  skill dispatch to claude-route.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Task objective and metadata — validated in P1, gated in P2, mutated in P3.
+
+produces:
+  required:
+    - path: goal
+      reason: P3 marks the goal.md in_progress, adds started date, and (automated mode) writes session_id + session_account.
+
+user_input_gates:
+  - phase: "P0 — Resolve reference (free-text disambiguation)"
+    description: "Developer provides a TASK-ID or goal.md path when free-text input cannot be resolved to a unique candidate."
+    decision_kind: free-text
+    required: conditional
+    condition: "Only when the input is a free-text description that does not match any known TASK-ID or goal.md path."
+
+  - phase: "P2a — Completed task re-entry"
+    description: "Developer confirms whether to re-execute a task whose status is already completed."
+    decision_kind: approval
+    required: conditional
+    condition: "Only when the resolved goal.md has status: completed. Automated mode skips to next candidate instead."
+
+  - phase: "P2c — After-dependency gate"
+    description: "Developer confirms whether to proceed when one or more after: dependencies are not yet completed."
+    decision_kind: approval
+    required: conditional
+    condition: "Only when goal.md lists after: deps and at least one is not completed. Automated mode skips instead."
+
+may_invoke:
+  - claude-route
+  - task-create
+
+preconditions:
+  - A goal.md exists (or can be located) for the target task.
+
+postconditions:
+  - The resolved goal.md is schema-valid, in_progress, and has passed all pre-condition gates.
+  - claude-route has been invoked with the goal.md path.

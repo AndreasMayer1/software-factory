@@ -1,0 +1,74 @@
+contract_version: 1
+skill: claude-create-skill
+purpose: >
+  Create a new project skill with correct naming, structure, registry entries, and
+  contract.yaml. Runs the artifact-establishment gate before emitting any new token
+  into the contract; escalates via pending_feedback in automated mode.
+
+derived_from:
+  optional:
+    - path: skill-index
+      source: external
+      reason: Read to check for naming conflicts before creating a new skill.
+    - path: factory-flows
+      source: external
+      reason: Updated only when the new skill introduces a new input type or artifact connection.
+    - path: requirements
+      source: skill:requ-explore
+      reason: Read if the new skill reads or understands code, to learn CodeGraph integration steps.
+
+produces:
+  required:
+    - path: skill
+      reason: The skill definition file with frontmatter and body.
+  conditional:
+    - path: skill-index
+      condition: always updated with a new entry for the created skill.
+      reason: Central skill registry; keeps skill discovery accurate.
+    - path: factory-flows
+      condition: updated only when the skill introduces a new input type or artifact connection.
+      reason: Factory flow diagram kept in sync.
+    - path: pending-question
+      condition: automated mode — artifact-establishment gate encounters an unregistered token.
+      reason: Escalation checkpoint; developer must ratify the proposed registry entry before authoring proceeds.
+    - path: pending-answer
+      condition: automated mode — written alongside pending-question as the answer template.
+      reason: Template copied so the developer has a ready-to-fill answer file.
+
+quality_criteria:
+  - Skill name follows the {prefix}-{verb}[-{qualifier}] convention.
+  - description field is under 10 words, imperative, verb-first.
+  - Body length targets ≤60 lines.
+  - tools uses "*" only for orchestrator skills; others list specifically.
+  - INDEX.md entry is added in the correct prefix section.
+  - Phase-split rubric (S1–S4) is scored when ≥2 phases are proposed.
+
+user_input_gates:
+  - phase: "Step 1 — Agree name with user"
+    description: "Developer confirms the skill name (prefix, verb, qualifier) before the folder and files are created."
+    decision_kind: approval
+    required: always
+  - phase: "Step 4b — Artifact-Establishment Gate (new token)"
+    description: "Developer ratifies, renames to an existing token, or rejects each proposed new artifact token before it is appended to artifacts.yaml."
+    decision_kind: revision
+    required: conditional
+    condition: "Only fires when the new skill's contract introduces a token not yet registered in .factory/registry/artifacts.yaml."
+
+may_invoke:
+  - claude-modify-ordering-rules
+
+side_effects:
+  - target: .claude/skills/<name>/SKILL.md
+    action: write
+    note: New skill file.
+  - target: .claude/skills/INDEX.md
+    action: append
+    note: New entry added to the correct category section.
+
+preconditions:
+  - User has confirmed the skill name (prefix, verb, qualifier).
+  - No skill with the same name already exists in .claude/skills/.
+
+postconditions:
+  - .claude/skills/<name>/SKILL.md exists with valid frontmatter and body.
+  - INDEX.md contains an entry for the new skill.

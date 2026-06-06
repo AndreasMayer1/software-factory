@@ -1,0 +1,62 @@
+# Schema: pending_question.yaml
+#
+# Canonical shape of the YAML frontmatter in automation/pending_feedback/<TASK_ID>/question.md.
+#
+# artifact: automation/pending_feedback/<TASK_ID>/question.md (YAML frontmatter)
+# produced_by: verify-quality (cycle 5 escalation), claude-automated-mode (user-input pause)
+# consumed_by: orchestrate.py (find_answered_feedback), next_tasks.py (load_pending_feedback_ids)
+#
+# Dialect: flat YAML with required:/optional: blocks (REQ-PROC-044 D-2). NOT full JSON Schema.
+
+schema_version: 1
+artifact: automation/pending_feedback/<TASK_ID>/question.md (YAML frontmatter)
+description: >
+  Frontmatter block at the top of every pending-feedback question.md. Carries the task
+  identity, session resumption metadata, and status sentinel that the orchestrator uses
+  to detect open questions and resume sessions after human answers.
+
+required:
+  task_id:
+    type: string
+    pattern: "(REQ|TASK)-[A-Z]+-[0-9]+(-[0-9]+)?"
+    example: TASK-PROC-044-12
+    description: >
+      ID of the task that triggered the pause. Used by the orchestrator to match
+      question.md with the corresponding goal.md and resume the correct session.
+
+  session_id:
+    type: string
+    pattern: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+    example: "34137435-8387-445f-91c0-0272c8b46455"
+    description: >
+      UUID identifying the paused Claude session. Written by task-start into goal.md;
+      copied here so the orchestrator can resume the correct session without re-reading
+      every goal.md.
+
+  status:
+    type: string
+    enum: [awaiting_answer]
+    description: >
+      Always 'awaiting_answer' when written. The orchestrator treats any other value
+      (or absence) as a corrupt question.md and skips the entry.
+
+  asked_at:
+    type: string
+    pattern: "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z"
+    example: "2026-05-30T14:00:00Z"
+    description: ISO 8601 UTC datetime when the question was written.
+
+  skill:
+    type: string
+    example: verify-quality
+    description: >
+      Name of the skill that triggered the pause (e.g. verify-quality, requ-explore,
+      code-bugfix). Used in the orchestrator's resume log and in human-readable summaries.
+
+optional:
+  account:
+    type: string
+    example: gmail
+    description: >
+      Claude session account identifier ($CLAUDE_SESSION_ACCOUNT). Optional — omitted
+      when the env var is not set. Used for multi-account session routing.

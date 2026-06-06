@@ -1,0 +1,46 @@
+contract_version: 1
+skill: claude-modify-agent
+purpose: >
+  Modify an existing .claude/agents/<name>.md file and re-assert the governed
+  end-state: collision-checked naming with artifact-establishment gate on the
+  expertise segment (if renamed), allowed_tools intent-class discipline, the five
+  required structural sections, and a maintained contract sidecar with gate on new
+  tokens. References (does not re-derive) the split rubric in claude-create-skill.
+
+derived_from:
+  required:
+    - path: agent
+      source: external
+      reason: The agent file being modified; read in full before editing.
+  optional:
+    - path: skill
+      source: external
+      reason: Holds the canonical split rubric (§"Phase Split Decision"), referenced not restated.
+
+produces:
+  required:
+    - path: agent
+      reason: The modified agent file, brought to the governed end-state.
+  conditional:
+    - path: agent-contract
+      condition: updated when the agent's consumed/produced artifacts change, or renamed alongside the agent.
+      reason: Keeps the agent's sidecar contract in sync (REQ-PROC-044 mechanism).
+    - path: pending-question
+      condition: automated mode — artifact-establishment gate encounters an unregistered expertise segment or contract token.
+      reason: Escalation checkpoint; developer must ratify the proposed registry entry before authoring proceeds.
+    - path: pending-answer
+      condition: automated mode — written alongside pending-question as the answer template.
+      reason: Template copied so the developer has a ready-to-fill answer file.
+
+quality_criteria:
+  - After edit, role identity is <=50 tokens and all five required sections are present and ordered.
+  - allowed_tools remains the narrowest set for the intent class; bare "*" keeps a recorded justification.
+  - A rename re-runs the collision check and renames the contract sidecar.
+  - A missing required section is added (Domain Vocabulary via the claude-create-agent §5 aid).
+
+preconditions:
+  - The target agent file exists under .claude/agents/.
+
+postconditions:
+  - .claude/agents/<name>.md satisfies claude-create-agent §2-§4 after the change.
+  - The contract sidecar reflects the agent's current consumed/produced artifacts.

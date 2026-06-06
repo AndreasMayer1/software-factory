@@ -1,0 +1,276 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Die 4 für Lisa übernehmen wir. Wen repräsentiert sie noch? Fallen dir noch mehr Szenarien ein? ",
+        "role": "user",
+        "tokenCount": 26,
+        "createTime": "2026-02-28T16:31:27.809Z"
+      },
+      {
+        "text": "**Initiating the Analysis**\n\nI'm now diving into the request. I've accepted the four proposed scenarios for Lisa, the Waitlist Bridger. My focus is shifting to identifying \"Implicit Clusters\" – recognizing the broader groups Lisa represents beyond just patients on a depression waitlist. I am also currently brainstorming.\n\n\n**Exploring New Angles**\n\nI'm now generating out-of-the-box scenarios, building on the implicit clusters I identified. I'm focusing on Lisa's core dilemma: \"unbetreutes Leiden,\" systemic pressure, and the psychoeducation gap. My goal is to create diverse, insightful perspectives. I'm also currently analyzing Lisa's persona, using a user-centered design approach. I am now working on identifying relevant implicit clusters for Lisa.\n\n\n**Developing New Scenarios**\n\nI'm now generating new scenarios based on the identified clusters, particularly focusing on the \"Cycle & The Void\" idea. I'm exploring Lisa's hormonal blind spot, specifically the correlation between her menstrual cycle and severe depression, and how tracking both separately might mask a PMDD diagnosis. I'm aiming to craft this scenario to show how the correlation between physiology and mental health might appear to a layperson.\n\n\n**Crafting New Narratives**\n\nI'm now generating two new scenarios focusing on Lisa. One highlights the vulnerability of her physical journal in a shared living situation, exploring how fear of exposure can lead to self-censorship. The other portrays Lisa's experience of masking her depression, and its conflict with the prompts on her personal tracker. It explores how her public and private selves become disconnected, and how this can contribute to self-gaslighting.",
+        "role": "model",
+        "tokenCount": 1016,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Initiating the Analysis**\n\nI'm now diving into the request. I've accepted the four proposed scenarios for Lisa, the Waitlist Bridger. My focus is shifting to identifying \"Implicit Clusters\" – recognizing the broader groups Lisa represents beyond just patients on a depression waitlist. I am also currently brainstorming.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Exploring New Angles**\n\nI'm now generating out-of-the-box scenarios, building on the implicit clusters I identified. I'm focusing on Lisa's core dilemma: \"unbetreutes Leiden,\" systemic pressure, and the psychoeducation gap. My goal is to create diverse, insightful perspectives. I'm also currently analyzing Lisa's persona, using a user-centered design approach. I am now working on identifying relevant implicit clusters for Lisa.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Developing New Scenarios**\n\nI'm now generating new scenarios based on the identified clusters, particularly focusing on the \"Cycle & The Void\" idea. I'm exploring Lisa's hormonal blind spot, specifically the correlation between her menstrual cycle and severe depression, and how tracking both separately might mask a PMDD diagnosis. I'm aiming to craft this scenario to show how the correlation between physiology and mental health might appear to a layperson.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Crafting New Narratives**\n\nI'm now generating two new scenarios focusing on Lisa. One highlights the vulnerability of her physical journal in a shared living situation, exploring how fear of exposure can lead to self-censorship. The other portrays Lisa's experience of masking her depression, and its conflict with the prompts on her personal tracker. It explores how her public and private selves become disconnected, and how this can contribute to self-gaslighting.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-28T16:31:27.810Z"
+      },
+      {
+        "text": "\n\n\nSehr gut, die vier Lisa-Szenarien sind gebucht. \n\nUm zu prüfen, wen Lisa eigentlich noch repräsentiert (ihre *Implicit Clusters*), müssen wir uns ansehen, für welche Realität sie steht: Sie ist **allein**, lebt in einem **geteilten/öffentlichen Umfeld (WG, Uni)**, ist noch **ungeschult** in therapeutischen Konzepten und muss sich **ihre Diagnose oft selbst hart erkämpfen**.\n\nNeben Patienten auf der Warteliste für eine Verhaltenstherapie/Tiefenpsychologie vertritt Lisa auch diese extrem relevanten Cluster:\n\n1. **Die Selbstdiagnostiker / Übersehene Gruppen (z. B. ADHS bei erwachsenen Frauen, PMDS/Endometriose):** Menschen, die monatelang Daten sammeln *müssen*, um Fachärzte von einer hart umkämpften oder oft abgewiesenen Diagnose zu überzeugen (\"Medical Gaslighting\").\n2. **Die Post-Therapie-Flieger:** Leute, die offiziell \"ausbehandelt\" sind, denen der Therapeuten-Termin als Korsett wegbricht und die plötzlich wieder drohen abzurutschen (sie fallen exakt ins gleiche Loch wie Lisa).\n3. **Das \"Masking\"-Cluster:** Hochfunktionale Depressive oder autistische Menschen, die den ganzen Tag perfekt performen (\"Masking\") und innerlich dabei ausbrennen, aber keinen Namen für diesen extrem spezifischen Drain haben.\n\nDaraus ergeben sich drei weitere, sehr tiefgehende Lücken in Lisas Status-Quo, die bisher unbeleuchtet blieben:\n\n### E. Out-of-the-Box: Medical Gaslighting & Das Physiologische blinde Auge\n\n*   **Szenario 5: The Hormonal Blind Spot (Tracking in Silos)**\n    *   **Kategorie:** `analysis.self_reflect` (Diagnostisches Vakuum)\n    *   **Worum es geht:** Lisa hat Tage tiefster, rabenschwarzer Verzweiflung (oft Suizidgedanken). Da sie \"Depression\" als Diagnose hat, trackt sie brav auf einem Stück Papier ihre miese Stimmung. Was in ihrem Papiertagebuch völlig isoliert passiert (oder woran sie bei der Analyse nicht denkt): Diese brutalen Drops finden exakt in der späten Lutealphase ihres Zyklus statt (Hinweis auf PMDS - Prämenstruelle dysphorische Störung). \n    *   **Das Status-Quo-Problem:** Eine App für Menstruation trackt ihre Periode. Das Blatt Papier trackt ihre Depression. Da beides nie übereinandergelegt wird (es gibt keinen Therapeuten, der die Draufsicht hat), bleibt das Muster für Lisa und ihre behandelnden Ärzte unsichtbar. Sie glaubt fälschlicherweise, ihre Depression werde einfach unkontrollierbar schlimmer.\n    *   **Warum wir es brauchen:** Erschließt das Thema weibliche mentale Gesundheit & Hormone (ein massiver Use-Case in der Realität). Die App braucht mittelfristig Korrelations-Architekturen (\"Custom Bool-Marker\" / Tags wie *Tag X* oder physiologische Schalter), um diese fundamentalen \"blinden Flecken\" der Psyche ohne Therapeuten offenzulegen.\n\n### F. Out-of-the-Box: Das High-Functioning Paradoxon\n\n*   **Szenario 6: The \"Faking it\" Dilemma (Masking vs. Internal Reality)**\n    *   **Kategorie:** `capture.routine` & `analysis.self_reflect`\n    *   **Worum es geht:** Lisa verbringt einen Tag an der Uni. Sie hat es in die Vorlesung geschafft. Sie hat mit einer WG-Mitbewohnerin Pasta gekocht. Sie hat gelacht. Innerlich ist sie während all dessen völlig leer, taub und absolut erschöpft (Depressive Anhedonie + Masking).\n    *   **Das Status-Quo-Problem:** Abends sieht sie auf ihren Mood-Tracker oder in ein typisches Daylio-System. \"Was hast du heute gemacht?\" - Sie checkt \"Freunde\", \"Gutes Essen\", \"Uni\". Die Tracker werten diesen Tag grafisch (oft mit bunten Farben) als absoluten Siegeszug! Das Papier-Protokoll für Aktivitäten lügt ebenfalls, weil die Handlung (\"Pasta gekocht\") ohne den immensen, inneren emotionalen Preis (\"Es hat sich wie Betonessen angefühlt\") als Pluspunkt gezählt wird.\n    *   **Warum wir es brauchen:** Dies führt bei unbegleiteten Usern zu massivem Self-Gaslighting (\"Guck, meine Tabelle sagt ich mache schöne Dinge, warum will ich sterben?\"). Unsere Architektur muss trennen zwischen der **äußeren Handlung (Performance/Masking)** und der **inneren Kapazität/Erschöpfung**.\n\n### G. WG-Dynamik & Intimsphäre\n\n*   **Szenario 7: The \"Open Door\" Paranoia (Intimate Intruder)**\n    *   **Kategorie:** Umwelt & `management.preservation`\n    *   **Worum es geht:** In Lisas 4er-WG werden Türen nicht abgeschlossen. Es herrscht reges Kommen und Gehen. Lisa nutzt ein klassisches Papier-Tagebuch (oder Moleskine). Einmal legt sie es offen auf den Schreibtisch, als jemand unangekündigt hereinstürmt und \"Lisa, willst du mit einkaufen?\" ruft.\n    *   **Das Status-Quo-Problem:** Danach fängt sie an, Selbstzensur im eigenen Tagebuch zu betreiben. Sätze wie *\"Die WG stresst mich so abgrundtief, ich hasse [Name der Mitbewohnerin]\"* schreibt sie gar nicht erst auf, weil die rein physische Existenz des Buches im studentischen WG-Umfeld einem Minenfeld gleicht. Eine Woche der totalen WG-Überlastung ist somit komplett weggewaschen. \n    *   **Warum wir es brauchen:** Privatsphäre bedeutet für Lisa nicht, dass russische Server das Tagebuch hacken, sondern dass das analoge Objekt extrem sensibel gegenüber dem engsten Umfeld ist. Wenn eine Notizen-App (auf einem liegengelassenen Studentenlappi/Handy) nicht absolut gesichert (\"FaceID-Schranke sofort bei Switch\") funktioniert, setzt direkt Zensur beim User ein. \n\n---\n\nMit PMDS/Medical Gaslighting (Sz 5), dem Anhedonie-Problem beim Masking (Sz 6) und dem akuten Bedrohungsfaktor WG (Sz 7) hätten wir **Lisas Spektrum maximal aufgefächert** – und haben nebenbei den hochwichtigen Themenkomplex \"Frauengesundheit / Hormoneller Impact auf die Psyche\" elegant über einen Generic-Symptom-Ansatz gelöst.\n\nFügen wir Lisa damit auch die neuen Nummern 5, 6 und 7 als beschlossen hinzu? \n\nFalls ja, würden wir uns – *und das ist ein enormer Projektmeilenstein!* – zur Prüfung unseres absoluten Benchmark-Patienten schlechthin bewegen: **Max (PERSONA-002, The Overwhelmed, unsere Baseline)**. (Wobei wir für ihn quasi die Master-Szenarien überhaupt erst in Phase 4 als Fundament generiert hatten). Wollen wir ihn trotzdem checken, oder lieber mit Michael oder Sophie weitermachen?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1623,
+        "parts": [
+          {
+            "text": "\n\n\nSehr gut, die vier Lisa-Szenarien sind gebucht. \n\nUm zu prüfen"
+          },
+          {
+            "text": ", wen Lisa eigentlich noch repräsentiert (ihre *Implicit Clusters*), müssen wir uns ansehen, für"
+          },
+          {
+            "text": " welche Realität sie steht: Sie ist **allein**, lebt in einem **geteilten/öffentlichen Umfeld ("
+          },
+          {
+            "text": "WG, Uni)**, ist noch **ungeschult** in therapeutischen Konzepten und muss sich **ihre Diagnose oft"
+          },
+          {
+            "text": " selbst hart erkämpfen**.\n\nNeben Patienten auf der Warteliste für eine Verhaltenstherapie/Tiefenpsychologie vertritt Lisa"
+          },
+          {
+            "text": " auch diese extrem relevanten Cluster:\n\n1. **Die Selbstdiagnostiker / Übersehene Gruppen (z. B. ADHS bei"
+          },
+          {
+            "text": " erwachsenen Frauen, PMDS/Endometriose):** Menschen, die monatelang Daten sammeln *müssen*, um Fach"
+          },
+          {
+            "text": "ärzte von einer hart umkämpften oder oft abgewiesenen Diagnose zu überzeugen (\"Medical Gaslighting\").\n2. **Die Post"
+          },
+          {
+            "text": "-Therapie-Flieger:** Leute, die offiziell \"ausbehandelt\" sind, denen der Therapeuten"
+          },
+          {
+            "text": "-Termin als Korsett wegbricht und die plötzlich wieder drohen abzurutschen (sie fallen exakt ins"
+          },
+          {
+            "text": " gleiche Loch wie Lisa).\n3. **Das \"Masking\"-Cluster:** Hochfunktionale Depressive oder autistische Menschen, die den"
+          },
+          {
+            "text": " ganzen Tag perfekt performen (\"Masking\") und innerlich dabei ausbrennen, aber keinen Namen für diesen extrem spezif"
+          },
+          {
+            "text": "ischen Drain haben.\n\nDaraus ergeben sich drei weitere, sehr tiefgehende Lücken in Lisas Status-Quo, die bisher unbele"
+          },
+          {
+            "text": "uchtet blieben:\n\n### E. Out-of-the-Box: Medical Gaslighting & Das Physiologische bl"
+          },
+          {
+            "text": "inde Auge\n\n*   **Szenario 5: The Hormonal Blind Spot (Tracking in Silos)**\n    *   **K"
+          },
+          {
+            "text": "ategorie:** `analysis.self_reflect` (Diagnostisches Vakuum)\n    *   **Worum es geht:** Lisa hat Tage"
+          },
+          {
+            "text": " tiefster, rabenschwarzer Verzweiflung (oft Suizidgedanken). Da sie \"Depression\" als"
+          },
+          {
+            "text": " Diagnose hat, trackt sie brav auf einem Stück Papier ihre miese Stimmung. Was in ihrem Papiertagebuch völlig"
+          },
+          {
+            "text": " isoliert passiert (oder woran sie bei der Analyse nicht denkt): Diese brutalen Drops finden exakt in der sp"
+          },
+          {
+            "text": "äten Lutealphase ihres Zyklus statt (Hinweis auf PMDS - Prämenstruelle dysphorische Störung)."
+          },
+          {
+            "text": " \n    *   **Das Status-Quo-Problem:** Eine App für Menstruation trackt ihre Periode. Das Blatt"
+          },
+          {
+            "text": " Papier trackt ihre Depression. Da beides nie übereinandergelegt wird (es gibt keinen Therapeuten, der die"
+          },
+          {
+            "text": " Draufsicht hat), bleibt das Muster für Lisa und ihre behandelnden Ärzte unsichtbar. Sie glaubt f"
+          },
+          {
+            "text": "älschlicherweise, ihre Depression werde einfach unkontrollierbar schlimmer.\n    *   **Warum wir es brauchen:** Erschließt das"
+          },
+          {
+            "text": " Thema weibliche mentale Gesundheit & Hormone (ein massiver Use-Case in der Realität). Die App braucht mittelfristig Kor"
+          },
+          {
+            "text": "relations-Architekturen (\"Custom Bool-Marker\" / Tags wie *Tag X* oder physiologische Schalter), um diese fundamental"
+          },
+          {
+            "text": "en \"blinden Flecken\" der Psyche ohne Therapeuten offenzulegen.\n\n### F."
+          },
+          {
+            "text": " Out-of-the-Box: Das High-Functioning Paradoxon\n\n*   **Szenario 6"
+          },
+          {
+            "text": ": The \"Faking it\" Dilemma (Masking vs. Internal Reality)**\n    *   **Kategorie:** `capture.routine"
+          },
+          {
+            "text": "` & `analysis.self_reflect`\n    *   **Worum es geht:** Lisa verbringt einen Tag"
+          },
+          {
+            "text": " an der Uni. Sie hat es in die Vorlesung geschafft. Sie hat mit einer WG-Mitbewohnerin Pasta"
+          },
+          {
+            "text": " gekocht. Sie hat gelacht. Innerlich ist sie während all dessen völlig leer, taub und absolut erschöpft (Dep"
+          },
+          {
+            "text": "ressive Anhedonie + Masking).\n    *   **Das Status-Quo-Problem:** Abends sieht"
+          },
+          {
+            "text": " sie auf ihren Mood-Tracker oder in ein typisches Daylio-System. \"Was hast du heute gemacht?\" - Sie checkt \""
+          },
+          {
+            "text": "Freunde\", \"Gutes Essen\", \"Uni\". Die Tracker werten diesen Tag grafisch (oft mit bunten Farben)"
+          },
+          {
+            "text": " als absoluten Siegeszug! Das Papier-Protokoll für Aktivitäten lügt ebenfalls, weil die Handlung (\""
+          },
+          {
+            "text": "Pasta gekocht\") ohne den immensen, inneren emotionalen Preis (\"Es hat sich wie Betonessen angefühlt\") als Plus"
+          },
+          {
+            "text": "punkt gezählt wird.\n    *   **Warum wir es brauchen:** Dies führt bei unbegleiteten Usern zu"
+          },
+          {
+            "text": " massivem Self-Gaslighting (\"Guck, meine Tabelle sagt ich mache schöne Dinge, warum will ich sterben?\")."
+          },
+          {
+            "text": " Unsere Architektur muss trennen zwischen der **äußeren Handlung (Performance/Masking)** und der **inneren Kap"
+          },
+          {
+            "text": "azität/Erschöpfung**.\n\n### G. WG-Dynamik & Intimsphäre\n\n*   **Szen"
+          },
+          {
+            "text": "ario 7: The \"Open Door\" Paranoia (Intimate Intruder)**\n    *   **Kategorie:** Umwelt"
+          },
+          {
+            "text": " & `management.preservation`\n    *   **Worum es geht:** In Lisas 4er-WG werden Tü"
+          },
+          {
+            "text": "ren nicht abgeschlossen. Es herrscht reges Kommen und Gehen. Lisa nutzt ein klassisches Papier-Tagebuch ("
+          },
+          {
+            "text": "oder Moleskine). Einmal legt sie es offen auf den Schreibtisch, als jemand unangekündigt here"
+          },
+          {
+            "text": "instürmt und \"Lisa, willst du mit einkaufen?\" ruft.\n    *   **Das Status-Qu"
+          },
+          {
+            "text": "o-Problem:** Danach fängt sie an, Selbstzensur im eigenen Tagebuch zu betreiben. Sätze wie *\"Die WG stres"
+          },
+          {
+            "text": "st mich so abgrundtief, ich hasse [Name der Mitbewohnerin]\"* schreibt sie gar nicht erst auf,"
+          },
+          {
+            "text": " weil die rein physische Existenz des Buches im studentischen WG-Umfeld einem Minenfeld gleicht. Eine Woche"
+          },
+          {
+            "text": " der totalen WG-Überlastung ist somit komplett weggewaschen. \n    *   **Warum wir es brauchen:** Priv"
+          },
+          {
+            "text": "atsphäre bedeutet für Lisa nicht, dass russische Server das Tagebuch hacken, sondern dass das analoge Objekt extrem"
+          },
+          {
+            "text": " sensibel gegenüber dem engsten Umfeld ist. Wenn eine Notizen-App (auf einem liegengelassenen Student"
+          },
+          {
+            "text": "enlappi/Handy) nicht absolut gesichert (\"FaceID-Schranke sofort bei Switch\") funktioniert, setzt"
+          },
+          {
+            "text": " direkt Zensur beim User ein. \n\n---\n\nMit PMDS/Medical Gaslighting (Sz 5), dem"
+          },
+          {
+            "text": " Anhedonie-Problem beim Masking (Sz 6) und dem akuten Bedrohungsfaktor WG (Sz 7"
+          },
+          {
+            "text": ") hätten wir **Lisas Spektrum maximal aufgefächert** – und haben nebenbei den hochwichtigen Themenkomplex \"Fra"
+          },
+          {
+            "text": "uengesundheit / Hormoneller Impact auf die Psyche\" elegant über einen Generic-Symptom-Ansatz gel"
+          },
+          {
+            "text": "öst.\n\nFügen wir Lisa damit auch die neuen Nummern 5, 6 und 7 als beschlossen"
+          },
+          {
+            "text": " hinzu? \n\nFalls ja, würden wir uns – *und das ist ein enormer Projektmeilenstein!* – zur"
+          },
+          {
+            "text": " Prüfung unseres absoluten Benchmark-Patienten schlechthin bewegen: **Max (PERSONA-002, The Overwhel"
+          },
+          {
+            "text": "med, unsere Baseline)**. (Wobei wir für ihn quasi die Master-Szenarien überhaupt erst in Phase 4 als Fund"
+          },
+          {
+            "text": "ament generiert hatten). Wollen wir ihn trotzdem checken, oder lieber mit Michael oder Sophie weitermachen?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

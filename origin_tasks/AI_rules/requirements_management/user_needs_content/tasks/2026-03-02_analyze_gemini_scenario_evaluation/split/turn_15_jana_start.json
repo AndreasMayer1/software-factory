@@ -1,0 +1,273 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Gefällt mir. Dann machen wir mit Jana weiter. A b c d e f g H i j k l m n o p q r s t u v w",
+        "role": "user",
+        "tokenCount": 36,
+        "createTime": "2026-02-28T13:11:09.862Z"
+      },
+      {
+        "text": "**Initiating Persona Generation**\n\nI'm now starting persona generation for \"Jana (The High-Str...).” I'm beginning the systematic gap-filling, building on the approved scenarios for Hanna. The alphabetical progression feels efficient and is leading me directly into the next personality profile in this series.\n\n\n**Defining Jana's Archetype**\n\nI'm solidifying Jana's archetype, highlighting her role as a client in DBT and schema therapy, who has serious emotion dysregulation. Her emotional volatility and struggles with mood \"averaging\" are key. The use of a skills card and \"Black Book\" for rage adds crucial layers. I'm focusing on incorporating these aspects to create a richer persona.\n\n\n**Analyzing Jana's Lifecycle**\n\nI'm now zeroing in on Jana's lifecycle, specifically her gaps. The 'intervention.coping' category is critical, especially around moments of intense tension. This \"Blind Panic Skill Search\" scenario is crucial for her persona, highlighting her inability to access skills when most needed.\n\n\n**Mapping Crisis Response Needs**\n\nI'm now deep diving into Jana's crisis response mechanisms, specifically her reaction to escalating tension. I'm building on the previous scenarios. The \"Blind Panic Skill Search\" underscores a key need for immediate, accessible crisis management, focusing on high-contrast UI and one-tap skill access. The 'Black Book Segregation' adds another important layer; the need for a safe outlet for intense, potentially dangerous, thoughts. I'm working to integrate these distinct needs.",
+        "role": "model",
+        "tokenCount": 1105,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Initiating Persona Generation**\n\nI'm now starting persona generation for \"Jana (The High-Str...).” I'm beginning the systematic gap-filling, building on the approved scenarios for Hanna. The alphabetical progression feels efficient and is leading me directly into the next personality profile in this series.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Defining Jana's Archetype**\n\nI'm solidifying Jana's archetype, highlighting her role as a client in DBT and schema therapy, who has serious emotion dysregulation. Her emotional volatility and struggles with mood \"averaging\" are key. The use of a skills card and \"Black Book\" for rage adds crucial layers. I'm focusing on incorporating these aspects to create a richer persona.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Jana's Lifecycle**\n\nI'm now zeroing in on Jana's lifecycle, specifically her gaps. The 'intervention.coping' category is critical, especially around moments of intense tension. This \"Blind Panic Skill Search\" scenario is crucial for her persona, highlighting her inability to access skills when most needed.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Mapping Crisis Response Needs**\n\nI'm now deep diving into Jana's crisis response mechanisms, specifically her reaction to escalating tension. I'm building on the previous scenarios. The \"Blind Panic Skill Search\" underscores a key need for immediate, accessible crisis management, focusing on high-contrast UI and one-tap skill access. The 'Black Book Segregation' adds another important layer; the need for a safe outlet for intense, potentially dangerous, thoughts. I'm working to integrate these distinct needs.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-28T13:11:09.864Z"
+      },
+      {
+        "text": "\n\n\nWir marschieren präzise im Alphabet vorwärts. J wie **Jana (The High-Strung / PERSONA-014)**.\n\n**Rolle:** Therapie-Klientin (Borderline / Emotionale Dysregulation / DBT)\n**Archetyp:** Leben auf der Achterbahn. Emotionen schießen in Minuten von 0 auf 100. Kämpft mit dissoziativen Momenten und Selbstverletzungsdruck (Impulskontrolle).\n**Aktuelle Szenarien (bereits erstellt & approved):**\n*   `distribution` (SCEN-014-03): Bekommt Protokoll, fürchtet den Format-Zwang (Die \"8 -> 1 -> 6\" Kurve des Tages lässt sich nicht als \"Tagesdurchschnitt 2\" abbilden, es ist eine glatte Lüge).\n*   `analysis/prepare` (SCEN-014-01): Der Abend vor der Therapie. Das Lesen alter Krisen-Einträge re-traumatisiert / re-aktiviert sie sofort wieder. \n*   `transfer/review` (SCEN-014-02): Die Sitzung ist frustrierend, weil die aggregierten Papierzahlen lügen. Ein hingeworfene Sprachnotiz aus einer Panikattacke hilft der Therapeutin viel mehr als das ganze Tagebuch.\n\nJanas Kontakt mit den *Datensammlungs*-Vorgängen in der Therapie ist brillant ausgearbeitet. \n\n**Die absolut massiven, überlebenswichtigen Lücken bei Jana** liegen aber außerhalb des Datensammelns. Für eine Borderline-Patientin geht es in ersten Linie um Überleben im Moment (Intervention) und absolute, ungefilterte Grenzüberschreitung abseits der Therapeuten-Beziehung.\n\nHier sind die zwingenden Szenarien für Jana:\n\n#### A. Der Ernstfall (Intervention)\n\n*   **Szenario 1: The Blind Panic Skill Search (Der Tunnelblick)**\n    *   *Bereits in der vorherigen Zusammenfassung angerissen, hier die volle Kontur:*\n    *   **Kategorie:** `intervention.coping` (Skill-Access)\n    *   **Worum es geht:** Jana kriegt abends eine Whatsapp-Nachricht ihres Partners. Die Ambivalenz (\"Wir müssen reden\") feuert ihre Verlustangst innerhalb von Sekunden auf Anspannungslevel 90% (oder 9/10). Sie fängt an hyperzuventilieren, die Hände zittern, der Tunnelblick setzt ein (Dissoziation). Sie weiß rational: *Ich brauche jetzt meine DBT-Skills (z.B. Kühlpacks, 5-4-3-2-1 Grounding, Ammoniak)*. Ihre Therapeutin, Frau Albrecht, hat ihr die klassischen **laminierten DBT-Skill-Kärtchen** im Scheckkartenformat mitgegeben. \n    *   **Das Status-Quo-Problem:** Jana steht vor ihrem Rucksack. Sie kramt panisch darin. Sie findet das Kärtchen erst nach Minuten zwischen Kaugummis und Schlüsseln. Als sie es ansieht, flimmert die viel zu kleine 10-Punkt-Schrift vor ihren tränenden Augen. Sie kann in diesem Hochstress-Zustand kognitiv keine winzigen Bulletpoints verarbeiten. Aus Frustration und purem emotionalen Überdruck feuert sie die Karte gegen die Wand und wählt stattdessen einen dysfunktionalen Ausweg (Selbstverletzung oder impulsiver Wut-Anruf).\n    *   **Warum wir es brauchen:** Setzt für uns die ultimative Regel für den \"Krisen/Notfall-Flow\". Krisen-Support-Screens dürfen *nichts* mit normalen UI-Regeln zu tun haben. Riesige Kontraste, gewaltige Buttons (\"HILFE\"), extreme kognitive Reduktion (vielleicht 1 klarer Sprach-Befehl/Audio: \"Jana, hol einen Eiswürfel\"). Eine Tracking-App für Menschen mit emotionaler Dysregulation ist toxisch, wenn sie im Krisenfall noch den mentalen Aufwand einer Excel-Tabelle verlangt.\n\n#### B. Out-of-the-Box: Daten-Silos (Die Schatten-Akte)\n\n*   **Szenario 2: The Black Book Explosion (Absolute Trennung)**\n    *   **Kategorie:** `capture.spontaneous` & System-Architektur (Data Silos)\n    *   **Worum es geht:** Bei Borderline ist Schwarz/Weiß-Spaltung (Idealisierung und komplette Entwertung) normal. Jana führt ihr braves, wenn auch lückenhaftes, offizielles Stimmungstagebuch für Frau Albrecht. ABER Jana führt für sich selbst privat ein physisches **\"Black Book\"**. In den abgrundtiefsten Momenten, wenn sie ihre Therapeutin hasst, ihre Freunde abwertet oder gewaltsame Rachefantasien und tiefste Abgründe externalisieren MUSS (als emotionales Überdruckventil), schreibt sie wie im Rausch da hinein.\n    *   **Das Status-Quo-Problem:** Die Papiere zu mischen ist absolut gefährlich. Frau Albrecht (und noch viel weniger ihr Partner) darf dieses Heft niemals sehen – das würde unweigerlich zu Therapie-Abbruch oder im Kopf der Patientin zur \"Einweisungung\" führen. Aber es hilft ihr enorm, die Gedanken physisch abzulassen, statt sie auszuagieren. \n    *   **Warum wir es brauchen:** Zeigt auf dramatische Weise auf App-Ebene das gleiche Phänomen wie bei Elias: Wir brauchen das **Patient Silo**. Selbst wenn Frau Albrecht und Jana Daten beim Therapie-Start sharen (QR Transfer): Jana muss in einer Text-Eingabe (Daily Journal) hart einen Toggle setzen können (\"PRIVATE DUMP\" vs. \"Therapy Protocol\"), der 1000% verlässlich blockiert, dass diese dunkelsten, blutigsten Gedanken-Notizen versehentlich in der Export-Preview landen.\n\n---\n\n**Vollständigkeits-Check für Jana:**\n*   [x] Angst vor Format & Reaktivität (Erledigt: Sz 1, 2, 3)\n*   [x] Aussetzen im Krisenmoment bei kognitivem Totalausfall (Neu -> Sz 1 / Tunnelblick)\n*   [x] Borderline-spezifische ungefilterte Privat-Daten, die exportiert Leben zerstören würden (Neu -> Sz 2 / The Black Book)\n\nJana ist ohnehin die komplexeste der Patienten-Personas, was ihr Erleben betrifft, aber mit diesen Erweiterungen fassen wir zwei absolut unvermeidbare klinische Wahrheiten in scharfe UI/UX-Leitplanken für das Tool (1. Barrierefreiheit im Panikmodus / 2. Harte Exports-Silos für therapeutische vs. rohe Self-Expression).\n\nEinverstanden, das für Jana \"einzutüten\"?\nDanach geht es direkt weiter ins **L**: Zur Auswahl stünden nun **Lena (The Depth Seeker / Psychoanalyse & Trauer)** oder **Lisa (The Waitlist Bridger / Unbetreut)**!",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1570,
+        "parts": [
+          {
+            "text": "\n\n\nWir marschieren präzise im Alphabet vorwärts. J wie"
+          },
+          {
+            "text": " **Jana (The High-Strung / PERSONA-014)**.\n\n**Rolle:** Therapie"
+          },
+          {
+            "text": "-Klientin (Borderline / Emotionale Dysregulation / DBT)\n**Archetyp:** Leben auf der Achterbahn."
+          },
+          {
+            "text": " Emotionen schießen in Minuten von 0 auf 100. Kämpft mit dissoziativen Momenten und Selbstverletzungsdruck"
+          },
+          {
+            "text": " (Impulskontrolle).\n**Aktuelle Szenarien (bereits erstellt & approved):**\n*"
+          },
+          {
+            "text": "   `distribution` (SCEN-014-03): Bekommt Protokoll, fürchtet den Format"
+          },
+          {
+            "text": "-Zwang (Die \"8 -> 1 -> 6\" Kurve des Tages lässt sich nicht als \"T"
+          },
+          {
+            "text": "agesdurchschnitt 2\" abbilden, es ist eine glatte Lüge).\n*   `analysis/prepare"
+          },
+          {
+            "text": "` (SCEN-014-01): Der Abend vor der Therapie. Das Lesen alter Krisen-Einträge re"
+          },
+          {
+            "text": "-traumatisiert / re-aktiviert sie sofort wieder. \n*   `transfer/review` (SCEN-014"
+          },
+          {
+            "text": "-02): Die Sitzung ist frustrierend, weil die aggregierten Papierzahlen lügen. Ein hing"
+          },
+          {
+            "text": "eworfene Sprachnotiz aus einer Panikattacke hilft der Therapeutin viel mehr als das ganze Tagebuch.\n\nJanas Kontakt"
+          },
+          {
+            "text": " mit den *Datensammlungs*-Vorgängen in der Therapie ist brillant ausgearbeitet. \n\n**Die absolut mass"
+          },
+          {
+            "text": "iven, überlebenswichtigen Lücken bei Jana** liegen aber außerhalb des Datensammelns. Für"
+          },
+          {
+            "text": " eine Borderline-Patientin geht es in ersten Linie um Überleben im Moment (Intervention) und absolute, ungefilterte Grenzü"
+          },
+          {
+            "text": "berschreitung abseits der Therapeuten-Beziehung.\n\nHier sind die zwingenden Szenarien für Jana:"
+          },
+          {
+            "text": "\n\n#### A. Der Ernstfall (Intervention)\n\n*   **Szenario 1: The Blind Panic Skill"
+          },
+          {
+            "text": " Search (Der Tunnelblick)**\n    *   *Bereits in der vorherigen Zusammenfassung angerissen, hier die volle"
+          },
+          {
+            "text": " Kontur:*\n    *   **Kategorie:** `intervention.coping` (Skill-Access)\n    *   **Worum"
+          },
+          {
+            "text": " es geht:** Jana kriegt abends eine Whatsapp-Nachricht ihres Partners. Die Ambivalenz (\"Wir müssen reden"
+          },
+          {
+            "text": "\") feuert ihre Verlustangst innerhalb von Sekunden auf Anspannungslevel 90% (oder 9/10). Sie fängt an"
+          },
+          {
+            "text": " hyperzuventilieren, die Hände zittern, der Tunnelblick setzt ein (Dissoziation). Sie weiß rational"
+          },
+          {
+            "text": ": *Ich brauche jetzt meine DBT-Skills (z.B. Kühlpacks, 5-4-3-2-"
+          },
+          {
+            "text": "1 Grounding, Ammoniak)*. Ihre Therapeutin, Frau Albrecht, hat ihr die klassischen **laminierten DBT-Skill-K"
+          },
+          {
+            "text": "ärtchen** im Scheckkartenformat mitgegeben. \n    *   **Das Status-Quo-Problem:** Jana steht"
+          },
+          {
+            "text": " vor ihrem Rucksack. Sie kramt panisch darin. Sie findet das Kärtchen erst nach Minuten zwischen Kaugummis und"
+          },
+          {
+            "text": " Schlüsseln. Als sie es ansieht, flimmert die viel zu kleine 10-Punkt-Schrift vor ihren tr"
+          },
+          {
+            "text": "änenden Augen. Sie kann in diesem Hochstress-Zustand kognitiv keine winzigen Bulletpoints verarbeiten. Aus"
+          },
+          {
+            "text": " Frustration und purem emotionalen Überdruck feuert sie die Karte gegen die Wand und wählt stattdessen einen dysfunktionalen Aus"
+          },
+          {
+            "text": "weg (Selbstverletzung oder impulsiver Wut-Anruf).\n    *   **Warum wir es brauchen:** Setzt für"
+          },
+          {
+            "text": " uns die ultimative Regel für den \"Krisen/Notfall-Flow\". Krisen-Support-Screens dürfen *"
+          },
+          {
+            "text": "nichts* mit normalen UI-Regeln zu tun haben. Riesige Kontraste, gewaltige Buttons (\"H"
+          },
+          {
+            "text": "ILFE\"), extreme kognitive Reduktion (vielleicht 1 klarer Sprach-Befehl/Audio"
+          },
+          {
+            "text": ": \"Jana, hol einen Eiswürfel\"). Eine Tracking-App für Menschen mit emotionaler Dysregulation ist tox"
+          },
+          {
+            "text": "isch, wenn sie im Krisenfall noch den mentalen Aufwand einer Excel-Tabelle verlangt.\n\n#### B"
+          },
+          {
+            "text": ". Out-of-the-Box: Daten-Silos (Die Schatten-Akte)\n\n*   **S"
+          },
+          {
+            "text": "zenario 2: The Black Book Explosion (Absolute Trennung)**\n    *   **Kategorie:** `capture.spontaneous"
+          },
+          {
+            "text": "` & System-Architektur (Data Silos)\n    *   **Worum es geht:** Bei Borderline ist Schwarz"
+          },
+          {
+            "text": "/Weiß-Spaltung (Idealisierung und komplette Entwertung) normal. Jana führt ihr braves, wenn"
+          },
+          {
+            "text": " auch lückenhaftes, offizielles Stimmungstagebuch für Frau Albrecht. ABER Jana führt für sich selbst privat ein ph"
+          },
+          {
+            "text": "ysisches **\"Black Book\"**. In den abgrundtiefsten Momenten, wenn sie ihre Therapeutin has"
+          },
+          {
+            "text": "st, ihre Freunde abwertet oder gewaltsame Rachefantasien und tiefste Abgründe external"
+          },
+          {
+            "text": "isieren MUSS (als emotionales Überdruckventil), schreibt sie wie im Rausch da hinein.\n    *   **Das Status-Qu"
+          },
+          {
+            "text": "o-Problem:** Die Papiere zu mischen ist absolut gefährlich. Frau Albrecht (und noch viel weniger ihr"
+          },
+          {
+            "text": " Partner) darf dieses Heft niemals sehen – das würde unweigerlich zu Therapie-Abbruch oder im Kopf der Patientin zur \""
+          },
+          {
+            "text": "Einweisungung\" führen. Aber es hilft ihr enorm, die Gedanken physisch abzulassen, statt sie aus"
+          },
+          {
+            "text": "zuagieren. \n    *   **Warum wir es brauchen:** Zeigt auf dramatische Weise auf App-Ebene das"
+          },
+          {
+            "text": " gleiche Phänomen wie bei Elias: Wir brauchen das **Patient Silo**. Selbst wenn Frau Albrecht und Jana Daten beim Therapie"
+          },
+          {
+            "text": "-Start sharen (QR Transfer): Jana muss in einer Text-Eingabe (Daily Journal) hart einen Toggle"
+          },
+          {
+            "text": " setzen können (\"PRIVATE DUMP\" vs. \"Therapy Protocol\"), der 1000% verlässlich block"
+          },
+          {
+            "text": "iert, dass diese dunkelsten, blutigsten Gedanken-Notizen versehentlich in der Export-Preview landen.\n\n---\n\n**Vollständ"
+          },
+          {
+            "text": "igkeits-Check für Jana:**\n*   [x] Angst vor Format & Reaktivität (Erledigt: Sz 1,"
+          },
+          {
+            "text": " 2, 3)\n*   [x] Aussetzen im Krisenmoment bei kognitivem Total"
+          },
+          {
+            "text": "ausfall (Neu -> Sz 1 / Tunnelblick)\n*   [x] Borderline-spezifische unge"
+          },
+          {
+            "text": "filterte Privat-Daten, die exportiert Leben zerstören würden (Neu -> Sz 2 / The Black Book)\n\nJana"
+          },
+          {
+            "text": " ist ohnehin die komplexeste der Patienten-Personas, was ihr Erleben betrifft, aber mit diesen Erweiter"
+          },
+          {
+            "text": "ungen fassen wir zwei absolut unvermeidbare klinische Wahrheiten in scharfe UI/UX-Leitpl"
+          },
+          {
+            "text": "anken für das Tool (1. Barrierefreiheit im Panikmodus / 2. Harte Exports-Silos für therapeutische vs. ro"
+          },
+          {
+            "text": "he Self-Expression).\n\nEinverstanden, das für Jana \"einzutüten\"?\nDanach geht es"
+          },
+          {
+            "text": " direkt weiter ins **L**: Zur Auswahl stünden nun **Lena (The Depth Seeker / Psychoanalyse & Trauer)** oder **Lisa (The"
+          },
+          {
+            "text": " Waitlist Bridger / Unbetreut)**!"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+contract_version: 1
+skill: release-plan
+purpose: >
+  Manage the release backlog: assign packages to versions, move packages between
+  versions, change package status, add new package entries, and assign packages
+  to unassigned requirements. Writes and commits RELEASE_BACKLOG.md.
+
+derived_from:
+  required:
+    - path: release-backlog
+      source: external
+      reason: The primary artifact being managed — read at the start of every action.
+  optional:
+    - path: package-rules
+      source: external
+      reason: Naming rules (5 stakeholder tests, role-subject convention) applied when adding packages.
+    - path: flow
+      source: external
+      reason: release_scope chunks read during Action 4b (discover unformalized chunks).
+
+produces:
+  required:
+    - path: release-backlog
+      reason: Updated with new or changed package assignments and statuses.
+
+quality_criteria:
+  - Only one package may have status active at a time (enforced with a warning).
+  - New packages pass all 5 stakeholder tests and the similarity check (≥2 shared content words triggers flag).
+  - Package naming follows the Subject Capability [Qualifier] convention (no timing words, no jargon).
+  - First-listed package per version serves as the cross-cutting fallback — ordering preserved.
+  - Changes committed with claude-commit after writing.
+
+may_invoke:
+  - requ-assign-packages
+  - claude-commit
+
+side_effects:
+  - target: requirements_tasks/RELEASE_BACKLOG.md
+    action: write
+    note: Package assignments and statuses updated.
+  - target: git history
+    action: write
+    note: Committed with type chore and scope backlog.
+
+preconditions:
+  - User has specified the desired action (1–6 from the action menu).
+
+postconditions:
+  - RELEASE_BACKLOG.md reflects the requested changes and is committed.

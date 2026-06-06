@@ -1,0 +1,44 @@
+contract_version: 1
+kind: external-interface
+interface: E6
+title: Dependency admission
+direction: dev -> factory (review reply)
+purpose: >
+  Before an agent adds a new top-level dependency (pubspec.yaml, Python manifests,
+  npm manifests), it must pause and get developer pre-authorization via the
+  pending_feedback channel. This contract formalizes that review handshake.
+  Mirrors the E1 pattern but the question is a structured dependency-admission
+  request and the answer is the developer's authorization (or rejection).
+
+derived_from:
+  required:
+    - path: automation/pending_feedback/<TASK_ID>/answer.md
+      source: external
+      input_modality: file
+      schema: null
+      reason: The developer's authorization or rejection of the proposed dependency.
+  optional:
+    - path: automation/pending_feedback/TEMPLATE_answer.md
+      source: external
+      input_modality: file
+      reason: Baseline used to detect "still unanswered" (answer == template).
+
+produces:
+  required:
+    - path: automation/pending_feedback/<TASK_ID>/question.md
+      input_modality: file
+      schema: .claude/schemas/pending_question.yaml
+      reason: The dependency-admission request with full context; produced by the pausing skill.
+
+quality_criteria:
+  - check: developer_responded
+    target: automation/pending_feedback/<TASK_ID>/answer.md
+    args: [--template, automation/pending_feedback/TEMPLATE_answer.md]
+    note: PASS only when answer.md exists, is non-empty, and differs from the template.
+
+preconditions:
+  - The agent has identified a new top-level dependency not yet in the manifest.
+  - REQ-PROC-060 dependency-admission gate applies (see doc/process/dependency_admission_gate.md).
+postconditions:
+  - On authorized answer: agent proceeds with dependency addition.
+  - On rejection: agent finds an alternative approach without the new dependency.

@@ -1,0 +1,124 @@
+---
+task_id: TASK-PROC-006-04-01
+type: explore
+parent_requirement: REQ-PROC-006-04
+urgency: 4
+urgency_reason: U4-DEP
+impact: 5
+impact_reason: I5-ENAB
+status: pending
+after: []
+awaiting: []
+awaiting_note: ""
+covers:
+  acceptance_criteria: []
+  sections: []
+scope_description: "Deepen feature feat_evaluation_simulation_harness per the approved epic plan, then fill its feature requirement (REQ-PROC-006-04) via requ-explore."
+release_description: ""
+effort: L
+created: 2026-06-01
+opus_recommended: true   # reason: cross-cutting explore that writes a feature requirement; open tamper-resistance design problem
+writes_requirements: true
+worktree_path: ""
+requirements_version:
+  commit: 74dfea86
+  file: ../requirements.md
+---
+
+# Goal: Deepen & Write the Simulation-Harness Feature Requirement
+
+## Objective
+
+Deepen this feature per the approved epic plan, then fill the feature requirement
+(REQ-PROC-006-04, currently a `placeholder`) via `requ-explore`. Do for *this feature*
+what TASK-PROC-006-20 did for the whole system.
+
+Open questions: how does the fast offline verdict work — skill-creator paired old-vs-new
+over managed scenario sets; Git-branch test-data management with a cleanup mechanism and
+naming convention; the held-out 60/40 split; synthetic-only-from-real generation; the
+dynamic per-skill simulation budget; and the (still open) tamper-resistant scenario
+add/deprecate mechanism?
+
+## Background
+
+This is the fast, offline half of evaluation; its slow counterpart is the statistical
+contract (feat_evaluation_statistical_contract). The per-skill simulation budget here
+must compose with the weekly meta-work budget owned by feat_guardrails_and_budgets. One
+genuine open problem is parked, not solved: the tamper-resistant scenario
+add/deprecate mechanism — treat it as a design problem, not a settled answer.
+
+Current requirements: ../requirements.md
+
+For complete requirements at task creation time:
+```
+git show 74dfea86:requirements_tasks/process/AI_rules/workflows/epic_workflow_improvement_automation/feat_evaluation_simulation_harness/requirements.md
+```
+
+## How to Approach This
+
+Use design thinking — empathize before defining, diverge before converging, let
+questions lead, iterate. One pass will not be enough.
+
+**Read the full iteration history first so you have the whole picture** (the developer's
+explicit instruction):
+- TASK-PROC-006-20:
+  `../../../tasks/2026-05-30_explore_holistic-optimizer-analysis-and-target-realignment/plans_and_protocols/`
+  — syntheses `2026-05-30_02_synthesis_round1.md`, `2026-05-30_04_synthesis_round2.md`,
+  `2026-05-31_06_synthesis_round3.md`; feedback `2026-05-30_03_feedback.md`,
+  `2026-05-31_05_feedback.md`, `2026-06-01_feedback.md`; restructure plan
+  `2026-06-01_07_plan_epic-restructure.md`.
+- Original redesign:
+  `../../../tasks/2026-05-01_explore_redesign-claude-optimize-skill (completed)/plans_and_protocols/`
+  (rounds 1–4 + decisions log).
+
+## Seeds
+
+(Round-4 developer inputs — carry these in.)
+
+1. **Git-branch test-data sets.** Real logged tasks become test datasets pointed to by
+   dedicated **git branches**, so any commit/dataset can be checked out and re-run.
+   Needs a **cleanup mechanism** and a **naming convention** making clear which branches
+   are disposable vs must-keep. Same mechanism for synthetic datasets.
+2. **Synthetic-only-from-real.** Never synthesize "from nothing." First collect a
+   **real** dataset; derive synthetic data *from* it.
+3. **Dynamic per-skill simulation budget.** Iterative/feedback skills → simulate **one
+   iteration**. Token-heavy skills cost far more. The **first simulation of a skill runs
+   UN-budgeted and is measured** to set a per-skill baseline; thereafter ~**3 iterations**
+   as a starting cap, adapting from the baseline. This is a **separate** budget, distinct
+   from the 4 MB weekly meta-work budget (feat_guardrails_and_budgets) — they must compose.
+4. **Scenario deny-list lifecycle.** Once created, a scenario is **deny-listed** (can't
+   be edited). But a **tamper-resistant** mechanism must allow *adding* new scenarios and
+   *deprecating/deleting* old ones — "a mechanism that cannot be tricked easily." OPEN.
+5. **Held-out 60/40 split** so the loop is never scored on data it tuned against.
+
+## Execution Model
+
+Gather raw material — read the optimizer implementation, the skill-creator skills,
+`.factory/optimize/`, the placeholder requirement — then synthesize iteratively. The
+session model is fixed at launch (Opus). End by running `requ-explore` to write
+REQ-PROC-006-04.
+
+**Web research**: delegate to a spawned `general-purpose` agent with a focused question
+(e.g. *"how do agent-evaluation harnesses build held-out scenario sets and prevent
+tuning-set leakage?"*); never run WebSearch inline.
+
+## Output
+
+A synthesis in `plans_and_protocols/` and a filled feature requirement
+(REQ-PROC-006-04) with testable acceptance criteria, honest about residual uncertainty
+(especially the open tamper-resistant scenario-lifecycle problem).
+
+## Acceptance Criteria
+
+- [ ] Exploration produced at least one synthesis round
+- [ ] The synthesis defines the problem space in terms that were not fully known at task creation
+- [ ] Decisions requiring user input are identified and framed clearly enough for the user to decide
+- [ ] The output is honest about what remains uncertain
+- [ ] The feature requirement REQ-PROC-006-04 is written via requ-explore (no longer a placeholder)
+
+## Dependencies
+
+| Dependency | Status | Notes |
+|------------|--------|-------|
+| — | — | No blocking dependencies. Subordinate to product delivery (G-INV-5). |
+</content>

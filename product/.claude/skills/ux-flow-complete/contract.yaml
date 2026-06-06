@@ -1,0 +1,61 @@
+contract_version: 1
+skill: ux-flow-complete
+purpose: >
+  Internal skill (entry point: ux-create-flow). Run content-complete impact
+  analysis for a user flow. Sets the flow to approved (no siblings) or aligned
+  (siblings exist), adds Pending Impacts to impacted sibling flows, and creates
+  CONTINUE tasks for those siblings.
+
+derived_from:
+  required:
+    - path: flow
+      source: external
+      reason: "The flow being completed — checked for review_status: in_review and existing cluster membership."
+    - path: flow-index
+      source: external
+      reason: Sibling flow candidates identified for impact analysis.
+
+produces:
+  required:
+    - path: flow
+      reason: review_status updated to approved or aligned; review_history entry added.
+  conditional:
+    - path: flow
+      condition: updated when Sonnet assessment identifies sibling impact.
+      reason: Pending Impacts section added and approval_cluster set.
+    - path: goal
+      condition: created for each impacted sibling that needs a CONTINUE pass.
+      reason: Tracks the alignment work required for the impacted sibling.
+
+quality_criteria:
+  - Flow must be in_review before content-complete runs.
+  - Sonnet agents assess sibling impact — main session never reads sibling flow bodies directly.
+  - aligned status requires approval_cluster to be set in flow.md YAML.
+  - approved status is set directly only when Sonnet finds no sibling impacts.
+
+user_input_gates:
+  - phase: "CC-E — Approved sibling rollback question"
+    description: "Developer confirms whether to roll back an already-approved sibling flow to pending_alignment because it is affected by the current flow's content-complete changes."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires when a sibling flow's impact is detected AND that sibling's review_status is approved."
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_user_needs/user_flows/<flow>/flow.md
+    action: write
+    note: review_status set to approved or aligned.
+  - target: requirements_user_needs/user_flows/<sibling>/flow.md
+    action: write
+    note: Pending Impacts section added when impact detected.
+  - target: git history
+    action: write
+    note: "Committed with ux(FLOW-NNN): content complete message."
+
+preconditions:
+  - Flow has review_status: in_review.
+
+postconditions:
+  - Flow has review_status: approved (no impacts) or aligned (impacts exist).
+  - Impacted sibling flows have Pending Impacts sections and CONTINUE tasks.

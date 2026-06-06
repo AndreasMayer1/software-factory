@@ -1,0 +1,245 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Das übernehmen wir so für Jana! Welche Gruppen representiert sie noch, für die es noch etwas zu beachten gibt? Oder fällt dir zu ihr noch was ein? ",
+        "role": "user",
+        "tokenCount": 34,
+        "createTime": "2026-02-28T13:18:40.279Z"
+      },
+      {
+        "text": "**Defining Jana's Archetype**\n\nI'm working to pin down precisely which groups Jana exemplifies beyond the obvious scenarios. Identifying these implicit clusters is proving key. I'm actively considering whether additional scenarios are needed to fully represent these groups, or if the current ones suffice. Currently, I am focused on whether I need to expand the scenario list, or if the current scenarios cover all necessary archetypes.\n\n\n**Refining Jana's Persona**\n\nI'm now diving deeper into Jana's persona, specifically considering any missing facets that require definition. I'm reviewing `PERSONA-014` to ensure all relevant conditions and cluster representations are captured, focusing on how each relates to scenarios. I'm brainstorming how scenarios address substance abuse and harm reduction through urge tracking and context management.\n\n\n**Analyzing Jana's Urges**\n\nI'm currently focused on the \"Craving Ambush\" scenario and how Jana's paper diary falls short of addressing sudden, overwhelming urges. I'm actively comparing the analog approach to more interactive methods, such as those used in DBT and relapse prevention, specifically \"urge surfing.\" I'm asking how to make it more interactive than just retrospective confession. I'm evaluating the crisis scenario to better represent this. I also need to better define the *aftermath* of a slip.\n\n\n**Evaluating Scenario Limitations**\n\nI'm now zeroing in on the shortcomings of a paper diary for a trauma or PTSD patient when they experience lost time; it leaves a blank, which is unhelpful. I'm considering incorporating the \"Chain Analysis\" (Verhaltensanalyse), common in DBT, but I recognize that writing it down, especially mid- or post-crisis, can be a huge burden. I'm exploring an alternate scenario, the \"Addiction/Craving Crossover,\" to highlight the need for harm reduction tracking, as opposed to framing relapse as failure.\n\n\n**Incorporating Nuance in Failure**\n\nI'm working to expand the data capture capabilities. I need to address the need for harm reduction tracking, accommodating the reality that a \"slip\" is not a reset. The tool must allow for the recording of nuanced events, such as, \"I slipped, but I used sterile tools,\" or \"I slipped, but I stopped after two glasses.\" This is a key requirement.\n\n\\n\\n\n\n**Addressing the Dissociative Gap**\n\nI'm now focused on the \"Dissociative Gap\" scenario, crucial for PTSD/Dissociation clusters, and how to record time loss gently. The current paper diary's prompts of \"Situation\" and \"Mood\" are inadequate. I need a way to record dissociative states without inducing anxiety or requiring a coherent narrative where one doesn't exist. This calls for a sensitive data point capture.\n\n\n**Refining Scenario Details**\n\nI'm now drafting new scenarios. \"The Harm Reduction Dilemma\" is a focus, emphasizing harm reduction tracking in the face of addictive urges, to move away from a binary \"success/failure\" mentality. I'm also developing \"Tracking the Void,\" specifically for dissociative episodes, and its pain points related to lost time and inadequate diary prompts. The current paper approach feels too reductive in recording complex behaviors.",
+        "role": "model",
+        "tokenCount": 1505,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Defining Jana's Archetype**\n\nI'm working to pin down precisely which groups Jana exemplifies beyond the obvious scenarios. Identifying these implicit clusters is proving key. I'm actively considering whether additional scenarios are needed to fully represent these groups, or if the current ones suffice. Currently, I am focused on whether I need to expand the scenario list, or if the current scenarios cover all necessary archetypes.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Refining Jana's Persona**\n\nI'm now diving deeper into Jana's persona, specifically considering any missing facets that require definition. I'm reviewing `PERSONA-014` to ensure all relevant conditions and cluster representations are captured, focusing on how each relates to scenarios. I'm brainstorming how scenarios address substance abuse and harm reduction through urge tracking and context management.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Jana's Urges**\n\nI'm currently focused on the \"Craving Ambush\" scenario and how Jana's paper diary falls short of addressing sudden, overwhelming urges. I'm actively comparing the analog approach to more interactive methods, such as those used in DBT and relapse prevention, specifically \"urge surfing.\" I'm asking how to make it more interactive than just retrospective confession. I'm evaluating the crisis scenario to better represent this. I also need to better define the *aftermath* of a slip.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Evaluating Scenario Limitations**\n\nI'm now zeroing in on the shortcomings of a paper diary for a trauma or PTSD patient when they experience lost time; it leaves a blank, which is unhelpful. I'm considering incorporating the \"Chain Analysis\" (Verhaltensanalyse), common in DBT, but I recognize that writing it down, especially mid- or post-crisis, can be a huge burden. I'm exploring an alternate scenario, the \"Addiction/Craving Crossover,\" to highlight the need for harm reduction tracking, as opposed to framing relapse as failure.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Incorporating Nuance in Failure**\n\nI'm working to expand the data capture capabilities. I need to address the need for harm reduction tracking, accommodating the reality that a \"slip\" is not a reset. The tool must allow for the recording of nuanced events, such as, \"I slipped, but I used sterile tools,\" or \"I slipped, but I stopped after two glasses.\" This is a key requirement.\n\n\\n\\n\n\n**Addressing the Dissociative Gap**\n\nI'm now focused on the \"Dissociative Gap\" scenario, crucial for PTSD/Dissociation clusters, and how to record time loss gently. The current paper diary's prompts of \"Situation\" and \"Mood\" are inadequate. I need a way to record dissociative states without inducing anxiety or requiring a coherent narrative where one doesn't exist. This calls for a sensitive data point capture.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Refining Scenario Details**\n\nI'm now drafting new scenarios. \"The Harm Reduction Dilemma\" is a focus, emphasizing harm reduction tracking in the face of addictive urges, to move away from a binary \"success/failure\" mentality. I'm also developing \"Tracking the Void,\" specifically for dissociative episodes, and its pain points related to lost time and inadequate diary prompts. The current paper approach feels too reductive in recording complex behaviors.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-28T13:18:40.280Z"
+      },
+      {
+        "text": "\n\n\nWunderbar, dann ist die \"Todesangst-vs.-Kassenakte\"-Dynamik durch die Silos und der Krisen-Aussetzer durch den Tunnelblick bei Jana nun gesichert.\n\nWenn wir auf **Janas Persona-Definition** (`PERSONA-014`) unter \"Cluster Representation\" schauen, fällt uns sofort auf, wen sie als Härtefall-Profil in der App-Welt eigentlich noch mit abbilden muss, weil diese Gruppen eng verwandte UX-Hürden haben:\n1. **Sucht & akute Impulskontrollstörungen:** Umgang mit Suchtdruck (Craving), Essanfällen, Selbstverletzung.\n2. **PTSD / Trauma-Patienten:** Dissoziationen, Flashbacks, der totale Verlust von Zeit und Orientierung.\n\nNormale \"Wie geht es dir heute?\"-Tagebücher und Tracker scheitern an diesen Patientengruppen krachend, weil diese eine ganz andere Form der Protokollierung brauchen (nicht den Alltag, sondern die extremen Brüche). \n\nHier sind zwei spezielle, darauf zugeschnittene \"Out-of-the-Box\"-Szenarien, die Jana als Stellvertreterin für Sucht und Trauma perfekt ergänzen:\n\n### C. Out-of-the-Box: Das Sucht-/Impuls-Cluster\n\n*   **Szenario 3: The Harm Reduction Dilemma (Der \"Teil-Erfolg\" im Rückfall)**\n    *   **Kategorie:** `capture.spontaneous` & `analysis.prepare_for_session`\n    *   **Worum es geht:** Jana spürt nachmittags einen gigantischen Druck (bei Sucht: Craving; bei Borderline/Impulsen: Drang zur Selbstverletzung). Sie wendet für satte zwei Stunden ihre Notfall-Skills an (z.B. Treppenlaufen, kalt duschen). Am Ende wird der Druck aber so unmenschlich groß, dass sie dem dysfunktionalen Impuls doch nachgibt – *aber in einer abgeschwächten, weniger gefährlichen Form* als sonst (Harm Reduction).\n    *   **Das Status-Quo-Problem:** Abends sitzt sie vor dem DBT-Tagebuch/Rückfall-Protokoll aus Papier. Dort gibt es oft nur binäre Optionen: \"Skill erfolgreich? Ja/Nein\" und \"Dysfunktionales Verhalten? Ja/Nein\". Wenn sie \"Nein\" und \"Ja\" ankreuzt, sieht der Tag auf dem Papier aus wie ein totaler Verlust an Kontrollverlust. Das Papier kann Nuancen von *Harm Reduction* (\"Ich bin zwar schwach geworden, habe mich aber 2 Stunden gewehrt und das Schlimmste verhindert\") nicht abbilden. Das führt zu abgrundtiefer Scham und Frustration, weil ihr riesiger Kampf auf dem Papier nicht anerkannt wird.\n    *   **Warum wir es brauchen:** Setzt ein gewaltiges App-Statement: Ein Rückfall ist in unserer Architektur kein gebrochener \"App-Streak\" oder ein rein negatives Chart-Event. Eine Software, die Trauma, BPD und Sucht abbildet, muss Zwischenstufen von Siegen erfassen können (Skill probiert, Resistenz-Zeit gemessen etc.).\n\n### D. Out-of-the-Box: Das PTSD-/Trauma-Cluster\n\n*   **Szenario 4: Tracking the Void (Die Dissoziation)**\n    *   **Kategorie:** `capture.routine` (Attempt)\n    *   **Worum es geht:** PTSD und komplexe Traumata zeichnen sich durch Dissoziationen aus – die Zeit bleibt stehen, die Realität bricht weg. Ein Trigger erwischt Jana nachmittags am Laptop. Plötzlich \"wacht\" sie auf dem Teppich liegend auf. 90 Minuten sind einfach weg. Komplett gelöscht aus dem Gedächtnis.\n    *   **Das Status-Quo-Problem:** Jana muss den Tag später protokollieren. Auf Papier muss man immer Situation, Emotion (1-10) und Dauer eintragen. Aber wie loggt man ein Schwarzes Loch? \"Emotion\" gab es nicht. \"Situation\" kennt sie nicht. Der Zettel verlangt aber Auskunft. Ein leeres Feld im Papier sieht wieder aus wie \"Ich hatte keine Lust Hausaufgaben zu machen.\" Sie erfindet einen Wert oder ist blockiert.\n    *   **Warum wir es brauchen:** Zeigt auf dramatische Weise: Wenn das Gedächtnis nicht funktioniert, weil das Gehirn zum Selbstschutz abschaltet, dürfen wir Nutzer in UI/UX-Flows nicht durch \"Zwang-Felder\" (Validation) quälen. Wenn eine Patienten \"Filmriss/Dissoziation\" auswählt, ist *genau das* der klinisch wertvollste Datensatz – nicht, was die Minuten davor passiert ist.\n\n---\n\nMit diesen vier Komponenten ist Jana eine unzerstörbare Benchmark für **inklusive mentale UX**:\n1. Tunnelblick blockiert UI (Das Problem des Krisenzugriffs).\n2. Schatten-Bücher blockieren Exporte (Datensilos sind überlebenswichtig).\n3. Harm Reduction wird vom Papierradierer ausgelöscht (Der Umgang mit Nuancen im Versagen / Suchtdruck).\n4. Tracking des schwarzen Lochs (PTSD Dissoziation kann Standardformulare nicht befüllen).\n\nFindest du, wir haben die Hochspannungs-/Krisen-Fälle damit rundherum erfasst?\n\nWir kommen danach ins \"L\":  Wir können entweder zu **Lena (Grief & Dreams, TP/Psychoanalyse)** übergehen, oder direkt ins \"Unbetreute Leiden im Gesundheitssystem\" eintauchen zu **Lisa (Warteliste / Depression)**. Worauf hast du mehr Fokus?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1255,
+        "parts": [
+          {
+            "text": "\n\n\nWunderbar, dann ist die \"Todesangst-vs.-K"
+          },
+          {
+            "text": "assenakte\"-Dynamik durch die Silos und der Krisen-Aussetzer durch den Tunnelblick bei Jana nun ges"
+          },
+          {
+            "text": "ichert.\n\nWenn wir auf **Janas Persona-Definition** (`PERSONA-014`) unter \"Cluster Representation\""
+          },
+          {
+            "text": " schauen, fällt uns sofort auf, wen sie als Härtefall-Profil in der App-Welt eigentlich noch mit abb"
+          },
+          {
+            "text": "ilden muss, weil diese Gruppen eng verwandte UX-Hürden haben:\n1. **Sucht & ak"
+          },
+          {
+            "text": "ute Impulskontrollstörungen:** Umgang mit Suchtdruck (Craving), Essanfällen, Selbstverletzung."
+          },
+          {
+            "text": "\n2. **PTSD / Trauma-Patienten:** Dissoziationen, Flashbacks, der totale Verlust von Zeit und"
+          },
+          {
+            "text": " Orientierung.\n\nNormale \"Wie geht es dir heute?\"-Tagebücher und Tracker scheitern an diesen Patient"
+          },
+          {
+            "text": "engruppen krachend, weil diese eine ganz andere Form der Protokollierung brauchen (nicht den Alltag, sondern die"
+          },
+          {
+            "text": " extremen Brüche). \n\nHier sind zwei spezielle, darauf zugeschnittene \"Out-of-the-Box\"-"
+          },
+          {
+            "text": "Szenarien, die Jana als Stellvertreterin für Sucht und Trauma perfekt ergänzen:\n\n### C. Out-of-the"
+          },
+          {
+            "text": "-Box: Das Sucht-/Impuls-Cluster\n\n*   **Szenario 3: The Harm Reduction Dilemma (Der"
+          },
+          {
+            "text": " \"Teil-Erfolg\" im Rückfall)**\n    *   **Kategorie:** `capture.spontaneous` &"
+          },
+          {
+            "text": " `analysis.prepare_for_session`\n    *   **Worum es geht:** Jana spürt nachmittags einen gigantischen Druck"
+          },
+          {
+            "text": " (bei Sucht: Craving; bei Borderline/Impulsen: Drang zur Selbstverletzung). Sie w"
+          },
+          {
+            "text": "endet für satte zwei Stunden ihre Notfall-Skills an (z.B. Treppenlaufen, kalt duschen). Am Ende"
+          },
+          {
+            "text": " wird der Druck aber so unmenschlich groß, dass sie dem dysfunktionalen Impuls doch nachgibt –"
+          },
+          {
+            "text": " *aber in einer abgeschwächten, weniger gefährlichen Form* als sonst (Harm Reduction).\n    *   **Das"
+          },
+          {
+            "text": " Status-Quo-Problem:** Abends sitzt sie vor dem DBT-Tagebuch/Rückfall-Pro"
+          },
+          {
+            "text": "tokoll aus Papier. Dort gibt es oft nur binäre Optionen: \"Skill erfolgreich? Ja/Nein\" und"
+          },
+          {
+            "text": " \"Dysfunktionales Verhalten? Ja/Nein\". Wenn sie \"Nein\" und \"Ja\" ankreuzt, sieht"
+          },
+          {
+            "text": " der Tag auf dem Papier aus wie ein totaler Verlust an Kontrollverlust. Das Papier kann Nuancen von *"
+          },
+          {
+            "text": "Harm Reduction* (\"Ich bin zwar schwach geworden, habe mich aber 2 Stunden gewehrt und das Schlimmste verhindert"
+          },
+          {
+            "text": "\") nicht abbilden. Das führt zu abgrundtiefer Scham und Frustration, weil ihr riesiger Kampf auf dem Papier nicht aner"
+          },
+          {
+            "text": "kannt wird.\n    *   **Warum wir es brauchen:** Setzt ein gewaltiges App-Statement: Ein Rück"
+          },
+          {
+            "text": "fall ist in unserer Architektur kein gebrochener \"App-Streak\" oder ein rein negatives Chart-Event. Eine Software"
+          },
+          {
+            "text": ", die Trauma, BPD und Sucht abbildet, muss Zwischenstufen von Siegen erfassen können (Skill prob"
+          },
+          {
+            "text": "iert, Resistenz-Zeit gemessen etc.).\n\n### D. Out-of-the-Box: Das PTSD-/"
+          },
+          {
+            "text": "Trauma-Cluster\n\n*   **Szenario 4: Tracking the Void (Die Dissoziation)**"
+          },
+          {
+            "text": "\n    *   **Kategorie:** `capture.routine` (Attempt)\n    *   **Worum es"
+          },
+          {
+            "text": " geht:** PTSD und komplexe Traumata zeichnen sich durch Dissoziationen aus – die Zeit bleibt stehen, die Realität b"
+          },
+          {
+            "text": "richt weg. Ein Trigger erwischt Jana nachmittags am Laptop. Plötzlich \"wacht\" sie auf dem Te"
+          },
+          {
+            "text": "ppich liegend auf. 90 Minuten sind einfach weg. Komplett gelöscht aus dem Gedächtnis.\n    *"
+          },
+          {
+            "text": "   **Das Status-Quo-Problem:** Jana muss den Tag später protokollieren. Auf Papier muss man"
+          },
+          {
+            "text": " immer Situation, Emotion (1-10) und Dauer eintragen. Aber wie loggt man ein Schwarzes Loch?"
+          },
+          {
+            "text": " \"Emotion\" gab es nicht. \"Situation\" kennt sie nicht. Der Zettel verlangt aber Auskunft. Ein leeres Feld im Papier sieht"
+          },
+          {
+            "text": " wieder aus wie \"Ich hatte keine Lust Hausaufgaben zu machen.\" Sie erfindet einen Wert oder ist blockiert."
+          },
+          {
+            "text": "\n    *   **Warum wir es brauchen:** Zeigt auf dramatische Weise: Wenn das Gedächtnis nicht funktioniert, weil"
+          },
+          {
+            "text": " das Gehirn zum Selbstschutz abschaltet, dürfen wir Nutzer in UI/UX-Flows nicht durch \"Zwang"
+          },
+          {
+            "text": "-Felder\" (Validation) quälen. Wenn eine Patienten \"Filmriss/Dissoziation\" aus"
+          },
+          {
+            "text": "wählt, ist *genau das* der klinisch wertvollste Datensatz – nicht, was die Minuten davor passiert ist"
+          },
+          {
+            "text": ".\n\n---\n\nMit diesen vier Komponenten ist Jana eine unzerstörbare Benchmark für **inklusive mentale UX**:\n1. Tunnel"
+          },
+          {
+            "text": "blick blockiert UI (Das Problem des Krisenzugriffs).\n2. Schatten-Bücher blockieren Ex"
+          },
+          {
+            "text": "porte (Datensilos sind überlebenswichtig).\n3. Harm Reduction wird vom Papierradierer ausgelöscht (Der Umgang"
+          },
+          {
+            "text": " mit Nuancen im Versagen / Suchtdruck).\n4. Tracking des schwarzen Lochs (PTSD Dissoziation kann Standard"
+          },
+          {
+            "text": "formulare nicht befüllen).\n\nFindest du, wir haben die Hochspannungs-/Krisen-Fälle damit"
+          },
+          {
+            "text": " rundherum erfasst?\n\nWir kommen danach ins \"L\":  Wir können entweder zu **Lena (Grief & Dreams"
+          },
+          {
+            "text": ", TP/Psychoanalyse)** übergehen, oder direkt ins \"Unbetreute Leiden im Gesundheitssystem\" eint"
+          },
+          {
+            "text": "auchen zu **Lisa (Warteliste / Depression)**. Worauf hast du mehr Fokus?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

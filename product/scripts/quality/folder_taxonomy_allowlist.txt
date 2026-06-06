@@ -1,0 +1,17 @@
+# Allowed sub-folder names directly under any */domain/ directory.
+# One entry per line. Lines beginning with '#' and blank lines are ignored.
+#
+# The taxonomy intentionally stays small. Adding a new sub-folder here is a
+# documented design decision — the gate's value comes from being a single
+# place that gets reviewed when the taxonomy widens.
+#
+# Format:
+#   <folder-name>      # short reason / source
+
+entities             # immutable domain entities (the bulk of the model)
+repositories         # repository contracts (interfaces)
+value_objects        # primitive-obsession refactors (typed wrappers)
+services             # pure-domain services / use-cases
+failures             # typed failure enums and sealed classes
+events               # domain events
+usecases             # alternate clean-arch use-case folder name (role_selection feature)

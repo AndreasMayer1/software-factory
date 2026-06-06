@@ -1,0 +1,72 @@
+contract_version: 1
+skill: ux-write-persona
+purpose: >
+  Create or update a persona with built-in cascade detection. Reads guidelines,
+  generates or modifies persona.md, runs cascade scan for scenario necessity and
+  flow impact, and sets review_status to approved after user approval.
+
+derived_from:
+  required:
+    - path: guideline
+      source: external
+      reason: Persona template, writing checklist, and constraint-vs-regular classification rules.
+    - path: guideline
+      source: external
+      reason: PCD layer rules for the persona.
+    - path: guideline
+      source: external
+      reason: Review workflow and review_history format.
+    - path: guideline
+      source: external
+      reason: Cascade rules for downstream scenario and flow impact.
+  optional:
+    - path: persona
+      source: external
+      reason: Existing persona read in UPDATE mode.
+    - path: scenario
+      source: external
+      reason: All scenarios read in UPDATE mode for impact context.
+    - path: flow-index
+      source: external
+      reason: Approved flows scanned for keyword matches during flow impact cascade.
+
+produces:
+  required:
+    - path: persona
+      reason: The created or updated persona file.
+  conditional:
+    - path: scenario
+      condition: directory created in CREATE mode.
+      reason: Scenarios folder initialized as part of persona workspace.
+    - path: flow
+      condition: updated when cascade scan flags the flow for constraint review.
+      reason: review_status set to in_review; review_history entry added with cascade note.
+
+quality_criteria:
+  - All 8 README guideline files read simultaneously before authoring.
+  - Preanalysis (Phase 2.5) must be complete before persona.md is written in CREATE mode.
+  - Unique PERSONA-ID verified by re-running generate_id_registry.py before writing.
+  - User approval gate must be passed before cascade scan runs.
+  - Cascade scan uses keyword matching for constraint personas — keywords listed per impairment type.
+
+user_input_gates:
+  - phase: "Step 6.5 — User Approval Gate"
+    description: "Developer approves the generated or updated persona before cascade scan runs, or provides revision feedback to loop back."
+    decision_kind: approval
+    required: always
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_user_needs/personas/<name>/persona.md
+    action: write
+    note: Persona created or updated.
+  - target: requirements_user_needs/user_flows/<flow>/flow.md
+    action: write
+    note: review_status set to in_review for flows flagged by cascade keyword scan.
+
+preconditions:
+  - User has provided persona name, role, and evidence basis.
+
+postconditions:
+  - persona.md exists with valid frontmatter, approved review_status, and cascade results reported.

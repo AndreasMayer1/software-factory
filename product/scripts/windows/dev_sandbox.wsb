@@ -1,0 +1,30 @@
+<!--
+  dev_sandbox.wsb — Windows Sandbox configuration for testing Windows scripts.
+
+  Purpose: Provides an isolated environment to run the Pester test suite and
+  the denylist checker without affecting the host system. The scripts/windows/
+  folder is mapped read-only into the sandbox.
+
+  Usage: Double-click this file on a Windows host with Windows Sandbox enabled.
+  The sandbox boots, installs Pester, and runs the test runner automatically.
+
+  Prerequisites:
+    - Windows 10/11 Pro or Enterprise with Windows Sandbox feature enabled
+      (Settings > Apps > Optional Features > Windows Sandbox)
+    - The scripts/windows/ folder must exist at the mapped host path
+
+  Note: Update the HostFolder path below to match your local project location.
+-->
+<Configuration>
+  <MappedFolders>
+    <MappedFolder>
+      <!-- Update this path to your local scripts/windows/ location -->
+      <HostFolder>C:\Users\am-ur\Projekte Lokaler Arbeitsbereich\private_mood_tracker\flutter_app\scripts\windows</HostFolder>
+      <SandboxFolder>C:\scripts\windows</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  <LogonCommand>
+    <Command>powershell.exe -ExecutionPolicy Bypass -Command "Install-Module Pester -Force -Scope CurrentUser -SkipPublisherCheck; &amp; C:\scripts\windows\tests\run_all_windows_tests.ps1; Read-Host 'Press Enter to close'"</Command>
+  </LogonCommand>
+</Configuration>

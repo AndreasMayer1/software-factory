@@ -1,0 +1,199 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Wir müssen systematisch vorgehen, damit ich einschätzen kann, dass wir nichts vergessen haben.. Jede persona einzeln. Gehen wir alphabetisch durch. Wenn eine der personas Szenarien noch fehlen, die schon bei einer anderen genannt sind, bitte nur darauf verweisen und nicht das Szenario erneut beschreiben. Fange mit der ersten an",
+        "role": "user",
+        "tokenCount": 70,
+        "createTime": "2026-02-22T07:35:35.255Z"
+      },
+      {
+        "text": "**Initiating Persona Review**\n\nI'm now starting a systematic review. The goal is to address missing scenarios, one persona at a time, beginning alphabetically. I'm focusing on ensuring each persona's use cases are fully considered.\n\n\n**Prioritizing Scenario Analysis**\n\nI've determined the alphabetical order of the personas. I'm focusing on the *app\\_provider* (The Creator) first, evaluating scenario coverage and identifying gaps. I'll need to cross-reference scenarios already defined for other personas, avoiding repetition. I will be looking to the *SCENARIO\\_INDEX.md* and each persona definition to do this.\n\n\n**Addressing Persona Exclusions**\n\nI've made a key discovery: the *App Provider*, though alphabetically first, explicitly excludes user scenarios. I need to briefly acknowledge this and note its \"0 scenario\" status before moving on. I will focus immediately on **David (The Structure Seeker)** to identify and outline their scenarios. The goal here is to provide actual substance.\n\n\n**Defining Self-User Scenarios**\n\nI've outlined three new scenarios for David (Self-User). I've focused on `creation/sharing`, `capture`, and `management/intervention` stages, reflecting his ADHD archetype. The scenarios are *The Graveyard of Good Intentions*, *The Endless Template Hunt*, and *The Fleeting Thought*. These highlight his system-hopping tendency and need for immediate capture, addressing potential user abandonment.\n\n\n**Analyzing David's Scenarios**\n\nI'm now refining the scenarios for David, specifically focusing on `sharing.independent_discovery` and `capture.routine`. I've renamed \"The Graveyard of Good Intentions\" to \"The Toxic Streak\" to better capture the negative cycle he experiences. I also have renamed \"The Endless Template Hunt\" to \"Discover Template Independently\". I'm concentrating on how these scenarios highlight David's challenges with finding and maintaining structure, specifically the struggle of the ADHD archetype.\n\n\n",
+        "role": "model",
+        "tokenCount": 1387,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Initiating Persona Review**\n\nI'm now starting a systematic review. The goal is to address missing scenarios, one persona at a time, beginning alphabetically. I'm focusing on ensuring each persona's use cases are fully considered.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Prioritizing Scenario Analysis**\n\nI've determined the alphabetical order of the personas. I'm focusing on the *app\\_provider* (The Creator) first, evaluating scenario coverage and identifying gaps. I'll need to cross-reference scenarios already defined for other personas, avoiding repetition. I will be looking to the *SCENARIO\\_INDEX.md* and each persona definition to do this.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Addressing Persona Exclusions**\n\nI've made a key discovery: the *App Provider*, though alphabetically first, explicitly excludes user scenarios. I need to briefly acknowledge this and note its \"0 scenario\" status before moving on. I will focus immediately on **David (The Structure Seeker)** to identify and outline their scenarios. The goal here is to provide actual substance.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Defining Self-User Scenarios**\n\nI've outlined three new scenarios for David (Self-User). I've focused on `creation/sharing`, `capture`, and `management/intervention` stages, reflecting his ADHD archetype. The scenarios are *The Graveyard of Good Intentions*, *The Endless Template Hunt*, and *The Fleeting Thought*. These highlight his system-hopping tendency and need for immediate capture, addressing potential user abandonment.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Analyzing David's Scenarios**\n\nI'm now refining the scenarios for David, specifically focusing on `sharing.independent_discovery` and `capture.routine`. I've renamed \"The Graveyard of Good Intentions\" to \"The Toxic Streak\" to better capture the negative cycle he experiences. I also have renamed \"The Endless Template Hunt\" to \"Discover Template Independently\". I'm concentrating on how these scenarios highlight David's challenges with finding and maintaining structure, specifically the struggle of the ADHD archetype.\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-22T07:35:35.258Z"
+      },
+      {
+        "text": "Das ist ein exzellenter und professioneller Ansatz. Die systematische Prüfung anhand des Lifecycles (Planerstellung ➔ Erfassung ➔ Analyse ➔ Management ➔ Intervention) deckt jede Lücke schonungslos auf.\n\nGehen wir streng alphabetisch vor. \n\nDie allererste Persona alphabetisch ist der **App Provider (PERSONA-015)**. \n*Status:* **Komplett.** In der Persona-Definition (`app_provider/persona.md`) ist unter `scope_exclusions` explizit definiert, dass diese Persona *keine* User-Szenarien erhält, da sie die Produktphilosophie und nicht die App-Nutzung beschreibt.\n\nGehen wir also direkt zur ersten echten Nutzer-Persona:\n\n---\n\n### 1. David (The Structure Seeker / PERSONA-008)\n\n**Rolle:** Self-User (ohne Therapeut)\n**Archetyp:** ADHS, hyperfokussiert auf neue Systeme, verliert sofort das Interesse, \"Shiny Object Syndrome\", extreme Scham bei gebrochenen \"Streaks\".\n**Aktuelle Szenarien:** `0`\n\nUm David vollständig abzubilden, müssen wir seinen typischen Leidensweg (\"System-Hopping\") durch den Lifecycle ziehen. Hier sind die Szenarien, die für ihn fehlen:\n\n**1. The Endless Template Hunt (`sharing.independent_discovery`)**\n*   **Worum es geht:** Da David keinen Therapeuten hat, der ihm einen Plan gibt, sucht er selbst nach der \"perfekten\" Struktur. Er durchforstet den App-Store, lädt drei verschiedene Habit-Tracker herunter und verbringt zwei Stunden im Hyperfokus damit, das perfekte Setup (Farbcodes, 15 verschiedene Habits) zu bauen, statt eigentlich etwas zu tracken.\n*   **Warum es fehlt:** Definiert den Startpunkt für Self-User mit ADHS – die Suche nach dem Tool ist oft eine Prokrastinations-Falle.\n\n**2. The Toxic Streak (`capture.routine` & `management.destruction`)**\n*   **Worum es geht:** (Das ist das \"Graveyard of Good Intentions\"-Szenario, das ich vorhin kurz skizziert habe). David trackt drei Tage lang perfekt. An Tag 4 vergisst er es. An Tag 5 öffnet er die App und sieht einen gebrochenen Streak (🔥 0 Tage). Die Scham und der Frust über das \"schon wieder versagt haben\" sind so groß, dass er die App sofort löscht.\n*   **Warum es fehlt:** Zeigt das fundamentale Problem von Standard-Gamification bei ADHS-Nutzern. Was Neurotypische motiviert, zerstört hier das System.\n\n**3. The Evaporating Thought (`capture.spontaneous`)**\n*   **Worum es geht:** David hat mitten im Büro eine plötzliche Erkenntnis über sein Stresslevel oder fällt ein, dass er prüfen muss, ob er seine Medikation genommen hat. Er holt das Handy raus. Entsperren ➔ App suchen ➔ Menü öffnen ➔ ... In dem Moment sieht er eine WhatsApp-Benachrichtigung, klickt darauf und vergisst komplett, warum er das Handy in die Hand genommen hat. Der Gedanke ist weg (Arbeitsgedächtnis-Ausfall).\n*   **Warum es fehlt:** *Ähnlich wie Max' nächtliches \"Brain Dump\"-Szenario, aber mit Fokus auf Ablenkung und Arbeitsgedächtnis am Tag (Friction > 3 Sekunden = kompletter Datenverlust).*\n\n---\n\n**Fazit für David:** Wenn wir diese drei Szenarien haben (Suchen ➔ Scheitern durch Ablenkung ➔ Zerstörung durch Scham), ist seine komplette Psychologie für das Design von Flows (z.B. reibungsloser Start, extrem schnelles Erfassen, keine Bestrafung für Lücken) perfekt dokumentiert.\n\nSoll ich diese 3 Szenarien für David generieren, oder wollen wir erst einmal alphabetisch zur nächsten Persona (**Dr. med. Turan**) weitergehen und den Master-Plan für alle fertigstellen?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 892,
+        "parts": [
+          {
+            "text": "Das ist ein exzellenter und professioneller Ansatz. Die systematische Prüfung anhand des Lifecycles (Planerstellung "
+          },
+          {
+            "text": "➔ Erfassung ➔ Analyse ➔ Management ➔ Intervention) deckt jede Lücke schonungslos auf.\n\nGe"
+          },
+          {
+            "text": "hen wir streng alphabetisch vor. \n\nDie allererste Persona alphabetisch ist der **App Provider (PERSONA-0"
+          },
+          {
+            "text": "15)**. \n*Status:* **Komplett.** In der Persona-Definition (`app_provider/persona.md`) ist"
+          },
+          {
+            "text": " unter `scope_exclusions` explizit definiert, dass diese Persona *keine* User-Szenarien erhält"
+          },
+          {
+            "text": ", da sie die Produktphilosophie und nicht die App-Nutzung beschreibt.\n\nGehen wir also direkt zur"
+          },
+          {
+            "text": " ersten echten Nutzer-Persona:\n\n---\n\n### 1. David (The Structure Seeker / PERSONA-008)\n\n"
+          },
+          {
+            "text": "**Rolle:** Self-User (ohne Therapeut)\n**Archetyp:** ADHS, hyperfokussiert auf neue"
+          },
+          {
+            "text": " Systeme, verliert sofort das Interesse, \"Shiny Object Syndrome\", extreme Scham bei gebrochenen \"Streaks\".\n**Aktuelle Szen"
+          },
+          {
+            "text": "arien:** `0`\n\nUm David vollständig abzubilden, müssen wir seinen typischen Leidensweg (\"System-Hopping\") durch den Lifecycle ziehen"
+          },
+          {
+            "text": ". Hier sind die Szenarien, die für ihn fehlen:\n\n**1. The Endless Template Hunt (`sharing.independent_"
+          },
+          {
+            "text": "discovery`)**\n*   **Worum es geht:** Da David keinen Therapeuten hat, der ihm einen"
+          },
+          {
+            "text": " Plan gibt, sucht er selbst nach der \"perfekten\" Struktur. Er durchforstet den App-Store, lä"
+          },
+          {
+            "text": "dt drei verschiedene Habit-Tracker herunter und verbringt zwei Stunden im Hyperfokus damit, das perfekte Setup (Farbc"
+          },
+          {
+            "text": "odes, 15 verschiedene Habits) zu bauen, statt eigentlich etwas zu tracken.\n*   **Warum es fehlt:** Def"
+          },
+          {
+            "text": "iniert den Startpunkt für Self-User mit ADHS – die Suche nach dem Tool ist oft eine Prokrastinations-"
+          },
+          {
+            "text": "Falle.\n\n**2. The Toxic Streak (`capture.routine` & `management.destruction`)**\n*   **Worum es geht:**"
+          },
+          {
+            "text": " (Das ist das \"Graveyard of Good Intentions\"-Szenario, das ich vorhin kurz skizziert habe). David trackt drei"
+          },
+          {
+            "text": " Tage lang perfekt. An Tag 4 vergisst er es. An Tag 5 öffnet er die App und sieht einen"
+          },
+          {
+            "text": " gebrochenen Streak (🔥 0 Tage). Die Scham und der Frust über das \"schon wieder versagt"
+          },
+          {
+            "text": " haben\" sind so groß, dass er die App sofort löscht.\n*   **Warum es fehlt:** Zeigt das"
+          },
+          {
+            "text": " fundamentale Problem von Standard-Gamification bei ADHS-Nutzern. Was Neurotypische motiviert, zerstört hier das"
+          },
+          {
+            "text": " System.\n\n**3. The Evaporating Thought (`capture.spontaneous`)**\n*   **Worum"
+          },
+          {
+            "text": " es geht:** David hat mitten im Büro eine plötzliche Erkenntnis über sein Stresslevel oder fällt ein, dass er prüfen"
+          },
+          {
+            "text": " muss, ob er seine Medikation genommen hat. Er holt das Handy raus. Entsperren ➔ App"
+          },
+          {
+            "text": " suchen ➔ Menü öffnen ➔ ... In dem Moment sieht er eine WhatsApp-Benachrichtigung, klickt darauf und vergisst"
+          },
+          {
+            "text": " komplett, warum er das Handy in die Hand genommen hat. Der Gedanke ist weg (Arbeitsgedächtnis-Aus"
+          },
+          {
+            "text": "fall).\n*   **Warum es fehlt:** *Ähnlich wie Max' nächtliches \"Brain Dump\"-"
+          },
+          {
+            "text": "Szenario, aber mit Fokus auf Ablenkung und Arbeitsgedächtnis am Tag (Friction > 3"
+          },
+          {
+            "text": " Sekunden = kompletter Datenverlust).*\n\n---\n\n**Fazit für David:** Wenn wir diese drei Szenarien haben"
+          },
+          {
+            "text": " (Suchen ➔ Scheitern durch Ablenkung ➔ Zerstörung durch Scham), ist seine komplette Psych"
+          },
+          {
+            "text": "ologie für das Design von Flows (z.B. reibungsloser Start, extrem schnelles Erfassen, keine"
+          },
+          {
+            "text": " Bestrafung für Lücken) perfekt dokumentiert.\n\nSoll ich diese 3 Szenarien für David generieren,"
+          },
+          {
+            "text": " oder wollen wir erst einmal alphabetisch zur nächsten Persona (**Dr. med. Turan**) weitergehen und den Master-Plan"
+          },
+          {
+            "text": " für alle fertigstellen?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

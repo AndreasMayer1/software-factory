@@ -1,0 +1,321 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Ja, übernehmen wir so. Dann gerne weiter mit Michael ",
+        "role": "user",
+        "tokenCount": 13,
+        "createTime": "2026-03-01T08:47:55.417Z"
+      },
+      {
+        "text": "**Accepting & Advancing**\n\nI've accepted Max's Szenario 8 & 9. Now, I'm focusing on the next persona alphabetically: Michael, the High-Performer, PERSONA-006. My main goal now is to zero in on what elements are missing from his profile.\n\n\n**Defining Michael's Scenarios**\n\nI'm now diving deep into Michael's profile, a High-Performer self-user. Currently, I've generated zero scenarios for him, as he's identified as missing these. I'm carefully analyzing his lifecycle, out-of-the-box needs, and the clusters he represents to understand him better. My current focus is on his role as an IT Consulting Team Leader, his mental model of emotions as data, and his extreme privacy concerns. I'm noting the protocols he currently uses, such as his stress and recovery log, and work time quality.\n\n\n**Analyzing Michael's Needs**\n\nI'm now zeroing in on Scenario 1 for Michael, the High-Performer. I'm focusing on his need to link objective physical data from his Garmin with subjective mental data, especially when his body is sending early warning signs. I'm categorizing this as a \"capture.routine\" and \"analysis.self\\_reflect\" problem and focusing on how he currently struggles without the app.\n\n\n**Identifying Barriers**\n\nI'm now zeroing in on a critical barrier for Michael, focusing on how work phone policies impact his willingness to use a mood tracker. The MDM from his employer creates a significant risk, causing him to choose a less convenient, local solution. This highlights the importance of an offline-first architecture for the app, particularly for corporate high-performers.\n\n\\n\\n\n\n**Unveiling Symptoms**\n\nI'm now analyzing Michael's Scenario 3: The Rationalized Crash. I'm focusing on a Friday, when he's experiencing physical symptoms like tinnitus and an eye twitch. This is being categorized as an issue of rationalizing symptoms in relation to burnout.",
+        "role": "model",
+        "tokenCount": 1104,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Accepting & Advancing**\n\nI've accepted Max's Szenario 8 & 9. Now, I'm focusing on the next persona alphabetically: Michael, the High-Performer, PERSONA-006. My main goal now is to zero in on what elements are missing from his profile.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Defining Michael's Scenarios**\n\nI'm now diving deep into Michael's profile, a High-Performer self-user. Currently, I've generated zero scenarios for him, as he's identified as missing these. I'm carefully analyzing his lifecycle, out-of-the-box needs, and the clusters he represents to understand him better. My current focus is on his role as an IT Consulting Team Leader, his mental model of emotions as data, and his extreme privacy concerns. I'm noting the protocols he currently uses, such as his stress and recovery log, and work time quality.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Michael's Needs**\n\nI'm now zeroing in on Scenario 1 for Michael, the High-Performer. I'm focusing on his need to link objective physical data from his Garmin with subjective mental data, especially when his body is sending early warning signs. I'm categorizing this as a \"capture.routine\" and \"analysis.self\\_reflect\" problem and focusing on how he currently struggles without the app.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Identifying Barriers**\n\nI'm now zeroing in on a critical barrier for Michael, focusing on how work phone policies impact his willingness to use a mood tracker. The MDM from his employer creates a significant risk, causing him to choose a less convenient, local solution. This highlights the importance of an offline-first architecture for the app, particularly for corporate high-performers.\n\n\\n\\n\n\n**Unveiling Symptoms**\n\nI'm now analyzing Michael's Scenario 3: The Rationalized Crash. I'm focusing on a Friday, when he's experiencing physical symptoms like tinnitus and an eye twitch. This is being categorized as an issue of rationalizing symptoms in relation to burnout.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T08:47:55.422Z"
+      },
+      {
+        "text": "\n\n\nPerfekt, Max ist hiermit vollständig abgeschlossen. Seine Resignation und die unsichtbaren UI-Barrieren sind ein großartiges Fundament für unsere inklusiven Designentscheidungen.\n\nWillkommen in der harten, quantifizierten und hochfunktionalen Welt von **Michael (The High-Performer / PERSONA-006)**.\n\n**Rolle:** Self-User (IT Consulting Teamleiter, arbeitet 60h/Woche, kurz vor dem Burnout).\n**Archetyp:** Der Optimierer. Er weigert sich kategorisch, zu einem Therapeuten zu gehen (\"Ich bin nicht verrückt, nur gestresst\"). Emotionen sind für ihn keine Gefühle, die man verarbeiten muss, sondern *Telemetriedaten, die man optimieren muss*.\n**Aktuelle Szenarien:** `0` (bisher nur Theorie).\n\nMichael ist der Gegenentwurf zu Lena und Anna. Keine Achtsamkeit, kein \"Fühle in dich hinein\", sondern blanke Daten. Sein \"Status Quo\" zeigt uns, warum fast jede typische Mental-Health-App für diese riesige, unversorgte Zielgruppe unbrauchbar ist.\n\nHier sind Michaels zwingende Lücken/Szenarien:\n\n### A. Der Konflikt von Daten-Silos (Datenerfassung & Analyse)\n\n*   **Szenario 1: The Missing Link (Garmin vs. The Board Meeting)**\n    *   **Kategorie:** `capture.routine` & `analysis.self_reflect`\n    *   *(Dies hatten wir in der allerersten Liste skizziert, hier voll ausgearbeitet)*\n    *   **Worum es geht:** Es ist Freitagmorgen. Michael schaut auf seine sündhaft teure Garmin-Uhr. Sein \"Body Battery\"-Wert ist bei 15%, die Herzratenvariabilität (HRV) im Keller. Er ist genervt. Er war gestern nicht beim Sport, hat 7,5 Stunden im Bett gelegen – die Hardware-Metriken müssten eigentlich im grünen Bereich sein.\n    *   **Das Status-Quo-Problem:** Die Uhr weiß nicht, dass er gestern um 19:30 Uhr ein brutales Telefonat mit dem VP hatte und sein \"Energielevel\" danach von 8 auf 2 gecrasht ist, weil er vor Wut pulsierte. Er versucht nun, eine mentale Brücke zu bauen (\"Lag das am Espresso oder an der Arbeit?\"), scheitert aber, weil er seine mentale Energie nie getrackt hat – \"Sowas ist nur für weinerliche Leute.\" Er behält sein Excel-Sheet mit Kalenderstunden bei und ignoriert den Rest.\n    *   **Warum wir es brauchen:** Es zementiert das Feature: Wir brauchen knochentrockene **Metrik-Fragen ohne Kuschelpädagogik**. Felder für \"Fokus in Pomodoros\", \"Koffein-Units\", \"Energielevel (1-10)\". Es geht hier um \"Data Correlation\", nicht um Seelenschmerz. Unser Tracker schlägt die Brücke zwischen dem nackten Körperwert der Uhr und den ungetrackten Ereignissen im Kalender.\n\n### B. Das berufliche Aus (Security / OpSec)\n\n*   **Szenario 2: The MDM Paranoia (Das Firmenhandy-Problem)**\n    *   **Kategorie:** Setup / `management.preservation`\n    *   **Worum es geht:** Michael hat an einem dunklen Sonntagabend endlich zugegeben, dass er ein Problem hat. Er geht in den App Store, sucht nach \"Burnout Tracker\" oder \"Stresstagebuch\" und will sich etwas herunterladen (Daylio o.Ä.).\n    *   **Das Status-Quo-Problem:** Er ist IT-ler. Bevor er die App öffnet, liest er im Privacy-Tab: \"Daten können zur Verbesserung auf US-Server übertragen werden.\" Er hält inne. Auf seinem Smartphone läuft das MDM (Mobile Device Management) seines Arbeitgebers. Selbst wenn nicht, nutzt er dasselbe WLAN wie seine Firma. Seine absolute Urangst: **Wenn sein Arbeitgeber oder seine IT-Security mitbekommt, dass der Star-Consultant Mental-Health-Apps (eine offizielle Schwäche) nutzt, war es das mit der Beförderung zum Partner.** Er deinstalliert die App panisch noch vor dem ersten Eintrag und baut stattdessen notgedrungen doch eine Excel-Tabelle mit Passwort-Schutz, die viel zu umständlich für den Alltag ist.\n    *   **Warum wir es brauchen:** Privacy für Michael bedeutet pure, toxische Arbeitsmarkt-Risikominderung. Eine reine \"Local-First\"-App ist für den kompletten C-Level/High-Performer/Lawyer/Banker-Bereich *das* unschlagbare USP (Unique Selling Proposition).\n\n### C. Self-Gaslighting durch körperliche Alarmsignale\n\n*   **Szenario 3: Rationalizing the Crash (Das Ignorieren des Dashboards)**\n    *   **Kategorie:** `capture.spontaneous` & `analysis.self_reflect`\n    *   **Worum es geht:** Michael beginnt auf einem Blatt Papier (oder in einer lokalen Textdatei), \"weiche\" Parameter wie Tinnitus, Lidzucken und \"Getrunkene Biere nach 20 Uhr\" zu notieren, die ihn momentan belästigen. \n    *   **Das Status-Quo-Problem:** Obwohl seine Tinnitus-Frequenz parallel zu 60-Stunden-Wochen hochgeht und die Schlafqualität extrem absackt, analysiert er das in der Status-Quo-Isolations-Blase (\"Ach, Lidzucken hat man mal\", \"Ich trinke halt ein Glas Macallan zur Entspannung\"). Da er alles separiert und keinen Therapeuten hat, der ihm diesen Zusammenhang brutal als Spiegel vorhält (Turan würde hier laut \"Prä-Burnout!\" schreien), loggt er fleißig Symptome, weigert sich aber, das systemische Versagen abzuleiten. Bis er zusammenklappt.\n    *   **Warum wir es brauchen:** Erschließt uns, dass Selbstnutzer auf **\"Thresholds/Schwellenwerte\"** angewiesen sind. Wenn 5 Variablen (Stress, Körper, Konsum) für Wochen auf \"Crash-Niveau\" drehen, darf das Tool die nackten Zahlen zwar stumm speichern, muss aber dem Quantified-Self-Macher in Phase 3/4 ermöglichen, über Visualisierungen seine eigenen fatalen Muster glasklar *sehen* zu müssen. Michael braucht kein Mitleid, er braucht rohe \"Your Engine is critically overheating\"-Indikatoren.\n\n---\n\n### Welche Gruppen repräsentiert Michael noch (Implicit Clusters)?\n*   **\"Klassisch männlich konnotierte\" Problemvermeider:** Eine riesige Zielgruppe. Über Stimmungsfragen lachen sie (\"Was ist denn meine innere Emotion?\"), aber \"Stress auf der Arbeit\" und \"Mein Akku ist leer\" messen sie gern rational durch Zahlen, Koffein und HRV. \n*   **Biohacker / Quantified Selfers:** Leute, die alles messen, aber im psycho-emotionalen Bereich einen gewaltigen Blindspot haben.\n*   **Burnout-Leugner:** Hochfunktionale Arbeitskräfte in System-relevanten Berufen, wo Krankheit \"Leistungsminderung\" ist.\n\n**Vollständigkeits-Check für Michael:**\n*   [x] Die fehlende Variablen-Kreuzung zwischen Hard Data und Kalender-Event (Sz 1)\n*   [x] Der fundamentale IT-Security-Ausschluss (MDM) am Download-Gate (Sz 2)\n*   [x] Die stoische Blindheit vor Vorwarnsymptomen, wenn Visualisierung/Erschließung durch Fremd-Instanzen fehlt (Sz 3)\n\nHaben wir die Performance-Welt und die männliche Mental-Health-Vermeidungsstrategie mit Michael nun sauber gefasst? Falls ja, warten nur noch unsere beiden verbleibenden Charaktere aus der Eröffnungsliste auf Prüfung: **Nina (Die Energy-Envelope / CFS Heldin)** und am Ende die letzte Lücke – wir gucken kurz zurück ins Profil... Moment.\n\nWir haben Elias, David, Hanna, Jana, Lena, Lisa, Max, Michael, Turan, Sarah, Weber durch!\nEs fehlen aus dem Original-Set noch:\n1. **Nina (The Energy Budgeter)** (Chronische Krankheiten, CFS)\n2. **Sophie (The Structure-Seeker)** (Der Hyperfokus, das Pendel). Wobei wir von ihr SCEN-010-01 (Gold Standard Transfer Success), 010-02 (Prepare Failure / 28% completion) und 010-03 (Hyperfokus Receive Instruction) *bereits perfekt approved* im Set haben. Sie war nämlich die Erfolgs-Vergleichsgröße zu Max! \n\nBist du einverstanden mit den drei Michael-Szenarien, und wollen wir danach für das Grand Finale unsere Kraftspar-Managerin **Nina** ansteuern?",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1989,
+        "parts": [
+          {
+            "text": "\n\n\nPerfekt, Max"
+          },
+          {
+            "text": " ist hiermit vollständig abgeschlossen. Seine Resignation und die unsichtbaren UI-Barrieren sind ein großartiges Fund"
+          },
+          {
+            "text": "ament für unsere inklusiven Designentscheidungen.\n\nWillkommen in der harten, quantifizierten und hochfun"
+          },
+          {
+            "text": "ktionalen Welt von **Michael (The High-Performer / PERSONA-006)**.\n\n**Rolle:** Self-User"
+          },
+          {
+            "text": " (IT Consulting Teamleiter, arbeitet 60h/Woche, kurz vor dem Burnout).\n**Archetyp:**"
+          },
+          {
+            "text": " Der Optimierer. Er weigert sich kategorisch, zu einem Therapeuten zu gehen (\"Ich bin nicht"
+          },
+          {
+            "text": " verrückt, nur gestresst\"). Emotionen sind für ihn keine Gefühle, die man verarbeiten muss, sondern *"
+          },
+          {
+            "text": "Telemetriedaten, die man optimieren muss*.\n**Aktuelle Szenarien:** `0` (bisher nur"
+          },
+          {
+            "text": " Theorie).\n\nMichael ist der Gegenentwurf zu Lena und Anna. Keine Achtsamkeit, kein \"Fühle in"
+          },
+          {
+            "text": " dich hinein\", sondern blanke Daten. Sein \"Status Quo\" zeigt uns, warum fast jede typische Mental"
+          },
+          {
+            "text": "-Health-App für diese riesige, unversorgte Zielgruppe unbrauchbar ist.\n\nHier sind Michaels"
+          },
+          {
+            "text": " zwingende Lücken/Szenarien:\n\n### A. Der Konflikt von Daten-Silos (Dat"
+          },
+          {
+            "text": "enerfassung & Analyse)\n\n*   **Szenario 1: The Missing Link (Garmin vs. The"
+          },
+          {
+            "text": " Board Meeting)**\n    *   **Kategorie:** `capture.routine` & `analysis.self_reflect`"
+          },
+          {
+            "text": "\n    *   *(Dies hatten wir in der allerersten Liste skizziert, hier voll ausgearbeitet)*\n    *   **W"
+          },
+          {
+            "text": "orum es geht:** Es ist Freitagmorgen. Michael schaut auf seine sündhaft teure Garmin-Uhr. Sein"
+          },
+          {
+            "text": " \"Body Battery\"-Wert ist bei 15%, die Herzratenvariabilität (HRV) im Keller. Er ist gen"
+          },
+          {
+            "text": "ervt. Er war gestern nicht beim Sport, hat 7,5 Stunden im Bett gelegen – die Hardware-Metriken müs"
+          },
+          {
+            "text": "sten eigentlich im grünen Bereich sein.\n    *   **Das Status-Quo-Problem:** Die Uhr weiß nicht"
+          },
+          {
+            "text": ", dass er gestern um 19:30 Uhr ein brutales Telefonat mit dem VP hatte und sein \""
+          },
+          {
+            "text": "Energielevel\" danach von 8 auf 2 gecrasht ist, weil er vor Wut pulsierte. Er versucht"
+          },
+          {
+            "text": " nun, eine mentale Brücke zu bauen (\"Lag das am Espresso oder an der Arbeit?\"), scheitert aber,"
+          },
+          {
+            "text": " weil er seine mentale Energie nie getrackt hat – \"Sowas ist nur für weinerliche Leute.\" Er beh"
+          },
+          {
+            "text": "ält sein Excel-Sheet mit Kalenderstunden bei und ignoriert den Rest.\n    *   **Warum"
+          },
+          {
+            "text": " wir es brauchen:** Es zementiert das Feature: Wir brauchen knochentrockene **Metrik-Fragen"
+          },
+          {
+            "text": " ohne Kuschelpädagogik**. Felder für \"Fokus in Pomodoros\", \"Koffein-Units\", \"Energielevel (1-1"
+          },
+          {
+            "text": "0)\". Es geht hier um \"Data Correlation\", nicht um Seelenschmerz. Unser Tracker schlägt die Brücke zwischen dem nackten"
+          },
+          {
+            "text": " Körperwert der Uhr und den ungetrackten Ereignissen im Kalender.\n\n### B. Das berufliche Aus"
+          },
+          {
+            "text": " (Security / OpSec)\n\n*   **Szenario 2: The MDM Paranoia (Das Firmen"
+          },
+          {
+            "text": "handy-Problem)**\n    *   **Kategorie:** Setup / `management.preservation`\n    *   **Worum es geht:**"
+          },
+          {
+            "text": " Michael hat an einem dunklen Sonntagabend endlich zugegeben, dass er ein Problem hat. Er geht in den App Store"
+          },
+          {
+            "text": ", sucht nach \"Burnout Tracker\" oder \"Stresstagebuch\" und will sich etwas herunterladen (Daylio o"
+          },
+          {
+            "text": ".Ä.).\n    *   **Das Status-Quo-Problem:** Er ist IT-ler. Bevor er die App öffnet, li"
+          },
+          {
+            "text": "est er im Privacy-Tab: \"Daten können zur Verbesserung auf US-Server übertragen werden.\" Er hält inne. Auf"
+          },
+          {
+            "text": " seinem Smartphone läuft das MDM (Mobile Device Management) seines Arbeitgebers. Selbst wenn nicht, nutzt er dasselbe WLAN wie"
+          },
+          {
+            "text": " seine Firma. Seine absolute Urangst: **Wenn sein Arbeitgeber oder seine IT-Security mitbekommt, dass der"
+          },
+          {
+            "text": " Star-Consultant Mental-Health-Apps (eine offizielle Schwäche) nutzt, war es das mit der Beförderung zum"
+          },
+          {
+            "text": " Partner.** Er deinstalliert die App panisch noch vor dem ersten Eintrag und baut stattdessen notgedrungen doch"
+          },
+          {
+            "text": " eine Excel-Tabelle mit Passwort-Schutz, die viel zu umständlich für den Alltag ist.\n    *"
+          },
+          {
+            "text": "   **Warum wir es brauchen:** Privacy für Michael bedeutet pure, toxische Arbeitsmarkt-Risikominderung. Eine reine \"Local-First\"-App ist für"
+          },
+          {
+            "text": " den kompletten C-Level/High-Performer/Lawyer/Banker-Bereich *das* un"
+          },
+          {
+            "text": "schlagbare USP (Unique Selling Proposition).\n\n### C. Self-Gaslighting durch körperliche Alarmsignale\n\n*   **Szen"
+          },
+          {
+            "text": "ario 3: Rationalizing the Crash (Das Ignorieren des Dashboards)**\n    *   **Kategorie:** `capture.sp"
+          },
+          {
+            "text": "ontaneous` & `analysis.self_reflect`\n    *   **Worum es geht:** Michael beginnt auf einem Blatt"
+          },
+          {
+            "text": " Papier (oder in einer lokalen Textdatei), \"weiche\" Parameter wie Tinnitus, Lidzucken und \"Get"
+          },
+          {
+            "text": "runkene Biere nach 20 Uhr\" zu notieren, die ihn momentan belästigen. \n    *   **Das Status-"
+          },
+          {
+            "text": "Quo-Problem:** Obwohl seine Tinnitus-Frequenz parallel zu 60-Stunden-Wochen hochgeht und"
+          },
+          {
+            "text": " die Schlafqualität extrem absackt, analysiert er das in der Status-Quo-Isolations-Blase (\"Ach, Lid"
+          },
+          {
+            "text": "zucken hat man mal\", \"Ich trinke halt ein Glas Macallan zur Entspannung\"). Da er alles"
+          },
+          {
+            "text": " separiert und keinen Therapeuten hat, der ihm diesen Zusammenhang brutal als Spiegel vorhält (Turan würde"
+          },
+          {
+            "text": " hier laut \"Prä-Burnout!\" schreien), loggt er fleißig Symptome, weigert sich aber, das"
+          },
+          {
+            "text": " systemische Versagen abzuleiten. Bis er zusammenklappt.\n    *   **Warum wir es brauchen:** Erschließt uns"
+          },
+          {
+            "text": ", dass Selbstnutzer auf **\"Thresholds/Schwellenwerte\"** angewiesen sind. Wenn 5"
+          },
+          {
+            "text": " Variablen (Stress, Körper, Konsum) für Wochen auf \"Crash-Niveau\" drehen, darf das Tool die"
+          },
+          {
+            "text": " nackten Zahlen zwar stumm speichern, muss aber dem Quantified-Self-Macher in Phase 3/4 ermöglichen, über Visual"
+          },
+          {
+            "text": "isierungen seine eigenen fatalen Muster glasklar *sehen* zu müssen. Michael braucht kein Mitleid, er braucht ro"
+          },
+          {
+            "text": "he \"Your Engine is critically overheating\"-Indikatoren.\n\n---\n\n### Welche Gruppen repräsentiert Michael noch (Implicit Clusters"
+          },
+          {
+            "text": ")?\n*   **\"Klassisch männlich konnotierte\" Problemvermeider:** Eine riesige Zielgruppe."
+          },
+          {
+            "text": " Über Stimmungsfragen lachen sie (\"Was ist denn meine innere Emotion?\"), aber \"Stress auf der Arbeit\" und \"Mein"
+          },
+          {
+            "text": " Akku ist leer\" messen sie gern rational durch Zahlen, Koffein und HRV. \n*   **Bioh"
+          },
+          {
+            "text": "acker / Quantified Selfers:** Leute, die alles messen, aber im psycho-emotionalen Bereich einen gewaltigen Blindspot"
+          },
+          {
+            "text": " haben.\n*   **Burnout-Leugner:** Hochfunktionale Arbeitskräfte in System-relevanten Berufen, wo Krankheit"
+          },
+          {
+            "text": " \"Leistungsminderung\" ist.\n\n**Vollständigkeits-Check für Michael:**\n*   [x] Die fehlende Variablen"
+          },
+          {
+            "text": "-Kreuzung zwischen Hard Data und Kalender-Event (Sz 1)\n*   [x] Der fundament"
+          },
+          {
+            "text": "ale IT-Security-Ausschluss (MDM) am Download-Gate (Sz 2)\n*"
+          },
+          {
+            "text": "   [x] Die stoische Blindheit vor Vorwarnsymptomen, wenn Visualisierung/Erschließung durch"
+          },
+          {
+            "text": " Fremd-Instanzen fehlt (Sz 3)\n\nHaben wir die Performance-Welt und die männliche Mental-Health-V"
+          },
+          {
+            "text": "ermeidungsstrategie mit Michael nun sauber gefasst? Falls ja, warten nur noch unsere beiden verbleibenden Char"
+          },
+          {
+            "text": "aktere aus der Eröffnungsliste auf Prüfung: **Nina (Die Energy-Envelope / CFS Heldin)** und am"
+          },
+          {
+            "text": " Ende die letzte Lücke – wir gucken kurz zurück ins Profil... Moment.\n\nWir haben Elias, David, Hanna, Jana"
+          },
+          {
+            "text": ", Lena, Lisa, Max, Michael, Turan, Sarah, Weber durch!\nEs fehlen aus dem Original-Set noch:\n1. **"
+          },
+          {
+            "text": "Nina (The Energy Budgeter)** (Chronische Krankheiten, CFS)\n2. **Sophie (The Structure-Seeker)**"
+          },
+          {
+            "text": " (Der Hyperfokus, das Pendel). Wobei wir von ihr SCEN-010-01 (Gold"
+          },
+          {
+            "text": " Standard Transfer Success), 010-02 (Prepare Failure / 28% completion) und 01"
+          },
+          {
+            "text": "0-03 (Hyperfokus Receive Instruction) *bereits perfekt approved* im Set haben. Sie war nämlich"
+          },
+          {
+            "text": " die Erfolgs-Vergleichsgröße zu Max! \n\nBist du einverstanden mit den drei Michael-Szenarien,"
+          },
+          {
+            "text": " und wollen wir danach für das Grand Finale unsere Kraftspar-Managerin **Nina** ansteuern?"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

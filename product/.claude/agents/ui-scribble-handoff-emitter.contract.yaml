@@ -1,0 +1,16 @@
+contract_version: 1
+purpose: >
+  Emits flutter_handoff.yaml for an approved scribble version — per-element HTML-selector
+  to Flutter-widget mapping, contract block (LOCKED-IN/RE-DERIVE keys), design_decisions
+  block, and (when flow_positions present) per-flow flow_navigation.yaml files for
+  implementation handoff.
+derived_from:
+  - requirements
+  - guideline
+consumes:
+  - scribble-metadata  # must have status: approved; flow_positions read for participating flows
+  - scribble  # COMPONENT MAPPING blocks
+  - flow  # looked up by flow_id to find flow folder path
+produces:
+  - handoff
+  - flow-navigation  # one per participating flow; absent when no flow_positions

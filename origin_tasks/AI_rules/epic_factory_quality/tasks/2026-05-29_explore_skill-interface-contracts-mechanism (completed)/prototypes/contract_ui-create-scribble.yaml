@@ -1,0 +1,78 @@
+contract_version: 1
+skill: ui-create-scribble
+purpose: >
+  Orchestrate the UI scribble iteration cycle for a requirement's Presentation Layer scope —
+  produce versioned HTML wireframes that answer which screens exist, what each shows,
+  and which Flutter components are used; stop at visual fidelity.
+
+derived_from:
+  required:
+    - path: requirements_tasks/<feature>/requirements.md
+      source: external   # developer-authored; not produced by a skill
+      role: primary spec — ACs, personas list, T1/T2 rule references, user_needs field
+    - path: requirements_user_needs/personas/<name>/persona.md
+      role: every persona listed in requirements.md personas_applied
+    - path: doc/presentation/design/
+      role: T1 and T2 rule files; read all .md files in this folder before Phase 1
+    - path: requirements_user_needs/user_flows/concept_canon.yaml
+      role: canonical label lookup (step 15 of Phase 1 generation prompt)
+  optional:
+    - path: requirements_user_needs/user_flows/<flow>/flow.md
+      role: flow context when requirements.md has user_needs.implements_flows entries
+    - path: requirements_user_needs/user_flows/<flow>/implementation_notes.md
+      role: authoritative technical constraints that override flow.md design choices
+    - path: requirements_tasks/<feature>/inputs/sketch.{png,jpg,pdf}
+      source: external   # developer-provided multimodal seed; not produced by a skill
+      role: Phase 0 multimodal seed — hand-drawn sketch passed to Phase 1 agent
+    - path: requirements_tasks/<feature>/inputs/reference.{png,jpg}
+      source: external   # developer-provided multimodal seed; not produced by a skill
+      role: Phase 0 multimodal seed — competitor/reference screenshot
+    - path: requirements_tasks/<feature>/scribbles/v{n}/
+      role: prior version when regenerating (Phase 1 partial-regeneration path)
+
+produces:
+  required:
+    - path: requirements_tasks/<feature>/scribbles/v{n}/index.html
+      schema: null
+      role: ordered screen list with one-line descriptions and links
+    - path: requirements_tasks/<feature>/scribbles/v{n}/NN_<screen_name>.html
+      schema: null
+      role: one file per screen; MUST contain component mapping comment block at top
+    - path: requirements_tasks/<feature>/scribbles/v{n}/metadata.yaml
+      schema: .claude/schemas/scribble_metadata.yaml
+      role: status, version, personas applied, rules applied, component mapping, flow_positions
+    - path: requirements_tasks/<feature>/scribbles/v{n}/feedback.md
+      schema: null
+      role: empty template for developer notes (Phase 1); populated during review cycle
+  conditional:
+    - path: requirements_tasks/<feature>/scribbles/v{n}/flutter_handoff.yaml
+      condition: emitted only on developer approval (Phase 5)
+      schema: null
+      role: per-element HTML-selector → Flutter-widget mapping for implementation handoff
+    - path: requirements_user_needs/user_flows/<flow>/scribble_index.html
+      condition: emitted only when requirement references a user flow (Phase 5a)
+      schema: null
+      role: composite flow scribble index for cross-requirement navigation
+
+side_effects:
+  - target: requirements_tasks/<feature>/scribbles/v{prev}/metadata.yaml
+    write: status field set to 'superseded' on approval (Phase 5 step 2)
+  - target: requirements_tasks/_scribble_components/<c_name>/metadata.yaml
+    write: new component entries with status 'provisional' when auto-promotion fires (Phase 2)
+  - target: requirements_tasks/<feature>/scribbles/v{prev}/metadata.yaml
+    write: stale_since + pending_rules fields when a T1/T2 rule is updated (Phase 4 step 4)
+
+may_invoke:
+  - requ-explore       # when feedback classifies a requirement gap (Phase 4 step 1)
+  - doc-update-guidelines  # when a new T2/T1 rule is anchored (Phase 4 step 6)
+  - ux-validate-rule   # persona conflict during rule presentation (Phase 4 step 6)
+  - ux-write-canon-concept  # when a new user-facing concept is introduced (Phase 4 step 2)
+
+quality_criteria:
+  - Every required output file exists when the skill exits Phase 1 (index.html, at least one screen HTML, metadata.yaml, feedback.md)
+  - metadata.yaml parses as valid YAML and contains all required keys per .claude/schemas/scribble_metadata.yaml
+  - flutter_handoff.yaml is NOT emitted unless metadata.yaml status == 'approved'
+  - Every screen HTML file contains a COMPONENT MAPPING comment block
+  - No screen HTML file contains Dart code, BLoC references, or box-shadow declarations
+  - Component mapping uses M3 widget names only (NavigationBar not BottomNavigationBar, etc.)
+  - All persona constraints declared in metadata.yaml are visible in at least one HTML element per constraint type

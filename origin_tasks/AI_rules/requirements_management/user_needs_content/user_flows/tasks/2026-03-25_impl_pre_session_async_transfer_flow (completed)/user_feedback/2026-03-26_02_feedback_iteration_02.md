@@ -1,0 +1,18 @@
+# Corrections and feedback
+
+Achtung: Das feedback ist zwar einzelnen abschnitten des flows zugeordnet, das heißt aber nicht, dass es nicht sife effekts haben kann. Das heißt, du musst schon schauen und nachdenken welche Konsequenzen sich daraus ergeben und entsprechend die gesamte flow datei anpassen.
+
+Happy Path
+
+Da steht aktuell, dass es quasi eine Fallunterscheidung gibt für den Fall, dass der Client in einem geteilten Raum ist oder dass noch eine andere Person anwesend ist.Woher weiß die App denn, dass das der Fall ist? Das kann sie doch gar nicht wissen.Ich würde fast sagen, dass das im Prinzip auch egal ist, weil der Klient diesen Transfer ja nur dann startet, wenn er sicher ist, dass es keiner sieht, oder? Also der Zeitpunkt ist ja komplett frei wählbar. Und der Client kann durchaus einfach den so wählen, dass er eben nicht gestört wird.Vielleicht ergibt sich hier jetzt, jetzt wo ich das so gesagt habe, ergibt sich noch was, wenn er die Notification benutzt, weil die App ihn erinnert, dass er senden muss. Er ist quasi im Sendvorgang oder kurz davor, wird dann aber unterbrochen, weil jemand zum Beispiel den Raum betritt.Dann ist der Transfer nicht abgeschlossen.Der Client muss ihn also später nochmal starten.Er erwartet dann sehr wahrscheinlich, dass er da weitermachen kann, wo er aufgehört hat. Und die Notification muss weiterhin angezeigt werden, obwohl sie ja schon benutzt wurde. Also die App muss diese Notification oder darf diese Notification erst dann löschen, wenn die Daten tatsächlich auch gesendet wurden.
+
+Varianten
+
+Variante C. Die Einschränkung Nummer 3 ist nicht ganz richtig.Hier steht, dass es für Dr. Weber nicht praktisch sei, dass der Client einfach sein eigenes Smartphone zeigt.Das stimmt. Es funktioniert für Dr. Weber nicht.Aber der Grund ist falsch.Hier steht, dass es in Dr. Webers Therapie Raum keine Geräte gibt. Das stimmt nur so halb, weil natürlich der Client könnte schon sein Smartphone rausholen. Das muss er ja für unseren anderen Fall auch machen, wo er die App nimmt und die Einträge selbst vorliest.Das Problem, warum diese Variante nicht funktioniert, ist, dass die Einträge für Dr. Weber sehr viel Text ist. Also das sind ja Tagebucheinträge. Es macht keinen Sinn, dass Dr. Weber die auf dem Bildschirm vom Smartphone des Klienten abliest.
+
+Offene Fragen
+
+Print Preview würde ich auf jeden Fall machen.
+
+Praxisoftwareintegration Könnte theoretisch funktionieren, ist aber umständlich.Der Therapeut empfängt die Datei per E-Mail, lädt sie vom E-Mail-Server runter, macht einen Doppelklick drauf, um sie zu öffnen.Unsere App, öffne die Datei, entschlüsselt sie automatisch und exportiert sie automatisch in diesen Ordner, der von der Psychotherapeuten Software, also Elefant zum Beispiel, überwacht wird.Also man könnte hier, müsste man sich aber dann nochmal anschauen, theoretisch einen automatisierten Flow vorstellen.Der Therapeut müsste natürlich sich bei unserer App einlocken bzw. authentifizieren, aber das ist auch nicht Teil von diesem Transferflow hier.Ich würde das Ganze tatsächlich in eine separate UX Flow Datei packen.Schreibt das bitte als Idee, falls es das nicht eh schon gibt, in den Flow Index.Dieser Flows soll alle User Flows enthalten, bei denen es darum geht, die Daten aus der App bzw. anders gesagt, die Daten, die der Therapeut vom Klienten bekommt oder hat, in die Praxissoftware zu transferieren.Und eine Variante oder vielleicht sogar der Hauptflow wäre dann eben, dass der Therapeut eine Datei bekommt, mit den neuesten Daten vom Klienten, und das dann eben so automatisiert wie möglich eben in die Praxissoftware kopiert wird.
+

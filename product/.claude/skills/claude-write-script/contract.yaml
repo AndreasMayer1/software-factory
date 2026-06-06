@@ -1,0 +1,61 @@
+contract_version: 1
+skill: claude-write-script
+purpose: >
+  Create or modify scripts in scripts/ and run Python quality gates (G1–G5).
+  The mandatory entry point for all edits to scripts/**/*.py or scripts/**/*.ps1 —
+  no exceptions. Also decides whether CLAUDE.md Section 11 needs updating.
+
+derived_from:
+  optional:
+    - path: guideline
+      source: external
+      reason: Python tier overview and gate summary — mandatory read before any Python script work.
+    - path: guideline
+      source: external
+      reason: Named failure modes to avoid (god functions, magic values, hand-rolled YAML, etc.).
+    - path: guideline
+      source: external
+      reason: Structural rules including function-size limits and decomposition strategies.
+    - path: guideline
+      source: external
+      reason: Read for Tier A modules only.
+    - path: script
+      source: external
+      reason: The script being modified — read in full before any changes.
+
+produces:
+  required:
+    - path: script
+      reason: New or modified script file.
+  conditional:
+    - path: script
+      condition: created or updated when the script change is behavioral (new branch, bugfix, etc.).
+      reason: Regression test coverage — mandatory for behavioral changes.
+    - path: claude-md
+      condition: updated only when the script produces a generated file (Rule 1) or provides general-purpose analytical capability (Rule 2).
+      reason: Section 11 kept accurate for LLM reference.
+
+quality_criteria:
+  - scripts/quality/check_python_gates.sh must pass (G1–G5) for any .py change.
+  - Only findings introduced by THIS change are blocking — pre-existing baseline failures are not.
+  - All timestamps use OS local timezone (datetime.now().astimezone()), not bare UTC for display.
+  - New scripts go in domain subfolders, never at scripts/ top level.
+  - Naming: verb_noun[_qualifier].ext, lowercase snake_case.
+
+may_invoke: []
+
+side_effects:
+  - target: scripts/<domain>/<script>.py
+    action: write
+    note: New or modified script.
+  - target: CLAUDE.md
+    action: write
+    note: Section 11 updated when Rules 1 or 2 apply.
+
+preconditions:
+  - User or calling skill has identified the script to create or modify.
+  - doc/python/ guidelines have been read for Python changes.
+
+postconditions:
+  - Script exists and Python quality gates pass for the changed files.
+  - CLAUDE.md Section 11 reflects the script's general-purpose utility if applicable.

@@ -1,0 +1,47 @@
+contract_version: 1
+skill: ui-scribble-approve-handoff
+purpose: >
+  Finalize an approved scribble version — set status, supersede the prior version, spawn
+  ui-scribble-handoff-emitter to write flutter_handoff.yaml, and refresh the composite flow
+  scribble index for flow-linked requirements. Internal Phase-5 step of the ui-scribble-iterate
+  pipeline; the handoff file IS the contract to the Flutter implementation skills.
+
+derived_from:
+  required:
+    - path: scribble-metadata
+      source: skill:ui-scribble-iterate
+      schema: .claude/schemas/scribble_metadata.yaml
+      reason: Approved version — personas/rules applied and screen list to map.
+    - path: scribble
+      source: skill:ui-scribble-iterate
+      reason: COMPONENT MAPPING blocks the emitter reads for selector -> widget mapping.
+
+produces:
+  required:
+    - path: handoff
+      schema: .claude/schemas/flutter_handoff.yaml
+      reason: Per-element HTML-selector -> Flutter-widget mapping for implementation handoff.
+    - path: approval-trail
+      token: approval-trail
+      reason: Cross-version decision trail aggregating rejected alternatives, trade-offs, and locked rationale from all versions.
+  conditional:
+    - path: scribble
+      condition: emitted only when the requirement references a user flow (Phase 5a).
+      reason: Composite flow scribble index for cross-requirement navigation.
+
+quality_criteria:
+  - flutter_handoff.yaml is emitted only when metadata.yaml status == approved.
+  - flutter_handoff.yaml parses as valid YAML and covers every approved screen.
+  - The prior version's metadata.yaml is set to superseded.
+  - APPROVAL_TRAIL.md covers every version folder found under scribbles/; at minimum lists design_decisions and gaps_fixed from metadata.yaml for each version.
+
+side_effects:
+  - target: requirements_tasks/<feature>/scribbles/v{prev}/metadata.yaml
+    action: write
+    note: status set to 'superseded' on approval.
+
+preconditions:
+  - The developer has approved scribbles/v{n}/ (caller sets status to approved or instructs it here).
+postconditions:
+  - flutter_handoff.yaml exists for v{n}; the prior version is superseded.
+  - APPROVAL_TRAIL.md exists at the scribble feature root.

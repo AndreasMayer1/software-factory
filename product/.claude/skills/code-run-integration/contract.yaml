@@ -1,0 +1,32 @@
+contract_version: 1
+skill: code-run-integration
+purpose: >
+  Run integration tests individually using the dedicated PowerShell runner script
+  (scripts/integration_test_runner/run_individual_integration_tests.ps1) and
+  report pass/fail status for each test.
+
+derived_from:
+  optional:
+    - path: script
+      source: external
+      reason: The runner script to be executed — must be updated when new integration tests are added.
+
+produces: {}
+
+quality_criteria:
+  - Tests are run individually via the PowerShell script (never as a full suite — it may hang).
+  - When adding new integration tests, $testNames array in the script must be updated.
+  - Tests always specify -d windows.
+
+may_invoke: []
+
+side_effects:
+  - target: scripts/integration_test_runner/test_outputs/
+    action: write
+    note: Per-test output log files written by the runner script.
+
+preconditions:
+  - Project is built and the PowerShell runner script exists.
+
+postconditions:
+  - Pass/fail status reported for each test; output logs available under test_outputs/.

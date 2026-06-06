@@ -1,0 +1,125 @@
+contract_version: 1
+skill: ux-flow-draft
+purpose: >
+  Internal skill (entry point: ux-create-flow). Author or iterate a user flow
+  draft. Reads guidelines, scenarios, and personas; generates or improves
+  flow.md; updates FLOW_INDEX and bidirectional references; commits.
+
+derived_from:
+  required:
+    - path: guideline
+      source: external
+      reason: Flow template, exception model, and writing checklist — mandatory read before generating.
+    - path: guideline
+      source: external
+      reason: Resource cost column and suffizienz rules.
+    - path: guideline
+      source: external
+      reason: YAML frontmatter, ID, and evidence marker standards.
+    - path: guideline
+      source: external
+      reason: Language and tone rules for flow authoring.
+    - path: guideline
+      source: external
+      reason: Review workflow and review_history update rules.
+    - path: scenario
+      source: external
+      reason: All scenarios referenced in serves_scenarios — success criteria constrain the flow.
+    - path: persona
+      source: external
+      reason: Personas for referenced scenarios — value conflicts and constraints.
+  optional:
+    - path: flow
+      source: external
+      reason: Existing flow draft (CONTINUE mode) — read in full for iteration.
+    - path: flow
+      source: external
+      reason: Sibling flows in pending_alignment read for Pending Impacts context (CONTINUE mode).
+    - path: guideline
+      source: external
+      reason: Developer implementation intent notes — classified and written to notes.md (CONTINUE mode).
+
+produces:
+  required:
+    - path: flow
+      reason: The drafted or iterated user flow document.
+    - path: flow-index
+      reason: Updated with new entry (NEW mode) or status/purpose update (CONTINUE mode).
+  conditional:
+    - path: guideline
+      condition: created or updated when CONTINUE feedback contains implementation intent items.
+      reason: Developer implementation notes captured separately from UX flow content.
+    - path: scenario
+      condition: updated when serves_scenarios changes — bidirectional implements_flows reference added.
+      reason: Bidirectional reference required per README_8 and README_13.
+
+quality_criteria:
+  - All 9 README guideline files are read before writing (mandatory, not optional).
+  - Technology-agnostic language per README_15 (no SQLite, Firebase, Flutter specifics in flow.md).
+  - exception model (numbered exceptions) used per README_5.
+  - Bidirectional scenario references kept in sync (Step 7–9).
+  - CONTINUE mode discovers feedback from pending_feedback/, task plans_and_protocols/*feedback-checkpoint*.md, or user_feedback/.
+
+user_input_gates:
+  - phase: "NEW MODE Step 1 — Gather Flow Information"
+    description: "Developer provides the flow name, approach description, and which scenario(s) it serves."
+    decision_kind: free-text
+    required: conditional
+    condition: "Only fires in NEW mode (no existing flow.md)."
+  - phase: "NEW MODE Step 1 — Non-approved scenario warning"
+    description: "Developer explicitly confirms to proceed when one or more scenarios are not yet approved, accepting the rework risk."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires in NEW mode when at least one referenced scenario is not approved."
+  - phase: "NEW MODE Step 1b — Related flows design context"
+    description: "Developer selects which related flows (if any) should be read for design context before the new flow is created."
+    decision_kind: selection
+    required: conditional
+    condition: "Only fires in NEW mode when overlapping flows are found in FLOW_INDEX that share the same personas or scenarios."
+  - phase: "NEW MODE Step 2 — Gather Additional Metadata (release scope)"
+    description: "Developer confirms or adjusts the AI-proposed release scope chunks (labels, covers, priorities) for the new flow."
+    decision_kind: revision
+    required: conditional
+    condition: "Only fires in NEW mode when the user has not already set release scope."
+  - phase: "NEW MODE Step 3a — Analysis Phase User Review Checkpoint"
+    description: "Developer approves the structured analysis (requirement gaps, tensions, missing user needs, value conflicts) before flow creation proceeds."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires in NEW mode for complex flows (multiple personas, dual-perspective, or existing requirements to reconcile)."
+  - phase: "CONTINUE MODE Step 2.0 — Discover Feedback Source (no feedback found)"
+    description: "Developer provides feedback or instructions for the current iteration when no feedback file is found in any expected location."
+    decision_kind: free-text
+    required: conditional
+    condition: "Only fires in CONTINUE mode when no content is found in pending_feedback, feedback-checkpoint, or user_feedback/ locations."
+  - phase: "CONTINUE MODE — Release scope check"
+    description: "Developer confirms whether the existing release scope still reflects the current flow structure, and approves any proposed changes."
+    decision_kind: revision
+    required: conditional
+    condition: "Only fires in CONTINUE mode when release_scope is absent or when iteration added/removed steps affecting chunking."
+  - phase: "NEW and CONTINUE MODE Step 12 — Content complete prompt"
+    description: "Developer signals whether they are satisfied with the flow, triggering ux-flow-complete if yes."
+    decision_kind: approval
+    required: always
+
+may_invoke:
+  - ux-flow-complete
+  - vcd-log-tradeoff
+
+side_effects:
+  - target: requirements_user_needs/user_flows/<flow>/flow.md
+    action: write
+    note: Flow created or updated.
+  - target: requirements_user_needs/user_flows/FLOW_INDEX.md
+    action: write
+    note: Index entry added or updated.
+  - target: git history
+    action: write
+    note: "Committed with ux(FLOW-NNN): new|update message."
+
+preconditions:
+  - All referenced scenarios exist (with at least a draft scenario.md).
+
+postconditions:
+  - flow.md exists with valid YAML frontmatter, review_status, and review_history.
+  - FLOW_INDEX.md reflects the new or updated flow.
+  - Bidirectional scenario references are consistent.

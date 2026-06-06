@@ -1,0 +1,207 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Lass und die 3 blinden Flecke nach einander einbauen. Fangen wir mit dem ersten an. Sollen wir einfach einer der Personal einen Migrationshintergrund geben oder lieber eine neue schreiben? ",
+        "role": "user",
+        "tokenCount": 46,
+        "createTime": "2026-03-01T09:36:07.458Z"
+      },
+      {
+        "text": "**Initiating Integration: Migration**\n\nI'm starting to integrate the first \"blind spot,\" which concerns migration and cultural barriers. I am now exploring how to smoothly introduce this first barrier into the framework, with a mind toward addressing this first. I want to ensure my efforts are well focused and efficient.\n\n\n**Weighing Migration Persona Options**\n\nI'm now weighing the merits of integrating a migration background into an existing persona versus creating a new one. Modifying an existing persona offers efficiency but risks diluting the original archetype. A new persona allows dedicated focus on migration-specific challenges like language barriers and cultural norms within the patient.\n\n\n**Proposing a New Persona**\n\nI've decided creating a new, focused patient persona is the best approach. The language/translation gap and cultural stigma deserve their own archetype to avoid diluting the core issues. I'm thinking of proposing a new patient for consideration. I think this will allow for a dedicated focus on these major challenges in German healthcare.\n\n\n**Defining the Patient's Challenges**\n\nI'm solidifying \"Amira (The Dual-World Navigator)\" as my focus, and I'm adding \"Amina\" as an alternate. This new patient archetype, with depression or adjustment disorder, is designed to navigate a double life, torn between cultural expectations and the need for therapy. The core struggle is the cultural taboo surrounding mental health, and the language barrier - this patient needs tools to track emotions in multiple languages, but the German-only tracking form of SORKC will be difficult.",
+        "role": "model",
+        "tokenCount": 1069,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Initiating Integration: Migration**\n\nI'm starting to integrate the first \"blind spot,\" which concerns migration and cultural barriers. I am now exploring how to smoothly introduce this first barrier into the framework, with a mind toward addressing this first. I want to ensure my efforts are well focused and efficient.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Weighing Migration Persona Options**\n\nI'm now weighing the merits of integrating a migration background into an existing persona versus creating a new one. Modifying an existing persona offers efficiency but risks diluting the original archetype. A new persona allows dedicated focus on migration-specific challenges like language barriers and cultural norms within the patient.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Proposing a New Persona**\n\nI've decided creating a new, focused patient persona is the best approach. The language/translation gap and cultural stigma deserve their own archetype to avoid diluting the core issues. I'm thinking of proposing a new patient for consideration. I think this will allow for a dedicated focus on these major challenges in German healthcare.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Defining the Patient's Challenges**\n\nI'm solidifying \"Amira (The Dual-World Navigator)\" as my focus, and I'm adding \"Amina\" as an alternate. This new patient archetype, with depression or adjustment disorder, is designed to navigate a double life, torn between cultural expectations and the need for therapy. The core struggle is the cultural taboo surrounding mental health, and the language barrier - this patient needs tools to track emotions in multiple languages, but the German-only tracking form of SORKC will be difficult.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T09:36:07.462Z"
+      },
+      {
+        "text": "\n\n\nDiese Frage trifft einen klassischen Design-Fallstrick: Wenn man einer bestehenden, ohnehin schon hochkomplexen Persona (wie Lisa oder Elias) nachträglich noch ein weiteres massives Päckchen aufbürdet, verwässert man den Archetyp. \n\nLisa steht für den Schmerz des bürokratischen Wartens. Elias steht für allgemeine, sozialphobische Paranoia. \n\nWenn wir jemandem jetzt noch den Sprach-/Übersetzungskonflikt und das **kulturelle Doppel-Leben** überstülpen, verliert das Profil an Schärfe. Dieses Thema – zwei Sprachen für ein Gefühl und extreme Stigmatisierung in der Herkunfts-Community – ist in Deutschland gewaltig genug (und bringt völlig eigene UI-Anforderungen mit sich), um ein eigenes, scharfes Profil zu rechtfertigen.\n\nIch plädiere stark für eine **neue Persona**. \n\nHier ist ein Pitch, wie diese Persona aussehen könnte, um das Maximum an Erkenntnissen für die App-Architektur herauszuholen:\n\n### Vorstellung: Amina (The Dual-World Navigator / Die Grenzgängerin)\n\n**Rolle:** Therapie-Klientin (Leichte bis mittelschwere Depression, oft verkleidet als körperliche Beschwerden – psychosomatisch).\n**Hintergrund:** Junge Frau (z. B. 25), lebt bei ihrer eher konservativ/patriarchalisch geprägten Familie oder in einem extrem engmaschigen kulturellen Community-Netzwerk. Sie arbeitet/studiert und spricht perfekt Deutsch, aber ihre Familie und ihre *emotionale* Sprache sind z. B. Arabisch, Türkisch oder Farsi.\n**Archetyp:** Die Brückenbauerin zwischen zwei unvereinbaren Welten. \n\n**Ihre \"Blind Spots\" / Pain Points im Status Quo (die sie repräsentiert):**\n\n1.  **Das Sprach-Dilemma der Seele:** \n    Amina bekommt von der deutschen Therapeutin einen Papier-Bogen: *„Tragen Sie Ihre Niedergeschlagenheit, Affektstarrheit und Antriebsminderung auf der Skala ein.“* Amina versteht die Worte intellektuell. Aber wenn sie weinend auf dem Bett sitzt, denkt und fühlt sie in der Muttersprache (oder einem Sprach-Mix). Um das Papier auszufüllen, muss sie in ihrem schlimmsten Schmerzmoment eine innere intellektuelle *Übersetzungsleistung* von Gefühl (Muttersprache) zu Kassen-Jargon (Deutsch) erbringen. Es fühlt sich künstlich und falsch an. Sie füllt es nicht aus.\n    *Die UI-Lösung später: Die App darf den Plan intern als \"ID_Depression\" führen, aber Amina muss die angezeigten Labels für die Eingabe in ihrer eigenen Sprache customizen können, während der Export für den Arzt am Ende trotzdem im deutschen \"Beamtendeutsch\" gerendert wird!*\n\n2.  **Die toxische Tabu-Grenze (Das physische Objekt):** \n    Im Gegensatz zu Elias (dem seine Kollegen unangenehm sind), fürchtet Amina den Totalausfall ihrer Familie. \"Psychische Krankheit\" existiert in bestimmten Mustern als Konzept nicht (\"Wir haben keine Probleme, du musst nur mehr beten/arbeiten\" oder es gilt als Familienschande vor der Community). Ein aufgedrucktes Buch mit \"Tagebuch Depression\" in ihrem Zimmer würde einen Flächenbrand in der Familie auslösen. Das Verstecken des Papiers ist kein Unbehagen, sondern tägliche Notwehr.\n\n3.  **Kulturspezifisches Masking & Erwartungsdruck:** \n    Amina führt eine Care-Rolle. Es wird von ihr absolute Pflichterfüllung im Haus und in der Arbeit erwartet. Ihre Einträge drehen sich oft nicht um \"Heute keine Lust auf Kino\" (Max), sondern \"Familienbesuch heute, muss perfekt funktionieren, breche innerlich zusammen\".\n\n### Das Angebot für unsere Architektur\n\nWenn wir Amina als **PERSONA-016** (oder entsprechende ID) einführen, haben wir den perfekten Katalysator für ein oft übersehenes Software-Feature in Deutschland: **Die Mehrsprachigkeit der UX und die Trennung zwischen \"Input-Sprache\" und \"Arzt-Export-Sprache\".**\n\nSollen wir Amina mit 2 bis 3 rasiermesserscharfen Status-Quo-Szenarien ausstatten, die genau diese Übersetzungsarbeit und familiäre Notwehr abbilden? Wenn ja, tippe ich ihr Konzept und die Use-Cases sofort zusammen!",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1002,
+        "parts": [
+          {
+            "text": "\n\n\nDiese Frage trifft einen klassischen Design-Fallstrick: Wenn man einer bestehenden,"
+          },
+          {
+            "text": " ohnehin schon hochkomplexen Persona (wie Lisa oder Elias) nachträglich noch ein weiteres massives P"
+          },
+          {
+            "text": "äckchen aufbürdet, verwässert man den Archetyp. \n\nLisa steht für den Schmerz des bü"
+          },
+          {
+            "text": "rokratischen Wartens. Elias steht für allgemeine, sozialphobische Paranoia. \n\nWenn wir jemand"
+          },
+          {
+            "text": "em jetzt noch den Sprach-/Übersetzungskonflikt und das **kulturelle Doppel-Leben** über"
+          },
+          {
+            "text": "stülpen, verliert das Profil an Schärfe. Dieses Thema – zwei Sprachen für ein Gefühl und extreme Stigmatisierung in"
+          },
+          {
+            "text": " der Herkunfts-Community – ist in Deutschland gewaltig genug (und bringt völlig eigene UI-Anforderungen mit sich), um ein eigenes"
+          },
+          {
+            "text": ", scharfes Profil zu rechtfertigen.\n\nIch plädiere stark für eine **neue Persona**."
+          },
+          {
+            "text": " \n\nHier ist ein Pitch, wie diese Persona aussehen könnte, um das Maximum an Erkenntnissen für die App-"
+          },
+          {
+            "text": "Architektur herauszuholen:\n\n### Vorstellung: Amina (The Dual-World Navigator / Die Grenzgängerin)"
+          },
+          {
+            "text": "\n\n**Rolle:** Therapie-Klientin (Leichte bis mittelschwere Depression, oft verkleidet als körperliche Beschwerden –"
+          },
+          {
+            "text": " psychosomatisch).\n**Hintergrund:** Junge Frau (z. B. 25), lebt bei ihrer eher"
+          },
+          {
+            "text": " konservativ/patriarchalisch geprägten Familie oder in einem extrem engmaschigen kulturellen Community-Net"
+          },
+          {
+            "text": "zwerk. Sie arbeitet/studiert und spricht perfekt Deutsch, aber ihre Familie und ihre *emotionale* Sprache sind z"
+          },
+          {
+            "text": ". B. Arabisch, Türkisch oder Farsi.\n**Archetyp:** Die Brückenbauerin zwischen zwei un"
+          },
+          {
+            "text": "vereinbaren Welten. \n\n**Ihre \"Blind Spots\" / Pain Points im Status Quo (die sie"
+          },
+          {
+            "text": " repräsentiert):**\n\n1.  **Das Sprach-Dilemma der Seele:** \n    A"
+          },
+          {
+            "text": "mina bekommt von der deutschen Therapeutin einen Papier-Bogen: *„Tragen Sie Ihre Niedergeschlagenheit, Aff"
+          },
+          {
+            "text": "ektstarrheit und Antriebsminderung auf der Skala ein.“* Amina versteht die Worte intellektuell. Aber wenn sie"
+          },
+          {
+            "text": " weinend auf dem Bett sitzt, denkt und fühlt sie in der Muttersprache (oder einem Sprach-Mix). Um das"
+          },
+          {
+            "text": " Papier auszufüllen, muss sie in ihrem schlimmsten Schmerzmoment eine innere intellektuelle *Übersetzungs"
+          },
+          {
+            "text": "leistung* von Gefühl (Muttersprache) zu Kassen-Jargon (Deutsch) erbringen. Es fühlt sich künstlich und falsch"
+          },
+          {
+            "text": " an. Sie füllt es nicht aus.\n    *Die UI-Lösung später: Die App darf den Plan"
+          },
+          {
+            "text": " intern als \"ID_Depression\" führen, aber Amina muss die angezeigten Labels für die Eingabe in ihrer eigenen Sprache custom"
+          },
+          {
+            "text": "izen können, während der Export für den Arzt am Ende trotzdem im deutschen \"Beamtendeutsch\" gerendert wird!*\n\n2."
+          },
+          {
+            "text": "  **Die toxische Tabu-Grenze (Das physische Objekt):** \n    Im Gegensatz zu"
+          },
+          {
+            "text": " Elias (dem seine Kollegen unangenehm sind), fürchtet Amina den Totalausfall ihrer Familie. \"Psychische Krankheit"
+          },
+          {
+            "text": "\" existiert in bestimmten Mustern als Konzept nicht (\"Wir haben keine Probleme, du musst nur mehr beten/arbeiten"
+          },
+          {
+            "text": "\" oder es gilt als Familienschande vor der Community). Ein aufgedrucktes Buch mit \"Tagebuch Depression\" in ihrem"
+          },
+          {
+            "text": " Zimmer würde einen Flächenbrand in der Familie auslösen. Das Verstecken des Papiers ist kein Unbehagen, sondern tä"
+          },
+          {
+            "text": "gliche Notwehr.\n\n3.  **Kulturspezifisches Masking & Erwartungsdruck:**"
+          },
+          {
+            "text": " \n    Amina führt eine Care-Rolle. Es wird von ihr absolute Pflichterfüllung im Haus und in der"
+          },
+          {
+            "text": " Arbeit erwartet. Ihre Einträge drehen sich oft nicht um \"Heute keine Lust auf Kino\" (Max), sondern \"Famil"
+          },
+          {
+            "text": "ienbesuch heute, muss perfekt funktionieren, breche innerlich zusammen\".\n\n### Das Angebot für unsere Architektur\n\nWenn wir Amina als **"
+          },
+          {
+            "text": "PERSONA-016** (oder entsprechende ID) einführen, haben wir den perfekten Katalysator für ein oft"
+          },
+          {
+            "text": " übersehenes Software-Feature in Deutschland: **Die Mehrsprachigkeit der UX und die Trennung zwischen \"Input-Spr"
+          },
+          {
+            "text": "ache\" und \"Arzt-Export-Sprache\".**\n\nSollen wir Amina mit 2 bis 3 r"
+          },
+          {
+            "text": "asiermesserscharfen Status-Quo-Szenarien ausstatten, die genau diese Übersetzungsarbeit"
+          },
+          {
+            "text": " und familiäre Notwehr abbilden? Wenn ja, tippe ich ihr Konzept und die Use-Cases sofort zusammen!"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

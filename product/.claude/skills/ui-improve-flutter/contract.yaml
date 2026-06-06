@@ -1,0 +1,48 @@
+contract_version: 1
+skill: ui-improve-flutter
+purpose: >
+  Iterate the visual quality of already-implemented Flutter screens — token compliance,
+  accessibility, spacing/proportion polish. CONSUMER of the presentation-layer source and
+  (optionally) the ui-verify-flutter comparison report. Never changes behavior.
+
+derived_from:
+  required:
+    - path: source
+      source: external
+      reason: The screen file(s) being polished — the only files this skill edits.
+  optional:
+    - path: flutter-review
+      source: skill:ui-verify-flutter
+      condition: read when present — documented deviations seed the improvement scope.
+      reason: Starting scope for polish (supplements, does not replace, the Phase 2 scan).
+    - path: token-source
+      source: external
+      reason: Token reference used to replace hardcoded color/spacing values.
+    - path: guideline
+      source: external
+      reason: T1/T2 rules guiding token-compliance and accessibility fixes.
+
+produces:
+  required:
+    - path: source
+      reason: The polished screen file(s) (token/accessibility/visual changes only).
+
+quality_criteria:
+  - No behavior, routing, BLoC, domain, or data-layer files are changed (presentation only).
+  - Token + accessibility fixes applied automatically; visual polish only on explicit approval.
+  - Cost cap respected — max 5 files per session; flutter test stays green after each batch.
+
+may_invoke:
+  - doc-update-tokens # missing token discovered during polish
+
+side_effects:
+  - target: lib/features/<feature>/presentation/
+    action: write
+    note: In-place visual edits; the skill does not commit (developer commits via claude-commit).
+
+preconditions:
+  - The target feature's presentation files exist under lib/features/<feature>/presentation/
+    (entry pre-check).
+
+postconditions:
+  - Approved token/accessibility/visual changes are applied, tests pass, and no behavior changed.

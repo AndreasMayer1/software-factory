@@ -1,0 +1,7 @@
+{
+  "engineEnterTimestampMicros": 937980369,
+  "timeToFrameworkInitMicros": 1449491,
+  "timeToFirstFrameRasterizedMicros": 5302899,
+  "timeToFirstFrameMicros": 5128455,
+  "timeAfterFrameworkInitMicros": 3678964
+}

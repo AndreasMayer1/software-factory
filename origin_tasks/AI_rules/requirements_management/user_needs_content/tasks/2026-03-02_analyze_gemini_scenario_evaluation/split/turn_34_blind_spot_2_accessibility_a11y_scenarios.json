@@ -1,0 +1,288 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Sehr gut, das übernehmen wir. Dann gerne weiter zum blinden fleck nr 2. gerne so, dass möglichst wenig bei den bestehenden personas und Szenarien angepasst werden muss, es aber trotzdem ausreichend repräsentiert ist. ",
+        "role": "user",
+        "tokenCount": 49,
+        "createTime": "2026-03-01T10:35:20.534Z"
+      },
+      {
+        "text": "**Addressing Accessibility Challenges**\n\nI'm now focusing on integrating physical accessibility challenges, like motor skill impairments and vision issues, into Amina's persona. The constraint remains: it must be done *without* relying on explicit visual indicators of disability. This is proving tricky, but I'm exploring subtle behavioral cues.\n\n\n**Refining Physical Manifestations**\n\nI'm now integrating the physical manifestations of the medical side effects and conditions. I'm focusing on \"Blind Spot #2,\" specifically tremors, vision issues, and fatigue. I see potential integration points in Dr. Turan's scenarios with Herr Berger, as he's already on medication, which provides a natural context for highlighting tremor. Jana's existing \"tunnel vision\" scenario offers a good starting point for exploring the vision aspect, expanding on that particular skill set.\n\n\n**Expanding Physical Constraints**\n\nI'm now integrating the tremors, blurry vision, and panic-related motor loss. I need to make sure the physical weakness, inability to hold a pen, and eye strain are highlighted in her description. I'm focusing on \"The Energy Cost of Tracking\" skill set. I'm also planning to create lightweight scenarios to address gaps, using existing personas and scenarios. I will introduce targeted scenarios with slight variations on existing clusters.\n\n\n**Integrating Tremor Details**\n\nI'm now integrating tremor details into the scenarios, specifically focusing on how medication impacts task performance. I'm exploring how tremor affects a user's ability to complete forms, and the frustration that comes with it. I'm considering integrating these details within Max's existing context, linking the tremor to his medication and creating a scenario demonstrating the challenge of writing with shaky hands. The goal is to highlight the side effects and difficulty of tracking. I plan to use Nina and Max.\n\n\n**Developing Visual Panic Scenario**\n\nI'm now focusing on integrating visual impairment caused by panic attacks. My new approach involves creating three distinct, \"Status-Quo\" scenarios for accessibility, directly mapped to existing personas experiencing physiological states. Scenario A, \"The Tiny Checkbox Defeat,\" focuses on Max's medication-induced tremor, highlighting the challenge of a small checkbox. Scenario B will deal with similar effects on another persona.\n\n\n**Crafting Sensory Challenges**\n\nI'm now integrating migraine-induced photophobia and muscle spasms into two new scenarios. Nina, experiencing a migraine, struggles to log her pain on a blinding phone screen with tiny keys. I'm also planning to create a scenario for Jana, experiencing a muscle spasm, where she is unable to write things down or use her computer. I am focused on the detail of the experience, and the limitations experienced by the user.\n\n\n**Validating Scenario Adaptations**\n\nI'm now integrating the physical accessibility needs seamlessly into existing personas with minimal alterations. My new scenarios for Max, Nina, and Jana focus on specific UX challenges like the difficulty of large tap targets, which is linked to their existing medical conditions and scenarios. I'm confident that this approach will fulfill the requirements.",
+        "role": "model",
+        "tokenCount": 1725,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Addressing Accessibility Challenges**\n\nI'm now focusing on integrating physical accessibility challenges, like motor skill impairments and vision issues, into Amina's persona. The constraint remains: it must be done *without* relying on explicit visual indicators of disability. This is proving tricky, but I'm exploring subtle behavioral cues.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Refining Physical Manifestations**\n\nI'm now integrating the physical manifestations of the medical side effects and conditions. I'm focusing on \"Blind Spot #2,\" specifically tremors, vision issues, and fatigue. I see potential integration points in Dr. Turan's scenarios with Herr Berger, as he's already on medication, which provides a natural context for highlighting tremor. Jana's existing \"tunnel vision\" scenario offers a good starting point for exploring the vision aspect, expanding on that particular skill set.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Expanding Physical Constraints**\n\nI'm now integrating the tremors, blurry vision, and panic-related motor loss. I need to make sure the physical weakness, inability to hold a pen, and eye strain are highlighted in her description. I'm focusing on \"The Energy Cost of Tracking\" skill set. I'm also planning to create lightweight scenarios to address gaps, using existing personas and scenarios. I will introduce targeted scenarios with slight variations on existing clusters.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Integrating Tremor Details**\n\nI'm now integrating tremor details into the scenarios, specifically focusing on how medication impacts task performance. I'm exploring how tremor affects a user's ability to complete forms, and the frustration that comes with it. I'm considering integrating these details within Max's existing context, linking the tremor to his medication and creating a scenario demonstrating the challenge of writing with shaky hands. The goal is to highlight the side effects and difficulty of tracking. I plan to use Nina and Max.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Developing Visual Panic Scenario**\n\nI'm now focusing on integrating visual impairment caused by panic attacks. My new approach involves creating three distinct, \"Status-Quo\" scenarios for accessibility, directly mapped to existing personas experiencing physiological states. Scenario A, \"The Tiny Checkbox Defeat,\" focuses on Max's medication-induced tremor, highlighting the challenge of a small checkbox. Scenario B will deal with similar effects on another persona.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Crafting Sensory Challenges**\n\nI'm now integrating migraine-induced photophobia and muscle spasms into two new scenarios. Nina, experiencing a migraine, struggles to log her pain on a blinding phone screen with tiny keys. I'm also planning to create a scenario for Jana, experiencing a muscle spasm, where she is unable to write things down or use her computer. I am focused on the detail of the experience, and the limitations experienced by the user.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Validating Scenario Adaptations**\n\nI'm now integrating the physical accessibility needs seamlessly into existing personas with minimal alterations. My new scenarios for Max, Nina, and Jana focus on specific UX challenges like the difficulty of large tap targets, which is linked to their existing medical conditions and scenarios. I'm confident that this approach will fulfill the requirements.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T13:12:42.856Z"
+      },
+      {
+        "text": "\n\n\nDas ist eine sehr kluge, ressourcenschonende Herangehensweise. Wir müssen keine neuen Rollstuhlnutzer oder Senioren künstlich \"erfinden\", um physische und motorische Barrierefreiheit (Accessibility/a11y) in die App zu zwingen.\n\nDiese Hürden existieren im psychologischen und psychosomatischen Bereich ohnehin jeden Tag. **Zittern (Tremor), verschwommenes Sehen und motorische Erstarrung sind direkte klinische Symptome unserer bereits definierten Personas!**\n\nWir hängen einfach drei ultrakurze, extrem scharfe UX-Szenarien an die bestehenden Profile an, ohne auch nur ein Komma in den Kern-Personas zu ändern:\n\n### A. Medikamentöser Tremor (Grob- vs. Feinmotorik)\n*Das Phänomen: Psychopharmaka (z.B. Lithium, Escitalopram, Neuroleptika) oder reine Nervosität lösen ein ständiges Händezittern aus.*\n\n*   **Szenario: The Tiny Checkbox Defeat** \n    *   **Anker-Persona:** **Max** (The Overwhelmed - nimmt hochdosierte Antidepressiva). *(Alternativ: Jeder Patient von Dr. Turan).*\n    *   **Kategorie:** `capture.routine` (Physische Limitierung)\n    *   **Worum es geht:** Max hat ein neues Medikament eindosiert und davon einen Tremor (seine Hände zittern dauerhaft leicht). Er sitzt am Küchentisch und will Dr. Sarahs Papierprotokoll ausfüllen. Das Kästchen für \"Schlafdauer\" ist exakt 5x5 Millimeter klein.\n    *   **Das Status-Quo-Problem:** Wenn er mit dem Stift ansetzt, wackelt er extrem über die Ränder hinaus. Nach dem Eintragen sieht sein Bogen aus wie das Gekritzel eines Grundschülers. Dies löst einen massiven emotionalen \"Kick-Down\" aus: *„Ich habe nicht mal mehr meinen eigenen Körper unter Kontrolle, wie soll ich da mein Leben hinkriegen?“* Die Feinmotorik des Zettels demütigt ihn. Eine digitale Note-App erfordert das Tippen winziger Buchstaben-Tasten, was mit zitternden Händen zu extremen Autokorrektur-Unfällen führt.\n    *   **Die Design-Regel:** Dies etabliert zwingend das Prinzip von **Chunky UI** (Fat-Finger-Design). Slider müssen so massiv sein, dass man sie grobmotorisch mit dem Daumen ballistisch rüberschieben kann.\n\n### B. Tränen, Migräne und Lichtempfindlichkeit (Die Seh-Hürde)\n*Das Phänomen: Weinen verzerrt die Optik radikal. CFS/Fatigue-Crashes lösen krasse Photophobie (Lichtschmerz) aus.*\n\n*   **Szenario: The Migraine Squint (Visual Exclusion)**\n    *   **Anker-Persona:** **Nina** (Long-COVID / CFS). *(Gilt 1:1 auch für Hanna oder jeden Patienten in einem Wein-Krampf).*\n    *   **Kategorie:** `capture.spontaneous` & `intervention.coping`\n    *   **Worum es geht:** Nina erleidet einen extremen Crash, der sich als neuro-immunologische Migräne entlädt. Der Schmerz zwingt sie, die Augen zu kleinen Schlitzen zusammenzukneifen; jede Träne verwischt die Sicht zusätzlich.\n    *   **Das Status-Quo-Problem:** Papiertagebuch geht im dunklen Zimmer sowieso nicht. Nina entsperrt ihr Handy. Das Display des bestehenden Systems, in dem sie Symptome notiert (Health-App oder Notes), springt ihr trotz Auto-Helligkeit als visuelles Labyrinth ins Gesicht. Feine hellgraue Schrift auf dunkelgrauem Grund mag modern/ästhetisch aussehen, aber für brennende Augen ist es Matsch. Sie gibt nach 10 Sekunden entkräftet auf. Die extremste Ausprägung ihres Symptoms wird vom System aufgrund der \"Ästhetik\" abgewehrt.\n    *   **Die Design-Regel:** Höchstmöglicher **Low-Vision & WCAG-Contrast-Support** by default! Eine echte Health-App darf keine winzigen Light-Font-Graphen haben. Wichtige Knöpfe müssen visuelle Schwergewichte mit ikonografischem Kern (Pfeile/Füllmengen) statt purer Textebene sein. Und der Darkmode darf kein grelles Element enthalten.\n\n### C. Erstarrung & Tonus (Die unüberwindbare Komplexität)\n*Das Phänomen: Panik und Dissoziation rauben den Zugang zum Frontallappen (logisches Denken und feinmotorische Prozesssteuerung fallen weg).*\n\n*   **Szenario: The Freeze Lockdown**\n    *   **Anker-Persona:** **Jana** (Borderline) *(oder das PTSD-Trauma-Cluster).*\n    *   **Kategorie:** `capture.spontaneous` / Notfall \n    *   **Worum es geht:** Jana ist extremst angetriggert und \"friert ein\" (Stupor/Hypertonus). Die Schultern sind hochgezogen, ihre Hände sind komplett starr zu Krallen verkrampft (oft unbewusst). Sie soll laut Skill-Plan aber ausagieren (\"Bewege deinen Finger, wisch die Emotion auf\"). \n    *   **Das Status-Quo-Problem:** Ein Menü-System zu bedienen, erfordert feinmaschige Abläufe: Handy mit einer Hand halten, den Daumen einknicken, 2x tippen, kurz nach rechts swipen. Bei totaler Muskelanspannung versagt diese Biomechanik komplett. Sie \"trifft\" die UI einfach nicht mehr oder das Handy gleitet ab. Papiere blättern geht mit kralligen Händen genauso wenig. \n    *   **Die Design-Regel:** Etabliert die Anforderung nach **alternativen und massiv simplifizierten Swipe-/Gesten-Bedienungen**. Eine Stimmungsangabe sollte im Idealfall im Blindflug gehen: Ein einziger Daumen presst aufs ganze Display, nach \"unten\" wischen bedeutet es geht bergab. \n\n---\n\nMit diesen drei kompakten Szenario-Add-Ons:\n1. Max wackelt über die Linien (Tremor / Grobmotorik UI)\n2. Ninas verschwommene Migräne (Augen brennen / Contrast & Schriftgröße)\n3. Janas Muskel-Erstarrung (Klauenhand / Simplicity vs. Dropdown-Wahnsinn)\n\n... holen wir uns eine kompromisslose Verpflichtung in unser UI-Requirement, **ohne** unsere Charakter-Landschaft aufgebläht oder komplizierter gemacht zu haben! \n\nKönnen wir den Haken für \"Motorik und Wahrnehmung in der Krise\" hinter dieses Kapitel machen und auf den allerletzten blinden Fleck (Der Super-GAU: Das \"Data Loss / Device broken\"-Backup-Problem ohne Server-Sicherung) zugehen? Das wäre dann unser Masterpiece für den Data Management Abschluss!",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1601,
+        "parts": [
+          {
+            "text": "\n\n\nDas ist eine sehr kl"
+          },
+          {
+            "text": "uge, ressourcenschonende Herangehensweise. Wir müssen keine neuen Rollstuhlnutzer oder Seni"
+          },
+          {
+            "text": "oren künstlich \"erfinden\", um physische und motorische Barrierefreiheit (Accessibility/a11y) in die"
+          },
+          {
+            "text": " App zu zwingen.\n\nDiese Hürden existieren im psychologischen und psychosomatischen Bereich ohnehin jeden"
+          },
+          {
+            "text": " Tag. **Zittern (Tremor), verschwommenes Sehen und motorische Erstarrung sind direkte klin"
+          },
+          {
+            "text": "ische Symptome unserer bereits definierten Personas!**\n\nWir hängen einfach drei ultrakurze, extrem scharfe"
+          },
+          {
+            "text": " UX-Szenarien an die bestehenden Profile an, ohne auch nur ein Komma in den Kern-Personas zu ändern:"
+          },
+          {
+            "text": "\n\n### A. Medikamentöser Tremor (Grob- vs. Feinmotorik)\n*Das Ph"
+          },
+          {
+            "text": "änomen: Psychopharmaka (z.B. Lithium, Escitalopram, Neuroleptika) oder reine"
+          },
+          {
+            "text": " Nervosität lösen ein ständiges Händezittern aus.*\n\n*   **Szenario: The Tiny Checkbox Defeat**"
+          },
+          {
+            "text": " \n    *   **Anker-Persona:** **Max** (The Overwhelmed - nimmt hochdosierte Antidepressiva). *("
+          },
+          {
+            "text": "Alternativ: Jeder Patient von Dr. Turan).*\n    *   **Kategorie:** `capture.routine` (Ph"
+          },
+          {
+            "text": "ysische Limitierung)\n    *   **Worum es geht:** Max hat ein neues Medikament eindosiert und"
+          },
+          {
+            "text": " davon einen Tremor (seine Hände zittern dauerhaft leicht). Er sitzt am Küchentisch und will Dr. Sarahs Papierprot"
+          },
+          {
+            "text": "okoll ausfüllen. Das Kästchen für \"Schlafdauer\" ist exakt 5x5 Millimeter klein"
+          },
+          {
+            "text": ".\n    *   **Das Status-Quo-Problem:** Wenn er mit dem Stift ansetzt, wack"
+          },
+          {
+            "text": "elt er extrem über die Ränder hinaus. Nach dem Eintragen sieht sein Bogen aus wie das Gekritzel eines Grund"
+          },
+          {
+            "text": "schülers. Dies löst einen massiven emotionalen \"Kick-Down\" aus: *„Ich habe nicht mal mehr meinen eigenen Körper unter"
+          },
+          {
+            "text": " Kontrolle, wie soll ich da mein Leben hinkriegen?“* Die Feinmotorik des Zettels demüt"
+          },
+          {
+            "text": "igt ihn. Eine digitale Note-App erfordert das Tippen winziger Buchstaben-Tasten, was mit zitternden"
+          },
+          {
+            "text": " Händen zu extremen Autokorrektur-Unfällen führt.\n    *   **Die Design-Regel:** Dies"
+          },
+          {
+            "text": " etabliert zwingend das Prinzip von **Chunky UI** (Fat-Finger-Design). Slider müssen so mass"
+          },
+          {
+            "text": "iv sein, dass man sie grobmotorisch mit dem Daumen ballistisch rüberschieben kann.\n\n### B"
+          },
+          {
+            "text": ". Tränen, Migräne und Lichtempfindlichkeit (Die Seh-Hürde)\n*Das Ph"
+          },
+          {
+            "text": "änomen: Weinen verzerrt die Optik radikal. CFS/Fatigue-Crashes lösen k"
+          },
+          {
+            "text": "rasse Photophobie (Lichtschmerz) aus.*\n\n*   **Szenario: The Migraine Squint (Visual Exclusion"
+          },
+          {
+            "text": ")**\n    *   **Anker-Persona:** **Nina** (Long-COVID / CFS). *(Gilt"
+          },
+          {
+            "text": " 1:1 auch für Hanna oder jeden Patienten in einem Wein-Krampf).*\n    *   **Kategorie:** `capture.spontaneous"
+          },
+          {
+            "text": "` & `intervention.coping`\n    *   **Worum es geht:** Nina erleidet einen extremen Crash, der sich"
+          },
+          {
+            "text": " als neuro-immunologische Migräne entlädt. Der Schmerz zwingt sie, die Augen zu kleinen"
+          },
+          {
+            "text": " Schlitzen zusammenzukneifen; jede Träne verwischt die Sicht zusätzlich.\n    *   **Das Status-Qu"
+          },
+          {
+            "text": "o-Problem:** Papiertagebuch geht im dunklen Zimmer sowieso nicht. Nina entsperrt ihr Handy. Das Display"
+          },
+          {
+            "text": " des bestehenden Systems, in dem sie Symptome notiert (Health-App oder Notes), springt ihr trotz Auto"
+          },
+          {
+            "text": "-Helligkeit als visuelles Labyrinth ins Gesicht. Feine hellgraue Schrift auf dunkelgrauem Grund mag"
+          },
+          {
+            "text": " modern/ästhetisch aussehen, aber für brennende Augen ist es Matsch. Sie gibt nach 10"
+          },
+          {
+            "text": " Sekunden entkräftet auf. Die extremste Ausprägung ihres Symptoms wird vom System aufgrund der \"Ästhetik\" abgeweh"
+          },
+          {
+            "text": "rt.\n    *   **Die Design-Regel:** Höchstmöglicher **Low-Vision & WCAG-Contrast"
+          },
+          {
+            "text": "-Support** by default! Eine echte Health-App darf keine winzigen Light-Font-Graphen haben. Wicht"
+          },
+          {
+            "text": "ige Knöpfe müssen visuelle Schwergewichte mit ikonografischem Kern (Pfeile/Füllmengen) statt"
+          },
+          {
+            "text": " purer Textebene sein. Und der Darkmode darf kein grelles Element enthalten.\n\n### C. Erstarrung & Tonus"
+          },
+          {
+            "text": " (Die unüberwindbare Komplexität)\n*Das Phänomen: Panik und Dissoziation ra"
+          },
+          {
+            "text": "uben den Zugang zum Frontallappen (logisches Denken und feinmotorische Prozesssteuerung fallen weg).*\n\n*   **Szen"
+          },
+          {
+            "text": "ario: The Freeze Lockdown**\n    *   **Anker-Persona:** **Jana** (Borderline) *("
+          },
+          {
+            "text": "oder das PTSD-Trauma-Cluster).*\n    *   **Kategorie:** `capture.spontaneous` / Notfall"
+          },
+          {
+            "text": " \n    *   **Worum es geht:** Jana ist extremst angetriggert und \"friert ein\" (Stupor/"
+          },
+          {
+            "text": "Hypertonus). Die Schultern sind hochgezogen, ihre Hände sind komplett starr zu Krallen verkrampft ("
+          },
+          {
+            "text": "oft unbewusst). Sie soll laut Skill-Plan aber ausagieren (\"Bewege deinen Finger, wisch die"
+          },
+          {
+            "text": " Emotion auf\"). \n    *   **Das Status-Quo-Problem:** Ein Menü-System zu bed"
+          },
+          {
+            "text": "ienen, erfordert feinmaschige Abläufe: Handy mit einer Hand halten, den Daumen einkn"
+          },
+          {
+            "text": "icken, 2x tippen, kurz nach rechts swipen. Bei totaler Muskelanspannung versagt diese Bi"
+          },
+          {
+            "text": "omechanik komplett. Sie \"trifft\" die UI einfach nicht mehr oder das Handy gleitet ab. Papiere bl"
+          },
+          {
+            "text": "ättern geht mit kralligen Händen genauso wenig. \n    *   **Die Design-Regel:** E"
+          },
+          {
+            "text": "tabliert die Anforderung nach **alternativen und massiv simplifizierten Swipe-/Gesten-Bedienungen**. Eine St"
+          },
+          {
+            "text": "immungsangabe sollte im Idealfall im Blindflug gehen: Ein einziger Daumen presst aufs ganze Display, nach \""
+          },
+          {
+            "text": "unten\" wischen bedeutet es geht bergab. \n\n---\n\nMit diesen drei kompakten Szenario-Add-Ons:\n1."
+          },
+          {
+            "text": " Max wackelt über die Linien (Tremor / Grobmotorik UI)\n2. Ninas verschw"
+          },
+          {
+            "text": "ommene Migräne (Augen brennen / Contrast & Schriftgröße)\n3. Janas Muskel-Erstarrung (Klauenhand"
+          },
+          {
+            "text": " / Simplicity vs. Dropdown-Wahnsinn)\n\n... holen wir uns eine kompromisslose Verpflichtung in"
+          },
+          {
+            "text": " unser UI-Requirement, **ohne** unsere Charakter-Landschaft aufgebläht oder komplizierter gemacht zu haben! \n\nK"
+          },
+          {
+            "text": "önnen wir den Haken für \"Motorik und Wahrnehmung in der Krise\" hinter dieses Kapitel machen und auf den aller"
+          },
+          {
+            "text": "letzten blinden Fleck (Der Super-GAU: Das \"Data Loss / Device broken\"-Backup-Problem ohne"
+          },
+          {
+            "text": " Server-Sicherung) zugehen? Das wäre dann unser Masterpiece für den Data Management Abschluss!"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

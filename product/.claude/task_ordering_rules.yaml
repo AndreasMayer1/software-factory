@@ -1,0 +1,393 @@
+# Task Ordering Rule Set — Private Mood Tracker Flutter App
+# ---------------------------------------------------------------------------
+# This file declares the project's task-ordering conventions.
+# The evaluation engine (scripts/task_ordering/) reads it to rank open tasks.
+#
+# HOW TO EDIT:
+#   - Use the `claude-modify-ordering-rules` skill when adding/changing rules.
+#   - Run `python3 scripts/task_ordering/validate_rules.py` after any manual edit.
+#   - Run `python3 scripts/task_ordering/simulate.py` to preview the impact
+#     on the current backlog before committing.
+#
+# SCHEMA VERSION: 1.0
+# Older engines will refuse to load newer schemas; bump `schema_version` on
+# breaking changes (new top-level keys, removed keys).
+# ---------------------------------------------------------------------------
+
+schema_version: "1.0"
+project_id: "mood-tracker-flutter"
+updated: 2026-04-27
+
+# ---------------------------------------------------------------------------
+# LAYERS
+# Ordered from most upstream (low order) to most downstream (high order).
+# Sparse integers (10s) allow insertion of new layers without renumbering.
+# Order determines ranking priority: lower order = higher priority when all
+# other signals are equal.
+# Classification applies in declaration order; first match wins.
+# ---------------------------------------------------------------------------
+
+layers:
+
+  - name: factory_process
+    order: 0
+    description: >
+      Tasks that evolve the factory itself — new skills, scripts, CLAUDE.md
+      updates, doc/ guidelines. Cross-cutting; often prerequisites for all
+      product work.
+    match:
+      - path_glob: "requirements_tasks/process/**/tasks/**"
+    scope_key: "parent_requirement"   # REQ-PROC-*
+    notes: >
+      Task ordering within this layer relies on target_package if set,
+      otherwise on urgency × impact. Explore tasks precede impl within a
+      single requirement.
+
+  - name: persona
+    order: 10
+    description: >
+      Writing or updating persona.md files. Upstream of scenario, flow,
+      and requirement work that depends on the persona.
+    match:
+      - path_glob: "requirements_user_needs/personas/*/tasks/**"
+    scope_key: "path_segment[1]"      # persona folder name
+    produces: "persona.md"
+
+  - name: scenario
+    order: 20
+    description: >
+      Writing or updating scenario.md files under a specific persona.
+    match:
+      - path_glob: "requirements_user_needs/personas/*/scenarios/*/tasks/**"
+    scope_key: "path_segment[1]"      # persona folder name (inherited scope)
+    produces: "scenario.md"
+    consumes: [persona]               # same scope_key
+
+  - name: user_flow
+    order: 30
+    description: >
+      Writing or updating flow.md files. Flows can serve multiple personas
+      and scenarios, so there is no single scope_key — matching is done via
+      the flow's serves_scenarios field.
+    match:
+      - path_glob: "requirements_user_needs/user_flows/*/tasks/**"
+    scope_key: "path_segment[1]"      # flow folder name
+    produces: "flow.md"
+    consumes: [scenario]              # by serves_scenarios link, not scope_key
+
+  - name: requirement_derivation
+    order: 40
+    description: >
+      Explore tasks that write requirements derived from specific flow gaps.
+      Critical path — these block downstream impl work.
+    match:
+      - frontmatter: { source_gap: "*" }                # any non-empty value
+      - frontmatter: { writes_requirements: true }      # equivalent signal
+    scope_key: "parent_requirement"
+    produces: "requirements.md"
+    consumes: [user_flow]             # by source_gap's flow reference
+
+  - name: flow_verification
+    order: 45
+    description: >
+      Verification tasks that check whether requirements derived from flows
+      actually cover the flow's behavior. Runs after a bundle of
+      requirement_derivation tasks completes; explicit `after:` list gates it.
+    match:
+      - frontmatter: { verification_task: true }
+    scope_key: "verification_bundle"  # cluster identifier
+    produces: "coverage_assessment"
+    consumes: [requirement_derivation]
+
+  - name: requirement_exploration
+    order: 50
+    description: >
+      Standard requirement exploration tasks (not tied to a specific flow gap).
+    match:
+      - path_glob: "requirements_tasks/**/tasks/**"
+        frontmatter: { type: "explore" }
+    scope_key: "parent_requirement"
+    produces: "requirements.md"
+
+  - name: ui_design
+    order: 55
+    description: >
+      Standalone UI scribble tasks (as opposed to scribble work embedded in
+      a code-simple/code-complex session). Gates implementation for features
+      with presentation scope. Identified by the `scribble_task: true` flag.
+    match:
+      - frontmatter: { scribble_task: true }
+    scope_key: "parent_requirement"
+    produces: "scribbles/v{n}/"
+    consumes: [requirement_exploration, requirement_derivation]
+
+  - name: implementation
+    order: 60
+    description: >
+      Code implementation tasks. Consume approved requirements + approved
+      scribbles (if the requirement has a presentation scope).
+    match:
+      - path_glob: "requirements_tasks/**/tasks/**"
+        frontmatter: { type: "impl" }
+      - path_glob: "requirements_tasks/**/tasks/**"
+        frontmatter: { type: "bugfix" }
+    scope_key: "parent_requirement"
+    produces: "lib/**/*.dart"
+    consumes: [requirement_exploration, requirement_derivation, ui_design]
+
+  - name: testing
+    order: 70
+    description: >
+      Test tasks — ordered after implementation. TDD ordering is not used
+      because empirical experience shows AI cannot write meaningful tests
+      before implementation exists. See §10.3 of the design doc.
+    match:
+      - path_glob: "requirements_tasks/**/tasks/**"
+        frontmatter: { type: "impl" }
+        scope_description_contains: ["test/", "integration_test/"]
+    scope_key: "parent_requirement"
+    produces: "test/**/*.dart"
+    consumes: []   # intentionally empty — test tasks are timing-policy-driven
+
+
+# ---------------------------------------------------------------------------
+# SPECIAL FLAGS
+# Frontmatter flags that short-circuit or modify normal ordering.
+# The engine treats these as first-class signals applied before layer_order.
+# ---------------------------------------------------------------------------
+
+special_flags:
+
+  - flag: writes_requirements
+    value: true
+    effect: priority_boost
+    weight: -10000          # large negative = ranks above everything else
+    rationale: >
+      Requirement-writing explores are critical-path: impl tasks downstream
+      cannot start until these complete. They must rank above even
+      current-release impl tasks to keep the dependency graph respected.
+      This is equivalent to treating them as "layer -1".
+
+  - flag: factory_urgent
+    value: true
+    effect: priority_boost
+    weight: -1000
+    rationale: >
+      Process/factory tasks often lack target_package (they are cross-cutting)
+      and therefore fall to "rank last" under current_package_scope. Some
+      factory tasks are genuinely urgent prerequisites for product work.
+      The writes_requirements flag handles the most critical case, but other
+      urgent factory work needs a boost too. Weight -1000 places factory_urgent
+      tasks above ordinary work but well below requirement-writing explores
+      (-10000). See §10.5 of the design doc.
+
+  - flag: orchestration_task
+    value: true
+    effect: priority_boost
+    weight: -1100
+    rationale: >
+      Release orchestration tasks must run to completion before any
+      implementation task is surfaced for execution. Without this boost,
+      orch tasks (which carry target_release but no target_package) would
+      lose to current-release impl tasks under current_package_scope. The
+      orch chain materialises all impl tasks for a release; running it to
+      completion before impl starts gives the developer a complete picture
+      of the release and prevents false-positive coverage warnings on
+      partially-materialised releases. Weight -1100 places orch tasks above
+      factory_urgent (-1000) — when both exist, the active-release pipeline
+      takes precedence over generic factory work — and well below
+      writes_requirements (-10000), which remains the most critical signal.
+      See REQ-PROC-035 SEC-05 "Orchestration-first ordering".
+    rationale_source: "TASK-PROC-035-13 design decision, 2026-04-27"
+
+  - flag: cascade_active
+    value: true
+    effect: priority_boost
+    weight: -500
+    rationale: >
+      A cascade task that is partially complete (e.g. Pass 1 done, Pass 2
+      in progress) must not be stalled by unrelated higher-priority work
+      appearing mid-flight. Incomplete cascades cause layer drift: personas,
+      flows, requirements, and code describe different versions of the product.
+      The cascade management skill sets this flag when advancing passes and
+      clears it on completion. Weight -500 ensures active cascades finish
+      before unrelated new work is prioritized above them, but they yield
+      to requirement-writing explores (-10000) and factory_urgent (-1000).
+      See §10.9 of the design doc.
+
+  - flag: verification_task
+    value: true
+    effect: respect_explicit_after
+    rationale: >
+      Verification tasks always have an explicit `after:` list covering the
+      full bundle. No sort-key override is needed — the standard `after:`
+      blocking mechanism suffices. This entry documents the expectation.
+
+  - flag: scribble_task
+    value: true
+    effect: layer_classification
+    layer_override: ui_design
+    rationale: >
+      Standalone UI scribble tasks would be misclassified as
+      implementation or requirement_exploration without an explicit flag.
+      The flag is optional; scribble work embedded in code-simple/code-complex
+      sessions is unaffected. Introduced proactively to prevent misclassification
+      when standalone scribble tasks appear. See §10.4 of the design doc.
+
+  - flag: opus_recommended
+    value: true
+    effect: none
+    rationale: >
+      Signals Opus should be used when executing; does not affect ordering.
+      Listed here to prevent future confusion.
+
+  - flag: cascade_type
+    value: "user_needs"
+    effect: none_yet
+    rationale: >
+      Multi-pass cascade tasks have their own internal ordering handled by
+      cascade_log.md. Ordering between cascade tasks is driven by their
+      pass status, not the ranking engine. The cascade_active flag handles
+      the in-flight boost; cascade_type is metadata only. See §10.6 of the
+      design doc.
+
+
+# ---------------------------------------------------------------------------
+# RANKING SIGNALS
+# Ordered list of sort-key components. Each component is a named function
+# the engine implements. Earlier components dominate later ones.
+#
+# IMPORTANT: changing this order changes ordering semantics across ALL tasks.
+# Use `simulate.py` to preview the impact before editing.
+# Every entry MUST have rationale: and rationale_source: fields so the
+# modify-ordering-rules skill can surface the original reasoning before
+# approving a change. See §10.8 of the design doc.
+# ---------------------------------------------------------------------------
+
+ranking_signals:
+
+  - signal: special_flags_weight
+    description: "Sum of `weight` from matching special_flags entries. Lower = higher priority."
+    rationale: >
+      Special flags represent categorical overrides that must apply before any
+      other signal. writes_requirements (-10000) and factory_urgent (-1000) must
+      rank above current-package impl tasks regardless of package or layer.
+      Placing this signal first ensures categorical overrides are never
+      overshadowed by continuous signals like priority_score.
+    rationale_source: "design decision, 2026-04-22 (TASK-PROC-042-01 opus design)"
+
+  - signal: current_package_scope
+    description: "0 if task's target_package matches the active package; 1 otherwise."
+    rationale: >
+      Placed before layer_order intentionally: current-release impl tasks are
+      prioritized over upstream work (e.g. user flow writing) because upstream
+      tasks require manual user involvement and are started deliberately by the
+      user, whereas impl tasks run autonomously. Autonomous operation (autorun)
+      should focus on what it can do without human input. Before moving
+      layer_order above this signal, revisit whether the upstream task type
+      in question still requires heavy manual involvement. See §10.1 of the
+      design doc.
+    rationale_source: "user decision, 2026-04-22"
+
+  - signal: layer_order
+    description: "The layer's numeric order value. Lower = higher priority."
+    rationale: >
+      Gives a concrete layer-based dependency signal even when explicit
+      after:/awaiting: entries are missing. Within the same package scope,
+      upstream layers (personas, flows, requirements) rank above downstream
+      layers (implementation, testing). This is the new signal vs. the
+      original hardcoded next_tasks.py behavior. See §10.1 of the design doc
+      for why layer_order comes after current_package_scope.
+    rationale_source: "design decision, 2026-04-22 (TASK-PROC-042-01 opus design)"
+
+  - signal: layer_intra_type_rank
+    description: "Within a layer, 0 if explore, 1 if impl/bugfix. Only applies if layer has both task types."
+    applies_to_layers: [factory_process, requirement_exploration]
+    rationale: >
+      Requirement exploration tasks should be fully understood before
+      implementation begins on the same requirement. When a layer contains
+      both explore and impl tasks for the same parent_requirement, explore
+      ranks first. This mirrors the existing next_tasks.py behavior of
+      explore before impl within a single requirement.
+    rationale_source: "design decision, 2026-04-22 (encodes existing next_tasks.py behavior)"
+
+  - signal: requirement_in_progress
+    description: "0 if any task for this parent_requirement is already in progress or completed in current session; 1 otherwise."
+    rationale: >
+      Prefer finishing a requirement over starting a new one. When the AI
+      is mid-way through implementing a requirement, context about that
+      requirement is warm and continuing is more efficient than context-
+      switching to a different requirement. This signal provides a weak
+      tie-breaker favoring requirement continuity over breadth.
+    rationale_source: "design decision, 2026-04-22 (encodes existing next_tasks.py behavior)"
+
+  - signal: priority_score
+    description: "-(urgency × 10 + impact). Lower = higher priority."
+    rationale: >
+      Final continuous tie-breaker between tasks at the same layer and
+      package scope. Urgency is weighted 10x impact because urgency
+      represents time-sensitivity (deadline pressure, blocking other work)
+      while impact represents scope-of-effect; both matter but deadlines
+      are harder than scope. The negative sign converts higher-priority
+      tasks to lower tuple values so Python's default ascending sort
+      produces the correct order.
+    rationale_source: "design decision, 2026-04-22 (encodes existing next_tasks.py behavior)"
+
+
+# ---------------------------------------------------------------------------
+# DEPENDENCY HEURISTICS
+# Rules applied at task-creation time to PROPOSE `after:` entries.
+# These are suggestions for human review — not auto-applied.
+# The heuristic runs via `scripts/propose_after.py`.
+# ---------------------------------------------------------------------------
+
+dependency_heuristics:
+
+  - name: same_scope_upstream_layer
+    when:
+      new_task_layer: any
+    propose:
+      - select: "open tasks at any layer with order < new_task.layer.order"
+        and: "scope_key matches new_task.scope_key"
+      - reason: "Upstream layer dependency, same scope"
+
+  - name: requirement_then_implementation
+    when:
+      new_task_layer: implementation
+    propose:
+      - select: "open tasks with same parent_requirement at layers [requirement_exploration, requirement_derivation]"
+      - reason: "Implementation consumes requirement artifact"
+
+  - name: scribble_then_implementation
+    when:
+      new_task_layer: implementation
+      new_task_parent_requirement_has_presentation_scope: true
+    propose:
+      - select: "open tasks with same parent_requirement at ui_design layer"
+      - reason: "Scribble must be approved before Flutter implementation"
+
+  - name: flow_approval_then_derivation
+    when:
+      new_task_layer: requirement_derivation
+    propose:
+      - select: "open tasks at user_flow layer whose flow is not yet approved AND is referenced by new_task.source_gap"
+      - reason: "Flow must be approved before requirements can be derived from it"
+
+  - name: bundle_explores_then_verification
+    when:
+      new_task_layer: flow_verification
+    propose:
+      - select: "all open requirement_derivation tasks with same verification_bundle"
+      - reason: "Verification runs after all bundle explores complete"
+
+
+# ---------------------------------------------------------------------------
+# FALLBACK BEHAVIOR
+# What the engine does when a task doesn't match any layer or when the rule
+# file is absent/malformed.
+# ---------------------------------------------------------------------------
+
+fallback:
+  unclassified_layer_order: 999     # ranks last
+  unclassified_task_behavior: warn_and_rank_last
+  malformed_rules_behavior: use_hardcoded_defaults_and_warn

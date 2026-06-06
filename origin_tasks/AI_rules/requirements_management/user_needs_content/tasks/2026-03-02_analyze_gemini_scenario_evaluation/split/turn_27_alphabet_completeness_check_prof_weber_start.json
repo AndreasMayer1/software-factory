@@ -1,0 +1,308 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Ja übernehmen wir die Szenarien für Nina. Sind wir wirklich schon durch? Wir gehen alphabetisch vor und nach Nina müsste Prof. Weber kommen oder? ",
+        "role": "user",
+        "tokenCount": 32,
+        "createTime": "2026-03-01T09:14:04.529Z"
+      },
+      {
+        "text": "**Considering Next Steps**\n\nI've analyzed the user's input; they approved scenarios for Nina and inquired about the logical next step, Prof. Weber. I'm focusing on the user's question, and starting to map out the next iteration in this process. Alphabetical order seems crucial for their workflow. I am exploring how to best determine when all steps are completed.\n\n\n**Verifying Alphabetical Order**\n\nI've checked the alphabetical order of the remaining personas against the directory structure from the initial prompt. I see that alphabetical order, following Nina, would lead to Professor Weber and then Sophie Structure Seeker. System maintenance is a different class and can be checked for its status later. I am now certain of the alphabetical ordering of the next individuals.\n\n\n**Mapping Weber's Data**\n\nI'm now diving into Prof. Weber's profile. I'm focusing on his role as a therapist and the creation, distribution, and analysis of his work. Specifically, I'm examining the implicit gaps in his workflow. I'm noting potential missing pieces, like documentation similar to Dr. Sarah's \"Gutachten,\" and how tracking data might apply to his narrative-heavy processes.\n\n\n**Analyzing Weber's Data**\n\nI'm now zeroing in on Prof. Weber's needs. The core is the analysis of psychodynamic themes, which requires a very different overview from quantitative approaches. I've noted a common conflict: the patient who over-relies on, or misuses, quantitative data. My focus is now on the need for archiving and retrieving qualitative data, particularly lengthy handwritten patient journals. The need for a narrative synthesis scenario for Weber has crystallized.\n\n\n**Defining Sophie's Scenario**\n\nI'm now outlining Sophie's role as a client with ADHD. I'm focusing on scenarios of data distribution, preparation, and transfer within a therapy context. I'm identifying implicit clusters, like routine capture, data modification loops and the loss of physical artifacts. I'm looking for where Sophie's narrative differs from David's.\n\n\n**Prioritizing System Maintenance**\n\nI'm now focusing on the System Maintenance persona, acknowledging its distinct nature as a technical entity rather than a human. The user is right, I overlooked this, and must consider scenarios like OS crashes or data loss. I'm taking the user's suggestion to check Elias's panic delete. These constraints are important to map.",
+        "role": "model",
+        "tokenCount": 1662,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Considering Next Steps**\n\nI've analyzed the user's input; they approved scenarios for Nina and inquired about the logical next step, Prof. Weber. I'm focusing on the user's question, and starting to map out the next iteration in this process. Alphabetical order seems crucial for their workflow. I am exploring how to best determine when all steps are completed.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Verifying Alphabetical Order**\n\nI've checked the alphabetical order of the remaining personas against the directory structure from the initial prompt. I see that alphabetical order, following Nina, would lead to Professor Weber and then Sophie Structure Seeker. System maintenance is a different class and can be checked for its status later. I am now certain of the alphabetical ordering of the next individuals.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Mapping Weber's Data**\n\nI'm now diving into Prof. Weber's profile. I'm focusing on his role as a therapist and the creation, distribution, and analysis of his work. Specifically, I'm examining the implicit gaps in his workflow. I'm noting potential missing pieces, like documentation similar to Dr. Sarah's \"Gutachten,\" and how tracking data might apply to his narrative-heavy processes.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing Weber's Data**\n\nI'm now zeroing in on Prof. Weber's needs. The core is the analysis of psychodynamic themes, which requires a very different overview from quantitative approaches. I've noted a common conflict: the patient who over-relies on, or misuses, quantitative data. My focus is now on the need for archiving and retrieving qualitative data, particularly lengthy handwritten patient journals. The need for a narrative synthesis scenario for Weber has crystallized.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Defining Sophie's Scenario**\n\nI'm now outlining Sophie's role as a client with ADHD. I'm focusing on scenarios of data distribution, preparation, and transfer within a therapy context. I'm identifying implicit clusters, like routine capture, data modification loops and the loss of physical artifacts. I'm looking for where Sophie's narrative differs from David's.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Prioritizing System Maintenance**\n\nI'm now focusing on the System Maintenance persona, acknowledging its distinct nature as a technical entity rather than a human. The user is right, I overlooked this, and must consider scenarios like OS crashes or data loss. I'm taking the user's suggestion to check Elias's panic delete. These constraints are important to map.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T09:14:04.531Z"
+      },
+      {
+        "text": "\n\n\nDu hast **absolut und zu 100 % recht**. Da sind die Pferde mit mir durchgegangen, weil wir N (Nina) in meiner Aufzählung schon als vermeintlichen Abschlusskreis deklariert hatten. Aber im Alphabet folgen natürlich zwingend noch **P** (Prof. Dr. Weber) und **S** (Sophie)! \n\nDeine methodische Genauigkeit ist Gold wert für das Projekt. Ninas 5, 6 und 7 sind sicher eingebucht. \n\nRichten wir den Scheinwerfer auf das **P: Prof. Dr. Weber (The Narrative Skeptic / PERSONA-011)**.\n\n**Rolle:** Psychoanalytiker / Tiefenpsychologe. Keine Formulare, keine Checkboxen, sondern die Arbeit am Unbewussten, Assoziationen, Traumdeutung. Ein Vertreter des ganz klassischen \"Frame\" (Settings).\n**Aktuelle Szenarien (bereits erstellt & approved):**\n*   `creation` (SCEN-011-01): Der handgeschriebene \"Traumfänger\"-Zettel auf Edelpapiert (Die Erlaubnis an die Patientin).\n*   `distribution` (SCEN-011-03): Die feierliche, fast schweigende Übergabe des Zettels (\"Was aufsteigen will\").\n*   `analysis` (SCEN-011-02): Das Vorlesen der Träume durch Lena und das assoziative Folgen (\"Wessen Lächeln war das?\").\n\nWeber funktioniert komplett anders als Dr. Turan (Symptome) und Dr. Sarah (VT-Sichtbare Verhaltensweisen). Ihn quält ein gänzlich anderes Systemproblem: **Langzeitverläufe, rote Fäden und das Krankenkassen-Obergutachterverfahren.** Psychoanalysen dauern Jahre, nicht Wochen. \n\nHier sind die drei massiven Out-of-the-Box Szenarien für Prof. Dr. Weber, die ihn perfekt in der Matrix verankern:\n\n### A. Die Epische Bürokratie (Die Obergutachter-Falle)\n\n*   **Szenario 1: The Obergutachter Report (Hunting the Red Thread)**\n    *   **Kategorie:** `analysis.therapist_solo` & `management.share_externally`\n    *   **Worum es geht:** Nach 60 Stunden Analyse (oft ca. 1,5 Jahre) muss Prof. Weber eine \"Verlängerung auf 160 Stunden\" bei den Krankenkassen (PTV-Verfahren, Gutachterverfahren) beantragen. Diese psychoanalytischen Gutachten sind extrem erzählerisch (Motive, Widerstände, Konfliktdynamiken), nicht quantitativ wie bei Dr. Sarah.\n    *   **Das Status-Quo-Problem:** Prof. Weber sitzt mit seiner Brille vor drei dicken Kladde-Büchern voller handschriftlicher Notizen der letzten eineinhalb Jahre. Er erinnert sich, dass Lena ein Kern-Motiv hatte (\"Garten, Tür, Schwelle\"), das ihren Bindungskonflikt definiert. Aber wo steht es? In welchem Monat? Welcher Satz genau fiel dort? Die Durchsuchung handschriftlicher Notizbücher nach **inhaltlichen, symbolischen Querverweisen (Motiven)** dauert den gesamten Sonntag und zwingt ihn in ein analoges Zettelchaos, das extrem ineffizient und auslaugend ist.\n    *   **Warum wir es brauchen:** Erschafft für unsere App den extrem starken **\"Theme- / Motif-Tracking\"-Wert**. Tiefenpsychologen brauchen keine Stimmungs-Graphen. Sie brauchen die Volltextsuche und das taggen/Bündeln von Schlüsselbegriffen (Metaphern), damit sie über Jahre (!) therapeutische rote Fäden auf Knopfdruck isolieren und belegen können, dass diese \"durchgearbeitet\" werden.\n\n### B. Das Archiv der Lebensgeschichten\n\n*   **Szenario 2: The 300-Session Archive (The Weight of Words)**\n    *   **Kategorie:** `management.archive_and_retrieve`\n    *   **Worum es geht:** Im Gegensatz zur Kurzzeit-Therapie wächst bei Analysen das Patienten-Dossier ins Unermessliche. Patienten geben ihm zudem physisch mitgebrachte, unendlich private Aufzeichnungen, die ausgelesen wurden (Lenas Original-Notizen). Prof. Weber darf diese unter der DSGVO nicht im Keller vergammeln lassen. \n    *   **Das Status-Quo-Problem:** Weber führt eine reine Privat/Kassenpraxis oft allein, ohne Arzthelferin (sehr typisch für dieses Feld). Papierschränke sind chronisch überfüllt, aber als Analog-Verfechter traut Weber herkömmlichen Clouds und Servern niemals Patienten-Innerstes an. \"Das Internet vergisst nicht.\"\n    *   **Warum wir es brauchen:** Verpflichtet unser Tool-Set noch strenger auf das Prinzip **Local-First & Air-Gapped Archiving**. Ein digitaler Analytiker-Traum ist eine App, bei der die Patientin ihr PDF selbst verschlüsselt an ihn beamt, und Weber die Datei als rohen \"Dead-File\" lokal und AES-256 gesichert auf seiner Festplatte im Panzerschrank für 10 Jahre vergraben kann, ohne Cloud-Verrat zu begehen.\n\n### C. Der Culture Clash (Grenzwahrung im digitalen Zeitalter)\n\n*   **Szenario 3: The Intrusive Quantifier (Frame Breach)**\n    *   **Kategorie:** `modification.collaborative` (Abwehr einer Änderung) oder `analysis.review_collaboratively`\n    *   **Worum es geht:** Ein anderer Klient (jemand wie Michael, der \"High-Performer\") sitzt bei Weber und holt im zweiten Gespräch sein iPad raus, um ihm ein Kuchendiagramm seiner Stresstracking-Woche aus dem Office in Apple Health oder Notion zu zeigen. *\"Herr Professor, sehen Sie diese Kurve?\"*\n    *   **Das Status-Quo-Problem:** Die digitale Maschine, die Diagramme, das Optimierungs-Framing zerschneidet Webers analogen, auf das pure Sein und den Schmerz zentrierten \"Container\" wie ein Rasiermesser. Weber spürt Abwehr (\"Frame Breach\"). Er muss in diesem Moment dem Patienten erklären, dass das Herantragen von Optimierungs-Charts in die Tiefenpsychologie nicht hineingehört, weil es ein Abwehrverhalten gegen echte Trauer darstellt. Es lenkt von dem *Wie* ab und konzentriert sich aufs *Was*.\n    *   **Warum wir es brauchen:** Das perfekte Gegenszenario für die Template-Diskussion. Ein klinisches Setting muss in der Lage sein, strukturierte Datenfelder restlos zu VERBIETEN oder AUSZUSCHALTEN. Ein Therapeut muss bei der Template-Entstellung sagen können: *\"Ich brauche in der App für meine Klienten NULL Rating-Sterne und null Dropdowns. Ich brauche ein sauberes, weißes Feld. Jede Checkbox sabotiert meine Arbeitsmethode.\"* Die UX der Dateneingabe muss reduzierbar auf das Nichts sein.\n\n---\n\n**Vollständigkeits-Check für Prof. Dr. Weber:**\n*   [x] Therapeutische Vorgabe (Handover): Sz 1-3 bereits etabliert\n*   [x] Kassenkampf ohne Metriken (Das Motif-Gutachten / Storytelling unter Druck): Neu -> Sz 1\n*   [x] Physischer Zusammenbruch (Lager-Albtraum vs. Offline-Glauben): Neu -> Sz 2\n*   [x] Das UI/UX Limit für Psychoanalyse (Die harte Ablehnung von Messbarkeiten): Neu -> Sz 3\n\nFüllen wir mit dem Kampf gegen Metriken (Sz 3) und dem Gutachter-Leid eines Symbol-Detektivs (Sz 1) das alte \"P\" vollumfänglich aus?\n\nWenn wir uns darüber einig sind, wartet bei \"**S**\" als wirklicher Schlussstein unsere unverbesserliche Chaos-Managerin **Sophie (Die Struktur-Sucherin / ADHD)**!",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1794,
+        "parts": [
+          {
+            "text": "\n\n\nDu"
+          },
+          {
+            "text": " hast **absolut und zu 100 % recht**. Da sind die Pferde mit mir durchgegangen, weil wir N ("
+          },
+          {
+            "text": "Nina) in meiner Aufzählung schon als vermeintlichen Abschlusskreis deklariert hatten. Aber im Alphabet folgen"
+          },
+          {
+            "text": " natürlich zwingend noch **P** (Prof. Dr. Weber) und **S** (Sophie)! \n\nDeine"
+          },
+          {
+            "text": " methodische Genauigkeit ist Gold wert für das Projekt. Ninas 5, 6 und 7 sind sicher eingeb"
+          },
+          {
+            "text": "ucht. \n\nRichten wir den Scheinwerfer auf das **P: Prof. Dr. Weber (The Narrative"
+          },
+          {
+            "text": " Skeptic / PERSONA-011)**.\n\n**Rolle:** Psychoanalytiker / Tiefenpsych"
+          },
+          {
+            "text": "ologe. Keine Formulare, keine Checkboxen, sondern die Arbeit am Unbewussten, Assoziationen, Traumdeutung."
+          },
+          {
+            "text": " Ein Vertreter des ganz klassischen \"Frame\" (Settings).\n**Aktuelle Szenarien (bereits erstellt & approved):**\n*"
+          },
+          {
+            "text": "   `creation` (SCEN-011-01): Der handgeschriebene \"Traumfänger\"-Zettel auf Ed"
+          },
+          {
+            "text": "elpapiert (Die Erlaubnis an die Patientin).\n*   `distribution` (SCEN-01"
+          },
+          {
+            "text": "1-03): Die feierliche, fast schweigende Übergabe des Zettels (\"Was aufsteigen"
+          },
+          {
+            "text": " will\").\n*   `analysis` (SCEN-011-02): Das Vorlesen der Träume durch Lena und das assozi"
+          },
+          {
+            "text": "ative Folgen (\"Wessen Lächeln war das?\").\n\nWeber funktioniert komplett anders als Dr. Turan (Sympt"
+          },
+          {
+            "text": "ome) und Dr. Sarah (VT-Sichtbare Verhaltensweisen). Ihn quält ein gänzlich anderes"
+          },
+          {
+            "text": " Systemproblem: **Langzeitverläufe, rote Fäden und das Krankenkassen-Obergutachterverfahren"
+          },
+          {
+            "text": ".** Psychoanalysen dauern Jahre, nicht Wochen. \n\nHier sind die drei massiven Out-of-the-Box"
+          },
+          {
+            "text": " Szenarien für Prof. Dr. Weber, die ihn perfekt in der Matrix verankern:\n\n### A. Die"
+          },
+          {
+            "text": " Epische Bürokratie (Die Obergutachter-Falle)\n\n*   **Szenario 1: The Obergutachter"
+          },
+          {
+            "text": " Report (Hunting the Red Thread)**\n    *   **Kategorie:** `analysis.therapist_solo` & `management.share"
+          },
+          {
+            "text": "_externally`\n    *   **Worum es geht:** Nach 60 Stunden Analyse (oft ca. 1"
+          },
+          {
+            "text": ",5 Jahre) muss Prof. Weber eine \"Verlängerung auf 160 Stunden\" bei den Krankenkassen (PTV"
+          },
+          {
+            "text": "-Verfahren, Gutachterverfahren) beantragen. Diese psychoanalytischen Gutachten sind extrem erzählerisch (M"
+          },
+          {
+            "text": "otive, Widerstände, Konfliktdynamiken), nicht quantitativ wie bei Dr. Sarah.\n    *   **Das Status-"
+          },
+          {
+            "text": "Quo-Problem:** Prof. Weber sitzt mit seiner Brille vor drei dicken Kladde-Büchern voller"
+          },
+          {
+            "text": " handschriftlicher Notizen der letzten eineinhalb Jahre. Er erinnert sich, dass Lena ein Kern-Motiv hatte"
+          },
+          {
+            "text": " (\"Garten, Tür, Schwelle\"), das ihren Bindungskonflikt definiert. Aber wo steht es? In welchem Monat"
+          },
+          {
+            "text": "? Welcher Satz genau fiel dort? Die Durchsuchung handschriftlicher Notizbücher nach **inhaltlichen,"
+          },
+          {
+            "text": " symbolischen Querverweisen (Motiven)** dauert den gesamten Sonntag und zwingt ihn in ein analoges Zettelchaos, das extrem"
+          },
+          {
+            "text": " ineffizient und auslaugend ist.\n    *   **Warum wir es brauchen:** Erschafft für unsere App den"
+          },
+          {
+            "text": " extrem starken **\"Theme- / Motif-Tracking\"-Wert**. Tiefenpsychologen brauchen keine Stimmungs-G"
+          },
+          {
+            "text": "raphen. Sie brauchen die Volltextsuche und das taggen/Bündeln von Schlüsselbegriffen (Metaphern),"
+          },
+          {
+            "text": " damit sie über Jahre (!) therapeutische rote Fäden auf Knopfdruck isolieren und belegen können, dass diese"
+          },
+          {
+            "text": " \"durchgearbeitet\" werden.\n\n### B. Das Archiv der Lebensgeschichten\n\n*   **Szenario"
+          },
+          {
+            "text": " 2: The 300-Session Archive (The Weight of Words)**\n    *   **Kategorie"
+          },
+          {
+            "text": ":** `management.archive_and_retrieve`\n    *   **Worum es geht:** Im Gegensatz zur Kurzzeit-Therapie w"
+          },
+          {
+            "text": "ächst bei Analysen das Patienten-Dossier ins Unermessliche. Patienten geben ihm zudem physisch mit"
+          },
+          {
+            "text": "gebrachte, unendlich private Aufzeichnungen, die ausgelesen wurden (Lenas Original-Notizen). Prof. Weber darf diese unter der"
+          },
+          {
+            "text": " DSGVO nicht im Keller vergammeln lassen. \n    *   **Das Status-Quo-Problem:** Weber führt eine"
+          },
+          {
+            "text": " reine Privat/Kassenpraxis oft allein, ohne Arzthelferin (sehr typisch für dieses Feld). P"
+          },
+          {
+            "text": "apierschränke sind chronisch überfüllt, aber als Analog-Verfechter traut Weber herkömmlichen Clouds und Servern niemals"
+          },
+          {
+            "text": " Patienten-Innerstes an. \"Das Internet vergisst nicht.\"\n    *   **Warum wir es brauchen:** Ver"
+          },
+          {
+            "text": "pflichtet unser Tool-Set noch strenger auf das Prinzip **Local-First & Air-Gapped Archiving**. Ein digitaler Anal"
+          },
+          {
+            "text": "ytiker-Traum ist eine App, bei der die Patientin ihr PDF selbst verschlüsselt an ihn beam"
+          },
+          {
+            "text": "t, und Weber die Datei als rohen \"Dead-File\" lokal und AES-256 gesichert auf seiner Festplatte"
+          },
+          {
+            "text": " im Panzerschrank für 10 Jahre vergraben kann, ohne Cloud-Verrat zu begehen.\n\n### C. Der"
+          },
+          {
+            "text": " Culture Clash (Grenzwahrung im digitalen Zeitalter)\n\n*   **Szenario 3: The Int"
+          },
+          {
+            "text": "rusive Quantifier (Frame Breach)**\n    *   **Kategorie:** `modification.collaborative` (Ab"
+          },
+          {
+            "text": "wehr einer Änderung) oder `analysis.review_collaboratively`\n    *   **Worum es geht:** Ein anderer"
+          },
+          {
+            "text": " Klient (jemand wie Michael, der \"High-Performer\") sitzt bei Weber und holt im zweiten Gespräch"
+          },
+          {
+            "text": " sein iPad raus, um ihm ein Kuchendiagramm seiner Stresstracking-Woche aus dem Office in"
+          },
+          {
+            "text": " Apple Health oder Notion zu zeigen. *\"Herr Professor, sehen Sie diese Kurve?\"*\n    *   **Das Status-Quo-Problem:**"
+          },
+          {
+            "text": " Die digitale Maschine, die Diagramme, das Optimierungs-Framing zerschneidet Webers analogen, auf das pure"
+          },
+          {
+            "text": " Sein und den Schmerz zentrierten \"Container\" wie ein Rasiermesser. Weber spürt Abwehr (\"Frame Breach"
+          },
+          {
+            "text": "\"). Er muss in diesem Moment dem Patienten erklären, dass das Herantragen von Optimierungs-Charts in die Tiefenpsych"
+          },
+          {
+            "text": "ologie nicht hineingehört, weil es ein Abwehrverhalten gegen echte Trauer darstellt. Es lenkt von dem *"
+          },
+          {
+            "text": "Wie* ab und konzentriert sich aufs *Was*.\n    *   **Warum wir es brauchen:** Das perfekte Gegenszenario für die"
+          },
+          {
+            "text": " Template-Diskussion. Ein klinisches Setting muss in der Lage sein, strukturierte Datenfelder restlos zu VERBIETEN oder AUS"
+          },
+          {
+            "text": "ZUSCHALTEN. Ein Therapeut muss bei der Template-Entstellung sagen können: *\"Ich brauche in der App für meine"
+          },
+          {
+            "text": " Klienten NULL Rating-Sterne und null Dropdowns. Ich brauche ein sauberes, weißes Feld. J"
+          },
+          {
+            "text": "ede Checkbox sabotiert meine Arbeitsmethode.\"* Die UX der Dateneingabe muss reduzierbar auf das Nichts"
+          },
+          {
+            "text": " sein.\n\n---\n\n**Vollständigkeits-Check für Prof. Dr. Weber:**\n*   [x] Therapeut"
+          },
+          {
+            "text": "ische Vorgabe (Handover): Sz 1-3 bereits etabliert\n*   [x] Kassenkampf"
+          },
+          {
+            "text": " ohne Metriken (Das Motif-Gutachten / Storytelling unter Druck): Neu -> Sz 1\n*   [x] Physischer"
+          },
+          {
+            "text": " Zusammenbruch (Lager-Albtraum vs. Offline-Glauben): Neu -> Sz 2\n*   [x]"
+          },
+          {
+            "text": " Das UI/UX Limit für Psychoanalyse (Die harte Ablehnung von Messbarkeiten): Neu -> Sz 3"
+          },
+          {
+            "text": "\n\nFüllen wir mit dem Kampf gegen Metriken (Sz 3) und dem Gutachter-Leid eines"
+          },
+          {
+            "text": " Symbol-Detektivs (Sz 1) das alte \"P\" vollumfänglich aus?\n\nWenn wir uns"
+          },
+          {
+            "text": " darüber einig sind, wartet bei \"**S**\" als wirklicher Schlussstein unsere unverbesserliche Chaos-Manager"
+          },
+          {
+            "text": "in **Sophie (Die Struktur-Sucherin / ADHD)**!"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,493 @@
+# Priority override — behaviour:
+#
+#   While any task listed in this file is non-terminal (pending or in_progress),
+#   `scripts/tasks/next_tasks.py` returns ONLY tasks from this file.  No other
+#   work surfaces until every entry here reaches a terminal status (completed /
+#   cancelled / superseded / deprecated).
+#
+#   If the only remaining non-terminal entries are blocked (by `after:` or
+#   `awaiting:` dependencies), next_tasks.py prints an informational message
+#   listing those blocked tasks and exits without returning any task IDs.  The
+#   orchestrator treats this as an empty queue and stops gracefully.
+#
+#   When all entries are terminal, this file is effectively inert and normal
+#   release/package-based ranking resumes.
+#
+# CLEANUP: Delete this file once all listed tasks are completed and the normal
+# release-impl chain should resume.
+#
+# -----------------------------------------------------------------------
+# Current purpose: pause release-impl chain and prioritize the LLM
+# code-quality back-pressure mechanism (REQ-PROC-046 + REQ-PROC-002 + REQ-PROC-052).
+#
+# Source commits: f4a6083d (initial gate set) + 2c52ed48 (rounds 2-3 refinement).
+# None of the tasks below have target_release / target_package, so without this
+# override they would not surface from next_tasks.py at all.
+#
+# Ordering: topological — Tier 0/1 are unblocked now; Tier 2-4 surface as their
+# `after:` predecessors complete. next_tasks.py filters override entries through
+# is_blocked() each call, so listing a blocked task here is safe.
+#
+# Parser note: comments must start with `#` at column 0 (the loader checks the
+# un-stripped line). Inline comments after IDs are NOT supported — annotations
+# below sit on their own line above each ID.
+
+# --- REQ-PROC-049 canon bootstrap (inserted ahead of back-pressure work, 2026-05-15) ---
+# Phase A — foundation (parallel)
+# T1 — folder + generators
+TASK-PROC-049-02
+# T2 — coordination read + shared ARB parser
+TASK-PROC-049-03
+# Phase B — body (T3, T4 parallel after T1; T5 after T1+T2+T3)
+# T3 — bootstrap canon authoring
+TASK-PROC-049-04
+# T4 — ux-write-canon-concept skill
+TASK-PROC-049-05
+# T5 — check_canon.py audit script
+TASK-PROC-049-06
+# Phase C — integration
+# T6 — extend caller skills + product-intake
+TASK-PROC-049-07
+# T7 — README + CLAUDE.md + cross-refs (blocks back-pressure)
+TASK-PROC-049-08
+# Phase D — release wiring (parallel to C)
+# T8 — release pre-flight wire-in
+TASK-PROC-049-09
+
+# --- Tier 0: analyze / explore (no after) ---
+TASK-PROC-046-01
+TASK-PROC-046-02
+TASK-PROC-046-07
+TASK-PROC-046-12
+TASK-PROC-052-04
+TASK-PROC-002-04
+TASK-PROC-002-07
+
+# --- Tier 1: impl, no after ---
+TASK-PROC-046-03
+TASK-PROC-046-04
+TASK-PROC-046-05
+TASK-PROC-046-10
+TASK-PROC-052-01
+TASK-PROC-052-03
+TASK-PROC-002-02
+TASK-PROC-002-03
+TASK-PROC-002-08
+TASK-PROC-002-09
+
+# --- Tier 2: depend on Tier 1 ---
+# after PROC-052-01
+TASK-PROC-052-02
+# after PROC-002-02, PROC-002-04
+TASK-PROC-002-05
+# after PROC-002-02
+TASK-PROC-002-06
+# after PROC-046-03, PROC-046-07
+TASK-PROC-046-08
+# after PROC-046-04
+TASK-PROC-046-09
+# after PROC-046-03
+TASK-PROC-046-14
+
+# --- Tier 3 ---
+# after PROC-046-03, PROC-046-04, PROC-046-05, PROC-052-01, PROC-002-02, PROC-002-03
+TASK-PROC-046-11
+
+# --- Tier 4 ---
+# after PROC-046-03, PROC-002-02, PROC-046-11
+TASK-PROC-046-06
+# after PROC-046-11
+TASK-PROC-046-13
+
+# --- Tasks created during autorun 2026-05-18 22:08 -> 2026-05-19 10:55 ---
+# Added so freshly-created tasks (no target_release / target_package yet) are
+# visible to next_tasks.py. Remove once they receive release/package assignment.
+# from: b830b527 task(TASK-PROC-046-08): create widget-test accessibility backfill tasks
+TASK-NFUNC-002-01
+# from: b830b527 task(TASK-PROC-046-08): create widget-test accessibility backfill tasks
+TASK-NFUNC-002-02
+# from: c0996381 feat(TASK-PROC-046-10): set up data-entry frame-budget integration test
+TASK-PROC-046-15
+
+# --- Tier 5: gate validation and baseline cleanup (2026-05-23) ---
+# after PROC-046-14 (gate scripts exist)
+TASK-PROC-046-18
+# after PROC-046-18 (gate correctness confirmed)
+TASK-PROC-046-19
+# after PROC-046-19 (baseline green)
+TASK-PROC-046-20
+# after PROC-046-18 (gate correctness confirmed)
+TASK-PROC-002-25
+# no dependencies
+TASK-PROC-052-05
+
+# --- REQ-PROC-058 implementation chain (2026-05-24) ---
+# Note: the explore task formerly numbered TASK-PROC-055-01 was renumbered to
+# TASK-PROC-058-01 (parent requirement re-allocated REQ-PROC-055 -> REQ-PROC-058)
+# and committed as completed in e680b5e9. Below are the 6 impl tasks for it.
+#
+# Foundation — task-derive-from-requ skill core (XL, opus, after: [])
+TASK-PROC-058-02
+# AC-17 cross-reference completeness gate (after: 058-02)
+TASK-PROC-058-03
+# Update task-create with redirect + plan-driven mode (after: 058-02)
+TASK-PROC-058-04
+# Update task-create-code with redirect + plan-driven mode + stale-plan check (after: 058-02)
+TASK-PROC-058-05
+# Verification audit for REQ-PROC-058 (after: 058-02..05)
+TASK-PROC-058-06
+# Test case — run task-derive-from-requ on REQ-PROC-001, fresh session
+# (after: 058-02..05, 045-07)
+TASK-PROC-058-07
+# Align skill with implemented scripts — fix Findings D–H (after: 058-07)
+TASK-PROC-058-08
+# Second validation run against feat_qr_data_transfer — confirm D–H fixes + exercise AC-09 covers-repair (after: 058-08)
+TASK-PROC-058-09
+
+# --- REQ-PROC-035 / REQ-PROC-045 impl tasks (2026-05-24) ---
+# release-begin-impl Phase 2c rewrite as delegation orchestrator
+# (after: 058-02, 058-04, 058-05) — highest-risk change in the family
+TASK-PROC-035-19
+# Cross-reference detection mechanism (likely a script) — no after, ready now
+# Invoked by requ-explore Phase 1.4 and task-derive-from-requ Phase 1.5
+TASK-PROC-045-07
+
+# --- Other coding improvements ---
+TASK-PROC-054-02
+TASK-PROC-054-03
+TASK-PROC-053-02
+
+# --- REQ-PROC-053 implementation chain (2026-05-26) ---
+# Tier 1 — Foundation: doc-lookup-dependencies skill, ctx7 CLI, privacy script, doc/ (after: [])
+TASK-PROC-053-03
+# Tier 2 — Per-skill checkpoint wire-in (after: 053-03)
+TASK-PROC-053-04
+# Tier 3 — Per-technology threshold tables in doc/ (after: 053-03, parallel with Tier 2)
+TASK-PROC-053-05
+# Tier 4 — Gate-failure → lookup edge + CLAUDE.md budget framework (after: 053-04)
+TASK-PROC-053-06
+# Tier 5 — Lookup analytics script + fallback gap reporting (after: 053-03)
+TASK-PROC-053-07
+
+# --- REQ-PROC-001 impl tasks (2026-05-26, from commit 41af3c6b) ---
+# Added so tasks without target_release/target_package surface in next_tasks.py.
+# task-create-code AC-07 iterative-fix opus escalation (after: 001-06, 001-07)
+TASK-PROC-001-11
+# Verification audit for REQ-PROC-001 ACs (after: 001-03..11, synthesis-dependent, opus)
+TASK-PROC-001-12
+
+# --- REQ-PROC-060 / REQ-PROC-061 dependency governance tasks (2026-05-26) ---
+# New requirements from exploration task TASK-PROC-056-02 (commit ec8e7d2a).
+# REQ-PROC-060: Dependency Admission & Package Health (7 ACs)
+# REQ-PROC-061: Dependency Lifecycle & Update Cadence (10 ACs)
+#
+# Tier 0 — foundation docs (no after, parallel)
+# Author authoritative admission gate doc (AC-02..07 of REQ-PROC-060)
+TASK-PROC-060-01
+# Author authoritative lifecycle doc (AC-02,04-10 of REQ-PROC-061)
+TASK-PROC-061-01
+# Tier 1 — enforcement / integrations (after their respective Tier 0)
+# Wire admission gate into CLAUDE.md / skills (AC-01 of REQ-PROC-060; after: 060-01)
+TASK-PROC-060-02
+# Set up monthly dependency review schedule (AC-01 of REQ-PROC-061; after: 061-01)
+TASK-PROC-061-02
+# Integrate per-release sweep into release workflow (AC-03 of REQ-PROC-061; after: 061-01)
+TASK-PROC-061-03
+# Tier 2 — reviews (after all impl tasks in their chain)
+# Admission gate completeness review (all ACs of REQ-PROC-060; after: 060-02)
+TASK-PROC-060-03
+# Lifecycle completeness review (all ACs of REQ-PROC-061; after: 061-02, 061-03)
+TASK-PROC-061-04
+
+# --- REQ-PROC-055 / REQ-PROC-032 scribble + han tasks (2026-05-26) ---
+# REQ-PROC-055: External Plugin Adoption (han evaluation follow-ups)
+# REQ-PROC-032: UI Scribble Iteration Workflow (quality improvements)
+#
+# Tier 0 — analysis (no after, ready now)
+# Scribble quality retrospective for TASK-FUNC-007-01-05
+TASK-PROC-032-08
+# Tier 1 — han inspirational ports (no after, parallel, ready now)
+# Port YAGNI two-gate evidence test into requirement/planning skills
+TASK-PROC-055-02
+# Port explicit sizing-before-dispatch into multi-agent skills
+TASK-PROC-055-03
+# Pilot one band-F han specialist agent (adversarial-validator or gap-analyzer)
+TASK-PROC-055-04
+# Tier 2 — scribble skill improvement (after: 055-02, 055-03, 055-04)
+# Improve ui-create-scribble: flow scope filter, impossible-state gate, han patterns
+TASK-PROC-032-09
+
+TASK-PROC-042-12
+
+# --- REQ-PROC-051 coding quality gap audit (2026-05-27) ---
+# Audit Python coding quality gaps vs Dart, update doc/python/, update claude-write-script skill
+TASK-PROC-051-05
+
+# --- REQ-PROC-032 scribble contract + Han UX-review exploration (2026-05-27) ---
+# Explore: (1) Han UX-review agent adoptability; (2) scribble-to-coder contract definition
+# Status: exploration complete; spawned the AC-21..AC-36 content tasks below
+TASK-PROC-032-10
+
+# --- REQ-PROC-032 scribble-CONTENT impl tasks (2026-05-31) ---
+# Derived (task-derive-from-requ) from REQ-PROC-032 AC-21..AC-36 — the Q1/Q2 content the
+# exploration adopted, now grounded as ACs. Edit the shipped ui-scribble-* producers; no
+# lib/ code. Total-cost framing (iteration 5 §7): infrastructure-first before 0.0.1 resumes.
+# Sequencing: 032-11 (contract doctrine) → {032-18 consumers, 032-19 visual-validate};
+#             032-12/13/14/15/17 parallel; 032-20 verify after all.
+# 032-11 — contract doctrine + producer surfacing (CONTRACT BLOCK, token-ref sizing, audit trace) [AC-21,22,23,26,27]
+TASK-PROC-032-11
+# 032-12 — review doctrine: heuristics de-provisionalize + brief/diff + persona-conflict + fatigue [AC-28,29,30,31]
+TASK-PROC-032-12
+# 032-13 — multi-breakpoint from persona device_classes [AC-32]
+TASK-PROC-032-13
+# 032-14 — structured inspiration inputs [AC-33]
+TASK-PROC-032-14
+# 032-15 — reviewer pre-brief Phase 0.5 [AC-34]
+TASK-PROC-032-15
+# 032-17 — cross-feature consistency check [AC-35]
+TASK-PROC-032-17
+# 032-18 — contract consumers: Sketch-Gate + verifier anchoring (after: 032-11) [AC-24,25]
+TASK-PROC-032-18
+# 032-19 — ui-visual-validate skill (after: 032-11; opus) [AC-36]
+TASK-PROC-032-19
+# 032-20 — verify AC-21..AC-36 (after: all above; opus) [AC-21..36]
+TASK-PROC-032-20
+
+# --- REQ-PROC-044 skill-interface contracts mechanism (2026-05-29) ---
+# Spin-off from TASK-PROC-032-10 iteration 5 (file 12 §2.1): REQ-PROC-044 ACs 01/02/03/04/06 are
+# already declared; this task designs + prototypes the mechanism (sidecar contract.yaml + schemas
+# + lint + handoff blocks + sub-skill rubric + bidirectional-feedback channel) that operationalizes
+# them. Total-cost rationale (file 12 §7): infrastructure-first before release 0.0.1 resumption.
+# Blocks: TASK-PROC-032-10 iteration 6; the 10 downstream scribble-infrastructure bundles.
+TASK-PROC-044-02
+# --- REQ-PROC-006 claude-optimize redesign close-out (2026-05-27) ---
+# Concept: 4 synthesis rounds in workflow_improvement_automation/tasks/
+#   2026-05-01_explore_redesign-claude-optimize-skill/plans_and_protocols/
+# Step 1 — write requirements (rewrite REQ-PROC-006 + new LLM-work-principles req)
+TASK-PROC-006-03
+# Step 2 — derive impl tasks from REQ-PROC-006 (after: 006-03); MUST append created task IDs here
+TASK-PROC-006-04
+# Step 2 — derive impl tasks from LLM-work-principles req (after: 006-03); MUST append created task IDs here
+TASK-PROC-006-05
+# Step 3 — validate full implementation against concept (after: all impl tasks)
+TASK-PROC-006-06
+
+# --- REQ-PROC-006 claude-optimize impl ---
+# Derived by TASK-PROC-006-04 (plan: 2026-05-28_02_task_creation_plan.md). All
+# tasks in this block belong to the "claude-optimize" target package.
+# Dependency-ordered: IMPL-B → {C,D,H,J} → {E,F} → G → M (optional, awaiting v1.5).
+# IMPL-I (TASK-PROC-006-14) is awaiting external TASK-PROC-044 observability work.
+# IMPL-B — .factory/optimize/ scaffolding (after: [])
+TASK-PROC-006-07
+# IMPL-C — monitor scripts + run_monitors.py (after: 006-07; opus)
+TASK-PROC-006-08
+# IMPL-D — create_optimize_task.py with G-INV-1 auto-block + deny-list (after: 006-07; opus)
+TASK-PROC-006-09
+# IMPL-E — rewrite claude-optimize skill body (after: 006-08, 006-09; opus)
+TASK-PROC-006-10
+# IMPL-F — wire run_monitors.py into task-complete (after: 006-08)
+TASK-PROC-006-11
+# IMPL-G — claude-optimize-audit skill (after: 006-10; opus)
+TASK-PROC-006-12
+# IMPL-H — skills_used: protocol instrumentation (after: 006-08)
+TASK-PROC-006-13
+# IMPL-I — consume TASK-PROC-044 observability (after: 006-17 explore)
+TASK-PROC-006-14
+# EXPLORE — optimizer improvement from factory-quality instrumentation (after: []; blocks 006-14)
+TASK-PROC-006-17
+# IMPL-J — web_searches.tsv instrumentation (after: 006-07)
+TASK-PROC-006-15
+
+# --- REQ-PROC-006 optimizer analysis & follow-ups (2026-05-30) ---
+# TASK-PROC-006-18 (F-2 deny-list case) COMPLETED (314ba714). F-1 was reframed: it is a
+# design problem, folded into the holistic analysis below (its impl is held in git stash).
+# Holistic optimizer analysis & target re-alignment (explore, opus) — supersedes the
+# narrow bugfix path. after: []
+TASK-PROC-006-20
+# Investigate F-4: IMPL-I (006-14) TASK-PROC-044 dependency gate — confirm or re-gate. after: []
+TASK-PROC-006-19
+
+# --- REQ-PROC-063 factory skill chain epic (2026-05-27) ---
+# T1: define the epic requirement (factory_flows.md → normative ACs, sub-requirement structure)
+TASK-PROC-063-01
+
+# --- REQ-PROC-044 skill-interface-contracts rollout (2026-05-29) ---
+# Derived by TASK-PROC-044-02 exploration. Full mechanism rollout completes
+# BEFORE SCRIBBLE-SPLIT (TASK-PROC-044-07) starts, which in turn BLOCKS
+# the 0.0.1 release implementation. Per file 12 §7 total-cost framing +
+# file 08 (round-3 followup) confirmation.
+# Sequencing: FU-1 → FU-2 → FU-3 → FU-5 (SCRIBBLE-SPLIT)
+#             FU-7 (factory-map+metrics) parallel after FU-1
+#             FU-4 (revision channel), FU-6 (rubric), FU-8 (external interfaces) — parallel
+# FU-1 — Wave 1 producer contracts + schemas + lint (after: [])
+TASK-PROC-044-03
+# FU-2 — Wave 2 consumer contracts + runtime pre-checks (after: 044-03)
+TASK-PROC-044-04
+# FU-3 — Wave 3 + contract_version:0 sunset (after: 044-04)
+TASK-PROC-044-05
+# FU-4 — revision_target.yaml schema + pending_feedback cleanup (parallel)
+TASK-PROC-044-06
+# FU-5 — SCRIBBLE-SPLIT (after: 044-05; unblocks 0.0.1)
+TASK-PROC-044-07
+# FU-6 — rubric codification in claude-create-skill + claude-modify-skill (parallel)
+TASK-PROC-044-08
+# FU-7 — factory-map render + token-cost measurement + AC-06 interpretation (after: 044-03 soft)
+TASK-PROC-044-09
+# FU-8 — explore external-interface contracts E1-E9 (parallel; opus)
+TASK-PROC-044-10
+# FU-11 — amend REQ-PROC-044 with external-boundary AC (prerequisite for 044-12; after: [])
+TASK-PROC-044-11
+# FU-12 — external boundary contracts rollout (after: 044-11)
+TASK-PROC-044-12
+# FU-V — verification audit of full REQ-PROC-044 implementation (after: 044-03..09, 044-12)
+TASK-PROC-044-13
+# AC-07 — session log pruning in aggregate_read_metrics.py (after: [])
+TASK-PROC-044-14
+
+# --- LLM-work-principles impl ---
+# TASK-PROC-059-01: verify the LLM work principles document (requirements.md) satisfies REQ-PROC-059 AC-01..AC-03
+TASK-PROC-059-01
+
+# --- TASK-PROC-032-16 review remediation (2026-05-31) ---
+# Recovers the scribble decisions accidentally dropped from AC-21..36, creates the factory
+# capability-authoring skills (claude-create-agent/modify-agent + Domain-Vocabulary aid),
+# and hardens the verify task. Plan: ui_sketch_iteration_workflow/tasks/
+#   2026-05-31_explore_review-scribble-contract-explore-task/plans_and_protocols/2026-05-31_03_remediation_plan.md
+# N0 — promote REQ-PROC-044 to epic + author feat_capability_authoring_skills requirement (after: [])
+TASK-PROC-044-16
+# A1 — extend REQ-PROC-032 with AC-37..AC-41 + amend AC-23 (recovered scribble strand; after: [])
+TASK-PROC-032-21
+# N1 — create claude-create-agent + claude-modify-agent skills incl. Domain-Vocab aid (REQ-PROC-044-01; after: [])
+TASK-PROC-044-01-01
+# N2 — port Domain Vocabulary + Anti-Patterns to the 6 existing agents via claude-modify-agent (after: N1)
+TASK-PROC-044-01-02
+# V — verify capability-authoring skills (after: N1, N2)
+TASK-PROC-044-01-03
+# P0 — lib/features structure & naming policy; blocks the scribble storage mirror (after: [])
+TASK-NFUNC-021-01
+# S1 — scribble storage mirror lib/features (AC-37; after: N1, P0)
+TASK-PROC-032-22
+# S2 — flow_navigation.yaml (AC-38; after: N1)
+TASK-PROC-032-23
+# S3 — per-flow walk validation (AC-39; after: N1)
+TASK-PROC-032-24
+# S4 — approval trail (AC-40; standalone)
+TASK-PROC-032-25
+# S5 — contributing-requirements discovery (AC-41; after: N1)
+TASK-PROC-032-26
+
+# --- REQ-PROC-044-02 artifact-model + 044-01 establishment gate (2026-05-31) ---
+# Derived (task-derive-from-requ) from REQ-PROC-044-02. Enables the agent-naming
+# scheme (expertise+role) to resolve against a controlled artifact vocabulary.
+# Plan: epic_factory_quality/tasks/2026-05-31_explore_artifact-model-and-agent-naming
+#   (completed)/plans_and_protocols/2026-05-31_01_task_creation_plan.md
+# Sequencing: 044-02-01 (registry+README, foundational) →
+#   {044-02-02 resolve-lint, 044-01-04 establishment-gate} →
+#   044-02-03 contract remediation (after lint) → 044-02-04 verify (after all).
+# Foundation — create + seed .factory/registry/artifacts.yaml + .factory/README (after: [])
+TASK-PROC-044-02-01
+# Resolve-to-token lint in per-change gates (after: 044-02-01)
+TASK-PROC-044-02-02
+# Establishment gate in authoring skills — parent 044-01 (after: 044-02-01)
+TASK-PROC-044-01-04
+# Naming scheme enforcement in authoring skills — {expertise}-{role} + closed role set (after: 044-02-01)
+TASK-PROC-044-01-05
+# Reconcile existing contracts to registry tokens (after: 044-02-02)
+TASK-PROC-044-02-03
+# Verify artifact model AC-01..06 (after: 044-02-02, 044-01-04, 044-02-03)
+TASK-PROC-044-02-04
+# Explore: define artifact type for interactive skill feedback-checkpoints (after: [])
+TASK-PROC-044-02-05
+
+
+TASK-PROC-001-06
+TASK-PROC-001-07
+
+
+# added the task below because it is blocked. it's a guard to stop the autorun from
+# starting to work on the next release
+TASK-PROC-006-16
+
+# --- Scribble skill pilot (2026-06-02) ---
+# Reset TASK-FUNC-007-01-05 for pilot run with reworked ui-scribble-* suite; then re-run the scribble task.
+# Sequencing: PROC-032-27 (reset) → FUNC-007-01-05 (pilot scribble run)
+# Reset task — wipe old output, create archive branch, annotate pilot note (after: [])
+TASK-PROC-032-27
+# Pilot scribble run — execute with reworked skills (after: PROC-032-27)
+TASK-FUNC-007-01-05
+
+# --- REQ-PROC-061 dependency lifecycle follow-ups (2026-06-02) ---
+# Triggered by the 2026-06 monthly dependency review (commit 16a86d94).
+# Sequencing: 061-05 + 061-06 + 061-07 are independent (run in parallel).
+#             Impl tasks created by 061-07 will declare after: [TASK-PROC-061-07].
+# Apply 16 autonomous patch/minor bumps from the 2026-06 review (all DG1–DG4 pass)
+TASK-PROC-061-05
+# Add usage-check pass to the monthly review runner (new AC-11)
+TASK-PROC-061-06
+# Evaluate and decide on the 8 manual-review (major) packages from the 2026-06 review
+TASK-PROC-061-07
+
+# --- REQ-PROC-032 implementation-workflow redesign (2026-06-04) ---
+# Spun off from the scribble-workflow live evaluation (TASK-PROC-032-28). Redesign the
+# end-to-end implementation workflow so the scribble layer is a hard gate between
+# requirement-derivation and coding-task creation (problem set P-A..P-F). Exploration,
+# opus, no after. The current scribble workflow is frozen — no further runs — so this
+# takes priority over resuming the pilot/release-impl chain.
+TASK-PROC-032-29
+
+# --- REQ-PROC-032 scribble-gate redesign IMPLEMENTATION — Phase 1 seeds (2026-06-05) ---
+# Derived from the redesign synthesis (TASK-PROC-032-29). Implementation manifest:
+#   workflows/ui_sketch_iteration_workflow/tasks/2026-06-04_explore_redesign-implementation-workflow-scribble-gate/
+#     plans_and_protocols/2026-06-05_13_implementation-task-manifest.md
+# These process tasks have no target_package, so they surface only via this override.
+# DEVELOPER DIRECTIVE (2026-06-05): every task created BY these tasks (the impl tasks
+# task-derive-from-requ derives from the authored requirements, the playground
+# feature/build tasks, and the later T-CV / T-D1..D3 validation+migration tasks) MUST
+# also be appended to this file when created.
+#
+# T-C0 — fix D-0 orchestration scribble-routing bug (bugfix; no after; ready now)
+TASK-PROC-035-22
+# T-A1 — author two-wave orchestration spine REQ-PROC-035 + 058 (no after); MUST append derived impl task IDs here
+TASK-PROC-035-21
+# T-A2 — author scribble consistency model REQ-PROC-032 (after: 035-21); MUST append derived impl task IDs here
+TASK-PROC-032-30
+# T-A3 — author generator carrier + review-layer REQ-PROC-032 (no after); MUST append derived impl task IDs here
+TASK-PROC-032-31
+# T-A4 — author auto-review control model REQ-PROC-032 (no after); MUST append derived impl task IDs here
+TASK-PROC-032-32
+# T-A5 — author flow-viewer requirement (PROP-14) REQ-PROC-032-07 (no after); MUST append derived impl task IDs here
+TASK-PROC-032-33
+# T-C18 — implement PROP-14 flow-viewer sidebar in scribble generator (derived from T-A5 via task-derive-from-requ on REQ-PROC-032-07)
+TASK-PROC-032-07-01
+# derive-F06 — single derivation of fused feature REQ-PROC-032-06 carrier+auto-review (after: 032-31, 032-32); MUST append derived impl task IDs here
+TASK-PROC-032-06-01
+# T-B0 — author skill-test playground epic + now-slice features (no after); MUST append derived feature/build task IDs here
+TASK-PROC-066-03
+# T-B1 — web fixture toolchain + doc/ surface + gates (after: 066-03)
+TASK-PROC-066-04
+
+# ideation
+TASK-PROC-004-02
+
+# --- REQ-PROC-032-05 consistency layer impl tasks (derived via task-derive-from-requ; 2026-06-06) ---
+# All 9 tasks (8 impl + 1 verify) cover AC-01..AC-14 of REQ-PROC-032-05.
+# Sequencing: T-C8 → {T-C9, T-C10, T-C11, T-C12}; T-C13 → T-C14; T-C17 independent;
+#             verify after all 8 impl tasks.
+# T-C8 — derive-f05-sci-invariant-audit-and-rot-graph (derived from REQ-PROC-032-05 via task-derive-from-requ; after: none)
+TASK-PROC-032-05-01
+# T-C13 — derive-f05-coverage-ordering-and-l3-assertion (derived from REQ-PROC-032-05 via task-derive-from-requ; after: none)
+TASK-PROC-032-05-02
+# T-C17 — derive-f05-app-shell-launch-map-and-seam-detection (derived from REQ-PROC-032-05 via task-derive-from-requ; after: none)
+TASK-PROC-032-05-03
+# T-C9 — derive-f05-verify-flutter-stale-block-and-override (derived from REQ-PROC-032-05 via task-derive-from-requ; after: TASK-PROC-032-05-01)
+TASK-PROC-032-05-04
+# T-C10 — derive-f05-loopback-as-task (derived from REQ-PROC-032-05 via task-derive-from-requ; after: TASK-PROC-032-05-01)
+TASK-PROC-032-05-05
+# T-C11 — derive-f05-lazy-wavefront-cascade-and-width-breaker (derived from REQ-PROC-032-05 via task-derive-from-requ; after: TASK-PROC-032-05-01)
+TASK-PROC-032-05-06
+# T-C12 — derive-f05-entry-context-spine (derived from REQ-PROC-032-05 via task-derive-from-requ; after: TASK-PROC-032-05-01)
+TASK-PROC-032-05-07
+# T-C14 — derive-f05-domain-design-edge-and-facet-tagging (derived from REQ-PROC-032-05 via task-derive-from-requ; after: TASK-PROC-032-05-02)
+TASK-PROC-032-05-08
+# verify-f05 — verify-f05-consistency-layer (derived from REQ-PROC-032-05 via task-derive-from-requ; after: TASK-PROC-032-05-01..08)
+TASK-PROC-032-05-09

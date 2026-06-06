@@ -1,0 +1,26 @@
+contract_version: 1
+skill: claude-resume-agent
+purpose: >
+  Resume a stopped or killed background agent — first via native SendMessage,
+  then via a fallback continuation agent that reconstructs context from the
+  agent's JSONL transcript and output file.
+
+derived_from:
+  optional:
+
+produces: {}
+
+quality_criteria:
+  - Native SendMessage is attempted before spawning a fallback agent.
+  - Fallback agent reads both the transcript AND output file before continuing.
+  - Partial work in the output file is detected even when the transcript shows early termination.
+
+may_invoke: []
+
+side_effects: []
+
+preconditions:
+  - An agent ID is known (from task notification or agent JSONL file discovery).
+
+postconditions:
+  - The stopped agent's work has been resumed from the point of interruption.

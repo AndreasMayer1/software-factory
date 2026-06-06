@@ -1,0 +1,69 @@
+contract_version: 1
+skill: verify-quality
+purpose: >
+  Run the project quality gates (REQ-PROC-046 / REQ-PROC-002 / REQ-PROC-052)
+  as blocking checks. Refuses completion on RED, enforces the five-cycle
+  back-pressure bound, and escalates to the developer via pending_feedback at
+  cycle 5. Must be used before committing or completing any task that touched
+  lib/, test/, or integration_test/.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: Active task ID and expected file set — used to determine working-tree cleanliness.
+  optional:
+    - path: cycle-state
+      source: external
+      reason: Back-pressure cycle counter; read before gates run; deleted on GREEN.
+    - path: quality-hash
+      source: external
+      reason: Cache fast-skip hash written after GREEN; read by pre-commit hook.
+
+produces:
+  conditional:
+    - path: cycle-state
+      condition: written/updated on RED (cycles 1–4); deleted on GREEN.
+      reason: Back-pressure counter persisted across invocations.
+    - path: quality-hash
+      condition: written after GREEN when tree did not change during the gate run.
+      reason: Enables pre-commit hook fast-skip for the same tree state.
+    - path: pending-question
+      condition: written at cycle 5 escalation.
+      reason: Developer question with failing gate details; blocks re-queue until answered.
+    - path: pending-answer
+      condition: copied from TEMPLATE_answer.md at cycle 5 escalation.
+      reason: Answer placeholder; sentinel prevents AI overwrite.
+
+quality_criteria:
+  - Gates run only on Dart files when DART_CHANGED is non-empty (G1–G6, TQ1, TQ3).
+  - Python gates run only when SCRIPTS_CHANGED is non-empty (G1–G5 via check_python_gates.sh).
+  - Skill-contract gate runs when CONTRACTS_CHANGED is non-empty (check_skill_contracts.py).
+  - Boundary-contract gate runs when CONTRACTS_CHANGED is non-empty (check_boundary_contracts.py, REQ-PROC-044 AC-08).
+  - Auto-bypass fires when zero staged files live under lib/, test/, or integration_test/.
+  - Manual bypass (SKIP_QUALITY_GATES=1) requires explicit user authorization.
+  - quality-checker agent is spawned for structural review on every full invocation.
+  - Cycle 5 escalation terminates the session via terminate_session.sh.
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_tasks/<task>/plans_and_protocols/cycle_state.json
+    action: write
+    note: Cycle counter incremented on RED; file deleted on GREEN.
+  - target: .git/quality_green_hash
+    action: write
+    note: Tree hash written after stable GREEN run.
+  - target: automation/pending_feedback/<TASK_ID>/
+    action: write
+    note: question.md and answer.md written at cycle 5 escalation.
+
+preconditions:
+  - Working tree is clean enough (only task-related or plans_and_protocols/ changes present).
+  - At least one Dart or Python file was changed (otherwise auto-bypass applies).
+
+postconditions:
+  - GREEN — all gates passed; cycle_state.json deleted; quality_green_hash written.
+  - RED (cycles 1–4) — cycle_state.json updated; caller must fix issues and re-invoke.
+  - RED (cycle 5) — pending_feedback question written; session terminated.

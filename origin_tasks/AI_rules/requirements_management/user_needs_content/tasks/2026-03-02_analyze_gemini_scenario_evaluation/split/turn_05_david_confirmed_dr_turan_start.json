@@ -1,0 +1,231 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Ja",
+        "role": "user",
+        "tokenCount": 2,
+        "createTime": "2026-02-22T08:27:05.746Z"
+      },
+      {
+        "text": "**Initiating New Persona Analysis**\n\nI've just been authorized to shift focus to the next persona: Dr. med. Turan. I'm starting by analyzing this new request and making sure I'm clear on how to proceed. It's time to begin work on PERSONA-0.\n\n\n**Defining Scenario Requirements**\n\nI'm now diving into Dr. med. Turan's profile as the Efficiency-Driven Psychiatrist, focusing on the system lifecycle. I'm pinpointing existing elements, identifying any scenario gaps, and making note of any scenarios that might be missing for this specific persona. I'm also ensuring I'm aware of the constraints, such as the limited time and reliance on outdated technology.\n\n\n**Assessing Scenario Coverage**\n\nI've evaluated the existing scenarios against Dr. Turan's lifecycle, finding that I cover the protocol preparation and client instruction stages in my workflow, and I've also identified a 90-second clinical scan of crumpled paper. Now, I'm focusing on whether Dr. Turan analyzes data solo, without the patient present.\n\n\n**Refining Workflow Details**\n\nI'm now zeroing in on workflow specifics for Dr. Turan. I've realized he usually analyzes data during the 15-minute patient slot, but writing letters or KIS interaction demands further exploration. I'm considering Dr. Sarah's scenario idea to adapt for Turan's \"Kurzarztbriefe\" or KIS updates. Furthermore, I've started delving into his data management, interventions, and modifications in relation to my workflow.\n\n\n**Pinpointing Information Sharing**\n\nI'm now focusing on Dr. Turan's information-sharing practices. I'm exploring if he uses templates, but it seems unlikely given his preference for standard clinic forms or photocopies. I'm also examining how he deals with safety net failures, particularly the analog instruction breakdown when a patient doesn't call during a crisis. Additionally, I'm analyzing the data silo issue with the KIS, specifically the need for discharge letters.\n\n\n**Clarifying Data Entry Methods**\n\nI'm now focusing on Dr. Turan's data entry. I've realized he manually types KIS updates, like changes in sleep and mood, from the notes on crumpled paper. This is similar to the analysis for insurance reports, but Turan's process is specific to KIS/Arztbrief. I'll also reference the \"Therapist deletes patient data\" idea.\n\n\n**Identifying Workflow Gaps**\n\nI'm now zeroing in on missing workflow scenarios for Dr. med. Turan. I've realized he's well-covered in the core loop but the \"Unused Emergency Plan\" is missing. I also need to account for his data entry tasks related to typing Arztbriefe and KIS documents. The pain point with analog data transfer into digital systems is similar to the analysis for insurance reports. I'm also considering the \"Therapist deletes patient data after retention period\" scenario, and I will be looking into what happens during Turan's vacation when a colleague in the MVZ sees a patient, given that the colleague would have no access to the patient's paper diary.\n\n\n",
+        "role": "model",
+        "tokenCount": 2035,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Initiating New Persona Analysis**\n\nI've just been authorized to shift focus to the next persona: Dr. med. Turan. I'm starting by analyzing this new request and making sure I'm clear on how to proceed. It's time to begin work on PERSONA-0.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Defining Scenario Requirements**\n\nI'm now diving into Dr. med. Turan's profile as the Efficiency-Driven Psychiatrist, focusing on the system lifecycle. I'm pinpointing existing elements, identifying any scenario gaps, and making note of any scenarios that might be missing for this specific persona. I'm also ensuring I'm aware of the constraints, such as the limited time and reliance on outdated technology.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Assessing Scenario Coverage**\n\nI've evaluated the existing scenarios against Dr. Turan's lifecycle, finding that I cover the protocol preparation and client instruction stages in my workflow, and I've also identified a 90-second clinical scan of crumpled paper. Now, I'm focusing on whether Dr. Turan analyzes data solo, without the patient present.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Refining Workflow Details**\n\nI'm now zeroing in on workflow specifics for Dr. Turan. I've realized he usually analyzes data during the 15-minute patient slot, but writing letters or KIS interaction demands further exploration. I'm considering Dr. Sarah's scenario idea to adapt for Turan's \"Kurzarztbriefe\" or KIS updates. Furthermore, I've started delving into his data management, interventions, and modifications in relation to my workflow.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Pinpointing Information Sharing**\n\nI'm now focusing on Dr. Turan's information-sharing practices. I'm exploring if he uses templates, but it seems unlikely given his preference for standard clinic forms or photocopies. I'm also examining how he deals with safety net failures, particularly the analog instruction breakdown when a patient doesn't call during a crisis. Additionally, I'm analyzing the data silo issue with the KIS, specifically the need for discharge letters.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Clarifying Data Entry Methods**\n\nI'm now focusing on Dr. Turan's data entry. I've realized he manually types KIS updates, like changes in sleep and mood, from the notes on crumpled paper. This is similar to the analysis for insurance reports, but Turan's process is specific to KIS/Arztbrief. I'll also reference the \"Therapist deletes patient data\" idea.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Identifying Workflow Gaps**\n\nI'm now zeroing in on missing workflow scenarios for Dr. med. Turan. I've realized he's well-covered in the core loop but the \"Unused Emergency Plan\" is missing. I also need to account for his data entry tasks related to typing Arztbriefe and KIS documents. The pain point with analog data transfer into digital systems is similar to the analysis for insurance reports. I'm also considering the \"Therapist deletes patient data after retention period\" scenario, and I will be looking into what happens during Turan's vacation when a colleague in the MVZ sees a patient, given that the colleague would have no access to the patient's paper diary.\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-22T08:27:05.747Z"
+      },
+      {
+        "text": "Perfekt, David ist damit abgeschlossen und lückenlos. \n\nGehen wir zur nächsten Persona im Alphabet: **Dr. med. Turan (PERSONA-012 / The Rapid Monitor)**.\n\n### 2. Dr. med. Turan (The Rapid Monitor)\n\n**Rolle:** Psychiater im MVZ / Klinik (Hohes Volumen, extremer Zeitdruck)\n**Aktuelle Szenarien (bereits erstellt & approved):**\n*   `creation`: Bereitet Medikamenten-Protokoll vor (SCEN-012-01)\n*   `distribution`: 90-Sekunden-Übergabe im Termin (SCEN-012-03)\n*   `analysis`: 90-Sekunden-Scan des zerknitterten Papiers (SCEN-012-02)\n\nSein direkter Kontakt mit dem Patienten (der Core-Lifecycle im Behandlungszimmer) ist bereits exzellent abgedeckt. Die Lücken bei Dr. Turan liegen in den Systemgrenzen, in Krisen und im Management. \n\nHier sind die fehlenden Szenarien für Dr. Turan:\n\n#### A. Intervention (Krisen- & Sicherheits-Layer)\n*   **Szenario 1: The Unused Emergency Plan** (`intervention.safety`)\n    *   *Verweis:* Wie im vorherigen Vorschlag bereits skizziert. Der Patient (Herr Berger) erlebt die gefährliche SNRI-Unruhe, ruft aber nicht an, weil der Notfallkontakt nur auf dem Zettel steht, der zu Hause liegt. Turan erfährt erst nach 4 Wochen davon und ist entsetzt, dass sein analoges Sicherheitsnetz versagt hat.\n\n#### B. Daten-Management & Bürokratie (Die Systemgrenzen)\n*   **Szenario 2: KIS-Dokumentation & Arztbriefe** (`analysis.therapist_solo` / `management.share_externally`)\n    *   *Verweis:* Dies ist das exakte Äquivalent zu **Dr. Sarahs \"Friday Night Gutachten\"** (aus meiner vorherigen Liste). Dr. Turan schreibt zwar keine langen Therapie-Gutachten, aber er muss am Ende des Quartals Kurzarztbriefe für die Hausärzte tippen. Er muss die handschriftlichen Daten vom Papier manuell in das digitale KIS (Klinikinformationssystem) übertragen. Das Problem ist exakt dasselbe: Medienbruch. *Wir verweisen hier für die Umsetzung auf Dr. Sarahs Gutachten-Szenario, da der Schmerz identisch ist.*\n\n*   **Szenario 3: Löschpflicht vs. Aufbewahrungspflicht** (`management.destroy_data_intentionally`)\n    *   *Verweis:* Wie im `SCENARIO_INDEX` unter Ideen bereits gelistet (\"Therapist deletes patient data after retention period\"). Turan muss sicherstellen, dass digitale Aufzeichnungen nach 10 Jahren (Patientenrechtegesetz) restlos gelöscht werden, aber vorher revisionssicher gespeichert sind.\n\n#### C. Out-of-the-Box (Praxis-Alltag im MVZ)\n*   **Szenario 4: The Blind Colleague Handover** \n    *   **Kategorie:** `management.share_externally` (Interne Praxis-Übergabe)\n    *   **Worum es geht:** Dr. Turan ist im Urlaub. Herr Berger kommt als Notfall-Einschub zu einer Kollegin im gleichen MVZ. Die Kollegin öffnet das KIS und sieht: \"Medikamentenwechsel auf Venlafaxin vor 2 Wochen.\" Herr Berger hat sein Papiertagebuch heute nicht dabei (es war ja kein regulärer Termin). Die Kollegin ist komplett blind im Blindflug, weil die getrackten Daten nur auf einem Zettel beim Patienten existieren und nicht im Praxissystem.\n    *   **Warum wir es brauchen:** Es zeigt den massiven Nachteil von patientengebundenen (analogen oder rein lokalen) Daten in Gemeinschaftspraxen/Kliniken. Wenn der Arzt wechselt, bricht die Informationskette ab. (Setzt klare Anforderungen an PDF-Exporte oder Arztbrief-Integration).\n\n---\n\n**Vollständigkeits-Check für Dr. Turan:**\n*   [x] Planerstellung (Erledigt: SCEN-012-01)\n*   [x] Planübergabe (Erledigt: SCEN-012-03)\n*   [x] Datenanalyse im Termin (Erledigt: SCEN-012-02)\n*   [x] Intervention / Sicherheit (Fehlt -> abgedeckt durch Sz 1)\n*   [x] Management / KIS-Integration (Fehlt -> abgedeckt durch Verweise Sz 2 & 3)\n*   [x] Out-of-the-Box / Praxisalltag (Fehlt -> abgedeckt durch Sz 4)\n\nBist du mit diesem Set für Dr. Turan einverstanden? Dann würde ich alphabetisch zur nächsten Persona wechseln: **Dr. Sarah (PERSONA-001)**.",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1124,
+        "parts": [
+          {
+            "text": "Perfekt, David ist damit abgeschlossen und lückenlos. \n\nGehen wir zur nächsten Persona im"
+          },
+          {
+            "text": " Alphabet: **Dr. med. Turan (PERSONA-012 / The Rapid Monitor)**.\n\n### 2."
+          },
+          {
+            "text": " Dr. med. Turan (The Rapid Monitor)\n\n**Rolle:** Psychiater im MVZ / Klinik"
+          },
+          {
+            "text": " (Hohes Volumen, extremer Zeitdruck)\n**Aktuelle Szenarien (bereits erstellt & approved):**\n*   `creation"
+          },
+          {
+            "text": "`: Bereitet Medikamenten-Protokoll vor (SCEN-012-01)\n*   `distribution`:"
+          },
+          {
+            "text": " 90-Sekunden-Übergabe im Termin (SCEN-012-03)\n*   `analysis"
+          },
+          {
+            "text": "`: 90-Sekunden-Scan des zerknitterten Papiers (SCEN-012-02)\n\nSe"
+          },
+          {
+            "text": "in direkter Kontakt mit dem Patienten (der Core-Lifecycle im Behandlungszimmer) ist bereits exzellent abgede"
+          },
+          {
+            "text": "ckt. Die Lücken bei Dr. Turan liegen in den Systemgrenzen, in Krisen und im Management. \n\nHier"
+          },
+          {
+            "text": " sind die fehlenden Szenarien für Dr. Turan:\n\n#### A. Intervention (Krisen- & Sicherheits-Layer)\n*   **"
+          },
+          {
+            "text": "Szenario 1: The Unused Emergency Plan** (`intervention.safety`)\n    *   *Verweis:*"
+          },
+          {
+            "text": " Wie im vorherigen Vorschlag bereits skizziert. Der Patient (Herr Berger) erlebt die gefährliche SNRI-Un"
+          },
+          {
+            "text": "ruhe, ruft aber nicht an, weil der Notfallkontakt nur auf dem Zettel steht, der zu Hause liegt. Turan"
+          },
+          {
+            "text": " erfährt erst nach 4 Wochen davon und ist entsetzt, dass sein analoges Sicherheitsnetz versagt hat.\n\n"
+          },
+          {
+            "text": "#### B. Daten-Management & Bürokratie (Die Systemgrenzen)\n*   **Szenario "
+          },
+          {
+            "text": "2: KIS-Dokumentation & Arztbriefe** (`analysis.therapist_solo` / `management.share_extern"
+          },
+          {
+            "text": "ally`)\n    *   *Verweis:* Dies ist das exakte Äquivalent zu **Dr. Sarahs \"Friday Night"
+          },
+          {
+            "text": " Gutachten\"** (aus meiner vorherigen Liste). Dr. Turan schreibt zwar keine langen Therapie-Gutachten, aber er muss"
+          },
+          {
+            "text": " am Ende des Quartals Kurzarztbriefe für die Hausärzte tippen. Er muss die handschriftlichen Daten vom Papier manu"
+          },
+          {
+            "text": "ell in das digitale KIS (Klinikinformationssystem) übertragen. Das Problem ist exakt dasselbe: Medienbruch. *"
+          },
+          {
+            "text": "Wir verweisen hier für die Umsetzung auf Dr. Sarahs Gutachten-Szenario, da der Schmerz identisch ist.*\n\n*"
+          },
+          {
+            "text": "   **Szenario 3: Löschpflicht vs. Aufbewahrungspflicht** (`management.destroy_data_intentionally`)\n    "
+          },
+          {
+            "text": "*   *Verweis:* Wie im `SCENARIO_INDEX` unter Ideen bereits gelistet (\"Therapist deletes patient data after retention"
+          },
+          {
+            "text": " period\"). Turan muss sicherstellen, dass digitale Aufzeichnungen nach 10 Jahren (Patientenrechtegesetz) restlos gelöscht"
+          },
+          {
+            "text": " werden, aber vorher revisionssicher gespeichert sind.\n\n#### C. Out-of-the-Box (Praxis"
+          },
+          {
+            "text": "-Alltag im MVZ)\n*   **Szenario 4: The Blind Colleague Handover**"
+          },
+          {
+            "text": " \n    *   **Kategorie:** `management.share_externally` (Interne Praxis-Übergabe)"
+          },
+          {
+            "text": "\n    *   **Worum es geht:** Dr. Turan ist im Urlaub. Herr Berger kommt als Notfall"
+          },
+          {
+            "text": "-Einschub zu einer Kollegin im gleichen MVZ. Die Kollegin öffnet das KIS und sieht:"
+          },
+          {
+            "text": " \"Medikamentenwechsel auf Venlafaxin vor 2 Wochen.\" Herr Berger hat sein Papiertagebuch heute"
+          },
+          {
+            "text": " nicht dabei (es war ja kein regulärer Termin). Die Kollegin ist komplett blind im Blindflug, weil die get"
+          },
+          {
+            "text": "rackten Daten nur auf einem Zettel beim Patienten existieren und nicht im Praxissystem.\n    *   "
+          },
+          {
+            "text": "**Warum wir es brauchen:** Es zeigt den massiven Nachteil von patientengebundenen (analogen oder rein"
+          },
+          {
+            "text": " lokalen) Daten in Gemeinschaftspraxen/Kliniken. Wenn der Arzt wechselt, bricht die Informationskette ab. (Set"
+          },
+          {
+            "text": "zt klare Anforderungen an PDF-Exporte oder Arztbrief-Integration).\n\n---\n\n**Vollständigkeits-Check für Dr. Turan"
+          },
+          {
+            "text": ":**\n*   [x] Planerstellung (Erledigt: SCEN-012-01)\n*   [x]"
+          },
+          {
+            "text": " Planübergabe (Erledigt: SCEN-012-03)\n*   [x]"
+          },
+          {
+            "text": " Datenanalyse im Termin (Erledigt: SCEN-012-02)\n*   [x]"
+          },
+          {
+            "text": " Intervention / Sicherheit (Fehlt -> abgedeckt durch Sz 1)\n*   [x] Management / K"
+          },
+          {
+            "text": "IS-Integration (Fehlt -> abgedeckt durch Verweise Sz 2 & 3)\n*   [x] Out"
+          },
+          {
+            "text": "-of-the-Box / Praxisalltag (Fehlt -> abgedeckt durch Sz 4)\n\nB"
+          },
+          {
+            "text": "ist du mit diesem Set für Dr. Turan einverstanden? Dann würde ich alphabetisch zur nächsten Persona wechseln: **Dr. Sarah (PERSON"
+          },
+          {
+            "text": "A-001)**."
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

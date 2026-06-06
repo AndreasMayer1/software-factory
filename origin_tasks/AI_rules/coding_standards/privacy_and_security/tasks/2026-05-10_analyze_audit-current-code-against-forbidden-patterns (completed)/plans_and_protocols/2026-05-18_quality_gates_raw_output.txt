@@ -1,0 +1,63 @@
+
+===================================================================
+GATE: SP1 no-network-io  (check_no_network_io.sh)
+===================================================================
+PASS: SP1 (no network I/O) — 0 matches in lib/
+
+===================================================================
+GATE: SP2 no-telemetry-sdks  (check_no_telemetry_sdks.py)
+===================================================================
+PASS: SP2 (no telemetry SDKs) — pubspec.yaml clean
+
+===================================================================
+GATE: SP3 no-hardcoded-secret  (check_no_hardcoded_secrets.sh)
+===================================================================
+PASS: SP3 (no hardcoded secrets) — 0 candidate matches
+
+===================================================================
+GATE: SP4 no-weak-crypto  (check_weak_crypto.sh)
+===================================================================
+PASS: SP4 (no weak crypto in security paths) — 0 unjustified uses in lib/
+
+===================================================================
+GATE: AC11 suppression-just.  (check_suppression_justification.sh)
+===================================================================
+FAIL: REQ-PROC-046 AC-11 (suppression justification) — 6 unjustified suppression(s):
+  lib/features/therapist/clients/presentation/bloc/therapist_clients_bloc.dart:17:       // ignore: invalid_use_of_visible_for_testing_member
+  lib/features/therapist/clients/presentation/bloc/therapist_clients_bloc.dart:65:   // ignore: unused_element
+  lib/features/therapist/plan_templates/presentation/bloc/plan_templates_bloc.dart:22:       // ignore: invalid_use_of_visible_for_testing_member
+  lib/features/therapist/plan_templates/presentation/bloc/plan_templates_bloc.dart:56:   // ignore: unused_element
+  lib/features/therapist/plan_templates/presentation/bloc/plan_templates_bloc.dart:65:   // ignore: unused_element
+  test/unit/features/therapist/data_transfer/data/services/camera_tier_probe_service_test.dart:78:   // ignore: must_call_super
+
+Each // ignore: or // ignore_for_file: directive must be preceded
+by (or trailed by, on the same line) a comment naming WHY the
+suppression is correct. Minimum 12 characters of content.
+
+===================================================================
+GATE: AC12 no-debug-artifacts  (check_no_debug_artifacts.sh)
+===================================================================
+FAIL: REQ-PROC-046 AC-12 (no leftover debug artifacts) — 5 finding(s):
+  --- debugPrint without [DIAG-*] prefix (5) ---
+    lib/features/client/data_receive/presentation/screens/data_beam_scanner_screen.dart:239:      debugPrint('[QR-Windows] decode: isValid=${result.isValid}, error=${result.error}');
+    lib/features/client/data_receive/presentation/screens/data_beam_scanner_screen.dart:246:      debugPrint('[QR-Windows] scan tick exception: $e'); // FIX F3: was catch (_) {}
+    lib/features/client/data_receive/presentation/screens/data_beam_scanner_screen.dart:305:          debugPrint('[QR-Android] Camera init FAILED: $error');
+    lib/features/client/data_receive/presentation/screens/data_beam_scanner_screen.dart:307:          debugPrint('[QR-Android] Camera init OK: ${controller?.description}');
+    lib/main.dart:66:    debugPrint('Initialization error in main: $e\nStack trace:\n$s');
+
+If a debugPrint is part of an active bugfix, prefix the message with
+  '[DIAG-<short-tag>] '   (CLAUDE.md bugfix conventions)
+and clean it up before task-complete-bugfix. // TEMPORARY: blocks
+must be deleted before the task is marked done.
+
+===================================================================
+QUALITY GATES SUMMARY
+===================================================================
+  PASS   SP1 no-network-io
+  PASS   SP2 no-telemetry-sdks
+  PASS   SP3 no-hardcoded-secret
+  PASS   SP4 no-weak-crypto
+  FAIL   AC11 suppression-just.
+  FAIL   AC12 no-debug-artifacts
+
+One or more quality gates FAILED. See per-gate output above.

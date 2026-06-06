@@ -1,0 +1,186 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Vorerst reicht mir das zu turan. Hast du noch einen Nachtrag zu David? ",
+        "role": "user",
+        "tokenCount": 21,
+        "createTime": "2026-02-22T08:40:53.829Z"
+      },
+      {
+        "text": "**Considering David's Role**\n\nI'm now contemplating David's potential addendum. I'm assessing any lingering insights related to his role, and looking for a suitable supplement to the existing material. My primary task is to discern if a significant addendum is warranted, based on my current understanding of the subject.\n\n\n**Analyzing David's Profile**\n\nI'm now diving deep into David's profile, a creative adult with ADHD. I'm focusing on his challenges: structure, system-hopping, Shiny Object Syndrome, and working memory. I'm also considering scenarios like the \"Widget Lifeline\" and the \"Dopamine Menu,\" aiming to refine coping strategies. I am reviewing the \"Endless Template Hunt,\" and considering needs for meds, sleep, and focus tracking. I am investigating scenarios like the \"3-Second Friction,\" and the \"3-Day Hyperfocus\". I'm also looking for patterns to support him in overcoming those challenges.\n\n\n**Pinpointing David's Gaps**\n\nI'm now identifying potential gaps in David's experience. I'm focusing on \"Blind Data Corruption,\" where he might accidentally delete information, and \"Guilt-Tax,\" a tendency to feel like a failure with systems. I'm also considering \"Notification Blindness\" and alarm fatigue as a significant challenge that must be addressed. I am looking for ways to remedy these blind spots in his approach.\n\n\n**Examining David's Systems**\n\nI'm now zeroing in on David's system interactions. I'm focusing on \"modification.autonomous,\" specifically the \"Infinite Tweaking Loop\" where he modifies systems instead of using them. This is an extension of Shiny Object Syndrome and a form of productive procrastination, like spending 45 minutes to 'perfect' a Notion template before entering data. I'm also examining notification blindness and alarm fatigue. I'm looking for patterns to support him in overcoming those challenges.\n\n\n",
+        "role": "model",
+        "tokenCount": 982,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Considering David's Role**\n\nI'm now contemplating David's potential addendum. I'm assessing any lingering insights related to his role, and looking for a suitable supplement to the existing material. My primary task is to discern if a significant addendum is warranted, based on my current understanding of the subject.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Analyzing David's Profile**\n\nI'm now diving deep into David's profile, a creative adult with ADHD. I'm focusing on his challenges: structure, system-hopping, Shiny Object Syndrome, and working memory. I'm also considering scenarios like the \"Widget Lifeline\" and the \"Dopamine Menu,\" aiming to refine coping strategies. I am reviewing the \"Endless Template Hunt,\" and considering needs for meds, sleep, and focus tracking. I am investigating scenarios like the \"3-Second Friction,\" and the \"3-Day Hyperfocus\". I'm also looking for patterns to support him in overcoming those challenges.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Pinpointing David's Gaps**\n\nI'm now identifying potential gaps in David's experience. I'm focusing on \"Blind Data Corruption,\" where he might accidentally delete information, and \"Guilt-Tax,\" a tendency to feel like a failure with systems. I'm also considering \"Notification Blindness\" and alarm fatigue as a significant challenge that must be addressed. I am looking for ways to remedy these blind spots in his approach.\n\n\n",
+            "thought": true
+          },
+          {
+            "text": "**Examining David's Systems**\n\nI'm now zeroing in on David's system interactions. I'm focusing on \"modification.autonomous,\" specifically the \"Infinite Tweaking Loop\" where he modifies systems instead of using them. This is an extension of Shiny Object Syndrome and a form of productive procrastination, like spending 45 minutes to 'perfect' a Notion template before entering data. I'm also examining notification blindness and alarm fatigue. I'm looking for patterns to support him in overcoming those challenges.\n\n\n",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-02-22T08:40:53.830Z"
+      },
+      {
+        "text": "Tatsächlich, wo wir eben bei Turan so schön \"out-of-the-box\" und systemisch gedacht haben, ist mir für **David (ADHS Self-User)** im Nachhinein noch ein fundamentaler ADHS-spezifischer Mechanismus aufgefallen, den wir übersehen haben. \n\nWir haben seinen Start (Setup) und sein Scheitern (Streak gebrochen) abgedeckt, aber was passiert *dazwischen*, wenn er an dem System eigentlich festhalten will? \n\nHier ist mein Nachtrag für David – zwei Szenarien, die die ADHS-Realität komplett machen:\n\n#### Nachtrag David (Out-of-the-Box ADHS-Mechanismen)\n\n*   **Szenario 10: The Infinite Tweaking Loop (Productive Procrastination)**\n    *   **Kategorie:** `modification.autonomous` (Den Plan selbst ändern)\n    *   **Worum es geht:** David hat am Abend eigentlich das Ziel, seinen Tagesabschluss zu tracken. Aber anstatt die drei Werte einzugeben, fällt ihm auf, dass die Kategorie \"Schlaf\" besser in zwei Spalten (Dauer + Qualität) aufgeteilt werden sollte. Er öffnet die Konfiguration (aktuell in Notion oder einer flexiblen App). Er verbringt **45 Minuten** damit, Spalten zu verschieben, Farbcodes zu ändern und neue Icons auszuwählen. Am Ende hat er das perfekte Dashboard gebaut – geht aber erschöpft ins Bett, **ohne** die eigentlichen Tagesdaten eingegeben zu haben.\n    *   **Warum wir es brauchen:** Für ADHS-Gehirne schüttet das *Bauen* von Systemen Dopamin aus, das reine *Befüllen* nicht. Eine gute Tracking-App muss \"Planerstellung\" strikt von \"Datenerfassung\" trennen, um den User davor zu schützen, das Erfassen durch ewiges \"System-Optimieren\" zu sabotieren. \n\n*   **Szenario 11: The Invisible Alarm (Notification Fatigue)**\n    *   **Kategorie:** `capture.routine` (oder Teil des Setup-Pains)\n    *   **Worum es geht:** David weiß, dass er abends oft vergisst zu tracken. Also stellt er sich einen festen täglichen Push-Alarm auf 20:30 Uhr: \"Erfasse deinen Tag!\". Tag 1 und 2 klappt das. Ab Tag 4 filtert sein Gehirn die Benachrichtigung komplett als \"visuelles Rauschen\" heraus. Sein Finger wischt den Push-Alarm reflexartig auf dem Lockscreen weg, noch bevor die Info überhaupt in seinem Bewusstsein ankommt. \n    *   **Warum wir es brauchen:** Standard-Erinnerungen funktionieren bei ADHS oft nur ein paar Tage. Ein statischer Alarm um immer die gleiche Uhrzeit verliert sofort seine Wirksamkeit. Wir lernen daraus: Ein statisches Push-Konzept rettet diesen User nicht, das System braucht andere Ansätze (wie Widget-Permanenz, die wir schon in Sz 1 definiert haben).\n\n---\n\nDas \"Tweak-Prokrastinieren\" (Sz 10) und das \"Notification-Wegwischen\" (Sz 11) sind die klassischen ADHS-Todesstöße für eigentlich gut gemeinte Gewohnheiten. \n\nZusammen mit den vorigen Punkten bin ich mir nun absolut sicher: **David ist zu 100% geknackt und psychologisch durchleuchtet.**\n\nWollen wir jetzt wie geplant weiter zu **Dr. Sarah (PERSONA-001)** gehen? Sie vertritt ja eine völlig andere Arbeitsrealität als Dr. Turan.",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 795,
+        "parts": [
+          {
+            "text": "Tatsächlich, wo"
+          },
+          {
+            "text": " wir eben bei Turan so schön \"out-of-the-box\" und systemisch gedacht haben, ist mir für"
+          },
+          {
+            "text": " **David (ADHS Self-User)** im Nachhinein noch ein fundamentaler ADHS-spezifischer Mechanismus aufge"
+          },
+          {
+            "text": "fallen, den wir übersehen haben. \n\nWir haben seinen Start (Setup) und sein Scheitern (Streak geb"
+          },
+          {
+            "text": "rochen) abgedeckt, aber was passiert *dazwischen*, wenn er an dem System eigentlich festhalten will? \n\nHier"
+          },
+          {
+            "text": " ist mein Nachtrag für David – zwei Szenarien, die die ADHS-Realität komplett machen:\n\n#### Nacht"
+          },
+          {
+            "text": "rag David (Out-of-the-Box ADHS-Mechanismen)\n\n*   **Szenario 10: The Infinite Twe"
+          },
+          {
+            "text": "aking Loop (Productive Procrastination)**\n    *   **Kategorie:** `modification.autonomous` (Den"
+          },
+          {
+            "text": " Plan selbst ändern)\n    *   **Worum es geht:** David hat am Abend eigentlich das Ziel, seinen Tagesabschluss zu"
+          },
+          {
+            "text": " tracken. Aber anstatt die drei Werte einzugeben, fällt ihm auf, dass die Kategorie \"Schlaf\" besser in zwei"
+          },
+          {
+            "text": " Spalten (Dauer + Qualität) aufgeteilt werden sollte. Er öffnet die Konfiguration (aktuell in Notion"
+          },
+          {
+            "text": " oder einer flexiblen App). Er verbringt **45 Minuten** damit, Spalten zu verschieben, Farbcodes zu ändern"
+          },
+          {
+            "text": " und neue Icons auszuwählen. Am Ende hat er das perfekte Dashboard gebaut – geht aber erschöpft ins Bett, **"
+          },
+          {
+            "text": "ohne** die eigentlichen Tagesdaten eingegeben zu haben.\n    *   **Warum wir es brauchen:** Für"
+          },
+          {
+            "text": " ADHS-Gehirne schüttet das *Bauen* von Systemen Dopamin aus, das reine *B"
+          },
+          {
+            "text": "efüllen* nicht. Eine gute Tracking-App muss \"Planerstellung\" strikt von \"Datenerfassung\" trennen, um den"
+          },
+          {
+            "text": " User davor zu schützen, das Erfassen durch ewiges \"System-Optimieren\" zu sabotieren. "
+          },
+          {
+            "text": "\n\n*   **Szenario 11: The Invisible Alarm (Notification Fatigue)**\n    *   **Kategorie"
+          },
+          {
+            "text": ":** `capture.routine` (oder Teil des Setup-Pains)\n    *   **Worum es geht:** David weiß"
+          },
+          {
+            "text": ", dass er abends oft vergisst zu tracken. Also stellt er sich einen festen täglichen Push-Alarm"
+          },
+          {
+            "text": " auf 20:30 Uhr: \"Erfasse deinen Tag!\". Tag 1 und 2 klappt das"
+          },
+          {
+            "text": ". Ab Tag 4 filtert sein Gehirn die Benachrichtigung komplett als \"visuelles Rauschen\" heraus. Sein"
+          },
+          {
+            "text": " Finger wischt den Push-Alarm reflexartig auf dem Lockscreen weg, noch bevor die Info überhaupt in seinem Bewusstsein an"
+          },
+          {
+            "text": "kommt. \n    *   **Warum wir es brauchen:** Standard-Erinnerungen funktionieren bei ADHS oft nur ein paar Tage."
+          },
+          {
+            "text": " Ein statischer Alarm um immer die gleiche Uhrzeit verliert sofort seine Wirksamkeit. Wir lernen daraus: Ein stat"
+          },
+          {
+            "text": "isches Push-Konzept rettet diesen User nicht, das System braucht andere Ansätze (wie Widget-Permanenz, die wir schon in"
+          },
+          {
+            "text": " Sz 1 definiert haben).\n\n---\n\nDas \"Tweak-Prokrastinieren\" (Sz 10)"
+          },
+          {
+            "text": " und das \"Notification-Wegwischen\" (Sz 11) sind die klassischen ADHS-Todes"
+          },
+          {
+            "text": "stöße für eigentlich gut gemeinte Gewohnheiten. \n\nZusammen mit den vorigen Punkten bin ich mir nun absolut sicher:"
+          },
+          {
+            "text": " **David ist zu 100% geknackt und psychologisch durchleuchtet.**\n\nWollen wir jetzt wie geplant weiter zu **"
+          },
+          {
+            "text": "Dr. Sarah (PERSONA-001)** gehen? Sie vertritt ja eine völlig andere Arbeitsrealität als Dr"
+          },
+          {
+            "text": ". Turan."
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

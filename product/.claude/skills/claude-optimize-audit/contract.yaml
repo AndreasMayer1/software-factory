@@ -1,0 +1,45 @@
+contract_version: 1
+skill: claude-optimize-audit
+purpose: >
+  Score the claude-optimize loop's effectiveness using deterministic inputs only
+  (runs.tsv, git log). Invokes scripts/optimize/audit.py, writes a dated report,
+  appends audit_history.tsv, and commits. Never uses LLM judgment for scoring.
+
+derived_from:
+  required:
+    - path: optimize-runs
+      source: external
+      reason: Primary input for user-unblock-rate and revert-rate computation.
+    - path: optimize-runs
+      source: external
+      reason: Previous audit scores; delta computed against last entry.
+
+produces:
+  required:
+    - path: optimize-audit
+      reason: Human-readable audit report with per-criterion breakdown and trend delta.
+    - path: optimize-runs
+      reason: One TSV line appended per audit run (score, delta, rates, notes).
+
+quality_criteria:
+  - All scoring is delegated to scripts/optimize/audit.py (no LLM arithmetic).
+  - This skill never invokes claude-optimize or create_optimize_task.py (G-INV-3).
+  - Audit is user-demand only — never triggered automatically.
+  - Empty runs.tsv exits with code 2 (no history) without writing the history line.
+
+may_invoke:
+  - claude-commit
+
+side_effects:
+  - target: .factory/optimize/history/audit_history.tsv
+    action: append
+    note: One TSV line per audit run.
+  - target: .factory/optimize/reports/<date>_audit.md
+    action: write
+    note: New dated report file.
+
+preconditions:
+  - runs.tsv contains at least one entry (otherwise audit exits 2).
+
+postconditions:
+  - Audit report written and audit_history.tsv updated and committed.

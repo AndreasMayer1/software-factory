@@ -1,0 +1,41 @@
+# Example location: automation/pending_feedback/TASK-FUNC-007-15/revision_target.yaml
+#
+# This file demonstrates the bidirectional-feedback channel pattern.
+# It lives INSIDE pending_feedback/{TASK_ID}/ alongside the existing question.md / answer.md.
+# The orchestrator's single scan of pending_feedback/ picks it up automatically —
+# no second channel needed (Magentic pattern, file 02 §Q2).
+#
+# The responder_required discriminator mirrors Magentic's approve() / revise(feedback)
+# typed request: 'human' = HITL escalation, 'skill' = autonomous skill-to-skill loop,
+# 'either' = skill tries first, escalates to human if skill loop exceeds cycle_count max.
+
+originator: ui-verify-flutter
+target_skill: ui-create-scribble
+target_phase: phase4_feedback_classify   # which phase of the target skill handles this
+
+artifact: requirements_tasks/functional/client/mood_capture/tasks/2026-05-20_impl_mood-capture-screen/scribbles/v3/
+reason: structural   # structural | visual | missing_screen | requirement_gap | rule_violation
+
+responder_required: skill   # human | skill | either
+# 'skill' means the orchestrator dispatches this directly to ui-create-scribble Phase 4
+# without pausing for human input. Use 'human' for rule-tier decisions.
+
+detail: |
+  Screen 03 (03_review_mood.html) has [NavigationBar] in the scribble component mapping
+  block, but the implemented Flutter widget is [TabBar] + [TabBarView] because this is a
+  sub-destination within the mood capture flow (not a primary destination).
+
+  The M3 Widget Hierarchy table in SKILL.md explicitly says:
+    "Sub-destination tabs → [TabBar] + [TabBarView]; NEVER [NavigationBar] for sub-tabs"
+
+  The scribble must be corrected to use [TabBar] so that ui-verify-flutter can confirm
+  structural alignment on the next run.
+
+suggested_action: regenerate_v4_corrected_component
+# Expected action: ui-create-scribble regenerates v4 replacing [NavigationBar] with
+# [TabBar] + [TabBarView] on screen 03 only (partial regeneration path, Phase 1).
+# Other screens copy verbatim from v3.
+
+blocks_completion_of: TASK-FUNC-007-15
+cycle_count: 1   # increments on each revision loop; escalates to human at 5 (CLAUDE.md §7)
+created: 2026-05-29

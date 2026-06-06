@@ -1,0 +1,61 @@
+contract_version: 1
+skill: requ-apply-market
+purpose: >
+  Push structured market research findings into requirements (Mode A) or scope
+  exclusions in persona/scenario files (Mode B). Updates market_research_refs
+  YAML and marks findings as applied in findings.md.
+
+derived_from:
+  required:
+    - path: market-findings
+      source: external
+      reason: Source findings file — read to identify demand/quality/flow/exclusion findings.
+  optional:
+    - path: requirements
+      source: skill:requ-explore
+      reason: Target requirement updated with market_research_refs entries (Mode A).
+    - path: persona
+      source: external
+      reason: Target persona updated with scope_exclusions entries (Mode B).
+    - path: scenario
+      source: external
+      reason: Target scenario updated with scope_exclusions entries (Mode B).
+
+produces:
+  conditional:
+    - path: requirements
+      condition: updated in Mode A when user confirms a finding-to-requirement mapping.
+      reason: market_research_refs YAML added to link findings to the requirement.
+    - path: persona
+      condition: updated in Mode B when user confirms an exclusion applies to this persona.
+      reason: scope_exclusions entry added per README_17 schema.
+    - path: market-findings
+      condition: always updated after processing to mark applied findings.
+      reason: Applied to checklist kept accurate for future requ-apply-market runs.
+
+quality_criteria:
+  - Target file is always read before editing to verify YAML structure.
+  - market_research_refs goes in YAML frontmatter (Mode A); scope_exclusions follows README_17 position rules (Mode B).
+  - Findings with Applied to already checked are skipped unless user overrides.
+  - Conflict between finding and existing user_needs reference is surfaced before writing.
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_tasks/<feature>/requirements.md
+    action: write
+    note: market_research_refs field added/updated (Mode A).
+  - target: requirements_user_needs/personas/<name>/persona.md
+    action: write
+    note: scope_exclusions entry added (Mode B).
+  - target: requirements_market_research/<batch>/findings.md
+    action: write
+    note: Applied to checklist updated.
+
+preconditions:
+  - User has provided the findings.md path and a mode (A or B).
+  - User confirms each finding-to-target mapping before writing.
+
+postconditions:
+  - Confirmed findings are reflected in requirement or persona/scenario files.
+  - findings.md Applied to checklist marks applied entries.

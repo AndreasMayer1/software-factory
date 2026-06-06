@@ -1,0 +1,17 @@
+contract_version: 1
+purpose: >
+  Software Factory Supervisor. Reviews native Claude Code usage and custom
+  configuration across the last 5-10 tasks, identifies systemic inefficiencies and
+  root causes, and produces a prioritized optimization report recommending changes to
+  skills, agents, and CLAUDE.md. Advisory — recommends, does not auto-apply.
+derived_from:
+  - claude-md  # §8 Self-Improvement
+consumes:
+  - protocol  # protocol logs from the last 5-10 tasks
+  - skill  # workflow skills reviewed for gaps
+  - agent  # agent prompts reviewed for effectiveness
+  - claude-md  # constitution rules reviewed for adherence
+produces:
+  # optimization report: findings, root causes, prioritized recommendations
+  # (High/Medium/Low) for skills, agents, CLAUDE.md
+  - protocol

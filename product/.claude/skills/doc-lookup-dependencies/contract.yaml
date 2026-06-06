@@ -1,0 +1,45 @@
+contract_version: 1
+skill: doc-lookup-dependencies
+purpose: >
+  Look up official API documentation for a dependency before the caller emits
+  a call into it (REQ-PROC-053). Implements dedup via a per-task JSONL log,
+  enforces a per-task budget band, and channels lookups through context7,
+  official docs, or WebSearch fallback.
+
+derived_from:
+  required:
+    - path: goal
+      source: skill:task-create
+      schema: .claude/schemas/goal_metadata.yaml
+      reason: effort field determines the budget band (XS/S=5, M=10, L/XL=25).
+  optional:
+    - path: lookup-log
+      source: external
+      reason: >
+        Per-task dedup ledger read on every invocation to detect cache hits.
+        Created by this skill on first use (touch); treated as external after creation.
+
+produces:
+  required:
+    - path: lookup-log
+      reason: One JSON line appended per invocation (looked_up, skipped_evidence_*, fallback, or budget_capped).
+
+quality_criteria:
+  - Cache hit (skipped_evidence_b) returned without a network call when the same key was already looked_up this task.
+  - Budget is checked BEFORE any network call; BUDGET_CAPPED sentinel returned at limit.
+  - dedup_key is always included in appended records.
+  - Fallback to WebSearch is documented with a note explaining why ctx7/official failed.
+
+may_invoke: []
+
+side_effects:
+  - target: requirements_tasks/<task>/plans_and_protocols/lookup_log.jsonl
+    action: append
+    note: One JSON line per call.
+
+preconditions:
+  - Caller has provided technology, api-surface, and pinned-version arguments.
+
+postconditions:
+  - result_summary (1–3 lines) returned to caller, OR BUDGET_CAPPED sentinel returned.
+  - lookup_log.jsonl contains a record for this call.

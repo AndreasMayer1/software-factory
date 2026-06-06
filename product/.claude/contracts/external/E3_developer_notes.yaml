@@ -1,0 +1,31 @@
+contract_version: 1
+kind: external-interface
+interface: E3
+title: Developer notes
+direction: dev -> factory (file drop)
+purpose: >
+  The developer drops a notes or context file into a known location before starting
+  a session. Skills read it to pick up additional context, decisions, or constraints
+  that are too long for a conversational turn. Mirrors the E1 pull pattern but for
+  forward-injected context rather than pending-feedback answers.
+
+derived_from:
+  required:
+    - path: automation/developer_notes/<context-slug>.md
+      source: external
+      input_modality: file
+      schema: null
+      reason: Free-form developer note; read by the orchestrator at session start.
+
+produces: {}
+
+quality_criteria:
+  - check: file_exists_at_path
+    target: automation/developer_notes/<context-slug>.md
+    note: Confirms the note was actually written before the session reads it.
+
+preconditions:
+  - The developer has written the note file before starting the automated session.
+postconditions:
+  - The session has ingested the note and any decisions recorded there are reflected
+    in subsequent skill execution.

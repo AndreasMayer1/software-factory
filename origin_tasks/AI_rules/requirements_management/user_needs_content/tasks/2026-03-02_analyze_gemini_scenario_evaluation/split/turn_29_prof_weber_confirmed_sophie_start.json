@@ -1,0 +1,324 @@
+{
+  "runSettings": {
+    "temperature": 1,
+    "model": "models/gemini-3.1-pro-preview",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "OFF"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "OFF"
+      }
+    ],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false,
+    "googleSearch": {},
+    "outputResolution": "1K",
+    "thinkingLevel": "THINKING_HIGH"
+  },
+  "systemInstruction": {},
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1UwoPR2xm5McMpd35j1Pa87Bb7L17Rl-Y"
+        },
+        "role": "user",
+        "tokenCount": 250679
+      },
+      {
+        "text": "Nehmen wir auf! Dann weiter mit sophie",
+        "role": "user",
+        "tokenCount": 11,
+        "createTime": "2026-03-01T09:23:38.959Z"
+      },
+      {
+        "text": "**Initiating Scenario Analysis**\n\nI'm now diving into the latest requests. I've accepted the new scenarios for Prof. Dr. Weber, specifically the Body Map and Tech Skeptic/Login Rupture situations. The next step is to initiate the persona of Sophie, as the persona is the final one alphabetically.\n\n\n**Refining Sophie's Profile**\n\nI'm now focusing on Sophie's profile, a therapy client with ADHD. I'm carefully reviewing her role as a \"Structure-Seeker\" and her specific traits: hyperfocus, object permanence issues, and the common cycles she experiences. My goal is to pinpoint \"Out-of-the-Box\" scenarios that realistically depict her daily life, especially her struggles with \"White Sheet Syndrome\" and \"Broken-Streak Shame\" related to therapy tracking.\n\n\n**Mapping the Missing Pieces**\n\nI'm now identifying critical gaps in Sophie's lifecycle, focusing on data capture in routines and spontaneous moments. I'm exploring how she handles tracking on difficult days and addresses medication side effects. I'm also examining her struggles with object permanence, reflecting on how her Zettelwirtschaft impacts daily life. Finally, I'm analyzing clusters: Autism Spectrum, OCD, and cognitive load issues.\n\n\n**Generating Scenario Concepts**\n\nI'm now expanding Sophie's scenarios, specifically two concepts. The first centers on her ADHD and time blindness, showing the difficulty of retrospective medication tracking, emphasizing the need for an immediate \"Timestamp Now\" function. The second focuses on her OCD tendencies. This one highlights the paralyzing effect of perfect tracking, where missing a detail feels ruinous, requiring a different approach to avoid triggering \"all-or-nothing\" thinking.\n\n\n**Analyzing System Vulnerabilities**\n\nI'm now zeroing in on a new scenario featuring Sophie's OCD and ADHD overlap. She's struggling with a task's visual presentation, and her perfectionism is causing her to abandon the effort completely. The scenario highlights digital tracking's advantages over paper. I'm also examining a \"Broken Chain\" scenario: a lost pen that derails her whole routine. It's a \"Pen Dependency / Missing Link\" showing how a minor disruption can trigger a full executive function collapse.\n\n\n**Exploring Dopamine Triggers**\n\nI'm now zeroing in on a new scenario I'm calling \"The Wall of Awful & Dopamine Fast-Lane.\" It describes Sophie, needing dopamine to start tasks, but finding her journal a source of negative dopamine. I'm exploring how it relates to her Autism/Sensory profile; the initial scenario drafted is Blank Slate Paralysis vs. Gamification Risk. I'm now leaning into Sophie's cluster aspects.\n\n\n**Developing Scenario Narratives**\n\nNow, I'm working to flesh out Sz 4, the Time Blindness Blackout scenario, and showing how a digital app could help with the problem of a lack of an internal clock. Next, I'm exploring Sz 5, The Missing Blue Pen, which centers on the vulnerability of paper-based systems due to executive dysfunction, emphasizing the inflexibility of micro-systems. Then, I'm developing the Perfectionism Paralysis scenario, where a handwriting error causes a full system breakdown.",
+        "role": "model",
+        "tokenCount": 1761,
+        "isThought": true,
+        "thinkingBudget": -1,
+        "parts": [
+          {
+            "text": "**Initiating Scenario Analysis**\n\nI'm now diving into the latest requests. I've accepted the new scenarios for Prof. Dr. Weber, specifically the Body Map and Tech Skeptic/Login Rupture situations. The next step is to initiate the persona of Sophie, as the persona is the final one alphabetically.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Refining Sophie's Profile**\n\nI'm now focusing on Sophie's profile, a therapy client with ADHD. I'm carefully reviewing her role as a \"Structure-Seeker\" and her specific traits: hyperfocus, object permanence issues, and the common cycles she experiences. My goal is to pinpoint \"Out-of-the-Box\" scenarios that realistically depict her daily life, especially her struggles with \"White Sheet Syndrome\" and \"Broken-Streak Shame\" related to therapy tracking.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Mapping the Missing Pieces**\n\nI'm now identifying critical gaps in Sophie's lifecycle, focusing on data capture in routines and spontaneous moments. I'm exploring how she handles tracking on difficult days and addresses medication side effects. I'm also examining her struggles with object permanence, reflecting on how her Zettelwirtschaft impacts daily life. Finally, I'm analyzing clusters: Autism Spectrum, OCD, and cognitive load issues.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Generating Scenario Concepts**\n\nI'm now expanding Sophie's scenarios, specifically two concepts. The first centers on her ADHD and time blindness, showing the difficulty of retrospective medication tracking, emphasizing the need for an immediate \"Timestamp Now\" function. The second focuses on her OCD tendencies. This one highlights the paralyzing effect of perfect tracking, where missing a detail feels ruinous, requiring a different approach to avoid triggering \"all-or-nothing\" thinking.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Analyzing System Vulnerabilities**\n\nI'm now zeroing in on a new scenario featuring Sophie's OCD and ADHD overlap. She's struggling with a task's visual presentation, and her perfectionism is causing her to abandon the effort completely. The scenario highlights digital tracking's advantages over paper. I'm also examining a \"Broken Chain\" scenario: a lost pen that derails her whole routine. It's a \"Pen Dependency / Missing Link\" showing how a minor disruption can trigger a full executive function collapse.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Exploring Dopamine Triggers**\n\nI'm now zeroing in on a new scenario I'm calling \"The Wall of Awful & Dopamine Fast-Lane.\" It describes Sophie, needing dopamine to start tasks, but finding her journal a source of negative dopamine. I'm exploring how it relates to her Autism/Sensory profile; the initial scenario drafted is Blank Slate Paralysis vs. Gamification Risk. I'm now leaning into Sophie's cluster aspects.",
+            "thought": true
+          },
+          {
+            "text": "\n\n\n**Developing Scenario Narratives**\n\nNow, I'm working to flesh out Sz 4, the Time Blindness Blackout scenario, and showing how a digital app could help with the problem of a lack of an internal clock. Next, I'm exploring Sz 5, The Missing Blue Pen, which centers on the vulnerability of paper-based systems due to executive dysfunction, emphasizing the inflexibility of micro-systems. Then, I'm developing the Perfectionism Paralysis scenario, where a handwriting error causes a full system breakdown.",
+            "thought": true
+          }
+        ],
+        "createTime": "2026-03-01T09:23:38.962Z"
+      },
+      {
+        "text": "\n\n\nFantastisch, Prof. Dr. Weber ist komplett und auch das somatische/tech-skeptische Cluster sitzt jetzt fest in seiner Matrix!\n\nUnd nun – feierlicher Trommelwirbel – die allerletzte reguläre Persona im Alphabet (da wir App Provider schon als Non-User geklärt hatten und das Maintenance/System ohnehin technische Backends beschreibt):\n\nWillkommen im Chaos von **S – Sophie (Die Struktur-Sucherin / PERSONA-010)**.\n\n**Rolle:** Therapie-Klientin (Erwachsenen-ADHS, Exekutive Dysfunktion)\n**Archetyp:** Begeistert sich radikal für neue Systeme, baut gigantische Workflows (Hyperfokus) und bricht ein paar Tage später unweigerlich ein, was tiefe Scham auslöst. Sie leidet an mangelnder \"Objektpermanenz\" (was sie nicht sieht, existiert nicht).\n**Aktuelle Szenarien (bereits erstellt & approved, die *Sophie Baseline* war das Benchmark zu Max):**\n*   `distribution` (SCEN-010-03): Baut schon beim Erhalten des Papiers einen 12-Stufen-Plan (Alarm, spezieller Stift, Post-its, Ordner-Tasche), Frau Kellner versucht, sie auf dem Boden zu halten.\n*   `analysis/prepare` (SCEN-010-02): Der Sonntagabend. Daten auf 5 Notizbücher verteilt, Sophie versinkt beim Durchlesen in einer Reddit-Ablenkung. 28% Compliance-Rate.\n*   `transfer/analysis` (SCEN-010-01): Der absolut seltene Siegeszug! Sie hat es ausgefüllt dabei, eine Mustererkennung (Medikamente vs. Stimmung) wird sofort sichtbar. Sie platzt fast vor kurzfristigem Stolz.\n\nAber was passiert *zwischen* dem hochmotivierten ersten Tag und der Sitzung? Das Herz des ADHS-Schmerzes im Alltag wurde hier noch gar nicht beleuchtet. Auch ihre Sub-Cluster (Autismus-Spektrum und Zwangsstörungen / OCD) brauchen UX-Stolperdrähte.\n\nHier sind die drei zwingenden Status-Quo-Fehlstarts, die Sophie abschließend perfekt machen:\n\n### A. Datenerfassung & Kognitive Verzerrung\n\n*   **Szenario 4: The Time Blindness Blackout (Die fehlende Stoppuhr)**\n    *   **Kategorie:** `capture.routine` & System Limits\n    *   **Worum es geht:** Sophies Auftrag (durch Frau Kellner) lautet: \"Tracke mal, wie schnell das Methylphenidat morgens bei dir anflutet.\" Sophie nimmt die Tablette um 08:00 Uhr, setzt sich an den PC und gerät in einen ADHS-Hyperfokus-Tunnel (eine Art Flow).\n    *   **Das Status-Quo-Problem:** Irgendwann merkt sie: *Ah, das Medikament wirkt, mir geht es gut!* Sie greift zum Papiertagebuch, um die Uhrzeit des Wirkungseintritts aufzuschreiben. Dann der Schock: Wie spät ist es? 12:30 Uhr?! ADHSler leiden stark unter *Zeitblindheit (Time Blindness)*. Für sie hätten 20 Minuten oder 4 Stunden vergangen sein können, sie hat keinerlei internes Zeitgefühl. Da auf Papier keine Meta-Daten hängen bleiben, muss sie die Wirkzeit raten – und erzeugt falsche Korrelationen.\n    *   **Warum wir es brauchen:** Erschafft den immensen Mehrwert des \"1-Tap-Time-Stampings\" in Apps. Wenn Sophie nur einen rohen, blöden Knopf klickt (\"Mir gehts jetzt besser!\"), hat die App unsichtbar im Hintergrund die System-Uhrzeit Sekunden-genau eingefroren. Etwas, was Papier niemals leisten kann, wenn das Gehirn der Zeit nicht mächtig ist.\n\n### B. Die radikale Fragilität von Motivation (Executive Collapse)\n\n*   **Szenario 5: The Missing Blue Pen (Wenn das Mikrosystem zerspringt)**\n    *   **Kategorie:** `capture.routine` (Sonderfall The Wall of Awful)\n    *   **Worum es geht:** Sophie hat in ihrer grenzenlosen Anfangs-Euphorie (siehe SCEN-010-03) festgelegt: *Ich tracke Stimmungen mit einem blauen Fineliner, Schlaf mit rotem, Medikamente mit grünem Kuli. Die Stifte liegen exakt neben dem Papier.* Es ist Mittwoch, 20:00 Uhr. Sie ist motiviert, das Protokoll zu füllen.\n    *   **Das Status-Quo-Problem:** Der blaue Fineliner ist weg (vom Küchentisch runtergerollt oder versehentlich in der Handtasche gelandet). Es gibt nur noch schwarze Stifte auf dem Tisch. Für ein neurotypisches Gehirn kein Problem. Für ein exekutiv dysfunktionales Gehirn (Wall of Awful) ist die Reibung nun absolut unüberwindbar: Das schöne \"System\" ist durch die schwarze Farbe beschmutzt, die Motivation stürzt komplett in sich zusammen. Wegen eines fehlenden Stifts verweigert sie den Eintrag für diesen Abend komplett. Der Streak reißt und die Routine zerfällt in der Zettelwirtschaft.\n    *   **Warum wir es brauchen:** Das verdeutlicht auf unerbittliche Weise: Für die ADHD-Gruppe muss das App-UI 100 % verlässlich, einheitlich und unverlierbar da sein. \"Setup is a trap.\" Eine gut durchdachte, feste in-App Farblogik ist die Prothese für ihr wegrollendes Stift-System in der Realität.\n\n### C. Out-of-the-Box: Das Zwang-/Autismus-Cluster (Visual Noise)\n\n*   **Szenario 6: The Typo Catastrophe (Perfectionism vs. Persistence)**\n    *   **Kategorie:** `management.destruction` / OCD-Cluster Repräsentation\n    *   **Worum es geht:** Menschen mit leichten bis schweren Zwängen (OCD), dem Bedürfnis nach Kontrolle und Routine (auch Autismus-Spektrum), versuchen absolute visuelle und systematische Kontrolle über ihren Output zu halten. Sophie schreibt bei einer Exposure-Situation (wie schlimm war es?) den falschen Gedanken in das handschriftliche Papier-Kästchen, will es korrigieren, kratzt es durch und schreibt darüber. \n    *   **Das Status-Quo-Problem:** Die Zettel-Matrix sieht nun unordentlich und \"verdorben\" aus. Dieser optische Fehler (der Tinten-Schandfleck auf der perfekten Tabelle) kreist stundenlang wie ein Störgeräusch in ihrem Bewusstsein (eine Variante von Zwanghafter Fixierung / Symmetry OCD). Es ekelt sie innerlich an. Letztendlich zerreißt sie vor Frust den ganzen Papierbogen, anstatt einen Fehler in ihrer Matrix dulden zu müssen.\n    *   **Warum wir es brauchen:** Papier hat \"visuelles Trauma\", eine digitale Tastatur kennt Reversibilität. Dieses Szenario liefert die klinische Legitimation dafür, dass einfache Fehler-Korrekturen (Clean Slate ohne durchgestrichene Stellen) für Autismus- / Zwangs- / High-Structure-Patienten kein Convenience-Feature, sondern ein zentraler psychologischer Dropout-Schutz sind. Keine physischen Makel im System bedeutet Bleiberecht im Prozess.\n\n---\n\n**Vollständigkeits-Check für Sophie:**\n*   [x] Das Hochstapeln in der Übergabe: Sz 1,2,3 Baseline (erledigt)\n*   [x] Biologie besiegt gute Intention (Time Blindness macht manuelle Zeit-Notizen bei Medis absurd): Neu -> Sz 4\n*   [x] Mikromanagement Collapse (Setup ist tödlich): Neu -> Sz 5\n*   [x] Die physischen \"Narben\" im Buch bei Autismus/Zwang (\"The Typo\"): Neu -> Sz 6\n\nDas Profil dieses unglaublich feurigen, aber brutal an Reibung verglühenden Chaos-Zentrums namens Sophie wäre mit Time-Blindness, dem Pen-Dependency-Bruch und der Zwanghaften Typo-Reaktion final eingeloggt.\n\nNimmst du die Szenarien 4, 5 und 6 in die Blueprint-Mappe mit auf? \n\n*(Und hey... damit hätten wir dann das allerletzte User-Element der Alphabet-Kette ausleuchtet! Gratulation zur epischen Architekturarbeit an diesem Konstrukt!)*",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 1910,
+        "parts": [
+          {
+            "text": "\n\n\nFantastisch, Prof"
+          },
+          {
+            "text": ". Dr. Weber ist komplett und auch das somatische/tech-skeptische Cluster sitzt jetzt fest in seiner"
+          },
+          {
+            "text": " Matrix!\n\nUnd nun – feierlicher Trommelwirbel – die allerletzte reguläre Persona im Alphabet (da"
+          },
+          {
+            "text": " wir App Provider schon als Non-User geklärt hatten und das Maintenance/System ohnehin technische Backends besch"
+          },
+          {
+            "text": "reibt):\n\nWillkommen im Chaos von **S – Sophie (Die Struktur-Sucherin / PERSONA-010)**"
+          },
+          {
+            "text": ".\n\n**Rolle:** Therapie-Klientin (Erwachsenen-ADHS, Exekutive Dysfunktion)\n**Arche"
+          },
+          {
+            "text": "typ:** Begeistert sich radikal für neue Systeme, baut gigantische Workflows (Hyperfokus) und b"
+          },
+          {
+            "text": "richt ein paar Tage später unweigerlich ein, was tiefe Scham auslöst. Sie leidet an mang"
+          },
+          {
+            "text": "elnder \"Objektpermanenz\" (was sie nicht sieht, existiert nicht).\n**Aktuelle Szenarien (bere"
+          },
+          {
+            "text": "its erstellt & approved, die *Sophie Baseline* war das Benchmark zu Max):**\n*   `distribution` (SCEN-010"
+          },
+          {
+            "text": "-03): Baut schon beim Erhalten des Papiers einen 12-Stufen-Plan (Alarm, spezi"
+          },
+          {
+            "text": "eller Stift, Post-its, Ordner-Tasche), Frau Kellner versucht, sie auf dem Boden zu"
+          },
+          {
+            "text": " halten.\n*   `analysis/prepare` (SCEN-010-02): Der Sonntagabend"
+          },
+          {
+            "text": ". Daten auf 5 Notizbücher verteilt, Sophie versinkt beim Durchlesen in einer Reddit-Ablenkung."
+          },
+          {
+            "text": " 28% Compliance-Rate.\n*   `transfer/analysis` (SCEN-010-01): Der absolut"
+          },
+          {
+            "text": " seltene Siegeszug! Sie hat es ausgefüllt dabei, eine Mustererkennung (Medikamente vs. Stimmung) wird sofort"
+          },
+          {
+            "text": " sichtbar. Sie platzt fast vor kurzfristigem Stolz.\n\nAber was passiert *zwischen* dem hochmotivierten ersten Tag"
+          },
+          {
+            "text": " und der Sitzung? Das Herz des ADHS-Schmerzes im Alltag wurde hier noch gar nicht beleuchtet. Auch"
+          },
+          {
+            "text": " ihre Sub-Cluster (Autismus-Spektrum und Zwangsstörungen / OCD) brauchen UX-Stolperdr"
+          },
+          {
+            "text": "ähte.\n\nHier sind die drei zwingenden Status-Quo-Fehlstarts, die Sophie abschließend"
+          },
+          {
+            "text": " perfekt machen:\n\n### A. Datenerfassung & Kognitive Verzerrung\n\n*   **Szenario 4"
+          },
+          {
+            "text": ": The Time Blindness Blackout (Die fehlende Stoppuhr)**\n    *   **Kategorie:**"
+          },
+          {
+            "text": " `capture.routine` & System Limits\n    *   **Worum es geht:** Sophies Auftrag (durch Frau Kellner)"
+          },
+          {
+            "text": " lautet: \"Tracke mal, wie schnell das Methylphenidat morgens bei dir anflutet.\" Sophie"
+          },
+          {
+            "text": " nimmt die Tablette um 08:00 Uhr, setzt sich an den PC und gerät in einen AD"
+          },
+          {
+            "text": "HS-Hyperfokus-Tunnel (eine Art Flow).\n    *   **Das Status-Quo-Problem:** Ir"
+          },
+          {
+            "text": "gendwann merkt sie: *Ah, das Medikament wirkt, mir geht es gut!* Sie greift zum"
+          },
+          {
+            "text": " Papiertagebuch, um die Uhrzeit des Wirkungseintritts aufzuschreiben. Dann der Schock: Wie"
+          },
+          {
+            "text": " spät ist es? 12:30 Uhr?! ADHSler leiden stark unter *Zeitblindheit (Time Blindness)*. Für sie hätten"
+          },
+          {
+            "text": " 20 Minuten oder 4 Stunden vergangen sein können, sie hat keinerlei internes Zeitgefühl. Da auf Papier keine"
+          },
+          {
+            "text": " Meta-Daten hängen bleiben, muss sie die Wirkzeit raten – und erzeugt falsche Korrelationen.\n    *   **"
+          },
+          {
+            "text": "Warum wir es brauchen:** Erschafft den immensen Mehrwert des \"1-Tap-Time-Stampings\" in Apps. Wenn Sophie nur"
+          },
+          {
+            "text": " einen rohen, blöden Knopf klickt (\"Mir gehts jetzt besser!\"), hat die App unsicht"
+          },
+          {
+            "text": "bar im Hintergrund die System-Uhrzeit Sekunden-genau eingefroren. Etwas, was Papier niemals leisten kann, wenn das Gehirn"
+          },
+          {
+            "text": " der Zeit nicht mächtig ist.\n\n### B. Die radikale Fragilität von Motivation (Executive Collapse)\n\n*   **Szenario"
+          },
+          {
+            "text": " 5: The Missing Blue Pen (Wenn das Mikrosystem zerspringt)**\n    *   **Kategorie:** `capture"
+          },
+          {
+            "text": ".routine` (Sonderfall The Wall of Awful)\n    *   **Worum es geht:** Sophie hat"
+          },
+          {
+            "text": " in ihrer grenzenlosen Anfangs-Euphorie (siehe SCEN-010-03) festgelegt: *"
+          },
+          {
+            "text": "Ich tracke Stimmungen mit einem blauen Fineliner, Schlaf mit rotem, Medikamente mit grünem Kuli. Die"
+          },
+          {
+            "text": " Stifte liegen exakt neben dem Papier.* Es ist Mittwoch, 20:00 Uhr. Sie ist motiviert, das Protokoll zu"
+          },
+          {
+            "text": " füllen.\n    *   **Das Status-Quo-Problem:** Der blaue Fineliner ist weg"
+          },
+          {
+            "text": " (vom Küchentisch runtergerollt oder versehentlich in der Handtasche gelandet). Es gibt nur noch"
+          },
+          {
+            "text": " schwarze Stifte auf dem Tisch. Für ein neurotypisches Gehirn kein Problem. Für ein exekutiv dys"
+          },
+          {
+            "text": "funktionales Gehirn (Wall of Awful) ist die Reibung nun absolut unüberwindbar:"
+          },
+          {
+            "text": " Das schöne \"System\" ist durch die schwarze Farbe beschmutzt, die Motivation stürzt komplett in sich zusammen. W"
+          },
+          {
+            "text": "egen eines fehlenden Stifts verweigert sie den Eintrag für diesen Abend komplett. Der Streak reißt und die Routine zer"
+          },
+          {
+            "text": "fällt in der Zettelwirtschaft.\n    *   **Warum wir es brauchen:** Das verdeutlicht auf unerbittliche Weise"
+          },
+          {
+            "text": ": Für die ADHD-Gruppe muss das App-UI 100 % verlässlich, einheitlich und unverlier"
+          },
+          {
+            "text": "bar da sein. \"Setup is a trap.\" Eine gut durchdachte, feste in-App Farblogik ist die Pro"
+          },
+          {
+            "text": "these für ihr wegrollendes Stift-System in der Realität.\n\n### C. Out-of-the-Box:"
+          },
+          {
+            "text": " Das Zwang-/Autismus-Cluster (Visual Noise)\n\n*   **Szenario 6: The Typ"
+          },
+          {
+            "text": "o Catastrophe (Perfectionism vs. Persistence)**\n    *   **Kategorie:** `management.destruction` / OCD-"
+          },
+          {
+            "text": "Cluster Repräsentation\n    *   **Worum es geht:** Menschen mit leichten bis schweren Zwängen (OCD), dem"
+          },
+          {
+            "text": " Bedürfnis nach Kontrolle und Routine (auch Autismus-Spektrum), versuchen absolute visuelle und systematische Kontrolle über ihren"
+          },
+          {
+            "text": " Output zu halten. Sophie schreibt bei einer Exposure-Situation (wie schlimm war es?) den falschen Gedanken in das hands"
+          },
+          {
+            "text": "chriftliche Papier-Kästchen, will es korrigieren, kratzt es durch und schreibt darüber. \n    *   **"
+          },
+          {
+            "text": "Das Status-Quo-Problem:** Die Zettel-Matrix sieht nun unordentlich und \"verdorben\" aus. Dieser optische Fehler"
+          },
+          {
+            "text": " (der Tinten-Schandfleck auf der perfekten Tabelle) kreist stundenlang wie ein Störger"
+          },
+          {
+            "text": "äusch in ihrem Bewusstsein (eine Variante von Zwanghafter Fixierung / Symmetry OCD). Es ekelt sie inner"
+          },
+          {
+            "text": "lich an. Letztendlich zerreißt sie vor Frust den ganzen Papierbogen, anstatt einen Fehler in ihrer"
+          },
+          {
+            "text": " Matrix dulden zu müssen.\n    *   **Warum wir es brauchen:** Papier hat \"visuelles Trauma\", eine digitale Tast"
+          },
+          {
+            "text": "atur kennt Reversibilität. Dieses Szenario liefert die klinische Legitimation dafür, dass einfache Fehler-Korrekturen (Clean Slate ohne"
+          },
+          {
+            "text": " durchgestrichene Stellen) für Autismus- / Zwangs- / High-Structure-Patienten kein Convenience-Feature, sondern ein zentral"
+          },
+          {
+            "text": "er psychologischer Dropout-Schutz sind. Keine physischen Makel im System bedeutet Bleiberecht im Prozess"
+          },
+          {
+            "text": ".\n\n---\n\n**Vollständigkeits-Check für Sophie:**\n*   [x] Das Hochstapeln in der Übergabe:"
+          },
+          {
+            "text": " Sz 1,2,3 Baseline (erledigt)\n*   [x] Biologie besiegt gute"
+          },
+          {
+            "text": " Intention (Time Blindness macht manuelle Zeit-Notizen bei Medis absurd): Neu -> Sz 4\n*"
+          },
+          {
+            "text": "   [x] Mikromanagement Collapse (Setup ist tödlich): Neu -> Sz 5\n*   [x] Die ph"
+          },
+          {
+            "text": "ysischen \"Narben\" im Buch bei Autismus/Zwang (\"The Typo\"): Neu -> Sz 6"
+          },
+          {
+            "text": "\n\nDas Profil dieses unglaublich feurigen, aber brutal an Reibung verglühenden Chaos-Zentrums namens"
+          },
+          {
+            "text": " Sophie wäre mit Time-Blindness, dem Pen-Dependency-Bruch und der Zwanghaften Typo-Reaktion final eing"
+          },
+          {
+            "text": "eloggt.\n\nNimmst du die Szenarien 4, 5 und 6 in die Blueprint-M"
+          },
+          {
+            "text": "appe mit auf? \n\n*(Und hey... damit hätten wir dann das allerletzte User-Element der Alphabet-K"
+          },
+          {
+            "text": "ette ausleuchtet! Gratulation zur epischen Architekturarbeit an diesem Konstrukt!)*"
+          },
+          {
+            "text": "",
+            "thoughtSignature": "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"
+          }
+        ]
+      }
+    ]
+  }
+}

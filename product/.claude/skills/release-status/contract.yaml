@@ -1,0 +1,21 @@
+contract_version: 1
+skill: release-status
+purpose: >
+  Show the current release workflow stage (0–5) and recommended next step by
+  running scripts/release/release_readiness.py and displaying its output.
+
+derived_from: {}
+
+produces: {}
+
+quality_criteria:
+  - Skill does nothing except run release_readiness.py and display its output verbatim.
+
+may_invoke: []
+
+side_effects: []
+
+preconditions: []
+
+postconditions:
+  - The release stage and recommended next step are displayed to the user.

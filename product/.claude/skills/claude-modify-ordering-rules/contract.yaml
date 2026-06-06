@@ -1,0 +1,56 @@
+contract_version: 1
+skill: claude-modify-ordering-rules
+purpose: >
+  Modify or initialize .claude/task_ordering_rules.yaml. Proposes a diff,
+  simulates the change via scripts/task_ordering/simulate.py, validates it,
+  and commits on user approval. Propagates breaking changes to dependents.
+
+derived_from:
+  required:
+    - path: task-ordering
+      source: external
+      reason: The rule file being modified (or initialized if absent).
+
+produces:
+  required:
+    - path: task-ordering
+      reason: Updated ordering rules after user approval and validation.
+  conditional:
+    - path: task-ordering
+      condition: created during MODIFY workflow as an intermediate proposal; deleted after apply or discard.
+      reason: Proposed diff shown to user and validated before becoming the live file.
+
+quality_criteria:
+  - Simulation via simulate.py is mandatory and never skipped.
+  - validate_rules.py must exit 0 before the proposed file replaces the live file.
+  - schema_version is bumped on breaking changes (signal reorder, layer removal, top-level key add/remove).
+  - Rationale and rationale_source are required on all ranking_signals entries.
+  - git add and git commit are run as separate commands.
+
+user_input_gates:
+  - phase: "Step 5 — Approve or reject diff"
+    description: "Developer reviews the simulation output and approves applying the proposed rules change, discards it, or restarts the proposal from step 2."
+    decision_kind: path-selection
+    required: always
+  - phase: "INIT workflow Step 2 — Review proposed starter rules"
+    description: "Developer reviews the opus-advisor's proposed starter task_ordering_rules.yaml and approves it before it is applied."
+    decision_kind: approval
+    required: conditional
+    condition: "Only fires during INIT workflow (rule file absent)."
+
+may_invoke: []
+
+side_effects:
+  - target: .claude/task_ordering_rules.yaml
+    action: write
+    note: Rule file replaced after successful validation and user approval.
+  - target: git history
+    action: write
+    note: Committed with type chore and scope ordering.
+
+preconditions:
+  - User has described the desired rule change (or initialization request).
+
+postconditions:
+  - .claude/task_ordering_rules.yaml passes validate_rules.py.
+  - Change is committed with a compliant message.

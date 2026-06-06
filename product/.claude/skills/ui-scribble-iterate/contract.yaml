@@ -1,0 +1,112 @@
+contract_version: 1
+skill: ui-scribble-iterate
+purpose: >
+  Orchestrate the UI scribble iteration cycle for a requirement's Presentation Layer scope —
+  produce versioned, Flutter-component-annotated HTML wireframes that answer which screens
+  exist, what each shows, and which Flutter widgets are used. Stops at structural fidelity;
+  visual polish is ui-improve-flutter's job.
+
+derived_from:
+  required:
+    - path: requirements
+      source: skill:requ-explore
+      schema: .claude/schemas/requirements_frontmatter.yaml
+      reason: Primary spec — ACs, personas_served, T1/T2 rule references, user_needs links.
+    - path: persona
+      source: external
+      reason: Every persona listed in the requirement's personas_served.
+    - path: guideline
+      source: external
+      reason: T1 and T2 rule files; read all before Phase 1 generation.
+    - path: concept-canon
+      source: skill:ux-write-canon-concept
+      schema: .claude/schemas/concept_canon_entry.yaml
+      reason: Canonical user-facing label lookup during generation.
+  optional:
+    - path: flow
+      source: external
+      reason: Flow context when the requirement implements flows.
+    - path: guideline
+      source: external
+      reason: Authoritative technical constraints that override flow.md design choices.
+    - path: scribble-inspiration-input
+      source: external
+      reason: Phase 0 multimodal seed — developer-provided hand-drawn sketch.
+    - path: scribble-inspiration-input
+      source: external
+      reason: Phase 0 multimodal seed — developer-provided competitor/reference screenshot.
+    - path: scribble
+      source: external
+      reason: Prior version (this skill's own earlier output) when regenerating.
+
+produces:
+  required:
+    - path: scribble
+      reason: Ordered screen list with one-line descriptions and links.
+    - path: scribble
+      reason: One file per screen; MUST contain a component-mapping comment block.
+    - path: scribble-metadata
+      schema: .claude/schemas/scribble_metadata.yaml
+      reason: status, version, personas/rules applied, component mapping, flow positions.
+    - path: scribble-feedback
+      reason: Empty template for developer notes (Phase 1); populated during review.
+  conditional:
+    - path: handoff
+      condition: emitted only on developer approval (Phase 5).
+      schema: .claude/schemas/flutter_handoff.yaml
+      reason: Per-element HTML-selector -> Flutter-widget mapping for implementation handoff.
+    - path: scribble
+      condition: emitted only when the requirement references a user flow (Phase 5a).
+      reason: Composite flow scribble index for cross-requirement navigation.
+
+quality_criteria:
+  - Every required output exists when the skill exits Phase 1 (index, >=1 screen HTML, metadata.yaml, feedback.md).
+  - metadata.yaml parses and contains all required keys per scribble_metadata.yaml.
+  - flutter_handoff.yaml is NOT emitted unless metadata.yaml status == approved.
+  - Every screen HTML contains a COMPONENT MAPPING comment block.
+  - No screen HTML contains Dart code, BLoC references, or box-shadow declarations.
+  - Component mapping uses M3 widget names only (NavigationBar, not BottomNavigationBar).
+  - Every persona constraint declared in metadata.yaml is visible in >=1 HTML element.
+
+user_input_gates:
+  - phase: "Phase 0.5 — Pre-Brief Gate"
+    description: "Developer approves, adjusts, or rejects the pre-brief covering screens, personas, rules, scope exclusions, and open assumptions before the first scribble version is generated."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires on first generation (v1 does not yet exist); skipped on resumption."
+  - phase: "Phase 3 — Await User Review (even versions)"
+    description: "Developer reviews the auto-reviewed scribble version and provides feedback or approval before the next iteration begins."
+    decision_kind: revision
+    required: always
+  - phase: "Phase 3 — Fatigue check (v≥6 with unresolved gaps)"
+    description: "Developer decides whether to continue iterating, pause to run requ-explore on the underlying requirement, or approve the current version with open gaps acknowledged."
+    decision_kind: path-selection
+    required: conditional
+    condition: "Only fires in interactive mode when iteration count reaches v6 or higher AND the gap summary still contains unresolved gaps."
+
+may_invoke:
+  - ui-scribble-auto-review      # Phase 2 — fan-out review + regenerate next even version
+  - ui-scribble-feedback-classify # Phase 4 — classify + route developer feedback
+  - ui-scribble-approve-handoff  # Phase 5 — record approval + emit flutter_handoff.yaml
+
+may_spawn:   # agents (not skills); not lint-checked, declared for the factory-map graph
+  - ui-scribble-generator        # Phase 1 — generate/regenerate a scribble version
+
+side_effects:
+  - target: requirements_tasks/scribbles/<feature_path>/v{prev}/metadata.yaml
+    action: write
+    note: status set to 'superseded' on approval (Phase 5).
+  - target: requirements_tasks/_scribble_components/<c_name>/metadata.yaml
+    action: write
+    note: New component entries with status 'provisional' on auto-promotion (Phase 2).
+  - target: requirements_tasks/scribbles/<feature_path>/v{prev}/metadata.yaml
+    action: write
+    note: stale_since + pending_rules set when a T1/T2 rule is updated (Phase 4).
+
+preconditions:
+  - A requirements.md with Presentation Layer scope and a personas_served list exists.
+  - doc/presentation/design/ T1/T2 rule files are present and readable.
+
+postconditions:
+  - A requirements_tasks/scribbles/<feature_path>/v{n}/ folder exists with index.html, screen HTML, metadata.yaml, and feedback.md.
+  - flutter_handoff.yaml exists if and only if metadata.yaml status == approved.

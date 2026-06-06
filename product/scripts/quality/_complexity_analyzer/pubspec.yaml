@@ -1,0 +1,14 @@
+name: complexity_analyzer
+description: >-
+  Per-function complexity metrics (cyclomatic complexity, parameter count,
+  source-lines-of-code, max control-flow nesting) for Dart source files.
+  Drives scripts/quality/check_complexity.py.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  analyzer: ^6.4.0
+  path: ^1.9.0
