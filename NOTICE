@@ -1,0 +1,34 @@
+Software Factory
+Copyright (c) 2026 Andreas Mayer
+
+This software is licensed under the Elastic License 2.0. See the LICENSE file
+for the full terms.
+
+-------------------------------------------------------------------------------
+Scope of "the software"
+-------------------------------------------------------------------------------
+
+For the purposes of the LICENSE, "the software" comprises ALL files distributed
+in this repository under that license. This is NOT limited to executable or
+source code. It expressly includes:
+
+  - prompt templates and system / agent instructions
+  - persona and role definitions
+  - orchestration logic, workflow and "skill" definitions
+  - schemas and configuration files
+
+in any format (including Markdown, YAML, JSON, and plain text). These materials
+are licensed components of the software and are NOT mere documentation,
+regardless of file extension or directory location.
+
+-------------------------------------------------------------------------------
+Files that are NOT part of the licensed software
+-------------------------------------------------------------------------------
+
+The following files are provided as end-user documentation and are NOT part of
+the licensed software. Everything else in this repository is the software.
+
+  - README.md
+
+Ownership of generated output: the licensor claims no ownership of, and asserts
+no rights in, the products, code, or content you create using the software.
