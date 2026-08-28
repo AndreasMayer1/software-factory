@@ -1,0 +1,56 @@
+contract_version: 1
+module: scripts/playground/containment.py
+purpose: >
+  OS-level containment layer for Skill-Test Playground child sessions.
+  Wraps child commands in a real mount-namespace jail (bwrap preferred,
+  unshare fallback) so the host factory tree is unreachable from inside
+  the child session via absolute paths or working-directory escape (CON-04).
+
+consequence: HIGH
+covers:
+  - AC-09  # EGP archetype S/HIGH — real OS-level containment closing CON-04
+
+egp:
+  archetype: S
+  external_referent: >
+    A real untrusted candidate factory launched as a child session attempting
+    to reach the host factory tree via absolute paths or working-directory
+    escape — verified by test_real_jail_blocks_host_tree_access in
+    scripts/tests/test_playground_containment.py, which creates a sentinel
+    under the host tree and asserts it is unreachable from inside the
+    bwrap/unshare jail while reachable without the jail.
+
+quality_criteria:
+  - check: behavioural_jail_test
+    target: scripts/tests/test_playground_containment.py::test_real_jail_blocks_host_tree_access
+    external_referent: >
+      Host filesystem sentinel file at an absolute path outside harness_dir —
+      the ground truth is the OS-level mount namespace refusing the read.
+    note: >
+      Real bwrap/unshare jail; sentinel created on host; child cmd attempts
+      cat of sentinel via absolute path; asserts cat fails inside jail and
+      succeeds outside. Skipped (not xfail) when userns unavailable.
+  - check: fail_safe_refusal
+    target: scripts/tests/test_playground_containment.py::test_wrap_raises_when_no_containment_available
+    external_referent: >
+      ContainmentUnavailable exception raised when neither bwrap nor unshare
+      is available — the ground truth is the absence of userns support in
+      the host kernel/seccomp profile.
+    note: >
+      Structural fail-safe: launch refused rather than running uncontained.
+      PLAYGROUND_ALLOW_UNCONTAINED=1 is the explicit operator opt-out.
+
+preconditions:
+  - OS-level user namespaces enabled (TASK-PROC-054-12 seccomp profile in devcontainer)
+  - bwrap or unshare available on PATH
+
+postconditions:
+  - Child session executes with only harness_dir visible (bwrap) or without
+    write capability on host paths (unshare), closing CON-04.
+  - If neither method available and PLAYGROUND_ALLOW_UNCONTAINED unset,
+    ContainmentUnavailable raised — child never launched.
+
+advisory: >
+  SG-03: Skeleton-stage regression verdicts remain ADVISORY (statistical
+  validity floor ~100 paired fixtures unreached). The containment itself
+  is real; the advisory scope is about verdict statistical significance only.

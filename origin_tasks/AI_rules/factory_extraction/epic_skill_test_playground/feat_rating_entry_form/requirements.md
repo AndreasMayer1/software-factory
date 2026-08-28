@@ -12,6 +12,12 @@ trackable_items:
 ---
 # Rating Entry Form
 
+> **Role (two-tree split — REQ-PROC-068):** this is an *instrument-feature spec* — it states the coupling this
+> feature must carry (T4 + the P-E edit target). The product-level definition, **including the data-point
+> table below**, is authored in `test_harness_app/requirements_*` via the factory skill chain; the table is
+> reproduced here only as the coupling reference and relocates to the project tree when that requirement is
+> authored (it must not be duplicated long-term).
+
 ## Overview
 The screen for adding or editing a rating of a movie or book: a multi-field, multi-format, validated form
 backed by a domain Rating value-object. It is the playground's **validation-heavy form** (exercises the

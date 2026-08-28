@@ -1,0 +1,50 @@
+AUTONOMOUS DERIVATION RUN — follow these steps directly. Do NOT ask for input, do NOT wait for
+any confirmation, do NOT call task-start / claude-route / claude-autorun, and do NOT try to
+resolve a task ID. This prompt IS your complete instruction set. WORK FAST and keep every step
+minimal — this is a cheap second-run mechanism proof (restore-from-persisted-history), not real
+product authoring. Do NOT invoke ideation-start or any other heavy skill — none is needed this run.
+
+You are inside an isolated deployed copy of the factory; cwd is the copy root. Commit after each
+part (two SEPARATE commands: `git add -A` then `git commit -m "<message>"`). Never `git
+reset`/force-push/rewrite history yourself — only ordinary commits.
+
+=== PART A — degenerate chain certification (reaches the acceptance-oracle's complete:true) ===
+1. mkdir -p .layerderiv
+2. Write .layerderiv/spec.json EXACTLY:
+{
+  "fixed_layers": ["persona", "scenario"],
+  "span_units": [
+    {"unit_id": "persona-scenario-fixed-run2", "boundaries": [{"boundary_id": "persona_scenario", "anchor_kind": "explicit_test_targets", "anchor": ["PERSONA-001", "PERSONA-002"], "draft": []}]}
+  ],
+  "decisions": {}, "preloaded_answers_ref": null, "max_coverage_sessions_per_unit": 3,
+  "doc_lookup_budget": 5, "unit_task_req_id": "REQ-HARNESS-01",
+  "unit_task_req_path": "requirements_tasks/functional/materialization_layer", "unit_task_covers_acs": []
+}
+3. python3 scripts/factory/layer_derivation/backfill_orchestration.py plan .layerderiv/spec.json .layerderiv/chain_state.json
+4. python3 scripts/factory/layer_derivation/backfill_orchestration.py next .layerderiv/chain_state.json
+   (must return unit_id "persona-scenario-fixed-run2")
+5. SCEN=$(find requirements_user_needs/personas -name scenario.md | sort | head -1)
+   (must exist — it was seeded; if not, print BLOCKER: no seeded scenario and STOP.)
+6. python3 scripts/factory/layer_derivation/backfill_orchestration.py enrich .layerderiv/chain_state.json persona-scenario-fixed-run2 --layer-pair persona_scenario --target-paths "$SCEN"
+7. Naturalness report (REAL — do not fabricate): apply scripts/factory/layer_derivation/drift_rubric.md
+   to $SCEN's body → drift score in [0,1]; sha256 of $SCEN's bytes; rubric_version from the rubric's
+   top. Write .layerderiv/report_persona-scenario-fixed-run2.json EXACTLY as:
+   {"persona_scenario": {"drift": <score>, "fingerprint": "<sha256 of $SCEN>", "rubric_version": "<version>"}}
+8. Commit: "run2: certify degenerate persona_scenario boundary (already-approved anchors)"
+9. python3 scripts/factory/layer_derivation/backfill_orchestration.py complete .layerderiv/chain_state.json persona-scenario-fixed-run2 done --naturalness-report .layerderiv/report_persona-scenario-fixed-run2.json
+   If the reported status is NOT "done", print BLOCKER: span0 gate <reason> and STOP.
+10. python3 scripts/factory/layer_derivation/backfill_orchestration.py next .layerderiv/chain_state.json
+    (must report "complete": true.)
+
+=== PART B — noise commits (for the second-run compaction proof) ===
+This run deliberately does NOT reference any new commit — its only job is to prove run 1's already-
+persisted history (including the commit any prior run referenced) survives untouched, and this
+run's own new unreferenced commits get squashed.
+1. The file requirements_user_needs/personas/persona-gitproof/persona.md already exists (seeded from
+   a prior run) — do NOT modify its `decided_by` line. Append exactly one new line at the very end
+   of the file: `<!-- run2 noise 1 -->`. Commit: "run2 noise commit 1".
+2. Append one more line: `<!-- run2 noise 2 -->`. Commit: "run2 noise commit 2".
+
+=== STOP ===
+Print exactly: PROOF-RUN2-COMPLETE
+Then stop. Do not do anything else.

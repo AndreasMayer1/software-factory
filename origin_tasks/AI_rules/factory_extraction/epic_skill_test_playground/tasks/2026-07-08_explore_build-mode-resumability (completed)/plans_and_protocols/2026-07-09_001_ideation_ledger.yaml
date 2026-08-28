@@ -1,0 +1,827 @@
+meta:
+  original_problem: 'Make a DEPLOYED build-mode layer-derivation run resumable across
+    session termination / usage-limit hits (start -> terminate -> resume). Today build.py::run_build_mode
+    is single-shot: it launches ONE contained claude -p child, then unconditionally
+    records cost -> harvest_authored -> shutil.rmtree(copy) with no check on LaunchResult.returncode/.reason,
+    so an interrupted run harvests a partial (possibly incoherent) deposit into test_harness_app/
+    AND destroys the copy that held resumable state. Additionally (developer input
+    01): the derivation task may itself run under the OUTER autorun orchestrator while
+    the deployed copy contains its OWN inner orchestrator, so pausing must coordinate
+    both; and the pause/resume mechanism should generalize to all long build-mode
+    playground runs, not just layer-derivation.'
+  effort: Standard
+  effort_signals:
+    U_unknowns: 5
+    L_layers: 4
+    R_reversal_cost: low (design stage — nothing deployed; fully reversible 
+      pre-impl)
+    N_prior_art: yes (local chain already resumable; outer orchestrator already 
+      has rate-limit/resume model)
+    note: L>=2 would push Deep, but strong prior art (N=yes) + low reversal cost
+      at design stage + well-bounded named unknowns => Standard chosen 
+      deliberately.
+  frames:
+  - software_architect
+  - security_privacy_auditor
+  - product_manager
+  - distributed_systems_checkpoint_restart
+  - biology_hibernation
+  stakeholder_mode: factory
+  persona_frame_binding: the factory developer/operator who launches and resumes
+    playground build-mode runs
+  seed_candidate:
+  min_ideas: 25
+  max_iter: 2
+  max_alternation: 2
+  placement: inline
+  placement_inputs:
+    effort: Standard
+    rationale: 'Divergence run INLINE rather than leaf-isolated: automated-mode session
+      under a pro-tier SEQUENTIAL-spawn policy makes many sequential Opus divergence-leaf
+      spawns the dominant usage-limit/cost risk (the exact failure this task studies).
+      The hosting session already holds the full gathered substrate, so inline divergence
+      avoids re-read amplification and bounds the run to one context. Recorded as
+      a deliberate deviation from the Standard leaf-isolate default (AC-08 placement).'
+  parallelism: 'sequential (session-start policy: pro tier)'
+  phase_tiers:
+    diverge: inline-host
+    synthesize: inline-host
+    gapcheck: inline-host
+    web_leaves: none
+    scripts: none
+  convergent_mode: inline-host
+  topic_class: composition
+  deviation_note: Faithful to the ideation workflow STRUCTURE and OUTPUTS 
+    (ledger, gather, analyze+criteria+decompose, diverge, synthesize, report, 
+    end-run gate). Divergence and gapcheck run inline in the hosting session 
+    rather than as spawned agents, for the cost/limit reasons in 
+    placement_inputs. Mid-run gate skipped (automated mode, AC-22).
+  topic_class_rationale: The resume mechanism composes several co-designed parts
+    (state-location + registry/re-attach + completion-signal + dual-orchestrator
+    pause + generalization), not a pick among atomic candidates.
+  alternation_log:
+  - pass: 1
+    dimensions_before: 0
+    dimensions_after: 5
+    new_surfaced: 5
+    note: ''
+  - pass: 2
+    dimensions_before: 0
+    dimensions_after: 5
+    new_surfaced: 5
+    note: ''
+  gate_disposition: ACCEPTED (v2/SOL-02; D1-D6 as recommended, iteration 2)
+  accepted_solution: SOL-02
+  measures_schema_epoch: pre-AC-37
+  measures_schema_epoch_note: Ledger predates the measures field (AC-37). 
+    Spine/reuse-build/connotation-safety criteria were backfilled 
+    deterministically by slug. Problem-specific criterion(s) CR-06, CR-07, 
+    CR-08, CR-09 have no deterministic classification source and are left 
+    unclassified rather than guessed — TASK-PROC-004-03-36 / 
+    TASK-PROC-004-03-38.
+rows:
+- kind: constraint
+  id: C1
+  title: No git-reset; harvest-before-discard; discard is rmtree (topology 
+    hazard T-B).
+- kind: constraint
+  id: C2
+  title: Harvest is snapshot-diff scoped to net-new/modified (REQ-PROC-068-19).
+- kind: constraint
+  id: C3
+  title: 'AC-10: whole-factory deploy must stay intact — copy must remain a runnable
+    project.'
+- kind: constraint
+  id: C4
+  title: 'AC-12: single shared ~/.claude auth window across the whole session tree.'
+- kind: constraint
+  id: C5
+  title: Local derivation chain already resumable (ChainState + commit-per-unit 
+    + resume skill).
+- kind: constraint
+  id: C6
+  title: Outer orchestrator already detects rate limits and resumes in_progress 
+    tasks.
+- kind: constraint
+  id: C7
+  title: Depth-1 spawn topology; sequential-spawn on tight tier bounds loss to 
+    one in-flight unit.
+- id: CR-01
+  kind: criterion
+  slug: usefulness
+  title: Usefulness / desirability
+  weight: 3.0
+  weight_rationale: Must actually unblock 068-12 and end the partial-harvest 
+    hazard — the reason the task exists.
+  direction: benefit
+  role: spine
+  provenance: internal
+  kind_of_criterion: floored_weighted
+  knockout_threshold: 3.0
+  measures: value
+- id: CR-02
+  kind: criterion
+  slug: feasibility
+  title: Feasibility
+  weight: 0.0
+  weight_rationale: Knockout floor — a design that cannot be built on the 
+    existing wrapper/chain/orchestrator is out.
+  direction: benefit
+  role: spine
+  provenance: internal
+  kind_of_criterion: knockout
+  knockout_threshold: 3.0
+  measures: value
+- id: CR-03
+  kind: criterion
+  slug: viability
+  title: Viability (effort / cost)
+  weight: 2.0
+  weight_rationale: Standard spine weight.
+  direction: benefit
+  role: spine
+  provenance: internal
+  kind_of_criterion: weighted
+  measures: cost
+- id: CR-04
+  kind: criterion
+  slug: novelty
+  title: Novelty
+  weight: 2.0
+  weight_rationale: Standard spine weight.
+  direction: benefit
+  role: spine
+  provenance: internal
+  kind_of_criterion: weighted
+  measures: value
+- id: CR-05
+  kind: criterion
+  slug: risk
+  title: Risk
+  weight: 3.0
+  weight_rationale: 'High weight: the dominant risk (incoherent partial deposit into
+    test_harness_app/) is the whole motivation.'
+  direction: cost
+  role: spine
+  provenance: internal
+  kind_of_criterion: weighted
+  measures: cost
+- id: CR-06
+  kind: criterion
+  slug: operator_low_supervision
+  title: A cold session re-attaches & resumes with no human threading paths by 
+    hand
+  weight: 2.5
+  weight_rationale: 'Factory-operator primary need: unattended resume across sessions
+    is the point of the mechanism.'
+  direction: benefit
+  role: problem_specific
+  provenance: internal
+  kind_of_criterion: weighted
+  source: persona:factory-operator:user
+- id: CR-07
+  kind: criterion
+  slug: state_durability
+  title: Resume-state durability (survives rmtree, /tmp eviction, reboot, 
+    shared-account limit)
+  weight: 3.0
+  weight_rationale: 'The core unknown: resumable state must outlive the discarded
+    copy and a machine reboot.'
+  direction: benefit
+  role: problem_specific
+  provenance: internal
+  kind_of_criterion: weighted
+- id: CR-08
+  kind: criterion
+  slug: harvest_coherence_safety
+  title: Never deposits an incoherent partial harvest into test_harness_app/
+  weight: 3.0
+  weight_rationale: 'KNOCKOUT: a partial/incoherent deposit is actively harmful; any
+    design that risks it is eliminated.'
+  direction: benefit
+  role: problem_specific
+  provenance: internal
+  kind_of_criterion: knockout
+  knockout_threshold: 3.0
+- id: CR-09
+  kind: criterion
+  slug: minimal_new_mechanism
+  title: Reuses existing ChainState / resume-skill / orchestrator vs. new 
+    bespoke machinery
+  weight: 2.5
+  weight_rationale: Smallest-change principle; the local chain and outer 
+    orchestrator already solve most of this.
+  direction: benefit
+  role: problem_specific
+  provenance: internal
+  kind_of_criterion: weighted
+- id: SP-01
+  kind: subproblem
+  parent_id: root
+  title: SP-1 Durable resume-state location
+  scope: 'Where cross-session resumable state lives when the isolated copy is normally
+    discarded: preserve the copy keyed by a handle, re-hydrate a distilled ChainState+commits
+    bundle into a fresh deploy, or a host-side registry pointing at preserved state.'
+  interface_contract: Produces a durable state artifact (path + identity) that 
+    SP-2's registry references and SP-3's completion signal is read from; must 
+    survive rmtree, /tmp eviction, reboot.
+  status: open
+- id: SP-02
+  kind: subproblem
+  parent_id: root
+  title: SP-2 Run registry & cold re-attach
+  scope: The minimal durable run handle + a host-side registry of live deployed 
+    runs; how a later cold session discovers an in-progress run and re-attaches 
+    (re-launch contained child so inner autorun resumes from ChainState).
+  interface_contract: Reads SP-1's state artifact; exposes a discover() a cold 
+    session calls; drives the same contained-launch path build.py already uses; 
+    hands completion decision to SP-3.
+  status: open
+- id: SP-03
+  kind: subproblem
+  parent_id: root
+  title: SP-3 Explicit completion signal & harvest/discard gating
+  scope: "What makes 'done' explicit and trustworthy enough to gate the irreversible
+    harvest+discard (ChainState all-units-done / fixpoint marker / returncode contract).
+    On incomplete exit: preserve copy, skip/mark-partial harvest."
+  interface_contract: Reads SP-1 state + LaunchResult.returncode/.reason; emits 
+    COMPLETE|INCOMPLETE; only COMPLETE authorizes harvest_authored + rmtree; 
+    INCOMPLETE preserves state for SP-2.
+  status: open
+- id: SP-04
+  kind: subproblem
+  parent_id: root
+  title: SP-4 Usage-limit checkpoint & dual-orchestrator coordination
+  scope: 'Reframe a usage-limit hit as a planned pause: detect (returncode/reason
+    + stdout marker under the shared ~/.claude window), checkpoint cleanly, and pause
+    BOTH the outer autorun orchestrator (else it launches the next task) and the inner
+    orchestrator inside the copy; resume after the window resets.'
+  interface_contract: Consumes SP-3's INCOMPLETE(reason=limit) signal; signals 
+    the outer orchestrator to hold this task in_progress (reuse 
+    rate_limited/resume path); on resume triggers SP-2 re-attach.
+  status: open
+- id: SP-05
+  kind: subproblem
+  parent_id: root
+  title: SP-5 Generalization to all long build-mode runs
+  scope: Make SP-1..SP-4 a reusable build-mode pause/resume primitive that also 
+    serves non-derivation playground use cases (a multi-task skill-under-test), 
+    not derivation-specific wiring.
+  interface_contract: Wraps SP-1..SP-4 behind a completion-signal + 
+    state-location abstraction that build.py exposes for any long child run, 
+    parameterized by the run's own completion predicate.
+  status: open
+- id: ADV-analyze-ideate-01
+  kind: gap
+  title: Re-launching the same contained child must SKIP deploy/seed/snapshot on
+    resume, or it re-baselines the net-new harvest diff and corrupts harvest 
+    scoping.
+  status: open
+  gap_type: adversarial
+  phase: analyze
+  boundary: analyze→ideate
+- id: ADV-analyze-ideate-02
+  kind: gap
+  title: Re-attach hung-detection must watch the RESUMED child session's JSONL; 
+    the run handle must carry the child session UUID or it watches a 
+    stale/absent file.
+  status: open
+  gap_type: adversarial
+  phase: analyze
+  boundary: analyze→ideate
+- id: ADV-analyze-ideate-03
+  kind: gap
+  title: harvest_coherence_safety as a hard knockout may be too strict — layers 
+    committed before the interruption are coherent; per-commit partial harvest 
+    may be safe (open question for gate).
+  status: open
+  gap_type: adversarial
+  phase: analyze
+  boundary: analyze→ideate
+- id: IDEA-01
+  kind: idea
+  origin: new
+  title: Move isolated_dir out of /tmp into 
+    .factory/playground/runs/<handle>/copy so the copy survives reboot & /tmp 
+    eviction
+  label: Durable runs dir, not mkdtemp
+  frame: software_architect
+  sub_problem: SP-1
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-02
+  kind: idea
+  origin: new
+  title: Preserve the whole isolated copy on pause, keyed by a run handle; 
+    discard only on verified completion
+  label: Preserve-copy-on-pause
+  frame: software_architect
+  sub_problem: SP-1
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-03
+  kind: idea
+  origin: new
+  title: Distilled state bundle = ChainState JSON + git bundle of the per-unit 
+    commits, stored host-side; re-hydrate a fresh deploy from it
+  label: ChainState+git-bundle rehydrate
+  frame: distributed_systems_checkpoint_restart
+  sub_problem: SP-1
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: IDEA-04
+  kind: idea
+  origin: new
+  title: The copy is already per-unit git-committed (feat_backfill AC-01); `git 
+    bundle` it to host on pause, rehydrate by re-deploy + apply bundle
+  label: git-bundle checkpoint
+  frame: distributed_systems_checkpoint_restart
+  sub_problem: SP-1
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: IDEA-05
+  kind: idea
+  origin: new
+  title: Persist only ChainState + harvested-so-far list; rehydrate copy from 
+    test_harness_app's CURRENT state (already holds committed layers)
+  label: Rehydrate from harvested layers
+  frame: product_manager
+  sub_problem: SP-1
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: IDEA-06
+  kind: idea
+  origin: new
+  title: "Torpor: freeze the copy's minimal 'metabolic' state (ChainState + uncommitted
+    artifacts); shed regrowable deploy machinery, regrow on wake"
+  label: 'Torpor: keep core, regrow shell'
+  frame: biology_hibernation
+  sub_problem: SP-1
+  technique: frame-forcing
+  feasibility: c
+  status: open
+- id: IDEA-07
+  kind: idea
+  origin: new
+  title: 'Host-side run registry JSON (.factory/playground/runs/registry.json): handle
+    -> {copy_path, child_uuid, jsonl_dir, status, baseline_ref}'
+  label: Run registry file
+  frame: software_architect
+  sub_problem: SP-2
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-08
+  kind: idea
+  origin: new
+  title: Run handle is a DETERMINISTIC id (not anonymous uuid4) a cold session 
+    can name; registry stores child session UUID for JSONL watch
+  label: Named deterministic handle
+  frame: distributed_systems_checkpoint_restart
+  sub_problem: SP-2
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-09
+  kind: idea
+  origin: new
+  title: Model the deployed run as an ordinary resumable in_progress TASK in the
+    outer tree; reuse orchestrator find_resumable_in_progress_task; goal.md 
+    carries the handle
+  label: Deployed run = outer in_progress task
+  frame: software_architect
+  sub_problem: SP-2
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-10
+  kind: idea
+  origin: new
+  title: A playground-build-resume control skill (mirror 
+    layer-derivation-resume) reads the registry and re-attaches with no 
+    hand-threaded paths
+  label: playground-build-resume skill
+  frame: product_manager
+  sub_problem: SP-2
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-11
+  kind: idea
+  origin: new
+  title: Registry stores only run metadata (never the bound ~/.claude path), 
+    0600 perms, under the factory tree not the copy
+  label: Least-data registry
+  frame: security_privacy_auditor
+  sub_problem: SP-2
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-12
+  kind: idea
+  origin: new
+  title: Gate harvest+discard on result.succeeded AND reason=='exited' AND 
+    explicit completion signal present — never unconditional
+  label: Gated harvest+discard
+  frame: software_architect
+  sub_problem: SP-3
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-13
+  kind: idea
+  origin: new
+  title: "Trusted completion signal = read the child's ChainState `complete: true`
+    from the copy BEFORE discard"
+  label: Read ChainState complete flag
+  frame: distributed_systems_checkpoint_restart
+  sub_problem: SP-3
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-14
+  kind: idea
+  origin: new
+  title: Child writes a RUN_COMPLETE sentinel (fixpoint marker) into the copy; 
+    wrapper requires it before harvest
+  label: RUN_COMPLETE sentinel
+  frame: software_architect
+  sub_problem: SP-3
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-15
+  kind: idea
+  origin: new
+  title: 'Returncode contract: derivation prompt exits 0 only when the chain is complete;
+    nonzero = incomplete/paused'
+  label: Returncode-as-completion contract
+  frame: distributed_systems_checkpoint_restart
+  sub_problem: SP-3
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: IDEA-16
+  kind: idea
+  origin: new
+  title: 'On INCOMPLETE: preserve copy + registry status=paused; skip harvest ENTIRELY
+    (zero partial deposit)'
+  label: Preserve+skip-harvest on incomplete
+  frame: software_architect
+  sub_problem: SP-3
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-17
+  kind: idea
+  origin: new
+  title: 'Partial-at-commit-boundary: harvest only whole committed units, never the
+    in-flight unit (coherent partial) — OPEN question'
+  label: Per-commit partial harvest (open)
+  frame: software_architect
+  sub_problem: SP-3
+  technique: frame-forcing
+  feasibility: c
+  status: open
+- id: IDEA-18
+  kind: idea
+  origin: new
+  title: Write a harvest manifest recording the completion reason so a 
+    partial/complete deposit is never silent (auditability)
+  label: Harvest audit manifest
+  frame: security_privacy_auditor
+  sub_problem: SP-3
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: IDEA-19
+  kind: idea
+  origin: new
+  title: Detect limit by reusing classify_session_failure's marker on the child 
+    stdout; map to a new LaunchResult.reason=='paused_rate_limit'
+  label: Reuse limit-marker detection
+  frame: distributed_systems_checkpoint_restart
+  sub_problem: SP-4
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-20
+  kind: idea
+  origin: new
+  title: Because the deployed run is an outer in_progress task, the outer 
+    orchestrator's EXISTING rate_limited path halts all new dispatch and resumes
+    it — the outer pause is free
+  label: Free outer pause via in_progress task
+  frame: software_architect
+  sub_problem: SP-4
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-21
+  kind: idea
+  origin: new
+  title: Inner orchestrator shares the account window, hits the same limit, and 
+    its own automated-mode terminates cleanly (re-emits limit line) — inner 
+    pause is also free if it reuses orchestrate.py
+  label: Free inner pause (shared window)
+  frame: distributed_systems_checkpoint_restart
+  sub_problem: SP-4
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: IDEA-22
+  kind: idea
+  origin: new
+  title: 'Explicit two-phase pause: wrapper sets the inner orchestrator stop_flag
+    + returns control to outer WITHOUT harvest'
+  label: Two-phase explicit pause
+  frame: software_architect
+  sub_problem: SP-4
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: IDEA-23
+  kind: idea
+  origin: new
+  title: Whole tree hibernates together on the shared-window 'winter'; wakes 
+    when the window resets — no per-level coordination if every level is 
+    resumable-by-default
+  label: Tree-wide hibernation
+  frame: biology_hibernation
+  sub_problem: SP-4
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: IDEA-24
+  kind: idea
+  origin: new
+  title: "Reframe limit as planned pause not error: LaunchResult.reason gains 'paused'
+    distinct from 'hung'/'session_timeout'"
+  label: reason='paused' first-class
+  frame: software_architect
+  sub_problem: SP-4
+  technique: frame-forcing
+  feasibility: a
+  status: open
+- id: IDEA-25
+  kind: idea
+  origin: new
+  title: Extract a generic BuildRun protocol (state_location, 
+    completion_predicate, resume_fn); derivation is ONE implementation, a 
+    skill-test another
+  label: BuildRun protocol
+  frame: software_architect
+  sub_problem: SP-5
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: IDEA-26
+  kind: idea
+  origin: new
+  title: Generalize the registry + resume skill to ANY long playground 
+    build-mode run (multi-task skill-under-test), not derivation-specific
+  label: Generic build-run resume
+  frame: product_manager
+  sub_problem: SP-5
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: IDEA-27
+  kind: idea
+  origin: new
+  title: 'Completion-predicate injection: derivation passes ChainState-complete; a
+    generic skill-test passes its own done-marker'
+  label: Injected completion predicate
+  frame: software_architect
+  sub_problem: SP-5
+  technique: frame-forcing
+  feasibility: b
+  status: open
+- id: ADV-synthesize-gate-01
+  kind: gap
+  title: The 'free outer pause' assumes the deployed run executes AS an outer 
+    orchestrator in_progress task; if build.py is invoked as a plain CLI 
+    subprocess (not via a goal.md task), there is no outer task to hold and the 
+    free pause evaporates — the invocation contract must require the task-backed
+    path.
+  status: open
+  gap_type: adversarial
+  phase: synthesize
+  boundary: synthesize→gate
+- id: ADV-synthesize-gate-02
+  kind: gap
+  title: 'Contradiction with gathered constraint C4: a usage limit kills the WHOLE
+    tree at once, including the host wrapper session; if build.py is killed mid-launch
+    it never reaches the completion gate to preserve the copy. Therefore preservation
+    must be the DEFAULT (durable dir + registry status=running written BEFORE launch),
+    with discard only on verified COMPLETE — not an action on the incomplete branch.'
+  status: open
+  gap_type: adversarial
+  phase: synthesize
+  boundary: synthesize→gate
+- id: SOL-01
+  kind: solution
+  title: Deployed run = resumable outer task, durable-handle-keyed, harvest 
+    gated on explicit completion (preserve-by-default)
+  recipe:
+  - IDEA-01
+  - IDEA-02
+  - IDEA-07
+  - IDEA-08
+  - IDEA-09
+  - IDEA-10
+  - IDEA-12
+  - IDEA-13
+  - IDEA-16
+  - IDEA-19
+  - IDEA-20
+  - IDEA-24
+  - IDEA-25
+  - IDEA-26
+  - IDEA-27
+  answers:
+  - SP-01
+  - SP-02
+  - SP-03
+  - SP-04
+  - SP-05
+- kind: context
+  id: G2-1
+  title: workspace.py::create_workspace ALREADY puts the playground test-mode 
+    workspace in <parent-of-host>/playground_ws_<uuid8> and git-inits it; 
+    build.py diverged to tempfile.mkdtemp() (/tmp). The durable, git-backed, 
+    out-of-project workspace convention already exists — build.py just failed to
+    reuse it.
+- kind: context
+  id: G2-2
+  title: "worktree_root.py + worktree.config.json is the existing 'project environment
+    configuration' (per-developer, gitignored, 3-level precedence: explicit -> config
+    -> parent-of-repo). This is the config mechanism the developer half-remembered
+    — reuse it, don't build a new one."
+- kind: context
+  id: G2-3
+  title: claude-autorun stop = set stop_requested=True in automation/state.json 
+    (atomic); SIGINT also sets an in-memory stop flag safely. Resume = start the
+    orchestrator again. This is the ready-made inner-orchestrator pause 
+    primitive IF a pause is ever needed.
+- kind: context
+  id: G2-4
+  title: "orchestrate.py rate_limit_sleep: on all-accounts-limited the orchestrator
+    sleeps (interruptibly) until reset then resumes where it left off — confirms the
+    developer's 'freeze in time and resume' hypothesis for BOTH inner and outer orchestrators."
+- kind: context
+  id: G2-5
+  title: deploy.py does NOT exclude automation/ — the deployed copy contains the
+    orchestrator, so an INNER orchestrator genuinely runs inside the copy 
+    (validates the nested-orchestrator model). AC-10 whole-factory deploy 
+    requires this.
+- kind: context
+  id: G2-6
+  title: "The inner run's derivation is itself a task-chain driven by the inner autorun
+    (feat_backfill) — so the realistic model is: outer session starts the inner orchestrator
+    inside the copy, which dispatches the derivation chain; each inner orchestrator
+    manages its own account-switch/freeze independently."
+- id: IDEA-28
+  kind: idea
+  origin: new
+  title: build.py adopts the EXISTING workspace.py parent-dir + git-init 
+    convention (create_workspace / worktree_root.py) instead of 
+    tempfile.mkdtemp(); durable + git-backed + configurable for free
+  label: Reuse workspace.py parent-dir
+  frame: software_architect
+  sub_problem: SP-1
+  technique: iterate-feedback
+  feasibility: a
+  status: open
+- id: IDEA-29
+  kind: idea
+  origin: new
+  title: Reuse worktree.config.json as the project-environment config for where 
+    out-of-project dirs live; no new config surface
+  label: Reuse worktree.config.json
+  frame: product_manager
+  sub_problem: SP-1
+  technique: iterate-feedback
+  feasibility: a
+  status: open
+- id: IDEA-30
+  kind: idea
+  origin: new
+  title: Explicit inner-run-complete SIGNAL FILE the outer session/orchestrator 
+    polls; this is the one genuinely-new mechanism the whole design needs
+  label: Inner-run-complete signal file
+  frame: software_architect
+  sub_problem: SP-3
+  technique: iterate-feedback
+  feasibility: a
+  status: open
+- id: IDEA-31
+  kind: idea
+  origin: new
+  title: Harvest-gating on the completion signal stays the load-bearing safety 
+    fix, INDEPENDENT of pause/limit — build.py must not harvest+discard unless 
+    complete
+  label: Completion-gated harvest (still core)
+  frame: software_architect
+  sub_problem: SP-3
+  technique: iterate-feedback
+  feasibility: a
+  status: open
+- id: IDEA-32
+  kind: idea
+  origin: new
+  title: 'No orchestrator modification: both inner & outer orchestrators already freeze-on-all-limited
+    and resume after reset; the shared window makes them freeze together'
+  label: No-orch-mod freeze-and-resume
+  frame: distributed_systems_checkpoint_restart
+  sub_problem: SP-4
+  technique: iterate-feedback
+  feasibility: a
+  status: open
+- id: IDEA-33
+  kind: idea
+  origin: new
+  title: Outer session SELF-POLLS the completion file (uniform across 
+    interactive + autorun); simplest, keeps orchestrator single-responsibility, 
+    at the cost of poll tokens
+  label: Outer session self-poll
+  frame: product_manager
+  sub_problem: SP-4
+  technique: iterate-feedback
+  feasibility: b
+  status: open
+- id: IDEA-34
+  kind: idea
+  origin: new
+  title: 'Alternative: outer session terminates + tells outer orchestrator to monitor
+    the completion file and resume it (more token-efficient, but pushes monitoring
+    into the orchestrator — encapsulation cost)'
+  label: Orchestrator-monitored completion
+  frame: software_architect
+  sub_problem: SP-4
+  technique: iterate-feedback
+  feasibility: b
+  status: open
+- id: IDEA-35
+  kind: idea
+  origin: new
+  title: DYNAMIC poll interval based on a work estimate (remaining ChainState 
+    units x per-unit time), not a fixed 15 min — avoids over-polling a 
+    multi-hour run and idle-waiting a 10-min run
+  label: Dynamic poll interval
+  frame: product_manager
+  sub_problem: SP-4
+  technique: iterate-feedback
+  feasibility: b
+  status: open
+- id: IDEA-36
+  kind: idea
+  origin: new
+  title: 'No explicit external pause in v1: usage-limit is fully handled by orchestrator
+    freeze + completion polling; document stop_requested as the pause primitive only
+    IF a real preempt use case appears'
+  label: Defer explicit pause (YAGNI)
+  frame: security_privacy_auditor
+  sub_problem: SP-4
+  technique: iterate-feedback
+  feasibility: a
+  status: open
+- id: IDEA-37
+  kind: idea
+  origin: new
+  title: Registry records the playground run STATE so a cold session re-attaches
+    regardless of whether the prior session had a task; with the registry, 
+    'session must have a task' is a safety net, not a requirement (autorun mode 
+    requires a task anyway)
+  label: Registry makes task optional
+  frame: software_architect
+  sub_problem: SP-2
+  technique: iterate-feedback
+  feasibility: b
+  status: open
+- id: SOL-02
+  kind: solution
+  title: 'v2 (simpler): reuse existing parent-dir git-backed workspace + config; completion-signal-gated
+    harvest; orchestrator freeze handles limits with NO orch-mod; dynamic self-poll;
+    explicit pause deferred (YAGNI)'
+  recipe:
+  - IDEA-28
+  - IDEA-29
+  - IDEA-30
+  - IDEA-31
+  - IDEA-32
+  - IDEA-33
+  - IDEA-35
+  - IDEA-36
+  - IDEA-37
+  answers:
+  - SP-01
+  - SP-02
+  - SP-03
+  - SP-04
+  - SP-05

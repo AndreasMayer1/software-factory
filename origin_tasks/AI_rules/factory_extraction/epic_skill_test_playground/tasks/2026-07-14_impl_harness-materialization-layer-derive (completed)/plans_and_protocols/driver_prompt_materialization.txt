@@ -1,0 +1,63 @@
+AUTONOMOUS DERIVATION RUN — follow these steps directly. Do NOT ask for input, do NOT wait for any confirmation, do NOT call task-start / claude-route / claude-autorun, and do NOT try to resolve a task ID. Do NOT write anything under automation/pending_feedback/. This prompt IS your complete instruction set. WORK FAST: commit any already-drafted unit BEFORE authoring anything new.
+
+You are inside an isolated deployed copy of the factory; cwd is the copy root. Derive ONLY the harness MATERIALIZATION layer by running the real layer-derivation chain SYNCHRONOUSLY, committing once per completed unit. The chain has exactly 2 units. Author the single project-singleton product_materialization.md via the real ux-write-materialization path, forward from the approved scenarios. Do NOT author flows, requirements, tasks, or code. A PRIOR interrupted session may have already drafted artifacts into the working tree — reuse them, do not redo.
+
+=== SETUP (idempotent) ===
+1. mkdir -p .layerderiv
+2. If .layerderiv/spec.json is missing, write EXACTLY:
+{
+  "fixed_layers": ["persona", "scenario"],
+  "span_units": [
+    {"unit_id": "persona-scenario-fixed", "boundaries": [{"boundary_id": "persona_scenario", "anchor_kind": "explicit_test_targets", "anchor": ["PERSONA-001", "PERSONA-002"], "draft": []}]},
+    {"unit_id": "materialization-from-scenario", "boundaries": [{"boundary_id": "scenario_materialization", "anchor_kind": "explicit_test_targets", "anchor": ["SCEN-001-01", "SCEN-002-01"], "draft": []}]}
+  ],
+  "decisions": {}, "preloaded_answers_ref": null, "max_coverage_sessions_per_unit": 3,
+  "doc_lookup_budget": 10, "unit_task_req_id": "REQ-HARNESS-01",
+  "unit_task_req_path": "requirements_tasks/functional/materialization_layer", "unit_task_covers_acs": []
+}
+3. If .layerderiv/chain_state.json is missing:
+   python3 scripts/factory/layer_derivation/backfill_orchestration.py plan .layerderiv/spec.json .layerderiv/chain_state.json
+
+=== CHAIN LOOP — repeat until complete ===
+A. next: python3 scripts/factory/layer_derivation/backfill_orchestration.py next .layerderiv/chain_state.json
+B. If "complete": true -> print CHAIN-COMPLETE and STOP.
+C. Capture unit_id.
+
+D. IF unit_id == "persona-scenario-fixed"  (the degenerate adjacent-fixed span — BOTH anchors are already approved and fixed, so there is NOTHING to author; you CERTIFY the existing persona<->scenario boundary as DONE so the chain can reach all-DONE. This is the developer-approved Option A):
+   D1. Pick one existing approved scenario body already present in this copy:
+       SCEN=$(find requirements_user_needs/personas -name scenario.md | sort | head -1)
+       (It MUST exist — it was seeded. If none exists, print BLOCKER: no seeded scenario and STOP.)
+   D2. enrich:
+       python3 scripts/factory/layer_derivation/backfill_orchestration.py enrich .layerderiv/chain_state.json persona-scenario-fixed --layer-pair persona_scenario --target-paths "$SCEN"
+   D3. Naturalness report (REAL — do not fabricate): apply scripts/factory/layer_derivation/drift_rubric.md to the $SCEN body to get a drift score in [0,1]; compute sha256 of $SCEN's bytes; read rubric_version from the top of drift_rubric.md. Write .layerderiv/report_persona-scenario-fixed.json EXACTLY as:
+       {"persona_scenario": {"drift": <score>, "fingerprint": "<sha256 of $SCEN>", "rubric_version": "<version>"}}
+   D4. Commit (two SEPARATE commands): git add -A ; then: git commit -m "certify degenerate persona_scenario boundary (already-approved anchors)"
+   D5. complete: python3 scripts/factory/layer_derivation/backfill_orchestration.py complete .layerderiv/chain_state.json persona-scenario-fixed done --naturalness-report .layerderiv/report_persona-scenario-fixed.json
+       If the reported status is NOT "done" (escalated), print BLOCKER: span0 gate <reason> and STOP.
+   D6. Go to A.
+
+E. IF unit_id == "materialization-from-scenario"  (author the single materialization anchor, FORWARD from the scenarios; STOP at materialization — do NOT proceed to flow_requirement or requirement_task):
+   E1. enrich:
+       python3 scripts/factory/layer_derivation/backfill_orchestration.py enrich .layerderiv/chain_state.json materialization-from-scenario --layer-pair scenario_materialization
+   E2. Author requirements_user_needs/product_materialization/product_materialization.md via the ux-write-materialization skill. AUTONOMOUS-RUN OVERRIDES:
+       - SKIP the developer APPROVAL gate (skill step 8) and every "wait for confirmation" — this run has no developer. Do NOT write anything under automation/pending_feedback/. Make the reasonable autonomous choice at any decision point and continue.
+       - You MUST establish REAL provenance: run the embedded ideation (skill step 3) so decided_by = "IDEATION-NNN @ <short-sha>" resolves against .factory/ideation/index.yaml. Commit the ideation ledger + index as part of your commits.
+       - Author strictly against requirements_user_needs/README_18_MATERIALIZATION_DEFINITION.md: allocate MAT-001, capability_intent is ONE technology-neutral sentence (no library/framework name), pcd_consequence is never blank, one disposition comment per content field, fill the inline Value Trade-off block.
+   E3. Verify provenance resolves:
+       python3 scripts/user_needs/check_materialization_provenance.py
+       It MUST print "OK ...". If it prints MISSING, fix decided_by / commit the ledger, and re-run until OK. Do NOT proceed until OK.
+   E4. Record the authored target path:
+       python3 scripts/factory/layer_derivation/backfill_orchestration.py enrich .layerderiv/chain_state.json materialization-from-scenario --target-paths requirements_user_needs/product_materialization/product_materialization.md
+   E5. Naturalness report (REAL): apply drift_rubric.md to the product_materialization.md body -> drift in [0,1]; sha256 of its bytes; rubric_version. Write .layerderiv/report_materialization-from-scenario.json EXACTLY as:
+       {"scenario_materialization": {"drift": <score>, "fingerprint": "<sha256 of product_materialization.md>", "rubric_version": "<version>"}}
+   E6. Commit (two SEPARATE commands): git add -A ; then: git commit -m "derive harness materialization anchor (scenario->materialization)"
+   E7. complete: python3 scripts/factory/layer_derivation/backfill_orchestration.py complete .layerderiv/chain_state.json materialization-from-scenario done --naturalness-report .layerderiv/report_materialization-from-scenario.json
+       If the reported status is NOT "done", minimally revise the artifact and retry E4-E7; do not skip.
+   E8. Go to A.
+
+=== RULES ===
+- Commit-per-unit: one git commit per completed unit — it is the ONLY cross-session progress record. Always TWO SEPARATE commands (git add -A ; then git commit).
+- NEVER delete or reset .layerderiv/.
+- Author ONLY: span-0 certification (no new file) + the single product_materialization.md. NO flows, requirements, tasks, or code.
+- Do NOT write automation/pending_feedback/*. If genuinely blocked, print BLOCKER: <one line> and STOP.
+- Stop cleanly on CHAIN-COMPLETE.

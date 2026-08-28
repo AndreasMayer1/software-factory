@@ -1,0 +1,84 @@
+AUTONOMOUS DERIVATION RUN — follow these steps directly. Do NOT ask for input, do NOT wait for
+any confirmation, do NOT call task-start / claude-route / claude-autorun, and do NOT try to
+resolve a task ID. Do NOT write anything under automation/pending_feedback/. This prompt IS your
+complete instruction set. WORK FAST and keep every step minimal — this is a cheap mechanism proof,
+not real product authoring.
+
+You are inside an isolated deployed copy of the factory; cwd is the copy root. Your job has THREE
+parts, done in order. Commit after each part (two SEPARATE commands: `git add -A` then `git commit
+-m "<message>"`). Never `git reset`/force-push/rewrite history yourself — only ordinary commits.
+
+=== PART A — degenerate chain certification (reaches the acceptance-oracle's complete:true) ===
+1. mkdir -p .layerderiv
+2. Write .layerderiv/spec.json EXACTLY:
+{
+  "fixed_layers": ["persona", "scenario"],
+  "span_units": [
+    {"unit_id": "persona-scenario-fixed", "boundaries": [{"boundary_id": "persona_scenario", "anchor_kind": "explicit_test_targets", "anchor": ["PERSONA-001", "PERSONA-002"], "draft": []}]}
+  ],
+  "decisions": {}, "preloaded_answers_ref": null, "max_coverage_sessions_per_unit": 3,
+  "doc_lookup_budget": 5, "unit_task_req_id": "REQ-HARNESS-01",
+  "unit_task_req_path": "requirements_tasks/functional/materialization_layer", "unit_task_covers_acs": []
+}
+3. python3 scripts/factory/layer_derivation/backfill_orchestration.py plan .layerderiv/spec.json .layerderiv/chain_state.json
+4. python3 scripts/factory/layer_derivation/backfill_orchestration.py next .layerderiv/chain_state.json
+   (must return unit_id "persona-scenario-fixed")
+5. SCEN=$(find requirements_user_needs/personas -name scenario.md | sort | head -1)
+   (must exist — it was seeded; if not, print BLOCKER: no seeded scenario and STOP.)
+6. python3 scripts/factory/layer_derivation/backfill_orchestration.py enrich .layerderiv/chain_state.json persona-scenario-fixed --layer-pair persona_scenario --target-paths "$SCEN"
+7. Naturalness report (REAL — do not fabricate): apply scripts/factory/layer_derivation/drift_rubric.md
+   to $SCEN's body → drift score in [0,1]; sha256 of $SCEN's bytes; rubric_version from the rubric's
+   top. Write .layerderiv/report_persona-scenario-fixed.json EXACTLY as:
+   {"persona_scenario": {"drift": <score>, "fingerprint": "<sha256 of $SCEN>", "rubric_version": "<version>"}}
+8. Commit: "certify degenerate persona_scenario boundary (already-approved anchors)"
+9. python3 scripts/factory/layer_derivation/backfill_orchestration.py complete .layerderiv/chain_state.json persona-scenario-fixed done --naturalness-report .layerderiv/report_persona-scenario-fixed.json
+   If the reported status is NOT "done", print BLOCKER: span0 gate <reason> and STOP.
+10. python3 scripts/factory/layer_derivation/backfill_orchestration.py next .layerderiv/chain_state.json
+    (must report "complete": true — this satisfies the run's chainstate acceptance oracle. Do NOT
+    author flow/requirement/task/materialization content — out of scope for this proof run.)
+
+=== PART B — one real, trivial, standalone ideation decision (Quick effort) ===
+This produces the REAL ideation index + ledger this proof needs (AC-11) and a real commit this
+proof references (AC-20). Keep the topic genuinely trivial so Quick effort resolves fast.
+
+1. mkdir -p "requirements_tasks/functional/_playground_proof/tasks/2026-07-18_explore_gitproof-phrasing/plans_and_protocols"
+2. Write a minimal goal.md at
+   "requirements_tasks/functional/_playground_proof/tasks/2026-07-18_explore_gitproof-phrasing/goal.md"
+   with frontmatter `task_id: TASK-GITPROOF-01`, `type: explore`, `writes_requirements: false`,
+   `status: in_progress`, and a body stating the objective: "Pick a one-line primary-frustration
+   phrasing for a small proof persona used to verify the playground's persistent-git mechanism.
+   Two candidate phrasings: (a) 'Forgets to log her mood before the day's details blur together.'
+   (b) 'Feels her mood entries take too long, so she skips days.' Choose one via structured
+   ideation." (This is a real but deliberately tiny decision — not a product commitment.)
+3. Invoke the ideation-start skill in EMBEDDED mode: topic = the objective above, effort=Quick,
+   caller task folder = the path from step 1. Let it run its real phases to the final synthesis;
+   it owns its own artifact naming inside that plans_and_protocols/ folder. Do NOT stop for its
+   mid-run developer gate (skip/auto-resolve autonomously — this run has no developer) and do NOT
+   write anything under automation/pending_feedback/.
+4. When ideation-start returns its synthesis (the chosen phrasing + `decided_by`-style provenance,
+   i.e. an IDEATION-NNN id backed by the index + ledger it just wrote), commit everything it wrote:
+   "ideation: decide proof-persona phrasing (Quick, embedded)"
+5. Immediately after that commit: CAPTURE=$(git rev-parse HEAD) — record this exact 40-hex value,
+   you need it verbatim in Part C.
+
+=== PART C — author the referencing artifact + noise (for the compaction proof) ===
+1. mkdir -p requirements_user_needs/personas/persona-gitproof
+2. Write requirements_user_needs/personas/persona-gitproof/persona.md as a minimal but real persona
+   file, following the shape of requirements_user_needs/personas/maya/persona.md (same frontmatter
+   fields: persona_id use "PERSONA-GITPROOF", name "GitProof", stakeholder_class, role_tags,
+   archetype, conditions, evidence_level: proto_persona, data_sources: "Playground persistent-git
+   mechanism proof (TASK-PROC-068-34)", created/updated = today, version 1.0). Body: one short
+   primary-frustration line = the phrasing Part B's ideation chose. Add ONE extra line anywhere in
+   the file's body (a plain text line, not YAML):
+   `<!-- decided_by: IDEATION-001 @ CAPTURE_VALUE_FROM_PART_B_STEP_5 -->`
+   (replace CAPTURE_VALUE_FROM_PART_B_STEP_5 with the literal 40-hex value you captured — do not
+   invent or truncate it; it must be the exact `git rev-parse HEAD` output from Part B step 5.)
+3. Commit: "author gitproof persona referencing the ideation decision commit"
+4. Make exactly TWO more trivial commits, each touching only requirements_user_needs/personas/persona-gitproof/persona.md
+   (e.g. append a one-line HTML comment `<!-- noise N -->` at the end, nothing else):
+   commit "noise commit 1", then commit "noise commit 2".
+
+=== STOP ===
+Print exactly: PROOF-RUN-COMPLETE
+Then stop. Do not do anything else — no flows, no requirements, no tasks beyond what is listed
+above, no cleanup, no further commits.

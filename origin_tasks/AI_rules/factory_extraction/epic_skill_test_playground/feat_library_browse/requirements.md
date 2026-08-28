@@ -10,6 +10,10 @@ trackable_items:
 ---
 # Library Browse
 
+> **Role (two-tree split — REQ-PROC-068):** this is an *instrument-feature spec* — it states the coupling this
+> feature must carry. The product-level definition (screen behaviour, layout, copy) is authored in
+> `test_harness_app/requirements_*` via the factory skill chain; it is not duplicated here.
+
 ## Overview
 A list view of all rated items, filterable and searchable, and the contributor of a recent-ratings summary
 card onto the home dashboard. It is **cascade dependent #1**: its design draws from the dashboard's

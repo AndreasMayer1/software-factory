@@ -1,0 +1,54 @@
+AUTONOMOUS DERIVATION RUN — follow these steps directly. Do NOT ask for input, do NOT wait for any confirmation, do NOT call task-start / claude-route / claude-autorun, and do NOT try to resolve a task ID. Do NOT write anything under automation/pending_feedback/. This prompt IS your complete instruction set. WORK FAST: commit any already-drafted flow BEFORE authoring anything new.
+
+You are inside an isolated deployed copy of the factory; cwd is the copy root. Derive the harness FLOW layer (scenario -> flow) by running the real layer-derivation chain SYNCHRONOUSLY. The chain has exactly 2 units: a degenerate persona<->scenario unit that is AUTO-COMPLETE (vacuous, no action), and ONE forward unit "flows-from-scenarios" that authors a flow for BOTH scenarios (SCEN-001-01 AND SCEN-002-01). A materialization anchor (MAT-001) is already seeded at requirements_user_needs/product_materialization/product_materialization.md — flows author their materialization reference against it; do NOT re-author or supersede it. A PRIOR interrupted session may have already drafted a flow into the working tree — reuse it, do not redo it. STOP at the flow layer: do NOT author requirements, tasks, or code.
+
+=== SETUP (idempotent) ===
+1. mkdir -p .layerderiv
+2. If .layerderiv/spec.json is missing, write EXACTLY:
+{
+  "fixed_layers": ["persona", "scenario"],
+  "span_units": [
+    {"unit_id": "persona-scenario-fixed", "boundaries": [{"boundary_id": "persona_scenario", "anchor_kind": "explicit_test_targets", "anchor": ["PERSONA-001", "PERSONA-002"], "draft": []}]},
+    {"unit_id": "flows-from-scenarios", "boundaries": [{"boundary_id": "scenario_flow", "anchor_kind": "explicit_test_targets", "anchor": ["SCEN-001-01", "SCEN-002-01"], "draft": []}]}
+  ],
+  "decisions": {}, "preloaded_answers_ref": null, "max_coverage_sessions_per_unit": 3,
+  "doc_lookup_budget": 10, "unit_task_req_id": "REQ-HARNESS-01",
+  "unit_task_req_path": "requirements_tasks/functional/flow_layer", "unit_task_covers_acs": []
+}
+3. If .layerderiv/chain_state.json is missing:
+   python3 scripts/factory/layer_derivation/backfill_orchestration.py plan .layerderiv/spec.json .layerderiv/chain_state.json
+   (This auto-stamps persona-scenario-fixed as vacuous_complete — the degenerate persona<->scenario span. Leave it; do NOT try to complete it.)
+
+=== CHAIN LOOP — repeat until complete ===
+A. next: python3 scripts/factory/layer_derivation/backfill_orchestration.py next .layerderiv/chain_state.json
+B. If "complete": true -> print CHAIN-COMPLETE and STOP.
+C. The only pending unit is "flows-from-scenarios" (forward; anchor_demand_ids = [SCEN-001-01, SCEN-002-01]).
+   SCEN-001-01 -> flow dir requirements_user_needs/user_flows/detailed_entry_after_movie/ (theo).
+   SCEN-002-01 -> flow dir requirements_user_needs/user_flows/quick_rating_after_movie/ (maya).
+D. AUTHOR BOTH FLOWS (one per scenario). For EACH of the two scenarios:
+   - Look for an existing flow.md in that scenario's flow dir (see C).
+   - IF a flow.md ALREADY EXISTS there: DO NOT re-author, DO NOT re-run ux-create-flow. Keep it as-is.
+   - ELSE: author a DRAFT flow.md for that scenario with the ux-create-flow skill (draft only; no approval/alignment gate; README_5-conformant: correct frontmatter, six required sections, happy-path step table, exceptions). The ux-flow-draft materialization Pre-flight presence gate MUST find MAT-001 present (it is seeded) — author the authored_against_materialization reference against MAT-001; do NOT create a new MAT.
+   After this step BOTH flow.md files MUST exist:
+     FLOW1 = requirements_user_needs/user_flows/detailed_entry_after_movie/flow.md
+     FLOW2 = requirements_user_needs/user_flows/quick_rating_after_movie/flow.md
+E. Record BOTH target paths AND the layer pair in ONE enrich call (enrich overwrites all fields, so pass them together):
+   python3 scripts/factory/layer_derivation/backfill_orchestration.py enrich .layerderiv/chain_state.json flows-from-scenarios --layer-pair scenario_flow --target-paths <FLOW1> <FLOW2>
+F. Naturalness report (REQUIRED — one entry, keyed by the boundary "scenario_flow", covering BOTH bodies):
+   - rubric_version = the version string at the top of scripts/factory/layer_derivation/drift_rubric.md.
+   - Apply drift_rubric.md to EACH flow body -> two drift scores in [0,1]; DRIFT = the MAXIMUM (most conservative) of the two.
+   - Compute the COMPOSITE fingerprint over BOTH bodies (order = FLOW1 then FLOW2) using the module's own helper, so it matches what the gate recomputes:
+       python3 -c "import sys; sys.path[:0]=['scripts/factory/layer_derivation','scripts']; from backfill_orchestration import body_fingerprint; print(body_fingerprint(['<FLOW1>','<FLOW2>']))"
+   - Write .layerderiv/report_flows-from-scenarios.json EXACTLY as:
+       {"scenario_flow": {"drift": <DRIFT>, "fingerprint": "<composite fingerprint>", "rubric_version": "<version>"}}
+G. complete: python3 scripts/factory/layer_derivation/backfill_orchestration.py complete .layerderiv/chain_state.json flows-from-scenarios done --naturalness-report .layerderiv/report_flows-from-scenarios.json
+   - If the reported status is NOT "done" (escalated on a gate failure), read gate_reason: if it is a density/naturalness issue, minimally revise the weaker flow body and retry E-G (re-record target paths, recompute the composite fingerprint, rewrite the report); do not skip. Do NOT change the target-paths order between recompute and report.
+H. Commit (two SEPARATE commands): git add -A ; then: git commit -m "derive flow unit flows-from-scenarios (scenario->flow, FLOW-001 + FLOW-002)"
+I. Go to A.
+
+=== RULES ===
+- Do the FAST work first: on entry, if BOTH flows are already drafted, go straight to E-H and get the unit committed before doing any slow new authoring. One git commit per completed unit — it is the ONLY cross-session progress record.
+- NEVER delete or reset .layerderiv/.
+- Author ONLY the two flows (FLOW-001 from SCEN-001-01, FLOW-002 from SCEN-002-01). Do NOT author requirements, tasks, or code. Do NOT re-author or supersede the seeded MAT-001. Do NOT try to complete persona-scenario-fixed (it is vacuous_complete already).
+- Do NOT write automation/pending_feedback/*. If genuinely blocked, print BLOCKER: <one line> and STOP.
+- Stop cleanly on CHAIN-COMPLETE.

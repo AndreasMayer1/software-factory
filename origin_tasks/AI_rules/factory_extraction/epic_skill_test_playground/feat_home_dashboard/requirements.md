@@ -11,6 +11,10 @@ trackable_items:
 ---
 # Home Dashboard
 
+> **Role (two-tree split — REQ-PROC-068):** this is an *instrument-feature spec* — it states the coupling this
+> feature must carry. The product-level definition (screen behaviour, layout, copy) is authored in
+> `test_harness_app/requirements_*` via the factory skill chain; it is not duplicated here.
+
 ## Overview
 The single entry surface of the playground app: a home screen that summarises the user's own rating activity
 and is the launch point for every other feature. It is deliberately a **hub** — the structural origin of the

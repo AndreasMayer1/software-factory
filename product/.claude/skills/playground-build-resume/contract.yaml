@@ -1,0 +1,35 @@
+contract_version: 1
+skill: playground-build-resume
+purpose: >
+  Re-attach a preserved/in-progress build-mode playground run recorded in the durable run
+  registry and resume it: reuse the preserved isolated copy and the persisted pre-child baseline,
+  re-launch the recorded child session, and run the completion gate — WITHOUT re-running
+  deploy/seed/snapshot (REQ-PROC-068 AC-15). Usage-limit resume needs no orchestrator change
+  (AC-16): the shared account window freezes and thaws both orchestrators together.
+
+egp:
+  archetype: F
+  external_referent: >
+    The run-registry record on disk (<workspace_root>/.playground_runs/<uuid>.json) and the
+    preserved isolated copy it points at — the skill must re-attach exactly the run the registry
+    reports as running/preserved and reuse that same on-disk workspace and baseline snapshot,
+    never re-deploying, re-seeding, or re-snapshotting.
+
+quality_criteria:
+  - Stops and reports "no resumable run" when no record has status running or preserved with an
+    on-disk workspace.
+  - Never re-attaches a record whose status is complete.
+  - Resume reuses the recorded workspace_path + baseline_snapshot_ref; deploy/seed/snapshot are
+    not re-run (verified by build_resume.py's resume path calling build.launch_and_gate directly,
+    never _prepare_workspace).
+
+may_invoke: []
+
+preconditions:
+  - scripts/playground/build_resume.py exists and its CLI (list, resume) is runnable.
+  - At least one run-registry record has status running or preserved and its workspace_path still
+    exists on disk.
+
+postconditions:
+  - The resumed run either completed (child-authored artifacts harvested, isolated copy discarded,
+    record flipped to complete) or was preserved again for a later resume.

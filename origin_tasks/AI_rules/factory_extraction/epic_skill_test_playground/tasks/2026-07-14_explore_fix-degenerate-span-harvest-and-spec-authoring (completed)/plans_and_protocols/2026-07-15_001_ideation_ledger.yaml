@@ -1,0 +1,782 @@
+rows:
+- id: CR-01
+  kind: criterion
+  slug: usefulness
+  title: Usefulness / desirability
+  weight: 0.22
+  weight_rationale: Does the design actually let a legitimately-complete chain 
+    harvest AND keep the real abandonment guarantee — the whole point.
+  direction: benefit
+  role: spine
+  provenance: internal
+  kind_of_criterion: floored_weighted
+  knockout_threshold: 3.0
+  measures: value
+- id: CR-02
+  kind: criterion
+  slug: feasibility
+  title: Feasibility
+  weight: 0.18
+  weight_rationale: Can it be built within the existing mechanism/oracle/skill 
+    surface without a large rewrite.
+  direction: benefit
+  role: spine
+  provenance: internal
+  kind_of_criterion: knockout
+  knockout_threshold: 3.0
+  measures: value
+- id: CR-03
+  kind: criterion
+  slug: viability
+  title: Viability (effort / cost)
+  weight: 0.12
+  weight_rationale: 'Ongoing effort/cost: does it avoid per-spec workarounds and stay
+    cheap to maintain.'
+  direction: benefit
+  role: spine
+  provenance: internal
+  kind_of_criterion: weighted
+  measures: cost
+- id: CR-04
+  kind: criterion
+  slug: novelty
+  title: Novelty
+  weight: 0.05
+  weight_rationale: Minor for internal tooling; slight credit for a cleaner 
+    primitive.
+  direction: benefit
+  role: spine
+  provenance: internal
+  kind_of_criterion: weighted
+  measures: value
+- id: CR-05
+  kind: criterion
+  slug: risk
+  title: Risk
+  weight: 0.15
+  weight_rationale: Blast radius at the HIGH-consequence AC-18 seam; chance of 
+    masking a real under-finish.
+  direction: cost
+  role: spine
+  provenance: internal
+  kind_of_criterion: weighted
+  measures: cost
+- id: CR-06
+  kind: criterion
+  slug: truthfulness
+  title: Truthfulness of the completion signal
+  weight: 0.2
+  weight_rationale: A degenerate span must report what is TRUE (nothing-to-do), 
+    never a fake DONE that hides a real under-finish. Central to the HIGH EGP-F 
+    AC-18 intent.
+  direction: benefit
+  role: problem_specific
+  provenance: internal
+  kind_of_criterion: weighted
+- id: CR-07
+  kind: criterion
+  slug: provider_teachability
+  title: Teachability to the LLM spec-author
+  weight: 0.08
+  weight_rationale: The App-Provider/maintaining role needs an LLM to author 
+    correct specs without hand-holding; the design must be explainable in a 
+    small governed artifact.
+  direction: benefit
+  role: problem_specific
+  provenance: internal
+  kind_of_criterion: weighted
+  source: persona:PERSONA-015:affected
+- id: SP-01
+  kind: subproblem
+  parent_id: root
+  title: Fix locus for the degenerate zero-authoring-pair span
+  scope: 'WHERE the class is resolved: (a) mechanism — a degenerate span completes
+    vacuously DONE (distinct disposition or DONE); (b) oracle tolerance — chainstate
+    oracle counts a degenerate/no-op unit as satisfied; (c) upstream — plan_chain/resolve_spans
+    do not emit a unit for a zero-pair span. Chosen locus must not touch span-1 real
+    authoring/harvest and must not weaken the strict all-DONE guarantee for REAL under-finish.'
+  interface_contract: Produces the ground-truth disposition/label that SP-2 
+    (AC-18/19) names, that SP-3 (pre-flight) simulates, and that SP-4 (authoring
+    surface) teaches. Must leave span-1 semantics and the real-abandonment path 
+    unchanged.
+  status: open
+- id: SP-02
+  kind: subproblem
+  parent_id: root
+  title: AC-18/AC-19 clarification (exclude degenerate no-op from 
+    abandonment/blame)
+  scope: 'Reword/extend AC-18 so a mandatory zero-authoring-pair span is NOT classified
+    abandoned nor blamed on the skill-under-test, while KEEPING true: abandoned =
+    the skill-under-test silently under-finished real authoring. Keep AC-19 (no-oracle
+    => cannot certify; background-agent-in-flight => not clean-complete) intact. HIGH-consequence
+    EGP-F.'
+  interface_contract: Consumes the disposition SP-1 emits (names the same thing 
+    the mechanism/oracle produces). The externally-grounded referent for AC-18 
+    stays a real run observed vs the playground classification.
+  status: open
+- id: SP-03
+  kind: subproblem
+  parent_id: root
+  title: Harvestability pre-flight contract + placement
+  scope: A plan-time guardrail that turns "plan-success != harvestable" into a 
+    loud plan-time failure. WHAT it simulates (span resolution + per-span 
+    disposition + oracle prediction), WHERE it lives (plan_chain / build.py / 
+    layer-derivation-start), how much it simulates, and how resume paths cannot 
+    skip it (ADV-sg-06).
+  interface_contract: Consumes the span/unit + disposition model from SP-1; must
+    be reachable on BOTH -start and resume; emits a distinct exit/failure so an 
+    un-harvestable spec never reaches a deployed run.
+  status: open
+- id: SP-04
+  kind: subproblem
+  parent_id: root
+  title: Spec-authoring surface for the LLM author
+  scope: 'Smallest artifact reliably teaching an LLM the span<->unit mapping and the
+    degenerate-span rule: dedicated skill vs extend layer-derivation-start + a governed
+    spec template/contract. NOT doc/ (skill/mechanism layer only).'
+  interface_contract: Teaches exactly the model SP-1 formalizes and SP-3 checks;
+    its correctness is the same rule the pre-flight enforces (author-time 
+    guidance and plan-time gate agree).
+  status: open
+- id: ADV-analyze-ideate-01
+  kind: gap
+  title: "SP-1's 'mechanism vacuous-DONE / distinct disposition' option is not checked
+    against the existing fail-closed content-gate poka-yoke (backfill_orchestration.py
+    _resolve_gate_outcome, WHY comment L865-871: 'a run with no real judge wired can
+    never reach DONE') — a degenerate span reaching a DONE-like state without a real
+    content gate risks reopening exactly the hole that poka-yoke was built to close;
+    SP-1 scope text omits this as a constraint to preserve."
+  status: open
+  gap_type: adversarial
+  phase: analyze
+  boundary: analyze→ideate
+- id: ADV-analyze-ideate-02
+  kind: gap
+  title: Context summary cites ONE test comment 
+    (test_backfill_orchestration.py:1061) as proof ESCALATED-skip is 'the 
+    mechanism's own unit test documents this as intended', but the 
+    ESCALATED='skip past this unit' pattern is baked into at least 7 test sites 
+    (lines 213,228,234,556,763,1061,1201) covering generic missing-answer AND 
+    gate_content_fail escalation, not just degenerate spans — the test-migration
+    blast radius of introducing a new disposition is understated and 
+    single-sourced from one comment.
+  status: open
+  gap_type: adversarial
+  phase: analyze
+  boundary: analyze→ideate
+- id: ADV-analyze-ideate-03
+  kind: gap
+  title: "No subproblem owns layer-derivation-status: its contract.yaml quality_criteria
+    ('ESCALATED units include their pending_feedback path when detectable via grep')
+    and SKILL.md example line ('[ESCALATED] ... awaiting answer: automation/pending_feedback/...')
+    already misreport a degenerate span's ESCALATED('gate_content_fail') as 'awaiting
+    a developer answer' when no pending_feedback file exists for it — this existing
+    reporting surface needs updating in lockstep with whatever new disposition SP-1
+    chooses, but SP-1/SP-2/SP-4 never name it."
+  status: open
+  gap_type: adversarial
+  phase: analyze
+  boundary: analyze→ideate
+- id: ADV-analyze-ideate-04
+  kind: gap
+  title: 'Unconsidered configuration: the framing only examines a BIDIRECTIONAL adjacent-fixed
+    degenerate span (persona-scenario). resolve_spans also produces FORWARD/REVERSE
+    degenerate zero-pair spans when a single fixed layer sits immediately adjacent
+    to a chain terminus (e.g. fixed_layers=[task] -> task->code span), AND a separate
+    zero-boundary path exists because task_code pairs are explicitly filtered out
+    of AUTHORING_SKILL_BY_PAIR (confirmed by test_task_code_boundary_is_excluded)
+    — neither direction-generality nor the task_code-exclusion path is addressed by
+    SP-1.'
+  status: open
+  gap_type: adversarial
+  phase: analyze
+  boundary: analyze→ideate
+- id: ADV-analyze-ideate-05
+  kind: gap
+  title: "Unconsidered configuration: SP-1's scope text ('must not touch span-1 real
+    authoring/harvest') implicitly assumes exactly one degenerate span plus one real
+    span. resolve_spans's own table shows N fixed layers (edges included) yield N-1
+    spans, so a chain can have multiple degenerate spans interspersed with real ones
+    (degenerate span NOT at index 0, e.g. mid-chain) or be entirely degenerate (every
+    span zero-pair) — no subproblem specifies whether an all-degenerate chain should
+    harvest-as-trivially-complete or be rejected upstream by the SP-3 pre-flight as
+    a malformed spec."
+  status: open
+  gap_type: adversarial
+  phase: analyze
+  boundary: analyze→ideate
+- id: ADV-analyze-ideate-06
+  kind: gap
+  title: "Missing sub-problem: chain-state migration. TASK-PROC-068-26/068-12 already
+    persisted real on-disk ChainState files where span-0 was hand-driven to a truthful
+    DONE via the Option-A workaround (not via any new mechanism disposition); other
+    in-flight/abandoned chains may hold a unit already recorded ESCALATED('gate_content_fail')
+    for a degenerate span from before the fix ships. No subproblem addresses whether/how
+    layer-derivation-resume, -status, or the harvest oracle re-interpret pre-existing
+    persisted ESCALATED units under the new rule, vs only covering newly-planned chains
+    going forward."
+  status: open
+  gap_type: adversarial
+  phase: analyze
+  boundary: analyze→ideate
+- id: ADV-analyze-ideate-07
+  kind: gap
+  title: "Un-gathered reuse candidate misrepresented as available: the analysis's
+    'early design observations' frame screen_derivability/DerivabilityError (anchor_span_engine.py)
+    as one of 'two adjacent primitives to build on', but grep confirms backfill_orchestration.py
+    (the module actually wired into build.py's oracle and layer-derivation-start/-resume,
+    i.e. the real production path that hit the 068-26 defect) never imports or calls
+    screen_derivability, DerivabilityError, or run_spans — that machinery is dead
+    code for this bug's call path, only exercised via anchor_span_engine's own CLI/tests,
+    so 'extending' it would not touch the flow that actually needs fixing unless a
+    separate, unscoped wiring change is also made."
+  status: open
+  gap_type: adversarial
+  phase: analyze
+  boundary: analyze→ideate
+- id: IDEA-01
+  kind: idea
+  origin: new
+  title: Add UnitStatus.VACUOUS terminal disposition; oracle accepts 
+    DONE-union-VACUOUS as satisfied
+  label: New VACUOUS status splits done-vs-blocked
+  frame: software_architect
+  technique: association
+  feasibility: a
+  status: open
+- id: IDEA-02
+  kind: idea
+  origin: new
+  title: Invert oracle to fail-on-proven-underfinish rather than 
+    pass-on-all-DONE
+  label: Oracle proves under-finish, not completion
+  frame: software_architect
+  technique: inversion
+  feasibility: b
+  status: open
+- id: IDEA-03
+  kind: idea
+  origin: new
+  title: Model zero-pair span as identity morphism; identity is vacuously 
+    complete by construction
+  label: Identity-morphism model of degenerate span
+  frame: software_architect
+  technique: analogy
+  feasibility: b
+  status: open
+- id: IDEA-04
+  kind: idea
+  origin: new
+  title: Eliminate the unit for zero-pair spans; relax plan_chain arity to 
+    non-degenerate spans
+  label: Drop unit; arity counts real spans only
+  frame: software_architect
+  technique: scamper
+  feasibility: c
+  status: open
+- id: IDEA-05
+  kind: idea
+  origin: new
+  title: Empty-gate outcome = PASS-VACUOUS gated on structural zero-pair proof, 
+    real gates stay fail-closed
+  label: Structural empty-gate pass, real gates closed
+  frame: software_architect
+  technique: random_stimulus
+  feasibility: a
+  status: open
+  stimulus_word: gate
+  stimulus_seed: '1130561389'
+- id: IDEA-06
+  kind: idea
+  origin: new
+  title: 'Stage the architecture: enum now, plan-time predictor next, morphism-typed
+    spans later'
+  label: Reversible staged rollout of the fix
+  frame: software_architect
+  technique: feasibility_spectrum
+  feasibility: b
+  status: open
+- id: IDEA-07
+  kind: idea
+  origin: new
+  title: Generalize VACUOUS across FORWARD/REVERSE and the task_code-excluded 
+    zero-pair boundaries
+  label: Direction-general degenerate rule incl task_code
+  frame: software_architect
+  technique: association
+  feasibility: b
+  status: open
+- id: IDEA-08
+  kind: idea
+  origin: new
+  title: Golden chain-state fixture matrix asserting oracle verdict for every 
+    degenerate configuration
+  label: Fixture matrix tests the oracle itself
+  frame: qa_test_engineer
+  technique: association
+  feasibility: a
+  status: open
+- id: IDEA-09
+  kind: idea
+  origin: new
+  title: CI dry-harvest of a known-complete degenerate chain as the oracle's 
+    live regression
+  label: Dry-harvest regression catches oracle lies
+  frame: qa_test_engineer
+  technique: inversion
+  feasibility: b
+  status: open
+- id: IDEA-10
+  kind: idea
+  origin: new
+  title: 'Three-valued oracle: complete / incomplete / inconclusive, mirroring negative-vs-not-run
+    test semantics'
+  label: Tri-state oracle separates vacuous from not-run
+  frame: qa_test_engineer
+  technique: analogy
+  feasibility: b
+  status: open
+- id: IDEA-11
+  kind: idea
+  origin: new
+  title: Single shared test helper migrates all 7 ESCALATED-skip sites to the 
+    disposition split, TDD-first
+  label: One helper migrates seven escalation test sites
+  frame: qa_test_engineer
+  technique: scamper
+  feasibility: b
+  status: open
+- id: IDEA-12
+  kind: idea
+  origin: new
+  title: 'Span-chain continuity check: degenerate span = zero-resistance wire, real
+    blocker = open break'
+  label: Continuity check closes the derivation circuit
+  frame: qa_test_engineer
+  technique: random_stimulus
+  feasibility: b
+  status: open
+  stimulus_word: current
+  stimulus_seed: '920843532'
+- id: IDEA-13
+  kind: idea
+  origin: new
+  title: 'Property-based test: random fixed-layer sets, assert plan-time prediction
+    equals post-run oracle verdict'
+  label: Property test ties prediction to real verdict
+  frame: qa_test_engineer
+  technique: feasibility_spectrum
+  feasibility: c
+  status: open
+- id: IDEA-14
+  kind: idea
+  origin: new
+  title: Tag and count 'abandoned-due-to-degenerate' runs in the registry to 
+    make wasted deploy cost observable
+  label: Registry counter surfaces wasted deploy cost
+  frame: operations_cost
+  technique: association
+  feasibility: a
+  status: open
+- id: IDEA-15
+  kind: idea
+  origin: new
+  title: Offline zero-cost oracle prediction reusing resolve_spans before any 
+    deploy is spent
+  label: Predict verdict offline, spend no deploy
+  frame: operations_cost
+  technique: inversion
+  feasibility: a
+  status: open
+- id: IDEA-16
+  kind: idea
+  origin: new
+  title: Hydrotest the spec at plan time before trusting a live deployed run
+  label: Cheap hydrotest before costly live run
+  frame: operations_cost
+  technique: analogy
+  feasibility: a
+  status: open
+- id: IDEA-17
+  kind: idea
+  origin: new
+  title: 'Reverse the pipeline: predict harvest first, deploy last, from one shared
+    planner-oracle module'
+  label: Predict-first pipeline from shared module
+  frame: operations_cost
+  technique: scamper
+  feasibility: b
+  status: open
+- id: IDEA-18
+  kind: idea
+  origin: new
+  title: Leak-detector pre-flight guards the scarce deploy vessel with a 
+    distinct doomed-spec exit code
+  label: Leak-detector blocks doomed run pre-deploy
+  frame: operations_cost
+  technique: random_stimulus
+  feasibility: a
+  status: open
+  stimulus_word: vessel
+  stimulus_seed: '794626003'
+- id: IDEA-19
+  kind: idea
+  origin: new
+  title: Persist a re-validated 'harvestable' stamp checked on both -start and 
+    every resume
+  label: Harvestable stamp re-checked on resume
+  frame: operations_cost
+  technique: feasibility_spectrum
+  feasibility: b
+  status: open
+- id: IDEA-20
+  kind: idea
+  origin: new
+  title: Fix layer-derivation-status to report VACUOUS as 'no-op complete', not 
+    phantom 'awaiting answer'
+  label: Status reports vacuous as no-op complete
+  frame: operations_cost
+  technique: association
+  feasibility: a
+  status: open
+- id: IDEA-21
+  kind: idea
+  origin: new
+  title: plan_chain prints a per-span disposition preview so the LLM author sees
+    the degenerate span acknowledged
+  label: Plan preview shows each span's disposition
+  frame: end_user_persona
+  technique: association
+  feasibility: a
+  status: open
+- id: IDEA-22
+  kind: idea
+  origin: new
+  title: Author supplies only fixed_layers; tooling derives all span_units so 
+    the degenerate rule is automatic
+  label: Derive span_units; author never sees the rule
+  frame: end_user_persona
+  technique: inversion
+  feasibility: b
+  status: open
+- id: IDEA-23
+  kind: idea
+  origin: new
+  title: Auto-annotate degenerate spans as greyed-out read-only fields in the 
+    spec schema
+  label: Greyed-out pre-filled degenerate span field
+  frame: end_user_persona
+  technique: analogy
+  feasibility: b
+  status: open
+- id: IDEA-24
+  kind: idea
+  origin: new
+  title: Replace hand-authored JSON with a guided layer-derivation-start step 
+    emitting the spec from anchor+fixed-layers
+  label: Guided spec emission, no hand JSON
+  frame: end_user_persona
+  technique: scamper
+  feasibility: b
+  status: open
+- id: IDEA-25
+  kind: idea
+  origin: new
+  title: Author-facing derivation trace explains which span drove the 
+    classification, teaching by real feedback
+  label: Derivation trace teaches author from outcomes
+  frame: end_user_persona
+  technique: random_stimulus
+  feasibility: a
+  status: open
+  stimulus_word: trace
+  stimulus_seed: '990792578'
+- id: IDEA-26
+  kind: idea
+  origin: new
+  title: Spec linter with teaching error messages doubles as the author's 
+    guidance and the pre-flight gate
+  label: Teaching linter is guidance and gate
+  frame: end_user_persona
+  technique: feasibility_spectrum
+  feasibility: b
+  status: open
+- id: IDEA-27
+  kind: idea
+  origin: new
+  title: "Defect-at-source: plan_chain stamps each unit's expected disposition at
+    creation as a poka-yoke jig"
+  label: Stamp expected disposition at unit creation
+  frame: manufacturing_lean
+  technique: association
+  feasibility: a
+  status: open
+- id: IDEA-28
+  kind: idea
+  origin: new
+  title: Andon stop-the-line at plan admission when a zero-pair span would 
+    mis-escalate
+  label: Stop-the-line halts mis-escalating spec
+  frame: manufacturing_lean
+  technique: inversion
+  feasibility: a
+  status: open
+- id: IDEA-29
+  kind: idea
+  origin: new
+  title: 'Jidoka split: auto-pass benign no-op parts, halt only on real defects -
+    the VACUOUS/ESCALATED distinction'
+  label: Jidoka separates benign no-op from defect
+  frame: manufacturing_lean
+  technique: analogy
+  feasibility: a
+  status: open
+- id: IDEA-30
+  kind: idea
+  origin: new
+  title: Eliminate the non-value-adding zero-pair span from the value stream at 
+    resolve_spans
+  label: Cut zero-pair span as pure muda
+  frame: manufacturing_lean
+  technique: scamper
+  feasibility: c
+  status: open
+- id: IDEA-31
+  kind: idea
+  origin: new
+  title: "Require zero harvest-margin: every span's disposition provable before spec
+    admission"
+  label: Zero-uncertainty margin gate before admission
+  frame: manufacturing_lean
+  technique: random_stimulus
+  feasibility: b
+  status: open
+  stimulus_word: margin
+  stimulus_seed: '522341528'
+- id: IDEA-32
+  kind: idea
+  origin: new
+  title: Mistake-proof the spec format so a unit on a zero-pair span is 
+    structurally inexpressible
+  label: Format makes the wrong spec inexpressible
+  frame: manufacturing_lean
+  technique: feasibility_spectrum
+  feasibility: c
+  status: open
+- id: IDEA-33
+  kind: idea
+  origin: new
+  title: Reclassify span-0 ESCALATED as an evolutionary spandrel; evolve the 
+    adaptive VACUOUS trait
+  label: Spandrel becomes adaptive vacuous trait
+  frame: biology_evolution
+  technique: association
+  feasibility: a
+  status: open
+- id: IDEA-34
+  kind: idea
+  origin: new
+  title: 'Fittest fix adds no organ: reinterpret the existing empty gate as already-satisfied'
+  label: Reinterpret empty gate, grow nothing new
+  frame: biology_evolution
+  technique: inversion
+  feasibility: b
+  status: open
+- id: IDEA-35
+  kind: idea
+  origin: new
+  title: "Vacuous-truth framing: empty-set 'all pairs authored' is True; relocate
+    the fix to why the unit escalates"
+  label: Vacuous truth pinpoints the real locus
+  frame: biology_evolution
+  technique: analogy
+  feasibility: a
+  status: open
+- id: IDEA-36
+  kind: idea
+  origin: new
+  title: "Lineage-viability oracle: degenerate span bears no offspring yet doesn't
+    kill the derivation lineage"
+  label: Lineage viability, not per-unit all-DONE
+  frame: biology_evolution
+  technique: scamper
+  feasibility: b
+  status: open
+- id: IDEA-37
+  kind: idea
+  origin: new
+  title: Dormant-seed span springs to VACUOUS-complete on observation, no 
+    authoring cycle spent
+  label: Dormant span springs to complete lazily
+  frame: biology_evolution
+  technique: random_stimulus
+  feasibility: b
+  status: open
+  stimulus_word: spring
+  stimulus_seed: '172249086'
+- id: IDEA-38
+  kind: idea
+  origin: new
+  title: 'Regulatory-change tier: new disposition plus migration of pre-existing persisted
+    ESCALATED units'
+  label: New disposition plus migrate old escalations
+  frame: biology_evolution
+  technique: feasibility_spectrum
+  feasibility: b
+  status: open
+- id: ADV-synthesize-gate-01
+  kind: gap
+  title: VACUOUS-by-structural-proof relies on resolve_spans distinguishing a 
+    genuinely-degenerate zero-pair span from a span that resolves to zero pairs 
+    for a non-degenerate reason (e.g. task_code excluded from 
+    AUTHORING_SKILL_BY_PAIR); if conflated, a span with real derivation intent 
+    could be wrongly stamped VACUOUS and skip authoring — falsifies the 
+    truthfulness score.
+  status: open
+  gap_type: adversarial
+  phase: synthesize
+  boundary: synthesize→gate
+- id: ADV-synthesize-gate-02
+  kind: gap
+  title: The pre-flight predicts the oracle verdict assuming all real-authoring 
+    spans reach DONE; a real span that can NEVER reach DONE for a structural 
+    reason (no authoring skill registered for its pair) still yields a best-case
+    'harvestable' prediction, so that class of doomed spec is NOT caught at plan
+    time — contradicts SP-3's stated guarantee.
+  status: open
+  gap_type: adversarial
+  phase: synthesize
+  boundary: synthesize→gate
+- id: ADV-synthesize-gate-03
+  kind: gap
+  title: Migrating persisted ESCALATED('gate_content_fail') units to VACUOUS at 
+    load risks silently reclassifying a REAL past gate failure if the migration 
+    keys only on current span structure and not on whether authoring pairs 
+    existed when the unit escalated.
+  status: open
+  gap_type: adversarial
+  phase: synthesize
+  boundary: synthesize→gate
+- id: SOL-01
+  kind: solution
+  title: Distinct VACUOUS disposition (structural-proof-gated) + offline 
+    resume-stamped harvestability pre-flight + derive-not-author authoring 
+    surface with teaching-linter==gate + migration/reporting tier
+  recipe:
+  - IDEA-01
+  - IDEA-05
+  - IDEA-29
+  - IDEA-15
+  - IDEA-19
+  - IDEA-22
+  - IDEA-26
+  - IDEA-32
+  - IDEA-20
+  - IDEA-38
+  - IDEA-11
+  answers:
+  - SP-1
+  - SP-2
+  - SP-3
+  - SP-4
+- id: RAT-01
+  kind: rating
+  solution: SOL-01
+  criterion: CR-01
+  score: 5.0
+  rationale: composed-design inline synthesis
+- id: RAT-02
+  kind: rating
+  solution: SOL-01
+  criterion: CR-02
+  score: 4.0
+  rationale: composed-design inline synthesis
+- id: RAT-03
+  kind: rating
+  solution: SOL-01
+  criterion: CR-03
+  score: 5.0
+  rationale: composed-design inline synthesis
+- id: RAT-04
+  kind: rating
+  solution: SOL-01
+  criterion: CR-04
+  score: 3.0
+  rationale: composed-design inline synthesis
+- id: RAT-05
+  kind: rating
+  solution: SOL-01
+  criterion: CR-05
+  score: 2.0
+  rationale: composed-design inline synthesis
+- id: RAT-06
+  kind: rating
+  solution: SOL-01
+  criterion: CR-06
+  score: 5.0
+  rationale: composed-design inline synthesis
+- id: RAT-07
+  kind: rating
+  solution: SOL-01
+  criterion: CR-07
+  score: 4.0
+  rationale: composed-design inline synthesis
+meta:
+  original_problem: 'How should the layer-derivation build-mode pipeline treat a degenerate
+    zero-authoring-pair span so a legitimately-complete chain harvests? Coupled: fix
+    locus; AC-18/19 clarification; harvestability pre-flight; spec-authoring surface.'
+  effort: Standard
+  effort_signals:
+    U: 4
+    L: 3
+    R: high
+    N: partial
+  frames:
+  - software_architect
+  - qa_test_engineer
+  - operations_cost
+  - end_user_persona
+  - manufacturing_lean
+  - biology_evolution
+  stakeholder_mode: factory
+  persona_frame_binding: PERSONA-015 App Provider (The Creator)
+  seed_candidate:
+  min_ideas: 25
+  max_iter: 2
+  max_alternation: 2
+  placement: leaf_isolated
+  placement_inputs:
+    effort: Standard
+    I: medium
+    W: low
+    d: medium
+    R: high
+  parallelism: sequential
+  convergent_mode: agent
+  phase_tiers:
+    diverge: opus
+    synthesize: opus
+    gapcheck: sonnet
+    web_leaves: sonnet
+    scripts: none
+  topic_class: composition
+  topic_class_rationale: The deliverable glues one coherent decision across four
+    coupled sub-problems (fix locus + AC clarification + pre-flight + authoring 
+    surface) into a single design — not a pick among atomic alternatives.
+  alternation_log:
+  - pass: 1
+    dimensions_before: 0
+    dimensions_after: 4
+    new_surfaced: 4
+    note: ''
+  - pass: 2
+    dimensions_before: 4
+    dimensions_after: 4
+    new_surfaced: 0
+    note: ''
+  measures_schema_epoch: pre-AC-37
+  measures_schema_epoch_note: Ledger predates the measures field (AC-37). 
+    Spine/reuse-build/connotation-safety criteria were backfilled 
+    deterministically by slug. Problem-specific criterion(s) CR-06, CR-07 have 
+    no deterministic classification source and are left unclassified rather than
+    guessed — TASK-PROC-004-03-36 / TASK-PROC-004-03-38.

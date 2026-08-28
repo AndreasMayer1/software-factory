@@ -1,0 +1,24 @@
+{
+  "fixed_layers": ["persona", "scenario"],
+  "span_units": [
+    {
+      "unit_id": "persona-scenario-fixed",
+      "boundaries": [
+        {"boundary_id": "persona_scenario", "anchor_kind": "explicit_test_targets", "anchor": ["PERSONA-001", "PERSONA-002"], "draft": []}
+      ]
+    },
+    {
+      "unit_id": "materialization-from-scenario",
+      "boundaries": [
+        {"boundary_id": "scenario_materialization", "anchor_kind": "explicit_test_targets", "anchor": ["SCEN-001-01", "SCEN-002-01"], "draft": []}
+      ]
+    }
+  ],
+  "decisions": {},
+  "preloaded_answers_ref": null,
+  "max_coverage_sessions_per_unit": 3,
+  "doc_lookup_budget": 10,
+  "unit_task_req_id": "REQ-HARNESS-01",
+  "unit_task_req_path": "requirements_tasks/functional/materialization_layer",
+  "unit_task_covers_acs": []
+}

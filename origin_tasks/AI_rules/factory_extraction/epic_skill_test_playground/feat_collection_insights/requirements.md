@@ -10,6 +10,10 @@ trackable_items:
 ---
 # Collection Insights
 
+> **Role (two-tree split — REQ-PROC-068):** this is an *instrument-feature spec* — it states the coupling this
+> feature must carry. The product-level definition (screen behaviour, layout, copy) is authored in
+> `test_harness_app/requirements_*` via the factory skill chain; it is not duplicated here.
+
 ## Overview
 A small set of derived statistics over the user's ratings (counts by type, rating distribution, activity over
 time), surfaced as a stats card on the home dashboard and as a detail view. It is **cascade dependent #2** —

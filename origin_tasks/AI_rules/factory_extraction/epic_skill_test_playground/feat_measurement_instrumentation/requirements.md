@@ -13,6 +13,10 @@ trackable_items:
 ---
 # Measurement Instrumentation
 
+> **Role (two-tree split — REQ-PROC-068):** this is an *instrument-feature spec* — the six probes are an
+> obligation on the harness + workflow run. It carries no product UI; the app's product definition lives in
+> `test_harness_app/requirements_*`.
+
 ## Overview
 The cross-cutting requirement that the playground is an **instrumented** fixture: running a factory workflow
 against it emits six measurement artifacts that answer the redesign's empirical questions by construction
